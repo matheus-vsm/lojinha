@@ -8,19 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SoftwareLojasRibeiro
+namespace SoftwareLojasRibeiro.br.com.project.VIEW
 {
-    public partial class FormLogin : Form
+    public partial class FormProdutosMenu : Form
     {
-        public FormLogin()
+        public FormProdutosMenu()
         {
             InitializeComponent();
         }
-
-        private void FormLogin_Load(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }

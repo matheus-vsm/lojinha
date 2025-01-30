@@ -98,16 +98,70 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="br.com.project.VIEW\FormLogin.cs">
+    <Compile Include="br.com.project.VIEW\FormClientes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="br.com.project.VIEW\FormLogin.Designer.cs">
-      <DependentUpon>FormLogin.cs</DependentUpon>
+    <Compile Include="br.com.project.VIEW\FormClientes.Designer.cs">
+      <DependentUpon>FormClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="br.com.project.VIEW\FormClientesMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.com.project.VIEW\FormClientesMenu.Designer.cs">
+      <DependentUpon>FormClientesMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="br.com.project.VIEW\FormMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.com.project.VIEW\FormMenu.Designer.cs">
+      <DependentUpon>FormMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="br.com.project.VIEW\FormProdutos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.com.project.VIEW\FormProdutos.Designer.cs">
+      <DependentUpon>FormProdutos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="br.com.project.VIEW\FormProdutosMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.com.project.VIEW\FormProdutosMenu.Designer.cs">
+      <DependentUpon>FormProdutosMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="br.com.project.VIEW\FormVendas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.com.project.VIEW\FormVendas.Designer.cs">
+      <DependentUpon>FormVendas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="br.com.project.VIEW\FormVendasMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.com.project.VIEW\FormVendasMenu.Designer.cs">
+      <DependentUpon>FormVendasMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="br.com.project.VIEW\FormLogin.resx">
-      <DependentUpon>FormLogin.cs</DependentUpon>
+    <EmbeddedResource Include="br.com.project.VIEW\FormClientes.resx">
+      <DependentUpon>FormClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="br.com.project.VIEW\FormClientesMenu.resx">
+      <DependentUpon>FormClientesMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="br.com.project.VIEW\FormMenu.resx">
+      <DependentUpon>FormMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="br.com.project.VIEW\FormProdutos.resx">
+      <DependentUpon>FormProdutos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="br.com.project.VIEW\FormProdutosMenu.resx">
+      <DependentUpon>FormProdutosMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="br.com.project.VIEW\FormVendas.resx">
+      <DependentUpon>FormVendas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="br.com.project.VIEW\FormVendasMenu.resx">
+      <DependentUpon>FormVendasMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
