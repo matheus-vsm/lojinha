@@ -204,7 +204,7 @@
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel1);
             this.Name = "FormVendas";
-            this.Text = "FormVendas";
+            this.Text = "Lojas Ribeiro - Vendas";
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabControl1.ResumeLayout(false);

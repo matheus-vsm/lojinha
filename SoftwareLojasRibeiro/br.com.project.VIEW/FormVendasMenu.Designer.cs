@@ -58,7 +58,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "FormVendasMenu";
-            this.Text = "Área de Vendas";
+            this.Text = "Lojas Ribeiro - Área de Vendas";
             this.ResumeLayout(false);
 
         }
