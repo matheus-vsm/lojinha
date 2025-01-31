@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SoftwareLojasRibeiro.br.com.project.VIEW;
 
 namespace SoftwareLojasRibeiro
 {
@@ -16,7 +17,7 @@ namespace SoftwareLojasRibeiro
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormClientes());
+            Application.Run(new FormMenu());
         }
     }
 }
