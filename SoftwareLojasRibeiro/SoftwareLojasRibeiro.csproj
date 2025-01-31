@@ -98,6 +98,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="br.com.project.VIEW\FormCadastro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.com.project.VIEW\FormCadastro.Designer.cs">
+      <DependentUpon>FormCadastro.cs</DependentUpon>
+    </Compile>
     <Compile Include="br.com.project.VIEW\FormClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,12 @@
     </Compile>
     <Compile Include="br.com.project.VIEW\FormClientesMenu.Designer.cs">
       <DependentUpon>FormClientesMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="br.com.project.VIEW\FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.com.project.VIEW\FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="br.com.project.VIEW\FormMenu.cs">
       <SubType>Form</SubType>
@@ -142,11 +154,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="br.com.project.VIEW\FormCadastro.resx">
+      <DependentUpon>FormCadastro.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="br.com.project.VIEW\FormClientes.resx">
       <DependentUpon>FormClientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="br.com.project.VIEW\FormClientesMenu.resx">
       <DependentUpon>FormClientesMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="br.com.project.VIEW\FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="br.com.project.VIEW\FormMenu.resx">
       <DependentUpon>FormMenu.cs</DependentUpon>
@@ -190,6 +208,10 @@
     <Folder Include="br.com.project.CONNECTION\" />
     <Folder Include="br.com.project.DAO\" />
     <Folder Include="br.com.project.MODEL\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="br.com.project.VIEW\Logo Lojas Ribeiro Transparente Icone.ico" />
+    <Content Include="br.com.project.VIEW\Logo Lojas Ribeiro Transparente.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

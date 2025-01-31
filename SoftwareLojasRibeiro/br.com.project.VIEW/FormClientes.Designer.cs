@@ -28,10 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormClientes));
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
+            this.maskedTextBox4 = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -46,10 +51,6 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.maskedTextBox4 = new System.Windows.Forms.MaskedTextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -113,11 +114,45 @@
             this.tabPage1.Text = "Cadastrar";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(387, 329);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(232, 40);
+            this.button1.TabIndex = 22;
+            this.button1.Text = "Cadastrar";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // maskedTextBox4
+            // 
+            this.maskedTextBox4.Location = new System.Drawing.Point(619, 111);
+            this.maskedTextBox4.Mask = "00/00/0000";
+            this.maskedTextBox4.Name = "maskedTextBox4";
+            this.maskedTextBox4.Size = new System.Drawing.Size(165, 20);
+            this.maskedTextBox4.TabIndex = 21;
+            // 
+            // maskedTextBox3
+            // 
+            this.maskedTextBox3.Location = new System.Drawing.Point(136, 261);
+            this.maskedTextBox3.Mask = "(00) 0 0000-0000";
+            this.maskedTextBox3.Name = "maskedTextBox3";
+            this.maskedTextBox3.Size = new System.Drawing.Size(246, 20);
+            this.maskedTextBox3.TabIndex = 20;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(72, 261);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(47, 13);
+            this.label10.TabIndex = 19;
+            this.label10.Text = "Número:";
+            // 
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(555, 197);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(229, 22);
+            this.textBox3.Size = new System.Drawing.Size(229, 20);
             this.textBox3.TabIndex = 15;
             // 
             // label9
@@ -125,7 +160,7 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(480, 200);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(69, 16);
+            this.label9.Size = new System.Drawing.Size(56, 13);
             this.label9.TabIndex = 14;
             this.label9.Text = "Endereço:";
             // 
@@ -134,7 +169,7 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(480, 114);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(133, 16);
+            this.label8.Size = new System.Drawing.Size(107, 13);
             this.label8.TabIndex = 12;
             this.label8.Text = "Data de Nascimento:";
             // 
@@ -143,7 +178,7 @@
             this.maskedTextBox2.Location = new System.Drawing.Point(135, 197);
             this.maskedTextBox2.Mask = "###.###.###-##";
             this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(246, 22);
+            this.maskedTextBox2.Size = new System.Drawing.Size(246, 20);
             this.maskedTextBox2.TabIndex = 10;
             // 
             // maskedTextBox1
@@ -151,7 +186,7 @@
             this.maskedTextBox1.Location = new System.Drawing.Point(136, 114);
             this.maskedTextBox1.Mask = "##.###.###-##";
             this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(246, 22);
+            this.maskedTextBox1.Size = new System.Drawing.Size(246, 20);
             this.maskedTextBox1.TabIndex = 9;
             // 
             // label7
@@ -166,7 +201,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(95, 197);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(36, 16);
+            this.label6.Size = new System.Drawing.Size(30, 13);
             this.label6.TabIndex = 6;
             this.label6.Text = "CPF:";
             // 
@@ -175,7 +210,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(97, 117);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(33, 16);
+            this.label5.Size = new System.Drawing.Size(29, 13);
             this.label5.TabIndex = 4;
             this.label5.Text = "R.G:";
             // 
@@ -183,7 +218,7 @@
             // 
             this.textBox2.Location = new System.Drawing.Point(537, 47);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(247, 22);
+            this.textBox2.Size = new System.Drawing.Size(247, 20);
             this.textBox2.TabIndex = 3;
             // 
             // label4
@@ -191,7 +226,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(483, 50);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(48, 16);
+            this.label4.Size = new System.Drawing.Size(39, 13);
             this.label4.TabIndex = 2;
             this.label4.Text = "E-Mail:";
             // 
@@ -206,7 +241,7 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(136, 50);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(247, 22);
+            this.textBox1.Size = new System.Drawing.Size(247, 20);
             this.textBox1.TabIndex = 1;
             // 
             // label2
@@ -214,7 +249,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(22, 53);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(108, 16);
+            this.label2.Size = new System.Drawing.Size(85, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "Nome Completo:";
             // 
@@ -227,40 +262,6 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Consultar Devedores";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // maskedTextBox3
-            // 
-            this.maskedTextBox3.Location = new System.Drawing.Point(136, 261);
-            this.maskedTextBox3.Mask = "(00) 0 0000-0000";
-            this.maskedTextBox3.Name = "maskedTextBox3";
-            this.maskedTextBox3.Size = new System.Drawing.Size(246, 22);
-            this.maskedTextBox3.TabIndex = 20;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(72, 261);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(58, 16);
-            this.label10.TabIndex = 19;
-            this.label10.Text = "Número:";
-            // 
-            // maskedTextBox4
-            // 
-            this.maskedTextBox4.Location = new System.Drawing.Point(619, 111);
-            this.maskedTextBox4.Mask = "00/00/0000";
-            this.maskedTextBox4.Name = "maskedTextBox4";
-            this.maskedTextBox4.Size = new System.Drawing.Size(165, 22);
-            this.maskedTextBox4.TabIndex = 21;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(387, 329);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(232, 40);
-            this.button1.TabIndex = 22;
-            this.button1.Text = "Cadastrar";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // tabPage3
             // 
@@ -279,6 +280,7 @@
             this.ClientSize = new System.Drawing.Size(1030, 647);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormClientes";
             this.Text = "Lojas Ribeiro - Clientes";
             this.Load += new System.EventHandler(this.FormLogin_Load);

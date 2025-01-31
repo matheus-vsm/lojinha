@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace SoftwareLojasRibeiro.br.com.project.VIEW
 {
-    public partial class FormMenu : Form
+    public partial class FormCadastro : Form
     {
-        public FormMenu()
+        public FormCadastro()
         {
             InitializeComponent();
-        }
-
-        private void FormMenu_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

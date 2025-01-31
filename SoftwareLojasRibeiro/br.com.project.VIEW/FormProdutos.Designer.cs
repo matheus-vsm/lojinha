@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProdutos));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -46,6 +47,7 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -57,6 +59,7 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Location = new System.Drawing.Point(2, 121);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -101,7 +104,7 @@
             // 
             this.textBox5.Location = new System.Drawing.Point(135, 146);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(244, 22);
+            this.textBox5.Size = new System.Drawing.Size(244, 20);
             this.textBox5.TabIndex = 9;
             // 
             // label7
@@ -109,7 +112,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(83, 149);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(52, 16);
+            this.label7.Size = new System.Drawing.Size(42, 13);
             this.label7.TabIndex = 8;
             this.label7.Text = "Celular:";
             // 
@@ -117,7 +120,7 @@
             // 
             this.textBox4.Location = new System.Drawing.Point(135, 111);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(244, 22);
+            this.textBox4.Size = new System.Drawing.Size(244, 20);
             this.textBox4.TabIndex = 7;
             // 
             // label6
@@ -125,7 +128,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(95, 114);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(36, 16);
+            this.label6.Size = new System.Drawing.Size(30, 13);
             this.label6.TabIndex = 6;
             this.label6.Text = "CPF:";
             // 
@@ -133,7 +136,7 @@
             // 
             this.textBox3.Location = new System.Drawing.Point(135, 74);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(244, 22);
+            this.textBox3.Size = new System.Drawing.Size(244, 20);
             this.textBox3.TabIndex = 5;
             // 
             // label5
@@ -141,7 +144,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(96, 77);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(33, 16);
+            this.label5.Size = new System.Drawing.Size(29, 13);
             this.label5.TabIndex = 4;
             this.label5.Text = "R.G:";
             // 
@@ -149,7 +152,7 @@
             // 
             this.textBox2.Location = new System.Drawing.Point(445, 28);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(247, 22);
+            this.textBox2.Size = new System.Drawing.Size(247, 20);
             this.textBox2.TabIndex = 3;
             // 
             // label4
@@ -157,7 +160,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(400, 31);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(48, 16);
+            this.label4.Size = new System.Drawing.Size(39, 13);
             this.label4.TabIndex = 2;
             this.label4.Text = "E-Mail:";
             // 
@@ -171,9 +174,9 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(60, 31);
+            this.label2.Location = new System.Drawing.Point(70, 35);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 16);
+            this.label2.Size = new System.Drawing.Size(55, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "Categoria:";
             // 
@@ -194,7 +197,7 @@
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(789, 332);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Atualizar Estoque";
+            this.tabPage3.Text = "Consultar Preço";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // tabPage4
@@ -226,13 +229,24 @@
             this.panel1.Size = new System.Drawing.Size(797, 111);
             this.panel1.TabIndex = 3;
             // 
+            // tabPage5
+            // 
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(789, 332);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "Atualizar Estoque";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
             // FormProdutos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 484);
+            this.ClientSize = new System.Drawing.Size(1030, 647);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormProdutos";
             this.Text = "Lojas Ribeiro - Produtos";
             this.tabControl1.ResumeLayout(false);
@@ -264,5 +278,6 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.TabPage tabPage5;
     }
 }

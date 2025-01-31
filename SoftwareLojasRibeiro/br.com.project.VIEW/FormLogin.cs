@@ -10,14 +10,19 @@ using System.Windows.Forms;
 
 namespace SoftwareLojasRibeiro.br.com.project.VIEW
 {
-    public partial class FormMenu : Form
+    public partial class FormLogin : Form
     {
-        public FormMenu()
+        public FormLogin()
         {
             InitializeComponent();
         }
 
-        private void FormMenu_Load(object sender, EventArgs e)
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
