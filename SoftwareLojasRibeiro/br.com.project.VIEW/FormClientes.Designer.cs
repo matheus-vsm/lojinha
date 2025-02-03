@@ -52,10 +52,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.dataGridViewCliente = new System.Windows.Forms.DataGridView();
+            this.buttonPesquisar = new System.Windows.Forms.Button();
             this.textBoxPesquisaNome = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.buttonPesquisar = new System.Windows.Forms.Button();
-            this.dataGridViewCliente = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.tabControlClientes.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -128,6 +128,7 @@
             this.buttonCadastrar.TabIndex = 22;
             this.buttonCadastrar.Text = "Cadastrar";
             this.buttonCadastrar.UseVisualStyleBackColor = true;
+            this.buttonCadastrar.Click += new System.EventHandler(this.buttonCadastrar_Click);
             // 
             // maskedTextBoxData
             // 
@@ -136,6 +137,7 @@
             this.maskedTextBoxData.Name = "maskedTextBoxData";
             this.maskedTextBoxData.Size = new System.Drawing.Size(165, 20);
             this.maskedTextBoxData.TabIndex = 21;
+            this.maskedTextBoxData.ValidatingType = typeof(System.DateTime);
             // 
             // maskedTextBoxNumero
             // 
@@ -283,6 +285,26 @@
             this.tabPage3.Text = "Consultar Dados";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // dataGridViewCliente
+            // 
+            this.dataGridViewCliente.AllowUserToAddRows = false;
+            this.dataGridViewCliente.AllowUserToDeleteRows = false;
+            this.dataGridViewCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewCliente.Location = new System.Drawing.Point(6, 102);
+            this.dataGridViewCliente.Name = "dataGridViewCliente";
+            this.dataGridViewCliente.ReadOnly = true;
+            this.dataGridViewCliente.Size = new System.Drawing.Size(1004, 350);
+            this.dataGridViewCliente.TabIndex = 24;
+            // 
+            // buttonPesquisar
+            // 
+            this.buttonPesquisar.Location = new System.Drawing.Point(404, 19);
+            this.buttonPesquisar.Name = "buttonPesquisar";
+            this.buttonPesquisar.Size = new System.Drawing.Size(232, 40);
+            this.buttonPesquisar.TabIndex = 23;
+            this.buttonPesquisar.Text = "Pesquisar";
+            this.buttonPesquisar.UseVisualStyleBackColor = true;
+            // 
             // textBoxPesquisaNome
             // 
             this.textBoxPesquisaNome.Location = new System.Drawing.Point(132, 30);
@@ -298,26 +320,6 @@
             this.label11.Size = new System.Drawing.Size(85, 13);
             this.label11.TabIndex = 2;
             this.label11.Text = "Nome Completo:";
-            // 
-            // buttonPesquisar
-            // 
-            this.buttonPesquisar.Location = new System.Drawing.Point(404, 19);
-            this.buttonPesquisar.Name = "buttonPesquisar";
-            this.buttonPesquisar.Size = new System.Drawing.Size(232, 40);
-            this.buttonPesquisar.TabIndex = 23;
-            this.buttonPesquisar.Text = "Pesquisar";
-            this.buttonPesquisar.UseVisualStyleBackColor = true;
-            // 
-            // dataGridViewCliente
-            // 
-            this.dataGridViewCliente.AllowUserToAddRows = false;
-            this.dataGridViewCliente.AllowUserToDeleteRows = false;
-            this.dataGridViewCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewCliente.Location = new System.Drawing.Point(6, 102);
-            this.dataGridViewCliente.Name = "dataGridViewCliente";
-            this.dataGridViewCliente.ReadOnly = true;
-            this.dataGridViewCliente.Size = new System.Drawing.Size(1004, 350);
-            this.dataGridViewCliente.TabIndex = 24;
             // 
             // FormClientes
             // 
