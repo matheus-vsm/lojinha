@@ -47,23 +47,39 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             }
             catch (Exception error)
             {
-                MessageBox.Show($"Ocorreu um erro: {error}.");
+                MessageBox.Show($"Ocorreu um erro ao Cadastrar o Cliente: {error}.");
                 throw;
+            }
+            finally
+            {
+                conecction.Close(); // Sempre fechar a conexão
             }
         }
         #endregion
 
         #region ListarClientes
-        public DataTable ListarClientes()
+        public DataTable ListarClientes(Cliente cli)
         {
             try
             {
                 //Criar o DataTable e o comando SQL
                 DataTable tabelacliente = new DataTable();
+
+                // Se o nome for informado, adicionamos um filtro na consulta
                 string sql = "SELECT * FROM tb_clientes";
+                if (!string.IsNullOrEmpty(cli.Nome))
+                {
+                    sql += " WHERE nome LIKE @nome";
+                }
 
                 //Organizar o comando SQL e executar
                 MySqlCommand executacmd = new MySqlCommand(sql, conecction);
+
+                // Se houver um nome para buscar, adicionamos o parâmetro
+                if (!string.IsNullOrEmpty(cli.Nome))
+                {
+                    executacmd.Parameters.AddWithValue("@nome", cli.Nome + "%");
+                }
 
                 conecction.Open();
                 executacmd.ExecuteNonQuery();
@@ -79,8 +95,83 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                 MessageBox.Show($"Erro ao executar o Comando SQL! {error}.");
                 throw;
             }
+            finally
+            {
+                conecction.Close(); // Sempre fechar a conexão
+            }
         }
         #endregion
 
+        #region AlterarCliente
+        public void AlterarCliente(Cliente cli)
+        {
+            try
+            {
+                //Definir comando SQL - INSERT INTO
+                string sql = @"UPDATE tb_clientes SET
+                            Nome=@nome, Rg=@rg, Cpf=@cpf, Email=, Numero=@numero, 
+                            Datanasc=@datanasc, Endereco=@endereco WHERE Id=@id";
+
+                //Organizar o comando SQL
+                MySqlCommand executacmd = new MySqlCommand(sql, conecction);
+                executacmd.Parameters.AddWithValue("@nome", cli.Nome);
+                executacmd.Parameters.AddWithValue("@rg", cli.Rg);
+                executacmd.Parameters.AddWithValue("@cpf", cli.Cpf);
+                executacmd.Parameters.AddWithValue("@email", cli.Email);
+                executacmd.Parameters.AddWithValue("@numero", cli.Numero);
+                executacmd.Parameters.AddWithValue("@datanasc", cli.Datanasc);
+                executacmd.Parameters.AddWithValue("@endereco", cli.Endereco);
+                executacmd.Parameters.AddWithValue("@id", cli.Id);
+
+                //Abrir conexão e executar o comando SQL
+                conecction.Open();
+                executacmd.ExecuteNonQuery();
+
+                MessageBox.Show("Cliente Alterado com Sucesso!");
+
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show($"Ocorreu um erro ao Alterar o Cliente: {error}.");
+                throw;
+            }
+            finally
+            {
+                conecction.Close(); // Sempre fechar a conexão
+            }
+        }
+        #endregion
+
+        #region ExcluirCliente
+        public void ExcluirCliente(Cliente cli)
+        {
+            try
+            {
+                //Definir comando SQL - INSERT INTO
+                string sql = @"DELETE FROM tb_clientes WHERE Id=@id";
+
+                //Organizar o comando SQL
+                MySqlCommand executacmd = new MySqlCommand(sql, conecction);
+                executacmd.Parameters.AddWithValue("@id", cli.Id);
+
+                //Abrir conexão e executar o comando SQL
+                conecction.Open();
+                executacmd.ExecuteNonQuery();
+
+                MessageBox.Show("Cliente Excluído com Sucesso!");
+
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show($"Ocorreu um erro ao Excluir o Cliente: {error}.");
+                throw;
+            }
+            finally
+            {
+                conecction.Close(); // Sempre fechar a conexão
+            }
+        }
+        #endregion
+    
     }
 }

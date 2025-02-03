@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SoftwareLojasRibeiro.br.com.project.DAO;
 using SoftwareLojasRibeiro.br.com.project.MODEL;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace SoftwareLojasRibeiro
 {
@@ -23,7 +24,8 @@ namespace SoftwareLojasRibeiro
         private void FormLogin_Load(object sender, EventArgs e)
         {
             ClienteDAO dao = new ClienteDAO();
-            dataGridViewClientes.DataSource = dao.ListarClientes();
+            Cliente cli = new Cliente { Nome = textBoxPesquisaNome.Text };
+            dataGridViewClientes.DataSource = dao.ListarClientes(cli);
         }
 
         private void buttonCadastrar_Click(object sender, EventArgs e)
@@ -43,6 +45,30 @@ namespace SoftwareLojasRibeiro
             //Criar um objeto da classe ClienteDAO e chamar o método CadastrarCliente
             ClienteDAO dao = new ClienteDAO();
             dao.CadastrarCliente(cli);
+
+        }
+
+        private void buttonPesquisar_Click(object sender, EventArgs e)
+        {
+            ClienteDAO dao = new ClienteDAO();
+            Cliente cli = new Cliente { Nome = textBoxPesquisaNome.Text };
+            dataGridViewClientes.DataSource = dao.ListarClientes(cli);
+        }
+
+        private void dataGridViewClientes_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //Garantir que a linha esteja realmente selecionada antes de tentar acessa-la
+            if (dataGridViewClientes.CurrentRow != null)
+            {
+                //Pegar os dados da linha selecionada
+                textBoxNome.Text = dataGridViewClientes.CurrentRow.Cells[1].Value.ToString() ?? "";
+                maskedTextBoxRg.Text = dataGridViewClientes.CurrentRow.Cells[2].Value.ToString() ?? "";
+                maskedTextBoxCpf.Text = dataGridViewClientes.CurrentRow.Cells[3].Value.ToString() ?? "";
+                maskedTextBoxNumero.Text = dataGridViewClientes.CurrentRow.Cells[5].Value.ToString() ?? "";
+                textBoxEmail.Text = dataGridViewClientes.CurrentRow.Cells[4].Value.ToString() ?? "";
+                maskedTextBoxData.Text = dataGridViewClientes.CurrentRow.Cells[6].Value.ToString() ?? "";
+                textBoxEndereco.Text = dataGridViewClientes.CurrentRow.Cells[7].Value.ToString() ?? "";
+            }
 
         }
     }

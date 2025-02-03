@@ -9,6 +9,7 @@ namespace SoftwareLojasRibeiro.br.com.project.MODEL
 
     public class Cliente
     {
+        public string Id { get; set; }
         public string Nome { get; set; }
         public string Rg { get; set; }
         public string Cpf { get; set; }

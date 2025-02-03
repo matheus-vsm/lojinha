@@ -56,6 +56,7 @@
             this.buttonPesquisar = new System.Windows.Forms.Button();
             this.textBoxPesquisaNome = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.buttonLimpar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControlClientes.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -95,6 +96,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.buttonLimpar);
             this.tabPage1.Controls.Add(this.buttonCadastrar);
             this.tabPage1.Controls.Add(this.maskedTextBoxData);
             this.tabPage1.Controls.Add(this.maskedTextBoxNumero);
@@ -122,7 +124,7 @@
             // 
             // buttonCadastrar
             // 
-            this.buttonCadastrar.Location = new System.Drawing.Point(387, 329);
+            this.buttonCadastrar.Location = new System.Drawing.Point(367, 319);
             this.buttonCadastrar.Name = "buttonCadastrar";
             this.buttonCadastrar.Size = new System.Drawing.Size(232, 40);
             this.buttonCadastrar.TabIndex = 22;
@@ -295,6 +297,7 @@
             this.dataGridViewClientes.ReadOnly = true;
             this.dataGridViewClientes.Size = new System.Drawing.Size(1004, 350);
             this.dataGridViewClientes.TabIndex = 24;
+            this.dataGridViewClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewClientes_CellClick);
             // 
             // buttonPesquisar
             // 
@@ -304,6 +307,7 @@
             this.buttonPesquisar.TabIndex = 23;
             this.buttonPesquisar.Text = "Pesquisar";
             this.buttonPesquisar.UseVisualStyleBackColor = true;
+            this.buttonPesquisar.Click += new System.EventHandler(this.buttonPesquisar_Click);
             // 
             // textBoxPesquisaNome
             // 
@@ -320,6 +324,15 @@
             this.label11.Size = new System.Drawing.Size(85, 13);
             this.label11.TabIndex = 2;
             this.label11.Text = "Nome Completo:";
+            // 
+            // buttonLimpar
+            // 
+            this.buttonLimpar.Location = new System.Drawing.Point(367, 379);
+            this.buttonLimpar.Name = "buttonLimpar";
+            this.buttonLimpar.Size = new System.Drawing.Size(232, 40);
+            this.buttonLimpar.TabIndex = 23;
+            this.buttonLimpar.Text = "Limpar";
+            this.buttonLimpar.UseVisualStyleBackColor = true;
             // 
             // FormClientes
             // 
@@ -373,6 +386,7 @@
         private System.Windows.Forms.Button buttonPesquisar;
         private System.Windows.Forms.TextBox textBoxPesquisaNome;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button buttonLimpar;
     }
 }
 
