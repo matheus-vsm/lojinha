@@ -22,7 +22,8 @@ namespace SoftwareLojasRibeiro
 
         private void FormLogin_Load(object sender, EventArgs e)
         {
-
+            ClienteDAO dao = new ClienteDAO();
+            dataGridViewClientes.DataSource = dao.ListarClientes();
         }
 
         private void buttonCadastrar_Click(object sender, EventArgs e)
@@ -31,10 +32,10 @@ namespace SoftwareLojasRibeiro
             Cliente cli = new Cliente
             {
                 Nome = textBoxNome.Text,
-                Rg = maskedTextBoxRg.Text,
-                Cpf = maskedTextBoxCpf.Text,
+                Rg = maskedTextBoxRg.Text.Replace(',', '.'),
+                Cpf = maskedTextBoxCpf.Text.Replace(',', '.'),
                 Numero = maskedTextBoxNumero.Text,
-                //Datanasc = DateTime.ParseExact(maskedTextBoxData.Text, "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                Datanasc = DateTime.Parse(maskedTextBoxData.Text),
                 Email = textBoxEmail.Text,
                 Endereco = textBoxEndereco.Text
             };

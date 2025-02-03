@@ -52,7 +52,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.dataGridViewCliente = new System.Windows.Forms.DataGridView();
+            this.dataGridViewClientes = new System.Windows.Forms.DataGridView();
             this.buttonPesquisar = new System.Windows.Forms.Button();
             this.textBoxPesquisaNome = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -60,7 +60,7 @@
             this.tabControlClientes.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCliente)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClientes)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -273,7 +273,7 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.dataGridViewCliente);
+            this.tabPage3.Controls.Add(this.dataGridViewClientes);
             this.tabPage3.Controls.Add(this.buttonPesquisar);
             this.tabPage3.Controls.Add(this.textBoxPesquisaNome);
             this.tabPage3.Controls.Add(this.label11);
@@ -285,16 +285,16 @@
             this.tabPage3.Text = "Consultar Dados";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // dataGridViewCliente
+            // dataGridViewClientes
             // 
-            this.dataGridViewCliente.AllowUserToAddRows = false;
-            this.dataGridViewCliente.AllowUserToDeleteRows = false;
-            this.dataGridViewCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewCliente.Location = new System.Drawing.Point(6, 102);
-            this.dataGridViewCliente.Name = "dataGridViewCliente";
-            this.dataGridViewCliente.ReadOnly = true;
-            this.dataGridViewCliente.Size = new System.Drawing.Size(1004, 350);
-            this.dataGridViewCliente.TabIndex = 24;
+            this.dataGridViewClientes.AllowUserToAddRows = false;
+            this.dataGridViewClientes.AllowUserToDeleteRows = false;
+            this.dataGridViewClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewClientes.Location = new System.Drawing.Point(6, 102);
+            this.dataGridViewClientes.Name = "dataGridViewClientes";
+            this.dataGridViewClientes.ReadOnly = true;
+            this.dataGridViewClientes.Size = new System.Drawing.Size(1004, 350);
+            this.dataGridViewClientes.TabIndex = 24;
             // 
             // buttonPesquisar
             // 
@@ -339,7 +339,7 @@
             this.tabPage1.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCliente)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClientes)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -369,7 +369,7 @@
         private System.Windows.Forms.MaskedTextBox maskedTextBoxNumero;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.DataGridView dataGridViewCliente;
+        private System.Windows.Forms.DataGridView dataGridViewClientes;
         private System.Windows.Forms.Button buttonPesquisar;
         private System.Windows.Forms.TextBox textBoxPesquisaNome;
         private System.Windows.Forms.Label label11;

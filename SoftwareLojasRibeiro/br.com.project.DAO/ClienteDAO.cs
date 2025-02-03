@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using SoftwareLojasRibeiro.br.com.project.CONNECTION;
@@ -47,6 +48,35 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             catch (Exception error)
             {
                 MessageBox.Show($"Ocorreu um erro: {error}.");
+                throw;
+            }
+        }
+        #endregion
+
+        #region ListarClientes
+        public DataTable ListarClientes()
+        {
+            try
+            {
+                //Criar o DataTable e o comando SQL
+                DataTable tabelacliente = new DataTable();
+                string sql = "SELECT * FROM tb_clientes";
+
+                //Organizar o comando SQL e executar
+                MySqlCommand executacmd = new MySqlCommand(sql, conecction);
+
+                conecction.Open();
+                executacmd.ExecuteNonQuery();
+
+                //Criar o MySQLDataAdapter para preencher os dados do DataTable
+                MySqlDataAdapter da = new MySqlDataAdapter(executacmd);
+                da.Fill(tabelacliente); //preenche o datatable
+
+                return tabelacliente;
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show($"Erro ao executar o Comando SQL! {error}.");
                 throw;
             }
         }
