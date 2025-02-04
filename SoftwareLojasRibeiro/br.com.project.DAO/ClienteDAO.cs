@@ -24,9 +24,9 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                 //Definir comando SQL - INSERT INTO
                 string sql = @"INSERT INTO tb_clientes 
                             (Nome, Rg, Cpf, Email, Numero, 
-                            Datanasc, Endereco) VALUES 
+                            Datanasc, Endereco, Ceo) VALUES 
                             (@nome, @rg, @cpf, @email, @numero, 
-                            @datanasc, @endereco)";
+                            @datanasc, @endereco, @cep)";
 
                 //Organizar o comando SQL
                 MySqlCommand executacmd = new MySqlCommand(sql, conecction);
@@ -37,6 +37,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                 executacmd.Parameters.AddWithValue("@numero", cli.Numero);
                 executacmd.Parameters.AddWithValue("@datanasc", cli.Datanasc);
                 executacmd.Parameters.AddWithValue("@endereco", cli.Endereco);
+                executacmd.Parameters.AddWithValue("@cep", cli.Cep);
 
                 //Abrir conexão e executar o comando SQL
                 conecction.Open();
@@ -68,7 +69,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                 // Se o nome for informado, adicionamos um filtro na consulta
                 string sql = @"SELECT Id_Cliente as ID, Nome, 
                                 Rg, Cpf, Email, Numero, Datanasc as 
-                                'Data de Nascimento', Endereco FROM tb_clientes";
+                                'Data de Nascimento', Endereco, Cep FROM tb_clientes";
                 if (!string.IsNullOrEmpty(cli.Nome))
                 {
                     sql += " WHERE Nome LIKE @nome";
@@ -111,8 +112,9 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             {
                 //Definir comando SQL - INSERT INTO
                 string sql = @"UPDATE tb_clientes SET 
-                            Nome=@nome, Rg=@rg, Cpf=@cpf, Email=, Numero=@numero, 
-                            Datanasc=@datanasc, Endereco=@endereco WHERE Id=@id";
+                            Nome=@nome, Rg=@rg, Cpf=@cpf, Email=@email, Numero=@numero, 
+                            Datanasc=@datanasc, Endereco=@endereco, Cep=@cep 
+                            WHERE Id_Cliente=@id";
 
                 //Organizar o comando SQL
                 MySqlCommand executacmd = new MySqlCommand(sql, conecction);
@@ -123,6 +125,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                 executacmd.Parameters.AddWithValue("@numero", cli.Numero);
                 executacmd.Parameters.AddWithValue("@datanasc", cli.Datanasc);
                 executacmd.Parameters.AddWithValue("@endereco", cli.Endereco);
+                executacmd.Parameters.AddWithValue("@cep", cli.Cep);
                 executacmd.Parameters.AddWithValue("@id", cli.Id);
 
                 //Abrir conexão e executar o comando SQL

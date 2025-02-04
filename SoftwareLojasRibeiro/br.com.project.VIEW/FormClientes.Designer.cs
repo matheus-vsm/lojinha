@@ -33,6 +33,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabControlClientes = new System.Windows.Forms.TabControl();
             this.tabPageCadastrar = new System.Windows.Forms.TabPage();
+            this.textBoxID = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.buttonLimpar = new System.Windows.Forms.Button();
             this.buttonCadastrar = new System.Windows.Forms.Button();
             this.maskedTextBoxData = new System.Windows.Forms.MaskedTextBox();
@@ -53,15 +55,16 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPageConsultar = new System.Windows.Forms.TabPage();
+            this.buttonLimparPesquisa = new System.Windows.Forms.Button();
+            this.buttonExcluir = new System.Windows.Forms.Button();
+            this.buttonAlterar = new System.Windows.Forms.Button();
             this.dataGridViewClientes = new System.Windows.Forms.DataGridView();
             this.buttonPesquisar = new System.Windows.Forms.Button();
             this.textBoxPesquisaNome = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.buttonAlterar = new System.Windows.Forms.Button();
-            this.buttonExcluir = new System.Windows.Forms.Button();
-            this.textBoxID = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.buttonLimparPesquisa = new System.Windows.Forms.Button();
+            this.maskedTextBoxCep = new System.Windows.Forms.MaskedTextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.buttonBuscar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControlClientes.SuspendLayout();
             this.tabPageCadastrar.SuspendLayout();
@@ -101,6 +104,9 @@
             // 
             // tabPageCadastrar
             // 
+            this.tabPageCadastrar.Controls.Add(this.buttonBuscar);
+            this.tabPageCadastrar.Controls.Add(this.maskedTextBoxCep);
+            this.tabPageCadastrar.Controls.Add(this.label13);
             this.tabPageCadastrar.Controls.Add(this.textBoxID);
             this.tabPageCadastrar.Controls.Add(this.label12);
             this.tabPageCadastrar.Controls.Add(this.buttonLimpar);
@@ -128,6 +134,22 @@
             this.tabPageCadastrar.TabIndex = 0;
             this.tabPageCadastrar.Text = "Cadastrar";
             this.tabPageCadastrar.UseVisualStyleBackColor = true;
+            // 
+            // textBoxID
+            // 
+            this.textBoxID.Location = new System.Drawing.Point(137, 50);
+            this.textBoxID.Name = "textBoxID";
+            this.textBoxID.Size = new System.Drawing.Size(49, 20);
+            this.textBoxID.TabIndex = 25;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(98, 53);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(21, 13);
+            this.label12.TabIndex = 24;
+            this.label12.Text = "ID:";
             // 
             // buttonLimpar
             // 
@@ -307,6 +329,36 @@
             this.tabPageConsultar.Text = "Consultar Dados";
             this.tabPageConsultar.UseVisualStyleBackColor = true;
             // 
+            // buttonLimparPesquisa
+            // 
+            this.buttonLimparPesquisa.Location = new System.Drawing.Point(207, 67);
+            this.buttonLimparPesquisa.Name = "buttonLimparPesquisa";
+            this.buttonLimparPesquisa.Size = new System.Drawing.Size(72, 29);
+            this.buttonLimparPesquisa.TabIndex = 27;
+            this.buttonLimparPesquisa.Text = "Limpar";
+            this.buttonLimparPesquisa.UseVisualStyleBackColor = true;
+            this.buttonLimparPesquisa.Click += new System.EventHandler(this.buttonLimparPesquisa_Click);
+            // 
+            // buttonExcluir
+            // 
+            this.buttonExcluir.Location = new System.Drawing.Point(822, 30);
+            this.buttonExcluir.Name = "buttonExcluir";
+            this.buttonExcluir.Size = new System.Drawing.Size(160, 40);
+            this.buttonExcluir.TabIndex = 26;
+            this.buttonExcluir.Text = "Excluir";
+            this.buttonExcluir.UseVisualStyleBackColor = true;
+            this.buttonExcluir.Click += new System.EventHandler(this.buttonExcluir_Click);
+            // 
+            // buttonAlterar
+            // 
+            this.buttonAlterar.Location = new System.Drawing.Point(617, 30);
+            this.buttonAlterar.Name = "buttonAlterar";
+            this.buttonAlterar.Size = new System.Drawing.Size(160, 40);
+            this.buttonAlterar.TabIndex = 25;
+            this.buttonAlterar.Text = "Alterar";
+            this.buttonAlterar.UseVisualStyleBackColor = true;
+            this.buttonAlterar.Click += new System.EventHandler(this.buttonAlterar_Click);
+            // 
             // dataGridViewClientes
             // 
             this.dataGridViewClientes.AllowUserToAddRows = false;
@@ -345,51 +397,31 @@
             this.label11.TabIndex = 2;
             this.label11.Text = "Nome do Cliente:";
             // 
-            // buttonAlterar
+            // maskedTextBoxCep
             // 
-            this.buttonAlterar.Location = new System.Drawing.Point(617, 30);
-            this.buttonAlterar.Name = "buttonAlterar";
-            this.buttonAlterar.Size = new System.Drawing.Size(160, 40);
-            this.buttonAlterar.TabIndex = 25;
-            this.buttonAlterar.Text = "Alterar";
-            this.buttonAlterar.UseVisualStyleBackColor = true;
-            this.buttonAlterar.Click += new System.EventHandler(this.buttonAlterar_Click);
+            this.maskedTextBoxCep.Location = new System.Drawing.Point(555, 157);
+            this.maskedTextBoxCep.Mask = "00000-000";
+            this.maskedTextBoxCep.Name = "maskedTextBoxCep";
+            this.maskedTextBoxCep.Size = new System.Drawing.Size(98, 20);
+            this.maskedTextBoxCep.TabIndex = 27;
             // 
-            // buttonExcluir
+            // label13
             // 
-            this.buttonExcluir.Location = new System.Drawing.Point(822, 30);
-            this.buttonExcluir.Name = "buttonExcluir";
-            this.buttonExcluir.Size = new System.Drawing.Size(160, 40);
-            this.buttonExcluir.TabIndex = 26;
-            this.buttonExcluir.Text = "Excluir";
-            this.buttonExcluir.UseVisualStyleBackColor = true;
-            this.buttonExcluir.Click += new System.EventHandler(this.buttonExcluir_Click);
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(505, 160);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(31, 13);
+            this.label13.TabIndex = 26;
+            this.label13.Text = "CEP:";
             // 
-            // textBoxID
+            // buttonBuscar
             // 
-            this.textBoxID.Location = new System.Drawing.Point(137, 50);
-            this.textBoxID.Name = "textBoxID";
-            this.textBoxID.Size = new System.Drawing.Size(49, 20);
-            this.textBoxID.TabIndex = 25;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(98, 53);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(21, 13);
-            this.label12.TabIndex = 24;
-            this.label12.Text = "ID:";
-            // 
-            // buttonLimparPesquisa
-            // 
-            this.buttonLimparPesquisa.Location = new System.Drawing.Point(207, 67);
-            this.buttonLimparPesquisa.Name = "buttonLimparPesquisa";
-            this.buttonLimparPesquisa.Size = new System.Drawing.Size(72, 29);
-            this.buttonLimparPesquisa.TabIndex = 27;
-            this.buttonLimparPesquisa.Text = "Limpar";
-            this.buttonLimparPesquisa.UseVisualStyleBackColor = true;
-            this.buttonLimparPesquisa.Click += new System.EventHandler(this.buttonLimparPesquisa_Click);
+            this.buttonBuscar.Location = new System.Drawing.Point(674, 153);
+            this.buttonBuscar.Name = "buttonBuscar";
+            this.buttonBuscar.Size = new System.Drawing.Size(64, 26);
+            this.buttonBuscar.TabIndex = 28;
+            this.buttonBuscar.Text = "Buscar";
+            this.buttonBuscar.UseVisualStyleBackColor = true;
             // 
             // FormClientes
             // 
@@ -449,6 +481,9 @@
         private System.Windows.Forms.TextBox textBoxID;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button buttonLimparPesquisa;
+        private System.Windows.Forms.Button buttonBuscar;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxCep;
+        private System.Windows.Forms.Label label13;
     }
 }
 

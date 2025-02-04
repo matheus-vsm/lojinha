@@ -39,6 +39,7 @@ namespace SoftwareLojasRibeiro
             maskedTextBoxData.Clear();
             textBoxEmail.Clear();
             textBoxEndereco.Clear();
+            maskedTextBoxCep.Clear();
         }
 
         public void SelecionarLinhaTabelaClientes()
@@ -55,6 +56,7 @@ namespace SoftwareLojasRibeiro
                 textBoxEmail.Text = dataGridViewClientes.CurrentRow.Cells[4].Value.ToString() ?? "";
                 maskedTextBoxData.Text = dataGridViewClientes.CurrentRow.Cells[6].Value.ToString() ?? "";
                 textBoxEndereco.Text = dataGridViewClientes.CurrentRow.Cells[7].Value.ToString() ?? "";
+                maskedTextBoxCep.Text = dataGridViewClientes.CurrentRow.Cells[8].Value.ToString() ?? "";
             }
             else
             {
@@ -81,7 +83,8 @@ namespace SoftwareLojasRibeiro
                 Numero = maskedTextBoxNumero.Text,
                 Datanasc = DateTime.Parse(maskedTextBoxData.Text),
                 Email = textBoxEmail.Text,
-                Endereco = textBoxEndereco.Text
+                Endereco = textBoxEndereco.Text,
+                Cep = maskedTextBoxCep.Text
             };
 
             //Criar um objeto da classe ClienteDAO e chamar o método CadastrarCliente
@@ -93,6 +96,7 @@ namespace SoftwareLojasRibeiro
             }
             else if (buttonCadastrar.Text == "Alterar")
             {
+                cli.Id = textBoxID.Text;
                 dao.AlterarCliente(cli);
             }       
 
