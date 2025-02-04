@@ -32,7 +32,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabControlClientes = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPageCadastrar = new System.Windows.Forms.TabPage();
+            this.buttonLimpar = new System.Windows.Forms.Button();
             this.buttonCadastrar = new System.Windows.Forms.Button();
             this.maskedTextBoxData = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBoxNumero = new System.Windows.Forms.MaskedTextBox();
@@ -51,16 +52,15 @@
             this.textBoxNome = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabPageConsultar = new System.Windows.Forms.TabPage();
             this.dataGridViewClientes = new System.Windows.Forms.DataGridView();
             this.buttonPesquisar = new System.Windows.Forms.Button();
             this.textBoxPesquisaNome = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.buttonLimpar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControlClientes.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage3.SuspendLayout();
+            this.tabPageCadastrar.SuspendLayout();
+            this.tabPageConsultar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,42 +85,52 @@
             // 
             // tabControlClientes
             // 
-            this.tabControlClientes.Controls.Add(this.tabPage1);
+            this.tabControlClientes.Controls.Add(this.tabPageCadastrar);
             this.tabControlClientes.Controls.Add(this.tabPage2);
-            this.tabControlClientes.Controls.Add(this.tabPage3);
+            this.tabControlClientes.Controls.Add(this.tabPageConsultar);
             this.tabControlClientes.Location = new System.Drawing.Point(1, 151);
             this.tabControlClientes.Name = "tabControlClientes";
             this.tabControlClientes.SelectedIndex = 0;
             this.tabControlClientes.Size = new System.Drawing.Size(1024, 484);
             this.tabControlClientes.TabIndex = 2;
             // 
-            // tabPage1
+            // tabPageCadastrar
             // 
-            this.tabPage1.Controls.Add(this.buttonLimpar);
-            this.tabPage1.Controls.Add(this.buttonCadastrar);
-            this.tabPage1.Controls.Add(this.maskedTextBoxData);
-            this.tabPage1.Controls.Add(this.maskedTextBoxNumero);
-            this.tabPage1.Controls.Add(this.label10);
-            this.tabPage1.Controls.Add(this.textBoxEndereco);
-            this.tabPage1.Controls.Add(this.label9);
-            this.tabPage1.Controls.Add(this.label8);
-            this.tabPage1.Controls.Add(this.maskedTextBoxCpf);
-            this.tabPage1.Controls.Add(this.maskedTextBoxRg);
-            this.tabPage1.Controls.Add(this.label7);
-            this.tabPage1.Controls.Add(this.label6);
-            this.tabPage1.Controls.Add(this.label5);
-            this.tabPage1.Controls.Add(this.textBoxEmail);
-            this.tabPage1.Controls.Add(this.label4);
-            this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.textBoxNome);
-            this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1016, 458);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Cadastrar";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPageCadastrar.Controls.Add(this.buttonLimpar);
+            this.tabPageCadastrar.Controls.Add(this.buttonCadastrar);
+            this.tabPageCadastrar.Controls.Add(this.maskedTextBoxData);
+            this.tabPageCadastrar.Controls.Add(this.maskedTextBoxNumero);
+            this.tabPageCadastrar.Controls.Add(this.label10);
+            this.tabPageCadastrar.Controls.Add(this.textBoxEndereco);
+            this.tabPageCadastrar.Controls.Add(this.label9);
+            this.tabPageCadastrar.Controls.Add(this.label8);
+            this.tabPageCadastrar.Controls.Add(this.maskedTextBoxCpf);
+            this.tabPageCadastrar.Controls.Add(this.maskedTextBoxRg);
+            this.tabPageCadastrar.Controls.Add(this.label7);
+            this.tabPageCadastrar.Controls.Add(this.label6);
+            this.tabPageCadastrar.Controls.Add(this.label5);
+            this.tabPageCadastrar.Controls.Add(this.textBoxEmail);
+            this.tabPageCadastrar.Controls.Add(this.label4);
+            this.tabPageCadastrar.Controls.Add(this.label3);
+            this.tabPageCadastrar.Controls.Add(this.textBoxNome);
+            this.tabPageCadastrar.Controls.Add(this.label2);
+            this.tabPageCadastrar.Location = new System.Drawing.Point(4, 22);
+            this.tabPageCadastrar.Name = "tabPageCadastrar";
+            this.tabPageCadastrar.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageCadastrar.Size = new System.Drawing.Size(1016, 458);
+            this.tabPageCadastrar.TabIndex = 0;
+            this.tabPageCadastrar.Text = "Cadastrar";
+            this.tabPageCadastrar.UseVisualStyleBackColor = true;
+            // 
+            // buttonLimpar
+            // 
+            this.buttonLimpar.Location = new System.Drawing.Point(367, 379);
+            this.buttonLimpar.Name = "buttonLimpar";
+            this.buttonLimpar.Size = new System.Drawing.Size(232, 40);
+            this.buttonLimpar.TabIndex = 23;
+            this.buttonLimpar.Text = "Limpar";
+            this.buttonLimpar.UseVisualStyleBackColor = true;
+            this.buttonLimpar.Click += new System.EventHandler(this.buttonLimpar_Click);
             // 
             // buttonCadastrar
             // 
@@ -273,19 +283,19 @@
             this.tabPage2.Text = "Consultar Devedores";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // tabPage3
+            // tabPageConsultar
             // 
-            this.tabPage3.Controls.Add(this.dataGridViewClientes);
-            this.tabPage3.Controls.Add(this.buttonPesquisar);
-            this.tabPage3.Controls.Add(this.textBoxPesquisaNome);
-            this.tabPage3.Controls.Add(this.label11);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1016, 458);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Consultar Dados";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.tabPageConsultar.Controls.Add(this.dataGridViewClientes);
+            this.tabPageConsultar.Controls.Add(this.buttonPesquisar);
+            this.tabPageConsultar.Controls.Add(this.textBoxPesquisaNome);
+            this.tabPageConsultar.Controls.Add(this.label11);
+            this.tabPageConsultar.Location = new System.Drawing.Point(4, 22);
+            this.tabPageConsultar.Name = "tabPageConsultar";
+            this.tabPageConsultar.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageConsultar.Size = new System.Drawing.Size(1016, 458);
+            this.tabPageConsultar.TabIndex = 2;
+            this.tabPageConsultar.Text = "Consultar Dados";
+            this.tabPageConsultar.UseVisualStyleBackColor = true;
             // 
             // dataGridViewClientes
             // 
@@ -325,15 +335,6 @@
             this.label11.TabIndex = 2;
             this.label11.Text = "Nome Completo:";
             // 
-            // buttonLimpar
-            // 
-            this.buttonLimpar.Location = new System.Drawing.Point(367, 379);
-            this.buttonLimpar.Name = "buttonLimpar";
-            this.buttonLimpar.Size = new System.Drawing.Size(232, 40);
-            this.buttonLimpar.TabIndex = 23;
-            this.buttonLimpar.Text = "Limpar";
-            this.buttonLimpar.UseVisualStyleBackColor = true;
-            // 
             // FormClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -348,10 +349,10 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabControlClientes.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
+            this.tabPageCadastrar.ResumeLayout(false);
+            this.tabPageCadastrar.PerformLayout();
+            this.tabPageConsultar.ResumeLayout(false);
+            this.tabPageConsultar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClientes)).EndInit();
             this.ResumeLayout(false);
 
@@ -362,7 +363,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TabControl tabControlClientes;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPageCadastrar;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TextBox textBoxNome;
         private System.Windows.Forms.Label label2;
@@ -381,7 +382,7 @@
         private System.Windows.Forms.MaskedTextBox maskedTextBoxData;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxNumero;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tabPageConsultar;
         private System.Windows.Forms.DataGridView dataGridViewClientes;
         private System.Windows.Forms.Button buttonPesquisar;
         private System.Windows.Forms.TextBox textBoxPesquisaNome;

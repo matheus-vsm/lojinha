@@ -66,10 +66,12 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                 DataTable tabelacliente = new DataTable();
 
                 // Se o nome for informado, adicionamos um filtro na consulta
-                string sql = "SELECT * FROM tb_clientes";
+                string sql = @"SELECT Id_Cliente as ID, Nome, 
+                                Rg, Cpf, Email, Numero, Datanasc as 
+                                'Data de Nascimento', Endereco FROM tb_clientes";
                 if (!string.IsNullOrEmpty(cli.Nome))
                 {
-                    sql += " WHERE nome LIKE @nome";
+                    sql += " WHERE Nome LIKE @nome";
                 }
 
                 //Organizar o comando SQL e executar

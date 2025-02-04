@@ -28,6 +28,19 @@ namespace SoftwareLojasRibeiro
             dataGridViewClientes.DataSource = dao.ListarClientes(cli);
         }
 
+        private void LimparCampos()
+        {
+            // Limpar os campos da tela
+            textBoxNome.Clear();
+            maskedTextBoxRg.Clear();
+            maskedTextBoxCpf.Clear();
+            maskedTextBoxNumero.Clear();
+            maskedTextBoxData.Clear();
+            textBoxEmail.Clear();
+            textBoxEndereco.Clear();
+        }
+
+
         private void buttonCadastrar_Click(object sender, EventArgs e)
         {
             //Receber os dados dentro do objeto modelo de Cliente
@@ -46,6 +59,12 @@ namespace SoftwareLojasRibeiro
             ClienteDAO dao = new ClienteDAO();
             dao.CadastrarCliente(cli);
 
+            LimparCampos();
+
+            // Criar novo objeto vazio
+            cli = new Cliente();
+            
+            dataGridViewClientes.DataSource = dao.ListarClientes(cli); //atualizar tabela
         }
 
         private void buttonPesquisar_Click(object sender, EventArgs e)
@@ -69,7 +88,11 @@ namespace SoftwareLojasRibeiro
                 maskedTextBoxData.Text = dataGridViewClientes.CurrentRow.Cells[6].Value.ToString() ?? "";
                 textBoxEndereco.Text = dataGridViewClientes.CurrentRow.Cells[7].Value.ToString() ?? "";
             }
+        }
 
+        private void buttonLimpar_Click(object sender, EventArgs e)
+        {
+            LimparCampos();
         }
     }
 }
