@@ -37,7 +37,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                 //Definir comando SQL - INSERT INTO
                 string sql = @"INSERT INTO tb_clientes 
                             (Nome, Rg, Cpf, Email, Numero, 
-                            Datanasc, Endereco, Ceo) VALUES 
+                            Datanasc, Endereco, Cep) VALUES 
                             (@nome, @rg, @cpf, @email, @numero, 
                             @datanasc, @endereco, @cep)";
 
