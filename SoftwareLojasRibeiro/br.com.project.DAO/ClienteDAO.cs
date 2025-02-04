@@ -21,6 +21,19 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
         {
             try
             {
+                // Perguntar ao usuário antes de cadastrar
+                DialogResult resultado = MessageBox.Show("Os dados para cadastro estão corretos? Deseja continuar?",
+                                                         "Confirmação",
+                                                         MessageBoxButtons.YesNo,
+                                                         MessageBoxIcon.Question);
+
+                // Se o usuário clicar em "Não", a função retorna e não executa o cadastro
+                if (resultado == DialogResult.No)
+                {
+                    MessageBox.Show("Operação cancelada!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 //Definir comando SQL - INSERT INTO
                 string sql = @"INSERT INTO tb_clientes 
                             (Nome, Rg, Cpf, Email, Numero, 
@@ -43,12 +56,12 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                 conecction.Open();
                 executacmd.ExecuteNonQuery();
 
-                MessageBox.Show("Cliente Cadastrado com Sucesso!");
+                MessageBox.Show("Cliente Cadastrado com Sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
             catch (Exception error)
             {
-                MessageBox.Show($"Ocorreu um erro ao Cadastrar o Cliente: {error}.");
+                MessageBox.Show($"Ocorreu um erro ao Cadastrar o Cliente: {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw;
             }
             finally
@@ -95,7 +108,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             }
             catch (Exception error)
             {
-                MessageBox.Show($"Erro ao executar o Comando SQL! {error}.");
+                MessageBox.Show($"Erro ao executar o Comando SQL! {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw;
             }
             finally
@@ -132,12 +145,12 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                 conecction.Open();
                 executacmd.ExecuteNonQuery();
 
-                MessageBox.Show("Cliente Alterado com Sucesso!");
+                MessageBox.Show("Cliente Alterado com Sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
             catch (Exception error)
             {
-                MessageBox.Show($"Ocorreu um erro ao Alterar o Cliente: {error}.");
+                MessageBox.Show($"Ocorreu um erro ao Alterar o Cliente: {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw;
             }
             finally
@@ -152,6 +165,19 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
         {
             try
             {
+                // Perguntar ao usuário antes de excluir
+                DialogResult resultado = MessageBox.Show("Tem certeza que deseja excluir este cliente?",
+                                                         "Confirmação",
+                                                         MessageBoxButtons.YesNo,
+                                                         MessageBoxIcon.Question);
+
+                // Se o usuário clicar em "Não", a função retorna e não executa a exclusão
+                if (resultado == DialogResult.No)
+                {
+                    MessageBox.Show("Operação cancelada!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 //Definir comando SQL - INSERT INTO
                 string sql = @"DELETE FROM tb_clientes WHERE Id_Cliente=@id";
 
@@ -163,12 +189,12 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                 conecction.Open();
                 executacmd.ExecuteNonQuery();
 
-                MessageBox.Show("Cliente Excluído com Sucesso!");
+                MessageBox.Show("Cliente excluído com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
             catch (Exception error)
             {
-                MessageBox.Show($"Ocorreu um erro ao Excluir o Cliente: {error}.");
+                MessageBox.Show($"Ocorreu um erro ao excluir o cliente: {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw;
             }
             finally

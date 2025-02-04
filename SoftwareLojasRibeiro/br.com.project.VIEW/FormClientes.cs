@@ -32,6 +32,7 @@ namespace SoftwareLojasRibeiro
         private void LimparCampos()
         {
             // Limpar os campos da tela
+            textBoxID.Clear();
             textBoxNome.Clear();
             maskedTextBoxRg.Clear();
             maskedTextBoxCpf.Clear();
@@ -98,7 +99,9 @@ namespace SoftwareLojasRibeiro
             {
                 cli.Id = textBoxID.Text;
                 dao.AlterarCliente(cli);
-            }       
+                buttonCadastrar.Text = "Cadastrar";
+                tabPageCadastrar.Text = "Cadastrar";
+            }
 
             LimparCampos();
 
@@ -138,6 +141,7 @@ namespace SoftwareLojasRibeiro
         {
             SelecionarLinhaTabelaClientes();
             buttonCadastrar.Text = "Alterar";
+            tabPageCadastrar.Text = "Alterar";
             tabControlClientes.SelectedTab = tabPageCadastrar;
         }
 
