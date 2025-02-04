@@ -90,25 +90,31 @@ namespace SoftwareLojasRibeiro
 
             //Criar um objeto da classe ClienteDAO e chamar o método CadastrarCliente
             ClienteDAO dao = new ClienteDAO();
+            bool sucesso = false; // Variável para verificar sucesso da operação
 
             if (buttonCadastrar.Text == "Cadastrar")
             {
-                dao.CadastrarCliente(cli);
+                sucesso = dao.CadastrarCliente(cli);
             }
             else if (buttonCadastrar.Text == "Alterar")
             {
                 cli.Id = textBoxID.Text;
-                dao.AlterarCliente(cli);
-                buttonCadastrar.Text = "Cadastrar";
-                tabPageCadastrar.Text = "Cadastrar";
+                sucesso = dao.AlterarCliente(cli);
+                
             }
 
-            LimparCampos();
+            if (sucesso)
+            {
+                LimparCampos();
+                buttonCadastrar.Text = "Cadastrar";
+                tabPageCadastrar.Text = "Cadastrar";
 
-            // Criar novo objeto vazio
-            cli = new Cliente();
+                // Criar novo objeto vazio
+                cli = new Cliente();
+
+                dataGridViewClientes.DataSource = dao.ListarClientes(cli); //atualizar tabela
+            }
             
-            dataGridViewClientes.DataSource = dao.ListarClientes(cli); //atualizar tabela
         }
 
         private void buttonPesquisar_Click(object sender, EventArgs e)

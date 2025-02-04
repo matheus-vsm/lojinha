@@ -17,7 +17,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
         }
 
         #region CadastrarCliente
-        public void CadastrarCliente(Cliente cli)
+        public bool CadastrarCliente(Cliente cli)
         {
             try
             {
@@ -31,7 +31,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                 if (resultado == DialogResult.No)
                 {
                     MessageBox.Show("Operação cancelada!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
+                    return false;
                 }
 
                 //Definir comando SQL - INSERT INTO
@@ -54,15 +54,24 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
 
                 //Abrir conexão e executar o comando SQL
                 conecction.Open();
-                executacmd.ExecuteNonQuery();
+                int linhasAfetadas = executacmd.ExecuteNonQuery();
 
-                MessageBox.Show("Cliente Cadastrado com Sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (linhasAfetadas > 0)
+                {
+                    MessageBox.Show("Cliente Cadastrado com Sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao cadastrar cliente!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
 
             }
             catch (Exception error)
             {
                 MessageBox.Show($"Ocorreu um erro ao Cadastrar o Cliente: {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                throw;
+                return false;
             }
             finally
             {
@@ -119,10 +128,23 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
         #endregion
 
         #region AlterarCliente
-        public void AlterarCliente(Cliente cli)
+        public bool AlterarCliente(Cliente cli)
         {
             try
             {
+                // Perguntar ao usuário antes de alterar
+                DialogResult resultado = MessageBox.Show("Tem certeza que deseja alterar os dados deste cliente?",
+                                                         "Confirmação",
+                                                         MessageBoxButtons.YesNo,
+                                                         MessageBoxIcon.Question);
+
+                // Se o usuário clicar em "Não", cancelar a operação
+                if (resultado == DialogResult.No)
+                {
+                    MessageBox.Show("Operação cancelada!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+
                 //Definir comando SQL - INSERT INTO
                 string sql = @"UPDATE tb_clientes SET 
                             Nome=@nome, Rg=@rg, Cpf=@cpf, Email=@email, Numero=@numero, 
@@ -143,15 +165,24 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
 
                 //Abrir conexão e executar o comando SQL
                 conecction.Open();
-                executacmd.ExecuteNonQuery();
+                int linhasAfetadas = executacmd.ExecuteNonQuery();
 
-                MessageBox.Show("Cliente Alterado com Sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (linhasAfetadas > 0)
+                {
+                    MessageBox.Show("Cliente Alterado com Sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao alterar cliente! Nenhuma linha foi modificada.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
 
             }
             catch (Exception error)
             {
                 MessageBox.Show($"Ocorreu um erro ao Alterar o Cliente: {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                throw;
+                return false;
             }
             finally
             {
