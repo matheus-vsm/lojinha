@@ -19,6 +19,7 @@ namespace SoftwareLojasRibeiro
         public FormClientes()
         {
             InitializeComponent();
+            textBoxID.ReadOnly = true;
         }
 
         private void FormLogin_Load(object sender, EventArgs e)
@@ -40,6 +41,34 @@ namespace SoftwareLojasRibeiro
             textBoxEndereco.Clear();
         }
 
+        public void SelecionarLinhaTabelaClientes()
+        {
+            //Garantir que a linha esteja realmente selecionada antes de tentar acessa-la
+            if (dataGridViewClientes.CurrentRow != null)
+            {
+                //Pegar os dados da linha selecionada
+                textBoxID.Text = dataGridViewClientes.CurrentRow.Cells[0].Value.ToString() ?? "";
+                textBoxNome.Text = dataGridViewClientes.CurrentRow.Cells[1].Value.ToString() ?? "";
+                maskedTextBoxRg.Text = dataGridViewClientes.CurrentRow.Cells[2].Value.ToString() ?? "";
+                maskedTextBoxCpf.Text = dataGridViewClientes.CurrentRow.Cells[3].Value.ToString() ?? "";
+                maskedTextBoxNumero.Text = dataGridViewClientes.CurrentRow.Cells[5].Value.ToString() ?? "";
+                textBoxEmail.Text = dataGridViewClientes.CurrentRow.Cells[4].Value.ToString() ?? "";
+                maskedTextBoxData.Text = dataGridViewClientes.CurrentRow.Cells[6].Value.ToString() ?? "";
+                textBoxEndereco.Text = dataGridViewClientes.CurrentRow.Cells[7].Value.ToString() ?? "";
+            }
+            else
+            {
+                MessageBox.Show("Nenhuma linha selecionada.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        public void Pesquisar()
+        {
+            ClienteDAO dao = new ClienteDAO();
+            Cliente cli = new Cliente { Nome = textBoxPesquisaNome.Text };
+            dataGridViewClientes.DataSource = dao.ListarClientes(cli);
+        }
+
 
         private void buttonCadastrar_Click(object sender, EventArgs e)
         {
@@ -57,7 +86,15 @@ namespace SoftwareLojasRibeiro
 
             //Criar um objeto da classe ClienteDAO e chamar o método CadastrarCliente
             ClienteDAO dao = new ClienteDAO();
-            dao.CadastrarCliente(cli);
+
+            if (buttonCadastrar.Text == "Cadastrar")
+            {
+                dao.CadastrarCliente(cli);
+            }
+            else if (buttonCadastrar.Text == "Alterar")
+            {
+                dao.AlterarCliente(cli);
+            }       
 
             LimparCampos();
 
@@ -69,15 +106,13 @@ namespace SoftwareLojasRibeiro
 
         private void buttonPesquisar_Click(object sender, EventArgs e)
         {
-            ClienteDAO dao = new ClienteDAO();
-            Cliente cli = new Cliente { Nome = textBoxPesquisaNome.Text };
-            dataGridViewClientes.DataSource = dao.ListarClientes(cli);
+            Pesquisar();
         }
 
         private void dataGridViewClientes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             //Garantir que a linha esteja realmente selecionada antes de tentar acessa-la
-            if (dataGridViewClientes.CurrentRow != null)
+            /*if (dataGridViewClientes.CurrentRow != null)
             {
                 //Pegar os dados da linha selecionada
                 textBoxNome.Text = dataGridViewClientes.CurrentRow.Cells[1].Value.ToString() ?? "";
@@ -87,12 +122,36 @@ namespace SoftwareLojasRibeiro
                 textBoxEmail.Text = dataGridViewClientes.CurrentRow.Cells[4].Value.ToString() ?? "";
                 maskedTextBoxData.Text = dataGridViewClientes.CurrentRow.Cells[6].Value.ToString() ?? "";
                 textBoxEndereco.Text = dataGridViewClientes.CurrentRow.Cells[7].Value.ToString() ?? "";
-            }
+            }*/
         }
 
         private void buttonLimpar_Click(object sender, EventArgs e)
         {
             LimparCampos();
+        }
+
+        private void buttonAlterar_Click(object sender, EventArgs e)
+        {
+            SelecionarLinhaTabelaClientes();
+            buttonCadastrar.Text = "Alterar";
+            tabControlClientes.SelectedTab = tabPageCadastrar;
+        }
+
+        private void buttonExcluir_Click(object sender, EventArgs e)
+        {
+            Cliente cli = new Cliente();
+            textBoxID.Text = dataGridViewClientes.CurrentRow.Cells[0].Value.ToString() ?? "";
+            cli.Id = textBoxID.Text;
+
+            ClienteDAO dao = new ClienteDAO();
+            dao.ExcluirCliente(cli);
+            dataGridViewClientes.DataSource = dao.ListarClientes(cli); //atualizar tabela
+        }
+
+        private void buttonLimparPesquisa_Click(object sender, EventArgs e)
+        {
+            textBoxPesquisaNome.Clear();
+            Pesquisar();
         }
     }
 }

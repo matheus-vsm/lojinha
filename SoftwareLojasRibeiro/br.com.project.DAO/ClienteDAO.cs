@@ -80,7 +80,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                 // Se houver um nome para buscar, adicionamos o parâmetro
                 if (!string.IsNullOrEmpty(cli.Nome))
                 {
-                    executacmd.Parameters.AddWithValue("@nome", cli.Nome + "%");
+                    executacmd.Parameters.AddWithValue("@nome", "%" + cli.Nome + "%");
                 }
 
                 conecction.Open();
@@ -110,7 +110,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             try
             {
                 //Definir comando SQL - INSERT INTO
-                string sql = @"UPDATE tb_clientes SET
+                string sql = @"UPDATE tb_clientes SET 
                             Nome=@nome, Rg=@rg, Cpf=@cpf, Email=, Numero=@numero, 
                             Datanasc=@datanasc, Endereco=@endereco WHERE Id=@id";
 
@@ -150,7 +150,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             try
             {
                 //Definir comando SQL - INSERT INTO
-                string sql = @"DELETE FROM tb_clientes WHERE Id=@id";
+                string sql = @"DELETE FROM tb_clientes WHERE Id_Cliente=@id";
 
                 //Organizar o comando SQL
                 MySqlCommand executacmd = new MySqlCommand(sql, conecction);

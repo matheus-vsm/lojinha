@@ -57,6 +57,11 @@
             this.buttonPesquisar = new System.Windows.Forms.Button();
             this.textBoxPesquisaNome = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.buttonAlterar = new System.Windows.Forms.Button();
+            this.buttonExcluir = new System.Windows.Forms.Button();
+            this.textBoxID = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.buttonLimparPesquisa = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControlClientes.SuspendLayout();
             this.tabPageCadastrar.SuspendLayout();
@@ -96,6 +101,8 @@
             // 
             // tabPageCadastrar
             // 
+            this.tabPageCadastrar.Controls.Add(this.textBoxID);
+            this.tabPageCadastrar.Controls.Add(this.label12);
             this.tabPageCadastrar.Controls.Add(this.buttonLimpar);
             this.tabPageCadastrar.Controls.Add(this.buttonCadastrar);
             this.tabPageCadastrar.Controls.Add(this.maskedTextBoxData);
@@ -153,16 +160,16 @@
             // 
             // maskedTextBoxNumero
             // 
-            this.maskedTextBoxNumero.Location = new System.Drawing.Point(136, 261);
+            this.maskedTextBoxNumero.Location = new System.Drawing.Point(555, 255);
             this.maskedTextBoxNumero.Mask = "(00) 0 0000-0000";
             this.maskedTextBoxNumero.Name = "maskedTextBoxNumero";
-            this.maskedTextBoxNumero.Size = new System.Drawing.Size(246, 20);
+            this.maskedTextBoxNumero.Size = new System.Drawing.Size(229, 20);
             this.maskedTextBoxNumero.TabIndex = 20;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(72, 261);
+            this.label10.Location = new System.Drawing.Point(491, 255);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(47, 13);
             this.label10.TabIndex = 19;
@@ -195,7 +202,7 @@
             // 
             // maskedTextBoxCpf
             // 
-            this.maskedTextBoxCpf.Location = new System.Drawing.Point(135, 197);
+            this.maskedTextBoxCpf.Location = new System.Drawing.Point(138, 255);
             this.maskedTextBoxCpf.Mask = "###.###.###-##";
             this.maskedTextBoxCpf.Name = "maskedTextBoxCpf";
             this.maskedTextBoxCpf.Size = new System.Drawing.Size(246, 20);
@@ -203,7 +210,7 @@
             // 
             // maskedTextBoxRg
             // 
-            this.maskedTextBoxRg.Location = new System.Drawing.Point(136, 114);
+            this.maskedTextBoxRg.Location = new System.Drawing.Point(139, 172);
             this.maskedTextBoxRg.Mask = "##.###.###-##";
             this.maskedTextBoxRg.Name = "maskedTextBoxRg";
             this.maskedTextBoxRg.Size = new System.Drawing.Size(246, 20);
@@ -219,7 +226,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(95, 197);
+            this.label6.Location = new System.Drawing.Point(98, 255);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(30, 13);
             this.label6.TabIndex = 6;
@@ -228,7 +235,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(97, 117);
+            this.label5.Location = new System.Drawing.Point(100, 175);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(29, 13);
             this.label5.TabIndex = 4;
@@ -259,7 +266,7 @@
             // 
             // textBoxNome
             // 
-            this.textBoxNome.Location = new System.Drawing.Point(136, 50);
+            this.textBoxNome.Location = new System.Drawing.Point(139, 108);
             this.textBoxNome.Name = "textBoxNome";
             this.textBoxNome.Size = new System.Drawing.Size(247, 20);
             this.textBoxNome.TabIndex = 1;
@@ -267,7 +274,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(34, 53);
+            this.label2.Location = new System.Drawing.Point(37, 111);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(85, 13);
             this.label2.TabIndex = 0;
@@ -285,6 +292,9 @@
             // 
             // tabPageConsultar
             // 
+            this.tabPageConsultar.Controls.Add(this.buttonLimparPesquisa);
+            this.tabPageConsultar.Controls.Add(this.buttonExcluir);
+            this.tabPageConsultar.Controls.Add(this.buttonAlterar);
             this.tabPageConsultar.Controls.Add(this.dataGridViewClientes);
             this.tabPageConsultar.Controls.Add(this.buttonPesquisar);
             this.tabPageConsultar.Controls.Add(this.textBoxPesquisaNome);
@@ -311,9 +321,9 @@
             // 
             // buttonPesquisar
             // 
-            this.buttonPesquisar.Location = new System.Drawing.Point(404, 19);
+            this.buttonPesquisar.Location = new System.Drawing.Point(417, 30);
             this.buttonPesquisar.Name = "buttonPesquisar";
-            this.buttonPesquisar.Size = new System.Drawing.Size(232, 40);
+            this.buttonPesquisar.Size = new System.Drawing.Size(160, 40);
             this.buttonPesquisar.TabIndex = 23;
             this.buttonPesquisar.Text = "Pesquisar";
             this.buttonPesquisar.UseVisualStyleBackColor = true;
@@ -321,7 +331,7 @@
             // 
             // textBoxPesquisaNome
             // 
-            this.textBoxPesquisaNome.Location = new System.Drawing.Point(132, 30);
+            this.textBoxPesquisaNome.Location = new System.Drawing.Point(130, 41);
             this.textBoxPesquisaNome.Name = "textBoxPesquisaNome";
             this.textBoxPesquisaNome.Size = new System.Drawing.Size(247, 20);
             this.textBoxPesquisaNome.TabIndex = 3;
@@ -329,11 +339,57 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(30, 33);
+            this.label11.Location = new System.Drawing.Point(28, 44);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(85, 13);
+            this.label11.Size = new System.Drawing.Size(88, 13);
             this.label11.TabIndex = 2;
-            this.label11.Text = "Nome Completo:";
+            this.label11.Text = "Nome do Cliente:";
+            // 
+            // buttonAlterar
+            // 
+            this.buttonAlterar.Location = new System.Drawing.Point(617, 30);
+            this.buttonAlterar.Name = "buttonAlterar";
+            this.buttonAlterar.Size = new System.Drawing.Size(160, 40);
+            this.buttonAlterar.TabIndex = 25;
+            this.buttonAlterar.Text = "Alterar";
+            this.buttonAlterar.UseVisualStyleBackColor = true;
+            this.buttonAlterar.Click += new System.EventHandler(this.buttonAlterar_Click);
+            // 
+            // buttonExcluir
+            // 
+            this.buttonExcluir.Location = new System.Drawing.Point(822, 30);
+            this.buttonExcluir.Name = "buttonExcluir";
+            this.buttonExcluir.Size = new System.Drawing.Size(160, 40);
+            this.buttonExcluir.TabIndex = 26;
+            this.buttonExcluir.Text = "Excluir";
+            this.buttonExcluir.UseVisualStyleBackColor = true;
+            this.buttonExcluir.Click += new System.EventHandler(this.buttonExcluir_Click);
+            // 
+            // textBoxID
+            // 
+            this.textBoxID.Location = new System.Drawing.Point(137, 50);
+            this.textBoxID.Name = "textBoxID";
+            this.textBoxID.Size = new System.Drawing.Size(49, 20);
+            this.textBoxID.TabIndex = 25;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(98, 53);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(21, 13);
+            this.label12.TabIndex = 24;
+            this.label12.Text = "ID:";
+            // 
+            // buttonLimparPesquisa
+            // 
+            this.buttonLimparPesquisa.Location = new System.Drawing.Point(207, 67);
+            this.buttonLimparPesquisa.Name = "buttonLimparPesquisa";
+            this.buttonLimparPesquisa.Size = new System.Drawing.Size(72, 29);
+            this.buttonLimparPesquisa.TabIndex = 27;
+            this.buttonLimparPesquisa.Text = "Limpar";
+            this.buttonLimparPesquisa.UseVisualStyleBackColor = true;
+            this.buttonLimparPesquisa.Click += new System.EventHandler(this.buttonLimparPesquisa_Click);
             // 
             // FormClientes
             // 
@@ -388,6 +444,11 @@
         private System.Windows.Forms.TextBox textBoxPesquisaNome;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button buttonLimpar;
+        private System.Windows.Forms.Button buttonAlterar;
+        private System.Windows.Forms.Button buttonExcluir;
+        private System.Windows.Forms.TextBox textBoxID;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button buttonLimparPesquisa;
     }
 }
 
