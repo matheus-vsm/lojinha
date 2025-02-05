@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SoftwareLojasRibeiro.br.com.project.VIEW
 {
-    public partial class FormProdutosMenu : Form
+    public partial class FormFuncionarios : Form
     {
-        public FormProdutosMenu()
+        public FormFuncionarios()
         {
             InitializeComponent();
         }

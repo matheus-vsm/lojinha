@@ -105,7 +105,8 @@ namespace SoftwareLojasRibeiro
 
             if (sucesso)
             {
-                LimparCampos();
+                //LimparCampos();
+                new Helpers().LimparTela(this);
                 buttonCadastrar.Text = "Cadastrar";
                 tabPageCadastrar.Text = "Cadastrar";
 
@@ -140,7 +141,10 @@ namespace SoftwareLojasRibeiro
 
         private void buttonLimpar_Click(object sender, EventArgs e)
         {
-            LimparCampos();
+            //LimparCampos();
+            new Helpers().LimparTela(this);
+            buttonCadastrar.Text = "Cadastrar";
+            tabPageCadastrar.Text = "Cadastrar";
         }
 
         private void buttonAlterar_Click(object sender, EventArgs e)
@@ -167,6 +171,30 @@ namespace SoftwareLojasRibeiro
         {
             textBoxPesquisaNome.Clear();
             Pesquisar();
+        }
+
+        private void buttonBuscar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string cep = maskedTextBoxCep.Text;
+                string xml = $"https://viacep.com.br/ws/{cep}/xml/";
+
+                DataSet dados = new DataSet(); //objeto capaz de receber e fazer uma requisição para a API
+
+                dados.ReadXml(xml);
+                textBoxEndereco.Text = $"{dados.Tables[0].Rows[0]["logradouro"]}, " +
+                                   $"{dados.Tables[0].Rows[0]["bairro"]}, " +
+                                   $"{dados.Tables[0].Rows[0]["complemento"]}, " +
+                                   $"{dados.Tables[0].Rows[0]["localidade"]} - " +
+                                   $"{dados.Tables[0].Rows[0]["uf"]}.";
+            
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Endereço não encontrado. Digite manualmente.");
+                throw;
+            }
         }
     }
 }
