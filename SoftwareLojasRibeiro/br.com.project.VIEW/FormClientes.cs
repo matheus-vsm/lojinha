@@ -160,6 +160,7 @@ namespace SoftwareLojasRibeiro
             ClienteDAO dao = new ClienteDAO();
             dao.ExcluirCliente(cli);
             dataGridViewClientes.DataSource = dao.ListarClientes(cli); //atualizar tabela
+            textBoxID.Clear();
         }
 
         private void buttonLimparPesquisa_Click(object sender, EventArgs e)
