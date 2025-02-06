@@ -10,9 +10,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SoftwareLojasRibeiro.br.com.project.DAO;
 using SoftwareLojasRibeiro.br.com.project.MODEL;
+using SoftwareLojasRibeiro.br.com.project.VIEW;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
-namespace SoftwareLojasRibeiro
+namespace SoftwareLojasRibeiro//.br.com.project.VIEW se n colocar isso aqui vai impedir com que eu acesse o FormMenu
 {
     public partial class FormClientes : Form
     {
@@ -195,6 +196,13 @@ namespace SoftwareLojasRibeiro
                 MessageBox.Show($"Endereço não encontrado. Digite manualmente. {error.Message}", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 throw;
             }
+        }
+
+        private void buttonMenu_Click(object sender, EventArgs e)
+        {
+            FormMenu telamenu = new FormMenu();
+            telamenu.Show();
+            this.Hide();
         }
     }
 }
