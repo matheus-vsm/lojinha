@@ -15,6 +15,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         public FormFuncionarios()
         {
             InitializeComponent();
+            textBoxID.ReadOnly = true;
         }
     }
 }

@@ -169,12 +169,6 @@
     <Compile Include="br.com.project.CONNECTION\ConnectionFactory.cs" />
     <Compile Include="br.com.project.DAO\ClienteDAO.cs" />
     <Compile Include="br.com.project.MODEL\Helpers.cs" />
-    <Compile Include="br.com.project.VIEW\FormCadastro.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="br.com.project.VIEW\FormCadastro.Designer.cs">
-      <DependentUpon>FormCadastro.cs</DependentUpon>
-    </Compile>
     <Compile Include="br.com.project.VIEW\FormClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -214,9 +208,6 @@
     <Compile Include="br.com.project.MODEL\Cliente.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="br.com.project.VIEW\FormCadastro.resx">
-      <DependentUpon>FormCadastro.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="br.com.project.VIEW\FormClientes.resx">
       <DependentUpon>FormClientes.cs</DependentUpon>
     </EmbeddedResource>

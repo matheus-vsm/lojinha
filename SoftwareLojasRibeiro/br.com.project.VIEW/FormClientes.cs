@@ -192,7 +192,7 @@ namespace SoftwareLojasRibeiro
             }
             catch (Exception error)
             {
-                MessageBox.Show("Endereço não encontrado. Digite manualmente.");
+                MessageBox.Show($"Endereço não encontrado. Digite manualmente. {error.Message}", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 throw;
             }
         }
