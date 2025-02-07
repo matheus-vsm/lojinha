@@ -96,10 +96,11 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                 DataTable tabelafuncionario = new DataTable();
 
                 // Se o nome for informado, adicionamos um filtro na consulta
-                string sql = @"SELECT Id_Funcionario as ID, Nome, 
-                                Rg, Cpf, Email, Numero, Datanasc as 
-                                'Data de Nascimento', Endereco, Cep, Tipo_Usuario as 
-                                'Tipo de Usuário', Login, Data_Cadastro as 'Data Cadastro' FROM tb_funcionarios";
+                string sql = @"SELECT Id_Funcionario as ID, Nome, Login, Tipo_Usuario as 
+                                'Tipo de Usuário', Data_Cadastro as 'Data Cadastro', Email, 
+                                Rg, Cpf, Numero, Datanasc as 'Data de Nascimento', 
+                                Endereco, Cep
+                                FROM tb_funcionarios";
                 //string sql = "SELECT * FROM tb_funcionarios";
                 if (!string.IsNullOrEmpty(func.Nome))
                 {
@@ -131,6 +132,32 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             finally
             {
                 connection.Close(); // Sempre fechar a conexão
+            }
+        }
+        #endregion
+
+        #region ObterSenhaFuncionario
+        public string ObterSenhaFuncionario(string idFuncionario)
+        {
+            try
+            {
+                string sql = "SELECT Senha FROM tb_funcionarios WHERE Id_Funcionario = @id";
+                MySqlCommand executacmd = new MySqlCommand(sql, connection);
+                executacmd.Parameters.AddWithValue("@id", idFuncionario);
+
+                connection.Open();
+                object resultado = executacmd.ExecuteScalar(); // Retorna um único valor
+
+                return resultado != null ? resultado.ToString() : string.Empty;
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show($"Erro ao obter a senha do funcionário: {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return string.Empty;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
         #endregion

@@ -36,19 +36,20 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             //Garantir que a linha esteja realmente selecionada antes de tentar acessa-la
             if (dataGridViewFuncionarios.CurrentRow != null)
             {
+                FuncionarioDAO dao = new FuncionarioDAO();
                 //Pegar os dados da linha selecionada
                 textBoxID.Text = dataGridViewFuncionarios.CurrentRow.Cells[0].Value.ToString() ?? "";
                 textBoxNome.Text = dataGridViewFuncionarios.CurrentRow.Cells[1].Value.ToString() ?? "";
-                maskedTextBoxRg.Text = dataGridViewFuncionarios.CurrentRow.Cells[2].Value.ToString() ?? "";
-                maskedTextBoxCpf.Text = dataGridViewFuncionarios.CurrentRow.Cells[3].Value.ToString() ?? "";
-                maskedTextBoxNumero.Text = dataGridViewFuncionarios.CurrentRow.Cells[5].Value.ToString() ?? "";
-                textBoxEmail.Text = dataGridViewFuncionarios.CurrentRow.Cells[4].Value.ToString() ?? "";
-                maskedTextBoxData.Text = dataGridViewFuncionarios.CurrentRow.Cells[6].Value.ToString() ?? "";
-                textBoxEndereco.Text = dataGridViewFuncionarios.CurrentRow.Cells[7].Value.ToString() ?? "";
-                maskedTextBoxCep.Text = dataGridViewFuncionarios.CurrentRow.Cells[8].Value.ToString() ?? "";
-                comboBoxTipoUsuario.Text = dataGridViewFuncionarios.CurrentRow.Cells[9].Value.ToString() ?? "";
-                textBoxLogin.Text = dataGridViewFuncionarios.CurrentRow.Cells[10].Value.ToString() ?? "";
-                textBoxSenha.Text = dataGridViewFuncionarios.CurrentRow.Cells[11].Value.ToString() ?? "";
+                maskedTextBoxRg.Text = dataGridViewFuncionarios.CurrentRow.Cells[6].Value.ToString() ?? "";
+                maskedTextBoxCpf.Text = dataGridViewFuncionarios.CurrentRow.Cells[7].Value.ToString() ?? "";
+                maskedTextBoxNumero.Text = dataGridViewFuncionarios.CurrentRow.Cells[8].Value.ToString() ?? "";
+                textBoxEmail.Text = dataGridViewFuncionarios.CurrentRow.Cells[5].Value.ToString() ?? "";
+                maskedTextBoxData.Text = dataGridViewFuncionarios.CurrentRow.Cells[9].Value.ToString() ?? "";
+                textBoxEndereco.Text = dataGridViewFuncionarios.CurrentRow.Cells[10].Value.ToString() ?? "";
+                maskedTextBoxCep.Text = dataGridViewFuncionarios.CurrentRow.Cells[11].Value.ToString() ?? "";
+                comboBoxTipoUsuario.Text = dataGridViewFuncionarios.CurrentRow.Cells[3].Value.ToString() ?? "";
+                textBoxLogin.Text = dataGridViewFuncionarios.CurrentRow.Cells[2].Value.ToString() ?? "";
+                textBoxSenha.Text = dao.ObterSenhaFuncionario(textBoxID.Text);
             }
             else
             {
