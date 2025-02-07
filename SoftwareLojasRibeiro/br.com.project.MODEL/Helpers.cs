@@ -24,10 +24,13 @@ namespace SoftwareLojasRibeiro.br.com.project.MODEL
                             {
                                 (ctr2 as TextBox).Text = string.Empty;
                             }
-                            
                             else if (ctr2 is MaskedTextBox)
                             {
                                 (ctr2 as MaskedTextBox).Text = string.Empty;
+                            }
+                            else if (ctr2 is ComboBox)
+                            {
+                                (ctr2 as ComboBox).Text = string.Empty;
                             }
                         }
                     }

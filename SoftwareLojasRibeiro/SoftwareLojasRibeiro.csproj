@@ -168,6 +168,8 @@
   <ItemGroup>
     <Compile Include="br.com.project.CONNECTION\ConnectionFactory.cs" />
     <Compile Include="br.com.project.DAO\ClienteDAO.cs" />
+    <Compile Include="br.com.project.DAO\FuncionarioDAO.cs" />
+    <Compile Include="br.com.project.MODEL\Funcionario.cs" />
     <Compile Include="br.com.project.MODEL\Helpers.cs" />
     <Compile Include="br.com.project.VIEW\FormClientes.cs">
       <SubType>Form</SubType>

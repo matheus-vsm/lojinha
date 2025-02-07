@@ -30,7 +30,7 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.tabControlClientes = new System.Windows.Forms.TabControl();
+            this.tabControlFuncionarios = new System.Windows.Forms.TabControl();
             this.tabPageCadastrar = new System.Windows.Forms.TabPage();
             this.textBoxLogin = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -69,8 +69,9 @@
             this.buttonPesquisar = new System.Windows.Forms.Button();
             this.textBoxPesquisaNome = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.buttonMenu = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            this.tabControlClientes.SuspendLayout();
+            this.tabControlFuncionarios.SuspendLayout();
             this.tabPageCadastrar.SuspendLayout();
             this.tabPageConsultar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFuncionarios)).BeginInit();
@@ -79,6 +80,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.buttonMenu);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(5, 4);
             this.panel1.Name = "panel1";
@@ -95,15 +97,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Área Funcionários";
             // 
-            // tabControlClientes
+            // tabControlFuncionarios
             // 
-            this.tabControlClientes.Controls.Add(this.tabPageCadastrar);
-            this.tabControlClientes.Controls.Add(this.tabPageConsultar);
-            this.tabControlClientes.Location = new System.Drawing.Point(3, 158);
-            this.tabControlClientes.Name = "tabControlClientes";
-            this.tabControlClientes.SelectedIndex = 0;
-            this.tabControlClientes.Size = new System.Drawing.Size(1024, 484);
-            this.tabControlClientes.TabIndex = 3;
+            this.tabControlFuncionarios.Controls.Add(this.tabPageCadastrar);
+            this.tabControlFuncionarios.Controls.Add(this.tabPageConsultar);
+            this.tabControlFuncionarios.Location = new System.Drawing.Point(3, 158);
+            this.tabControlFuncionarios.Name = "tabControlFuncionarios";
+            this.tabControlFuncionarios.SelectedIndex = 0;
+            this.tabControlFuncionarios.Size = new System.Drawing.Size(1024, 484);
+            this.tabControlFuncionarios.TabIndex = 3;
             // 
             // tabPageCadastrar
             // 
@@ -205,6 +207,7 @@
             this.buttonBuscar.TabIndex = 28;
             this.buttonBuscar.Text = "Buscar";
             this.buttonBuscar.UseVisualStyleBackColor = true;
+            this.buttonBuscar.Click += new System.EventHandler(this.buttonBuscar_Click);
             // 
             // maskedTextBoxCep
             // 
@@ -268,6 +271,7 @@
             this.buttonLimpar.TabIndex = 23;
             this.buttonLimpar.Text = "Limpar";
             this.buttonLimpar.UseVisualStyleBackColor = true;
+            this.buttonLimpar.Click += new System.EventHandler(this.buttonLimpar_Click);
             // 
             // buttonCadastrar
             // 
@@ -277,6 +281,7 @@
             this.buttonCadastrar.TabIndex = 22;
             this.buttonCadastrar.Text = "Cadastrar";
             this.buttonCadastrar.UseVisualStyleBackColor = true;
+            this.buttonCadastrar.Click += new System.EventHandler(this.buttonCadastrar_Click);
             // 
             // maskedTextBoxData
             // 
@@ -413,6 +418,7 @@
             this.buttonLimparPesquisa.TabIndex = 27;
             this.buttonLimparPesquisa.Text = "Limpar";
             this.buttonLimparPesquisa.UseVisualStyleBackColor = true;
+            this.buttonLimparPesquisa.Click += new System.EventHandler(this.buttonLimparPesquisa_Click);
             // 
             // buttonExcluir
             // 
@@ -422,6 +428,7 @@
             this.buttonExcluir.TabIndex = 26;
             this.buttonExcluir.Text = "Excluir";
             this.buttonExcluir.UseVisualStyleBackColor = true;
+            this.buttonExcluir.Click += new System.EventHandler(this.buttonExcluir_Click);
             // 
             // buttonAlterar
             // 
@@ -431,6 +438,7 @@
             this.buttonAlterar.TabIndex = 25;
             this.buttonAlterar.Text = "Alterar";
             this.buttonAlterar.UseVisualStyleBackColor = true;
+            this.buttonAlterar.Click += new System.EventHandler(this.buttonAlterar_Click);
             // 
             // dataGridViewFuncionarios
             // 
@@ -451,6 +459,7 @@
             this.buttonPesquisar.TabIndex = 23;
             this.buttonPesquisar.Text = "Pesquisar";
             this.buttonPesquisar.UseVisualStyleBackColor = true;
+            this.buttonPesquisar.Click += new System.EventHandler(this.buttonPesquisar_Click);
             // 
             // textBoxPesquisaNome
             // 
@@ -462,24 +471,36 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(28, 44);
+            this.label11.Location = new System.Drawing.Point(13, 44);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(88, 13);
+            this.label11.Size = new System.Drawing.Size(111, 13);
             this.label11.TabIndex = 2;
-            this.label11.Text = "Nome do Cliente:";
+            this.label11.Text = "Nome do Funcionário:";
+            // 
+            // buttonMenu
+            // 
+            this.buttonMenu.Location = new System.Drawing.Point(-1, -1);
+            this.buttonMenu.Name = "buttonMenu";
+            this.buttonMenu.Size = new System.Drawing.Size(103, 24);
+            this.buttonMenu.TabIndex = 35;
+            this.buttonMenu.Text = "Menu";
+            this.buttonMenu.UseVisualStyleBackColor = true;
+            this.buttonMenu.Click += new System.EventHandler(this.buttonMenu_Click);
             // 
             // FormFuncionarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1030, 647);
-            this.Controls.Add(this.tabControlClientes);
+            this.Controls.Add(this.tabControlFuncionarios);
             this.Controls.Add(this.panel1);
             this.Name = "FormFuncionarios";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lojas Ribeiro - Funcionários";
+            this.Load += new System.EventHandler(this.FormFuncionarios_Load_1);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.tabControlClientes.ResumeLayout(false);
+            this.tabControlFuncionarios.ResumeLayout(false);
             this.tabPageCadastrar.ResumeLayout(false);
             this.tabPageCadastrar.PerformLayout();
             this.tabPageConsultar.ResumeLayout(false);
@@ -493,7 +514,7 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TabControl tabControlClientes;
+        private System.Windows.Forms.TabControl tabControlFuncionarios;
         private System.Windows.Forms.TabPage tabPageCadastrar;
         private System.Windows.Forms.Button buttonBuscar;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxCep;
@@ -532,5 +553,6 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox textBoxSenha;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button buttonMenu;
     }
 }

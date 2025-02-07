@@ -56,6 +56,7 @@
             this.buttonProdutos.TabIndex = 1;
             this.buttonProdutos.Text = "Produtos";
             this.buttonProdutos.UseVisualStyleBackColor = true;
+            this.buttonProdutos.Click += new System.EventHandler(this.buttonProdutos_Click);
             // 
             // buttonVendas
             // 
@@ -65,6 +66,7 @@
             this.buttonVendas.TabIndex = 2;
             this.buttonVendas.Text = "Vendas";
             this.buttonVendas.UseVisualStyleBackColor = true;
+            this.buttonVendas.Click += new System.EventHandler(this.buttonVendas_Click);
             // 
             // label1
             // 
@@ -90,6 +92,7 @@
             this.buttonFuncionarios.TabIndex = 4;
             this.buttonFuncionarios.Text = "Funcionários";
             this.buttonFuncionarios.UseVisualStyleBackColor = true;
+            this.buttonFuncionarios.Click += new System.EventHandler(this.buttonFuncionarios_Click);
             // 
             // buttonCategorias
             // 
@@ -99,6 +102,7 @@
             this.buttonCategorias.TabIndex = 5;
             this.buttonCategorias.Text = "Categorias";
             this.buttonCategorias.UseVisualStyleBackColor = true;
+            this.buttonCategorias.Click += new System.EventHandler(this.buttonCategorias_Click);
             // 
             // FormMenu
             // 

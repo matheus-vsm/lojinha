@@ -21,6 +21,7 @@ namespace SoftwareLojasRibeiro//.br.com.project.VIEW se n colocar isso aqui vai 
         {
             InitializeComponent();
             textBoxID.ReadOnly = true;
+            this.FormClosing += new FormClosingEventHandler(FormClientes_FormClosing);
         }
 
         private void FormLogin_Load(object sender, EventArgs e)
@@ -29,6 +30,11 @@ namespace SoftwareLojasRibeiro//.br.com.project.VIEW se n colocar isso aqui vai 
             Cliente cli = new Cliente { Nome = textBoxPesquisaNome.Text };
             dataGridViewClientes.DataSource = dao.ListarClientes(cli);
         }
+        private void FormClientes_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit(); // Finaliza completamente a aplicação
+        }
+
 
         private void LimparCampos()
         {

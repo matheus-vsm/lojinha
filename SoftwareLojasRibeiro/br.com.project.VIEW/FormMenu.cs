@@ -28,5 +28,33 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             telacli.Show();
             this.Hide();
         }
+
+        private void buttonFuncionarios_Click(object sender, EventArgs e)
+        {
+            FormFuncionarios telacli = new FormFuncionarios();
+            telacli.Show();
+            this.Hide();
+        }
+
+        private void buttonCategorias_Click(object sender, EventArgs e)
+        {
+            //FormFuncionarios telacli = new FormFuncionarios();
+            //telacli.Show();
+            //this.Hide();
+        }
+
+        private void buttonProdutos_Click(object sender, EventArgs e)
+        {
+            FormProdutos telacli = new FormProdutos();
+            telacli.Show();
+            this.Hide();
+        }
+
+        private void buttonVendas_Click(object sender, EventArgs e)
+        {
+            FormVendas telacli = new FormVendas();
+            telacli.Show();
+            this.Hide();
+        }
     }
 }
