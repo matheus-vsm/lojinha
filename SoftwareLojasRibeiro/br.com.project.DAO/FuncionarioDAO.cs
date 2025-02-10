@@ -55,7 +55,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                 executacmd.Parameters.AddWithValue("@datanasc", func.Datanasc);
                 executacmd.Parameters.AddWithValue("@endereco", func.Endereco);
                 executacmd.Parameters.AddWithValue("@login", func.Login);
-                executacmd.Parameters.AddWithValue("@senha", func.Senha);
+                executacmd.Parameters.AddWithValue("@senha", Helpers.HashSenha(func.Senha)); // Criptografa a senha
                 executacmd.Parameters.AddWithValue("@tipo", func.Tipo);
                 executacmd.Parameters.AddWithValue("@cep", func.Cep);
 

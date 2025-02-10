@@ -5,11 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.EntityFrameworkCore.Metadata.Conventions;
+using Org.BouncyCastle.Crypto.Generators;
+using BCrypt.Net;
 
 namespace SoftwareLojasRibeiro.br.com.project.MODEL
 {
     public class Helpers
     {
+        #region LimparTela
         public void LimparTela(Form tela)
         {
             foreach (Control ctrPai in tela.Controls)
@@ -36,6 +39,19 @@ namespace SoftwareLojasRibeiro.br.com.project.MODEL
                     }
                 }
             }
+        }
+        #endregion
+
+        // Método para criptografar a senha antes de salvar no banco
+        public static string HashSenha(string senha)
+        {
+            return BCrypt.Net.BCrypt.HashPassword(senha);
+        }
+
+        // Método para verificar se a senha digitada corresponde ao hash armazenado
+        public static bool VerificarSenha(string senhaDigitada, string senhaArmazenada)
+        {
+            return BCrypt.Net.BCrypt.Verify(senhaDigitada, senhaArmazenada);
         }
     }
 }
