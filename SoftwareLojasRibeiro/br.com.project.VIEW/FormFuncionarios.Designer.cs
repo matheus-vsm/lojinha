@@ -341,7 +341,7 @@
             // maskedTextBoxCpf
             // 
             this.maskedTextBoxCpf.Location = new System.Drawing.Point(138, 255);
-            this.maskedTextBoxCpf.Mask = "###.###.###-##";
+            this.maskedTextBoxCpf.Mask = "###,###,###-##";
             this.maskedTextBoxCpf.Name = "maskedTextBoxCpf";
             this.maskedTextBoxCpf.Size = new System.Drawing.Size(246, 20);
             this.maskedTextBoxCpf.TabIndex = 2;
@@ -349,7 +349,7 @@
             // maskedTextBoxRg
             // 
             this.maskedTextBoxRg.Location = new System.Drawing.Point(139, 172);
-            this.maskedTextBoxRg.Mask = "##.###.###-##";
+            this.maskedTextBoxRg.Mask = "##,###,###-##";
             this.maskedTextBoxRg.Name = "maskedTextBoxRg";
             this.maskedTextBoxRg.Size = new System.Drawing.Size(246, 20);
             this.maskedTextBoxRg.TabIndex = 1;

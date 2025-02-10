@@ -69,8 +69,8 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             Funcionario func = new Funcionario
             {
                 Nome = textBoxNome.Text,
-                Rg = maskedTextBoxRg.Text.Replace(',', '.'),
-                Cpf = maskedTextBoxCpf.Text.Replace(',', '.'),
+                Rg = maskedTextBoxRg.Text,//.Replace(',', '.'),
+                Cpf = maskedTextBoxCpf.Text,//.Replace(',', '.'),
                 Numero = maskedTextBoxNumero.Text,
                 Datanasc = DateTime.Parse(maskedTextBoxData.Text),
                 Email = textBoxEmail.Text,

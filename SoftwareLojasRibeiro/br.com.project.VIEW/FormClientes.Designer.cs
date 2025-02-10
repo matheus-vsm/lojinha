@@ -65,6 +65,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tabControlClientes = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel1.SuspendLayout();
             this.tabPageConsultar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClientes)).BeginInit();
@@ -351,7 +352,7 @@
             // maskedTextBoxCpf
             // 
             this.maskedTextBoxCpf.Location = new System.Drawing.Point(138, 255);
-            this.maskedTextBoxCpf.Mask = "###.###.###-##";
+            this.maskedTextBoxCpf.Mask = "###,###,###-##";
             this.maskedTextBoxCpf.Name = "maskedTextBoxCpf";
             this.maskedTextBoxCpf.Size = new System.Drawing.Size(246, 20);
             this.maskedTextBoxCpf.TabIndex = 2;
@@ -359,7 +360,7 @@
             // maskedTextBoxRg
             // 
             this.maskedTextBoxRg.Location = new System.Drawing.Point(139, 172);
-            this.maskedTextBoxRg.Mask = "##.###.###-##";
+            this.maskedTextBoxRg.Mask = "##,###,###-##";
             this.maskedTextBoxRg.Name = "maskedTextBoxRg";
             this.maskedTextBoxRg.Size = new System.Drawing.Size(246, 20);
             this.maskedTextBoxRg.TabIndex = 1;
@@ -418,11 +419,22 @@
             // 
             this.tabControlClientes.Controls.Add(this.tabPageCadastrar);
             this.tabControlClientes.Controls.Add(this.tabPageConsultar);
+            this.tabControlClientes.Controls.Add(this.tabPage1);
             this.tabControlClientes.Location = new System.Drawing.Point(1, 151);
             this.tabControlClientes.Name = "tabControlClientes";
             this.tabControlClientes.SelectedIndex = 0;
             this.tabControlClientes.Size = new System.Drawing.Size(1024, 484);
             this.tabControlClientes.TabIndex = 2;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1016, 458);
+            this.tabPage1.TabIndex = 3;
+            this.tabPage1.Text = "Consultar Devedores";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // FormClientes
             // 
@@ -486,6 +498,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TabControl tabControlClientes;
         private System.Windows.Forms.Button buttonMenu;
+        private System.Windows.Forms.TabPage tabPage1;
     }
 }
 

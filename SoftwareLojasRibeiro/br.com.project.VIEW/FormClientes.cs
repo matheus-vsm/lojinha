@@ -86,8 +86,8 @@ namespace SoftwareLojasRibeiro//.br.com.project.VIEW se n colocar isso aqui vai 
             Cliente cli = new Cliente
             {
                 Nome = textBoxNome.Text,
-                Rg = maskedTextBoxRg.Text.Replace(',', '.'),
-                Cpf = maskedTextBoxCpf.Text.Replace(',', '.'),
+                Rg = maskedTextBoxRg.Text,//.Replace(',', '.'),
+                Cpf = maskedTextBoxCpf.Text,//.Replace(',', '.'),
                 Numero = maskedTextBoxNumero.Text,
                 Datanasc = DateTime.Parse(maskedTextBoxData.Text),
                 Email = textBoxEmail.Text,
