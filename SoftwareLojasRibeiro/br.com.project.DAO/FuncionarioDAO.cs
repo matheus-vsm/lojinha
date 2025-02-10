@@ -180,6 +180,16 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                     return false;
                 }
 
+                // Obter a senha atual do banco
+                string senhaAtualBanco = ObterSenhaFuncionario(func.Id.ToString());
+
+                // Se a senha foi alterada, criptografamos a nova senha
+                string senhaParaSalvar = func.Senha;
+                if (!string.IsNullOrEmpty(senhaAtualBanco) && !BCrypt.Net.BCrypt.Verify(func.Senha, senhaAtualBanco))
+                {
+                    senhaParaSalvar = Helpers.HashSenha(func.Senha); // Criptografa apenas se a senha foi alterada
+                }
+
                 //Definir comando SQL - INSERT INTO
                 string sql = @"UPDATE tb_funcionarios SET 
                             Nome=@nome, Rg=@rg, Cpf=@cpf, Email=@email, Numero=@numero, 
@@ -197,7 +207,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                 executacmd.Parameters.AddWithValue("@datanasc", func.Datanasc);
                 executacmd.Parameters.AddWithValue("@endereco", func.Endereco);
                 executacmd.Parameters.AddWithValue("@login", func.Login);
-                executacmd.Parameters.AddWithValue("@senha", func.Senha);
+                executacmd.Parameters.AddWithValue("@senha", senhaParaSalvar); // Senha correta
                 executacmd.Parameters.AddWithValue("@tipo", func.Tipo);
                 executacmd.Parameters.AddWithValue("@cep", func.Cep);
                 executacmd.Parameters.AddWithValue("@id", func.Id);

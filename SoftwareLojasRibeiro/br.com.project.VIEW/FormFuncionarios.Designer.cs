@@ -93,7 +93,7 @@
             this.buttonMenu.Location = new System.Drawing.Point(-1, -1);
             this.buttonMenu.Name = "buttonMenu";
             this.buttonMenu.Size = new System.Drawing.Size(103, 24);
-            this.buttonMenu.TabIndex = 35;
+            this.buttonMenu.TabIndex = 0;
             this.buttonMenu.Text = "Menu";
             this.buttonMenu.UseVisualStyleBackColor = true;
             this.buttonMenu.Click += new System.EventHandler(this.buttonMenu_Click);
@@ -162,7 +162,7 @@
             this.textBoxLogin.Location = new System.Drawing.Point(858, 95);
             this.textBoxLogin.Name = "textBoxLogin";
             this.textBoxLogin.Size = new System.Drawing.Size(113, 20);
-            this.textBoxLogin.TabIndex = 34;
+            this.textBoxLogin.TabIndex = 10;
             // 
             // label16
             // 
@@ -179,7 +179,7 @@
             this.textBoxSenha.Name = "textBoxSenha";
             this.textBoxSenha.PasswordChar = '*';
             this.textBoxSenha.Size = new System.Drawing.Size(113, 20);
-            this.textBoxSenha.TabIndex = 32;
+            this.textBoxSenha.TabIndex = 11;
             // 
             // label15
             // 
@@ -208,14 +208,14 @@
             this.comboBoxTipoUsuario.Location = new System.Drawing.Point(858, 45);
             this.comboBoxTipoUsuario.Name = "comboBoxTipoUsuario";
             this.comboBoxTipoUsuario.Size = new System.Drawing.Size(113, 21);
-            this.comboBoxTipoUsuario.TabIndex = 29;
+            this.comboBoxTipoUsuario.TabIndex = 9;
             // 
             // buttonBuscar
             // 
             this.buttonBuscar.Location = new System.Drawing.Point(635, 153);
             this.buttonBuscar.Name = "buttonBuscar";
             this.buttonBuscar.Size = new System.Drawing.Size(64, 26);
-            this.buttonBuscar.TabIndex = 28;
+            this.buttonBuscar.TabIndex = 6;
             this.buttonBuscar.Text = "Buscar";
             this.buttonBuscar.UseVisualStyleBackColor = true;
             this.buttonBuscar.Click += new System.EventHandler(this.buttonBuscar_Click);
@@ -226,7 +226,7 @@
             this.maskedTextBoxCep.Mask = "00000-000";
             this.maskedTextBoxCep.Name = "maskedTextBoxCep";
             this.maskedTextBoxCep.Size = new System.Drawing.Size(98, 20);
-            this.maskedTextBoxCep.TabIndex = 27;
+            this.maskedTextBoxCep.TabIndex = 5;
             // 
             // label13
             // 
@@ -249,7 +249,7 @@
             this.textBoxEndereco.Location = new System.Drawing.Point(516, 197);
             this.textBoxEndereco.Name = "textBoxEndereco";
             this.textBoxEndereco.Size = new System.Drawing.Size(229, 20);
-            this.textBoxEndereco.TabIndex = 15;
+            this.textBoxEndereco.TabIndex = 7;
             // 
             // textBoxEmail
             // 
@@ -263,7 +263,7 @@
             this.textBoxNome.Location = new System.Drawing.Point(139, 108);
             this.textBoxNome.Name = "textBoxNome";
             this.textBoxNome.Size = new System.Drawing.Size(247, 20);
-            this.textBoxNome.TabIndex = 1;
+            this.textBoxNome.TabIndex = 0;
             // 
             // label12
             // 
@@ -289,7 +289,7 @@
             this.buttonCadastrar.Location = new System.Drawing.Point(367, 319);
             this.buttonCadastrar.Name = "buttonCadastrar";
             this.buttonCadastrar.Size = new System.Drawing.Size(232, 40);
-            this.buttonCadastrar.TabIndex = 22;
+            this.buttonCadastrar.TabIndex = 12;
             this.buttonCadastrar.Text = "Cadastrar";
             this.buttonCadastrar.UseVisualStyleBackColor = true;
             this.buttonCadastrar.Click += new System.EventHandler(this.buttonCadastrar_Click);
@@ -300,7 +300,7 @@
             this.maskedTextBoxData.Mask = "00/00/0000";
             this.maskedTextBoxData.Name = "maskedTextBoxData";
             this.maskedTextBoxData.Size = new System.Drawing.Size(165, 20);
-            this.maskedTextBoxData.TabIndex = 21;
+            this.maskedTextBoxData.TabIndex = 4;
             this.maskedTextBoxData.ValidatingType = typeof(System.DateTime);
             // 
             // maskedTextBoxNumero
@@ -309,7 +309,7 @@
             this.maskedTextBoxNumero.Mask = "(00) 0 0000-0000";
             this.maskedTextBoxNumero.Name = "maskedTextBoxNumero";
             this.maskedTextBoxNumero.Size = new System.Drawing.Size(229, 20);
-            this.maskedTextBoxNumero.TabIndex = 20;
+            this.maskedTextBoxNumero.TabIndex = 8;
             // 
             // label10
             // 
@@ -344,7 +344,7 @@
             this.maskedTextBoxCpf.Mask = "###.###.###-##";
             this.maskedTextBoxCpf.Name = "maskedTextBoxCpf";
             this.maskedTextBoxCpf.Size = new System.Drawing.Size(246, 20);
-            this.maskedTextBoxCpf.TabIndex = 10;
+            this.maskedTextBoxCpf.TabIndex = 2;
             // 
             // maskedTextBoxRg
             // 
@@ -352,7 +352,7 @@
             this.maskedTextBoxRg.Mask = "##.###.###-##";
             this.maskedTextBoxRg.Name = "maskedTextBoxRg";
             this.maskedTextBoxRg.Size = new System.Drawing.Size(246, 20);
-            this.maskedTextBoxRg.TabIndex = 9;
+            this.maskedTextBoxRg.TabIndex = 1;
             // 
             // label7
             // 
