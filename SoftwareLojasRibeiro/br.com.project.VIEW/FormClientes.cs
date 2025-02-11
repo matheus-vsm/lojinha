@@ -28,7 +28,7 @@ namespace SoftwareLojasRibeiro//.br.com.project.VIEW se n colocar isso aqui vai 
         {
             ClienteDAO dao = new ClienteDAO();
             Cliente cli = new Cliente { Nome = textBoxPesquisaNome.Text };
-            dataGridViewClientes.DataSource = dao.ListarClientes(cli);
+            dataGridViewClientes.DataSource = dao.ListarClientes(cli);                    
         }
         private void FormClientes_FormClosing(object sender, FormClosingEventArgs e)
         {

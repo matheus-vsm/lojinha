@@ -38,9 +38,9 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
         private void buttonCategorias_Click(object sender, EventArgs e)
         {
-            //FormFuncionarios telacli = new FormFuncionarios();
-            //telacli.Show();
-            //this.Hide();
+            FormCategorias telacat = new FormCategorias();
+            telacat.Show();
+            this.Hide();
         }
 
         private void buttonProdutos_Click(object sender, EventArgs e)

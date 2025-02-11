@@ -17,5 +17,11 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             InitializeComponent();
         }
 
+        private void buttonMenu_Click(object sender, EventArgs e)
+        {
+            FormMenu telamenu = new FormMenu();
+            telamenu.Show();
+            this.Hide();
+        }
     }
 }
