@@ -183,5 +183,119 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
         }
         #endregion
 
+        #region AlterarCategoria
+        public bool AlterarCategoria(Categoria cat, string qual)
+        {
+            try
+            {
+                // Perguntar ao usuário antes de alterar
+                DialogResult resultado = MessageBox.Show("Tem certeza que deseja alterar os dados deste cliente?",
+                                                         "Confirmação",
+                                                         MessageBoxButtons.YesNo,
+                                                         MessageBoxIcon.Question);
+
+                // Se o usuário clicar em "Não", cancelar a operação
+                if (resultado == DialogResult.No)
+                {
+                    MessageBox.Show("Operação cancelada!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+
+                //Definir comando SQL - INSERT INTO
+                string sql = @"UPDATE tb_categoria_" + qual + @"SET 
+                            Nome=@nome, Descricao=@descricao
+                            WHERE Id_Categoria_Prod=@id";
+
+                //Organizar o comando SQL
+                MySqlCommand executacmd = new MySqlCommand(sql, connection);
+                executacmd.Parameters.AddWithValue("@nome", cat.Nome);
+                executacmd.Parameters.AddWithValue("@descricao", cat.Descricao);
+                executacmd.Parameters.AddWithValue("@id", cat.Id);
+
+                //Abrir conexão e executar o comando SQL
+                connection.Open();
+                int linhasAfetadas = executacmd.ExecuteNonQuery();
+
+                if (linhasAfetadas > 0)
+                {
+                    MessageBox.Show("Categoria Alterada com Sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao alterar Categoria! Nenhuma linha foi modificada.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show($"Ocorreu um erro ao Alterar a Categoria: {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            finally
+            {
+                connection.Close(); // Sempre fechar a conexão
+            }
+        }
+        #endregion
+
+        #region AlterarCategoriaPub
+        public bool AlterarCategoriaPub(Categoria cat)
+        {
+            try
+            {
+                // Perguntar ao usuário antes de alterar
+                DialogResult resultado = MessageBox.Show("Tem certeza que deseja alterar os dados deste cliente?",
+                                                         "Confirmação",
+                                                         MessageBoxButtons.YesNo,
+                                                         MessageBoxIcon.Question);
+
+                // Se o usuário clicar em "Não", cancelar a operação
+                if (resultado == DialogResult.No)
+                {
+                    MessageBox.Show("Operação cancelada!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+
+                //Definir comando SQL - INSERT INTO
+                string sql = @"UPDATE tb_categoria_publico SET 
+                            Nome=@nome, Descricao=@descricao
+                            WHERE Id_Categoria_Publico=@id";
+
+                //Organizar o comando SQL
+                MySqlCommand executacmd = new MySqlCommand(sql, connection);
+                executacmd.Parameters.AddWithValue("@nome", cat.Nome);
+                executacmd.Parameters.AddWithValue("@descricao", cat.Descricao);
+                executacmd.Parameters.AddWithValue("@id", cat.Id);
+
+                //Abrir conexão e executar o comando SQL
+                connection.Open();
+                int linhasAfetadas = executacmd.ExecuteNonQuery();
+
+                if (linhasAfetadas > 0)
+                {
+                    MessageBox.Show("Categoria Alterada com Sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao alterar Categoria! Nenhuma linha foi modificada.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show($"Ocorreu um erro ao Alterar a Categoria: {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            finally
+            {
+                connection.Close(); // Sempre fechar a conexão
+            }
+        }
+        #endregion
+
     }
 }

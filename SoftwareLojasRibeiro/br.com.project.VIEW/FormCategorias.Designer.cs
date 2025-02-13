@@ -80,7 +80,7 @@
             this.tabControlCategorias.Name = "tabControlCategorias";
             this.tabControlCategorias.SelectedIndex = 0;
             this.tabControlCategorias.Size = new System.Drawing.Size(1024, 484);
-            this.tabControlCategorias.TabIndex = 3;
+            this.tabControlCategorias.TabIndex = 0;
             // 
             // tabPageCadastrar
             // 
@@ -113,7 +113,7 @@
             this.comboBoxTipoCat.Location = new System.Drawing.Point(397, 111);
             this.comboBoxTipoCat.Name = "comboBoxTipoCat";
             this.comboBoxTipoCat.Size = new System.Drawing.Size(247, 21);
-            this.comboBoxTipoCat.TabIndex = 29;
+            this.comboBoxTipoCat.TabIndex = 0;
             // 
             // label5
             // 
@@ -129,7 +129,7 @@
             this.textBoxDescricao.Location = new System.Drawing.Point(397, 222);
             this.textBoxDescricao.Name = "textBoxDescricao";
             this.textBoxDescricao.Size = new System.Drawing.Size(247, 20);
-            this.textBoxDescricao.TabIndex = 27;
+            this.textBoxDescricao.TabIndex = 2;
             // 
             // label2
             // 
@@ -153,7 +153,7 @@
             this.textBoxNome.Location = new System.Drawing.Point(397, 165);
             this.textBoxNome.Name = "textBoxNome";
             this.textBoxNome.Size = new System.Drawing.Size(247, 20);
-            this.textBoxNome.TabIndex = 3;
+            this.textBoxNome.TabIndex = 1;
             // 
             // label12
             // 
@@ -169,7 +169,7 @@
             this.buttonLimpar.Location = new System.Drawing.Point(397, 356);
             this.buttonLimpar.Name = "buttonLimpar";
             this.buttonLimpar.Size = new System.Drawing.Size(232, 40);
-            this.buttonLimpar.TabIndex = 10;
+            this.buttonLimpar.TabIndex = 4;
             this.buttonLimpar.Text = "Limpar";
             this.buttonLimpar.UseVisualStyleBackColor = true;
             this.buttonLimpar.Click += new System.EventHandler(this.buttonLimpar_Click);
@@ -179,7 +179,7 @@
             this.buttonCadastrar.Location = new System.Drawing.Point(397, 296);
             this.buttonCadastrar.Name = "buttonCadastrar";
             this.buttonCadastrar.Size = new System.Drawing.Size(232, 40);
-            this.buttonCadastrar.TabIndex = 9;
+            this.buttonCadastrar.TabIndex = 3;
             this.buttonCadastrar.Text = "Cadastrar";
             this.buttonCadastrar.UseVisualStyleBackColor = true;
             this.buttonCadastrar.Click += new System.EventHandler(this.buttonCadastrar_Click);
@@ -232,6 +232,7 @@
             this.buttonLimparPesquisaProd.TabIndex = 27;
             this.buttonLimparPesquisaProd.Text = "Limpar";
             this.buttonLimparPesquisaProd.UseVisualStyleBackColor = true;
+            this.buttonLimparPesquisaProd.Click += new System.EventHandler(this.buttonLimparPesquisaProd_Click);
             // 
             // buttonExcluirProd
             // 
@@ -250,6 +251,7 @@
             this.buttonAlterarProd.TabIndex = 25;
             this.buttonAlterarProd.Text = "Alterar";
             this.buttonAlterarProd.UseVisualStyleBackColor = true;
+            this.buttonAlterarProd.Click += new System.EventHandler(this.buttonAlterarProd_Click);
             // 
             // dataGridViewCatProd
             // 
@@ -314,6 +316,7 @@
             this.buttonPub.TabIndex = 34;
             this.buttonPub.Text = "Limpar";
             this.buttonPub.UseVisualStyleBackColor = true;
+            this.buttonPub.Click += new System.EventHandler(this.buttonPub_Click);
             // 
             // buttonExcluirPub
             // 
@@ -332,6 +335,7 @@
             this.buttonAlterarPub.TabIndex = 32;
             this.buttonAlterarPub.Text = "Alterar";
             this.buttonAlterarPub.UseVisualStyleBackColor = true;
+            this.buttonAlterarPub.Click += new System.EventHandler(this.buttonAlterarPub_Click);
             // 
             // dataGridViewCatPub
             // 

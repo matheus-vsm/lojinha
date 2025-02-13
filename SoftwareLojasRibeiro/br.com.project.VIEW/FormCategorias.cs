@@ -128,13 +128,20 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 {
                     sucesso = dao.CadastrarCategoria(cat, "Publico");
                 }
-                
             }
-            //else if (buttonCadastrar.Text == "Alterar")
-            //{
-            //    cli.Id = textBoxID.Text;
-            //    sucesso = dao.AlterarCliente(cli);
-            //}
+            else if (buttonCadastrar.Text == "Alterar")
+            {
+                cat.Id = textBoxID.Text;
+                if (comboBoxTipoCat.SelectedIndex == 0)
+                {
+                    sucesso = dao.AlterarCategoria(cat, "Produto");
+                }
+                else
+                {
+                    sucesso = dao.AlterarCategoria(cat, "Publico");
+                }
+                comboBoxTipoCat.Enabled = true;
+            }
 
             if (sucesso)
             {
@@ -165,5 +172,39 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         {
             new Helpers().LimparTela(this);
         }
+
+        private void buttonLimparPesquisaProd_Click(object sender, EventArgs e)
+        {
+            textBoxPesquisaNomeProd.Clear();
+            PesquisarProd();
+        }
+
+        private void buttonPub_Click(object sender, EventArgs e)
+        {
+            textBoxPesquisaNomePub.Clear();
+            PesquisarPub();
+        }
+
+        private void buttonAlterarProd_Click(object sender, EventArgs e)
+        {
+            SelecionarLinhaTabelaCategoriasProdutos();
+            comboBoxTipoCat.Text = "Produto";
+            buttonCadastrar.Text = "Alterar";
+            tabPageCadastrar.Text = "Alterar";
+            comboBoxTipoCat.Enabled = false;
+            tabControlCategorias.SelectedTab = tabPageCadastrar;
+        }
+
+        private void buttonAlterarPub_Click(object sender, EventArgs e)
+        {
+            SelecionarLinhaTabelaCategoriasPublico();
+            comboBoxTipoCat.Text = "Publico";
+            buttonCadastrar.Text = "Alterar";
+            tabPageCadastrar.Text = "Alterar";
+            comboBoxTipoCat.Enabled = false;
+            tabControlCategorias.SelectedTab = tabPageCadastrar;
+        }
+
+        
     }
 }
