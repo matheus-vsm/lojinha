@@ -171,6 +171,9 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         private void buttonLimpar_Click(object sender, EventArgs e)
         {
             new Helpers().LimparTela(this);
+            comboBoxTipoCat.Enabled = true;
+            buttonCadastrar.Text = "Alterar";
+            tabPageCadastrar.Text = "Alterar";
         }
 
         private void buttonLimparPesquisaProd_Click(object sender, EventArgs e)
@@ -205,6 +208,28 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             tabControlCategorias.SelectedTab = tabPageCadastrar;
         }
 
-        
+        private void buttonExcluirProd_Click(object sender, EventArgs e)
+        {
+            Categoria cat = new Categoria();
+            textBoxID.Text = dataGridViewCatProd.CurrentRow.Cells[0].Value.ToString() ?? "";
+            cat.Id = textBoxID.Text;
+
+            CategoriaDAO dao = new CategoriaDAO();
+            dao.ExcluirCategoria(cat, "Produto");
+            dataGridViewCatProd.DataSource = dao.ListarCategoriasProdutos(cat); //atualizar tabela
+            textBoxID.Clear();
+        }
+
+        private void buttonExcluirPub_Click(object sender, EventArgs e)
+        {
+            Categoria cat = new Categoria();
+            textBoxID.Text = dataGridViewCatPub.CurrentRow.Cells[0].Value.ToString() ?? "";
+            cat.Id = textBoxID.Text;
+
+            CategoriaDAO dao = new CategoriaDAO();
+            dao.ExcluirCategoria(cat, "Publico");
+            dataGridViewCatPub.DataSource = dao.ListarCategoriasPublicos(cat); //atualizar tabela
+            textBoxID.Clear();
+        }
     }
 }

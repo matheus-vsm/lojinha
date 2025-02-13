@@ -242,6 +242,7 @@
             this.buttonExcluirProd.TabIndex = 26;
             this.buttonExcluirProd.Text = "Excluir";
             this.buttonExcluirProd.UseVisualStyleBackColor = true;
+            this.buttonExcluirProd.Click += new System.EventHandler(this.buttonExcluirProd_Click);
             // 
             // buttonAlterarProd
             // 
@@ -326,6 +327,7 @@
             this.buttonExcluirPub.TabIndex = 33;
             this.buttonExcluirPub.Text = "Excluir";
             this.buttonExcluirPub.UseVisualStyleBackColor = true;
+            this.buttonExcluirPub.Click += new System.EventHandler(this.buttonExcluirPub_Click);
             // 
             // buttonAlterarPub
             // 

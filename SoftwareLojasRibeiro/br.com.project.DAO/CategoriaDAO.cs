@@ -40,19 +40,6 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                     return false;
                 }
 
-                //switch (qual)
-                //{
-                //    case "Produto":
-                //        sql = @"INSERT INTO tb_categoria_produto 
-                //                (Nome, Descricao) VALUES (@nome, @descricao)";
-                //        break;
-                //    case "Público":
-                //        sql = @"INSERT INTO tb_categoria_publico 
-                //                (Nome, Descricao) VALUES (@nome, @descricao)";
-                //        break;
-                //    default:
-                //        throw new ArgumentException("Categoria Inválida!");
-                //}
                 string sql = @"INSERT INTO tb_categoria_" + qual +  
                                 "(Nome, Descricao) VALUES (@nome, @descricao)";
 
@@ -201,10 +188,12 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                     return false;
                 }
 
+                string qual2 = (qual == "Produto") ? "Prod" : "Pub";
+
                 //Definir comando SQL - INSERT INTO
-                string sql = @"UPDATE tb_categoria_" + qual + @"SET 
-                            Nome=@nome, Descricao=@descricao
-                            WHERE Id_Categoria_Prod=@id";
+                string sql = @"UPDATE tb_categoria_" + qual + @" SET 
+                            Nome=@nome, Descricao=@descricao 
+                            WHERE Id_Categoria_" + qual2 + "=@id";
 
                 //Organizar o comando SQL
                 MySqlCommand executacmd = new MySqlCommand(sql, connection);
@@ -240,55 +229,44 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
         }
         #endregion
 
-        #region AlterarCategoriaPub
-        public bool AlterarCategoriaPub(Categoria cat)
+        #region ExcluirCategoria
+        public void ExcluirCategoria(Categoria cat, string qual)
         {
             try
             {
-                // Perguntar ao usuário antes de alterar
-                DialogResult resultado = MessageBox.Show("Tem certeza que deseja alterar os dados deste cliente?",
+                // Perguntar ao usuário antes de excluir
+                DialogResult resultado = MessageBox.Show("Tem certeza que deseja excluir este cliente?",
                                                          "Confirmação",
                                                          MessageBoxButtons.YesNo,
                                                          MessageBoxIcon.Question);
 
-                // Se o usuário clicar em "Não", cancelar a operação
+                // Se o usuário clicar em "Não", a função retorna e não executa a exclusão
                 if (resultado == DialogResult.No)
                 {
                     MessageBox.Show("Operação cancelada!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return false;
+                    return;
                 }
-
+                
+                string qual2 = (qual == "Produto") ? "Prod" : "Pub";
                 //Definir comando SQL - INSERT INTO
-                string sql = @"UPDATE tb_categoria_publico SET 
-                            Nome=@nome, Descricao=@descricao
-                            WHERE Id_Categoria_Publico=@id";
+                string sql = @"DELETE FROM tb_categoria_" + qual + 
+                            @" WHERE Id_categoria_" + qual2 + "=@id";
 
                 //Organizar o comando SQL
                 MySqlCommand executacmd = new MySqlCommand(sql, connection);
-                executacmd.Parameters.AddWithValue("@nome", cat.Nome);
-                executacmd.Parameters.AddWithValue("@descricao", cat.Descricao);
                 executacmd.Parameters.AddWithValue("@id", cat.Id);
 
                 //Abrir conexão e executar o comando SQL
                 connection.Open();
-                int linhasAfetadas = executacmd.ExecuteNonQuery();
+                executacmd.ExecuteNonQuery();
 
-                if (linhasAfetadas > 0)
-                {
-                    MessageBox.Show("Categoria Alterada com Sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return true;
-                }
-                else
-                {
-                    MessageBox.Show("Erro ao alterar Categoria! Nenhuma linha foi modificada.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
-                }
+                MessageBox.Show("Categoria excluída com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
             catch (Exception error)
             {
-                MessageBox.Show($"Ocorreu um erro ao Alterar a Categoria: {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+                MessageBox.Show($"Ocorreu um erro ao excluir a Categoria: {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
             }
             finally
             {
@@ -296,6 +274,5 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             }
         }
         #endregion
-
     }
 }
