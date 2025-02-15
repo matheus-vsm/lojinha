@@ -126,7 +126,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             }
             catch (Exception error)
             {
-                MessageBox.Show($"Erro ao executar o Comando SQL! {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Erro ao executar o Comando SQL! (ListarFuncionarios) {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
             finally
@@ -246,7 +246,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             try
             {
                 // Perguntar ao usuário antes de excluir
-                DialogResult resultado = MessageBox.Show("Tem certeza que deseja excluir este cliente?",
+                DialogResult resultado = MessageBox.Show("Tem certeza que deseja excluir esse Funcionário?",
                                                          "Confirmação",
                                                          MessageBoxButtons.YesNo,
                                                          MessageBoxIcon.Question);

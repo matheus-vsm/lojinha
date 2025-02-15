@@ -177,5 +177,12 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             telamenu.Show();
             this.Hide();
         }
+
+        private void textBoxPesquisaNome_TextChanged(object sender, EventArgs e)
+        {
+            Funcionario func = new Funcionario { Nome = textBoxPesquisaNome.Text };
+            FuncionarioDAO dao = new FuncionarioDAO();
+            dataGridViewFuncionarios.DataSource = dao.ListarFuncionarios(func);
+        }
     }
 }

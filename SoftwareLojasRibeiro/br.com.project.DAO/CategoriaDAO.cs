@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using SoftwareLojasRibeiro.br.com.project.CONNECTION;
 using Org.BouncyCastle.Utilities;
 using System.Data;
+using System.Net.Http.Headers;
 
 namespace SoftwareLojasRibeiro.br.com.project.DAO
 {
@@ -76,18 +77,18 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
         }
         #endregion
 
-        #region ListarCategoriasProdutos
-        public DataTable ListarCategoriasProdutos(Categoria cat)
+        #region ListarCategorias
+        public DataTable ListarCategorias(Categoria cat, string qual)
         {
             try
             {
                 //Criar o DataTable e o comando SQL
                 DataTable tabelacategoria = new DataTable();
-
+                string qual2 = (qual == "Produto") ? "Prod" : "Pub";
                 // Se o nome for informado, adicionamos um filtro na consulta
-                string sql = @"SELECT Id_Categoria_Prod as 'ID', Nome, 
+                string sql = @"SELECT Id_Categoria_" + qual2 + @" as 'ID', Nome, 
                                 Descricao, Data_Cadastro as 'Data de Cadastro' 
-                                FROM tb_categoria_produto";
+                                FROM tb_categoria_" + qual;
                 if (!string.IsNullOrEmpty(cat.Nome))
                 {
                     sql += " WHERE Nome LIKE @nome";
@@ -113,7 +114,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             }
             catch (Exception error)
             {
-                MessageBox.Show($"Erro ao executar o Comando SQL! {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Erro ao executar o Comando SQL! (ListarCategorias) {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
             finally
@@ -123,8 +124,8 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
         }
         #endregion
 
-        #region ListarCategoriasPublicos
-        public DataTable ListarCategoriasPublicos(Categoria cat)
+        #region ListarNomeCategorias
+        public DataTable ListarNomeCategorias(string qual)
         {
             try
             {
@@ -132,22 +133,10 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                 DataTable tabelacategoria = new DataTable();
 
                 // Se o nome for informado, adicionamos um filtro na consulta
-                string sql = @"SELECT Id_Categoria_Pub as 'ID', Nome, 
-                                Descricao, Data_Cadastro as 'Data de Cadastro' 
-                                FROM tb_categoria_publico";
-                if (!string.IsNullOrEmpty(cat.Nome))
-                {
-                    sql += " WHERE Nome LIKE @nome";
-                }
+                string sql = @"SELECT * FROM tb_categoria_" + qual;
 
                 //Organizar o comando SQL e executar
                 MySqlCommand executacmd = new MySqlCommand(sql, connection);
-
-                // Se houver um nome para buscar, adicionamos o parâmetro
-                if (!string.IsNullOrEmpty(cat.Nome))
-                {
-                    executacmd.Parameters.AddWithValue("@nome", "%" + cat.Nome + "%");
-                }
 
                 connection.Open();
                 executacmd.ExecuteNonQuery();
@@ -160,7 +149,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             }
             catch (Exception error)
             {
-                MessageBox.Show($"Erro ao executar o Comando SQL! {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Erro ao executar o Comando SQL! (ListarNomeCategorias) {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
             finally
@@ -176,7 +165,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             try
             {
                 // Perguntar ao usuário antes de alterar
-                DialogResult resultado = MessageBox.Show("Tem certeza que deseja alterar os dados deste cliente?",
+                DialogResult resultado = MessageBox.Show("Tem certeza que deseja alterar os dados desta Categoria?",
                                                          "Confirmação",
                                                          MessageBoxButtons.YesNo,
                                                          MessageBoxIcon.Question);
@@ -235,7 +224,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             try
             {
                 // Perguntar ao usuário antes de excluir
-                DialogResult resultado = MessageBox.Show("Tem certeza que deseja excluir este cliente?",
+                DialogResult resultado = MessageBox.Show("Tem certeza que deseja excluir esta Categoria?",
                                                          "Confirmação",
                                                          MessageBoxButtons.YesNo,
                                                          MessageBoxIcon.Question);

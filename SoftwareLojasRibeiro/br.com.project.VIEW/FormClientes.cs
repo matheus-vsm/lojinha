@@ -210,5 +210,12 @@ namespace SoftwareLojasRibeiro//.br.com.project.VIEW se n colocar isso aqui vai 
             telamenu.Show();
             this.Hide();
         }
+
+        private void textBoxPesquisaNome_TextChanged(object sender, EventArgs e)
+        {
+            Cliente cli = new Cliente { Nome = textBoxPesquisaNome.Text };
+            ClienteDAO dao = new ClienteDAO();
+            dataGridViewClientes.DataSource = dao.ListarClientes(cli);
+        }
     }
 }

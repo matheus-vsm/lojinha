@@ -173,9 +173,11 @@
     <Compile Include="br.com.project.DAO\CategoriaDAO.cs" />
     <Compile Include="br.com.project.DAO\ClienteDAO.cs" />
     <Compile Include="br.com.project.DAO\FuncionarioDAO.cs" />
+    <Compile Include="br.com.project.DAO\ProdutoDAO.cs" />
     <Compile Include="br.com.project.MODEL\Categoria.cs" />
     <Compile Include="br.com.project.MODEL\Funcionario.cs" />
     <Compile Include="br.com.project.MODEL\Helpers.cs" />
+    <Compile Include="br.com.project.MODEL\Produto.cs" />
     <Compile Include="br.com.project.VIEW\FormCategorias.cs">
       <SubType>Form</SubType>
     </Compile>

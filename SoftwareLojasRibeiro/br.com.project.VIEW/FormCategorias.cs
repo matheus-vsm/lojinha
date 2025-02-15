@@ -55,16 +55,16 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         {
             CategoriaDAO dao = new CategoriaDAO();
             Categoria cat = new Categoria { Nome = textBoxPesquisaNomeProd.Text };
-            dataGridViewCatProd.DataSource = dao.ListarCategoriasProdutos(cat);
+            dataGridViewCatProd.DataSource = dao.ListarCategorias(cat, "Produto");
         }
         public void PesquisarPub()
         {
             CategoriaDAO dao = new CategoriaDAO();
             Categoria cat = new Categoria { Nome = textBoxPesquisaNomePub.Text };
-            dataGridViewCatPub.DataSource = dao.ListarCategoriasPublicos(cat);
+            dataGridViewCatPub.DataSource = dao.ListarCategorias(cat, "Publico");
         }
 
-
+        #region lixo
         private void buttonLimparPesquisa_Click(object sender, EventArgs e)
         {
 
@@ -89,6 +89,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         {
 
         }
+        #endregion
 
         private void buttonMenu_Click(object sender, EventArgs e)
         {
@@ -101,8 +102,8 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         {
             CategoriaDAO dao = new CategoriaDAO();
             Categoria cat = new Categoria { Nome = textBoxPesquisaNomeProd.Text };
-            dataGridViewCatProd.DataSource = dao.ListarCategoriasProdutos(cat);
-            dataGridViewCatPub.DataSource = dao.ListarCategoriasPublicos(cat);
+            dataGridViewCatProd.DataSource = dao.ListarCategorias(cat, "Produto");
+            dataGridViewCatPub.DataSource = dao.ListarCategorias(cat, "Publico");
         }
 
         private void buttonCadastrar_Click(object sender, EventArgs e)
@@ -153,8 +154,8 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 // Criar novo objeto vazio
                 cat = new Categoria();
 
-                dataGridViewCatProd.DataSource = dao.ListarCategoriasProdutos(cat); //atualizar tabela
-                dataGridViewCatPub.DataSource = dao.ListarCategoriasPublicos(cat); //atualizar tabela
+                dataGridViewCatProd.DataSource = dao.ListarCategorias(cat, "Produto"); //atualizar tabela
+                dataGridViewCatPub.DataSource = dao.ListarCategorias(cat, "Publico"); //atualizar tabela
             }
         }
 
@@ -172,8 +173,8 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         {
             new Helpers().LimparTela(this);
             comboBoxTipoCat.Enabled = true;
-            buttonCadastrar.Text = "Alterar";
-            tabPageCadastrar.Text = "Alterar";
+            buttonCadastrar.Text = "Cadastrar";
+            tabPageCadastrar.Text = "Cadastrar";
         }
 
         private void buttonLimparPesquisaProd_Click(object sender, EventArgs e)
@@ -216,7 +217,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
             CategoriaDAO dao = new CategoriaDAO();
             dao.ExcluirCategoria(cat, "Produto");
-            dataGridViewCatProd.DataSource = dao.ListarCategoriasProdutos(cat); //atualizar tabela
+            dataGridViewCatProd.DataSource = dao.ListarCategorias(cat, "Produto"); //atualizar tabela
             textBoxID.Clear();
         }
 
@@ -228,8 +229,22 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
             CategoriaDAO dao = new CategoriaDAO();
             dao.ExcluirCategoria(cat, "Publico");
-            dataGridViewCatPub.DataSource = dao.ListarCategoriasPublicos(cat); //atualizar tabela
+            dataGridViewCatPub.DataSource = dao.ListarCategorias(cat, "Publico"); //atualizar tabela
             textBoxID.Clear();
+        }
+
+        private void textBoxPesquisaNomeProd_TextChanged(object sender, EventArgs e)
+        {
+            Categoria cat = new Categoria { Nome = textBoxPesquisaNomeProd.Text };
+            CategoriaDAO dao = new CategoriaDAO();
+            dataGridViewCatProd.DataSource = dao.ListarCategorias(cat, "Produto");
+        }
+
+        private void textBoxPesquisaNomePub_TextChanged(object sender, EventArgs e)
+        {
+            Categoria cat = new Categoria { Nome = textBoxPesquisaNomePub.Text };
+            CategoriaDAO dao = new CategoriaDAO();
+            dataGridViewCatPub.DataSource = dao.ListarCategorias(cat, "Publico");
         }
     }
 }

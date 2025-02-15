@@ -116,7 +116,7 @@
             this.tabControlFuncionarios.Name = "tabControlFuncionarios";
             this.tabControlFuncionarios.SelectedIndex = 0;
             this.tabControlFuncionarios.Size = new System.Drawing.Size(1024, 484);
-            this.tabControlFuncionarios.TabIndex = 3;
+            this.tabControlFuncionarios.TabIndex = 1;
             // 
             // tabPageCadastrar
             // 
@@ -427,7 +427,7 @@
             this.buttonLimparPesquisa.Location = new System.Drawing.Point(207, 67);
             this.buttonLimparPesquisa.Name = "buttonLimparPesquisa";
             this.buttonLimparPesquisa.Size = new System.Drawing.Size(72, 29);
-            this.buttonLimparPesquisa.TabIndex = 27;
+            this.buttonLimparPesquisa.TabIndex = 4;
             this.buttonLimparPesquisa.Text = "Limpar";
             this.buttonLimparPesquisa.UseVisualStyleBackColor = true;
             this.buttonLimparPesquisa.Click += new System.EventHandler(this.buttonLimparPesquisa_Click);
@@ -437,7 +437,7 @@
             this.buttonExcluir.Location = new System.Drawing.Point(822, 30);
             this.buttonExcluir.Name = "buttonExcluir";
             this.buttonExcluir.Size = new System.Drawing.Size(160, 40);
-            this.buttonExcluir.TabIndex = 26;
+            this.buttonExcluir.TabIndex = 3;
             this.buttonExcluir.Text = "Excluir";
             this.buttonExcluir.UseVisualStyleBackColor = true;
             this.buttonExcluir.Click += new System.EventHandler(this.buttonExcluir_Click);
@@ -447,7 +447,7 @@
             this.buttonAlterar.Location = new System.Drawing.Point(617, 30);
             this.buttonAlterar.Name = "buttonAlterar";
             this.buttonAlterar.Size = new System.Drawing.Size(160, 40);
-            this.buttonAlterar.TabIndex = 25;
+            this.buttonAlterar.TabIndex = 2;
             this.buttonAlterar.Text = "Alterar";
             this.buttonAlterar.UseVisualStyleBackColor = true;
             this.buttonAlterar.Click += new System.EventHandler(this.buttonAlterar_Click);
@@ -461,14 +461,14 @@
             this.dataGridViewFuncionarios.Name = "dataGridViewFuncionarios";
             this.dataGridViewFuncionarios.ReadOnly = true;
             this.dataGridViewFuncionarios.Size = new System.Drawing.Size(1004, 350);
-            this.dataGridViewFuncionarios.TabIndex = 24;
+            this.dataGridViewFuncionarios.TabIndex = 5;
             // 
             // buttonPesquisar
             // 
             this.buttonPesquisar.Location = new System.Drawing.Point(417, 30);
             this.buttonPesquisar.Name = "buttonPesquisar";
             this.buttonPesquisar.Size = new System.Drawing.Size(160, 40);
-            this.buttonPesquisar.TabIndex = 23;
+            this.buttonPesquisar.TabIndex = 1;
             this.buttonPesquisar.Text = "Pesquisar";
             this.buttonPesquisar.UseVisualStyleBackColor = true;
             this.buttonPesquisar.Click += new System.EventHandler(this.buttonPesquisar_Click);
@@ -478,7 +478,8 @@
             this.textBoxPesquisaNome.Location = new System.Drawing.Point(130, 41);
             this.textBoxPesquisaNome.Name = "textBoxPesquisaNome";
             this.textBoxPesquisaNome.Size = new System.Drawing.Size(247, 20);
-            this.textBoxPesquisaNome.TabIndex = 3;
+            this.textBoxPesquisaNome.TabIndex = 0;
+            this.textBoxPesquisaNome.TextChanged += new System.EventHandler(this.textBoxPesquisaNome_TextChanged);
             // 
             // label11
             // 
