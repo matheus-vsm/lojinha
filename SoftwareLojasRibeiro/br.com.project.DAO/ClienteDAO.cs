@@ -2,6 +2,7 @@
 using System.Data;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using Mysqlx;
 using SoftwareLojasRibeiro.br.com.project.CONNECTION;
 using SoftwareLojasRibeiro.br.com.project.MODEL;
 
@@ -234,6 +235,46 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             }
         }
         #endregion
-    
+
+        #region RetornarClienteCPF
+        public Cliente RetornarClienteCPF(string cpf)
+        {
+            try
+            {
+                Cliente cli = new Cliente();
+
+                string sql = @"SELECT * FROM tb_clientes WHERE cpf = @cpf";
+
+                MySqlCommand executacmd = new MySqlCommand(sql, connection);
+                executacmd.Parameters.AddWithValue("@cpf", cpf);
+
+                connection.Open();
+                //
+                MySqlDataReader rs = executacmd.ExecuteReader();
+
+                if (rs.Read()) //encontrou algo
+                {
+                    cli.Id = rs.GetString("Id_Cliente"); //resgata o valor da coluna ID como string
+                    cli.Nome = rs.GetString("Nome");
+                    return cli;
+                }
+                else
+                {
+                    MessageBox.Show("Cliente não encontrado!");
+                    return null;
+                }
+                
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Ocorreu um erro: " + error);
+                return null;
+            }
+            finally
+            {
+                connection.Close(); // Sempre fechar a conexão
+            }
+        }
+        #endregion
     }
 }
