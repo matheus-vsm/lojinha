@@ -16,7 +16,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace SoftwareLojasRibeiro.br.com.project.VIEW
 {
-    public partial class FormProdutos : Form
+    public partial class FormProdutos : BaseForm
     {
         public FormProdutos()
         {
@@ -87,7 +87,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 Tamanho = textBoxTamanho.Text,
                 Descricao = textBoxDescrição.Text,
                 Imagem = "não",
-                Preco = double.Parse(textBoxPreco.Text),
+                Preco = decimal.Parse(textBoxPreco.Text),
                 Estoque = int.Parse(textBoxEstoque.Text),
                 Id_Cat_Prod = int.Parse(comboBoxCategProd.SelectedValue.ToString()),
                 Id_Cat_Pub = int.Parse(comboBoxCategPub.SelectedValue.ToString()),

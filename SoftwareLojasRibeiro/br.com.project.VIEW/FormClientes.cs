@@ -15,7 +15,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace SoftwareLojasRibeiro//.br.com.project.VIEW se n colocar isso aqui vai impedir com que eu acesse o FormMenu
 {
-    public partial class FormClientes : Form
+    public partial class FormClientes : BaseForm
     {
         public FormClientes()
         {

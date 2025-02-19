@@ -12,7 +12,7 @@ using SoftwareLojasRibeiro.br.com.project.MODEL;
 
 namespace SoftwareLojasRibeiro.br.com.project.VIEW
 {
-    public partial class FormFuncionarios : Form
+    public partial class FormFuncionarios : BaseForm
     {
         public FormFuncionarios()
         {

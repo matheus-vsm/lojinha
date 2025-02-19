@@ -254,7 +254,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
 
                 if (rs.Read()) //encontrou algo
                 {
-                    cli.Id = rs.GetString("Id_Cliente"); //resgata o valor da coluna ID como string
+                    cli.Id = rs.GetInt32("Id_Cliente").ToString(); //resgata o valor da coluna ID como int e converte para string
                     cli.Nome = rs.GetString("Nome");
                     return cli;
                 }

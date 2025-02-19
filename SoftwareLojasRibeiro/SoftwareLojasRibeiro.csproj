@@ -181,6 +181,9 @@
     <Compile Include="br.com.project.MODEL\ItemsVenda.cs" />
     <Compile Include="br.com.project.MODEL\Produto.cs" />
     <Compile Include="br.com.project.MODEL\Venda.cs" />
+    <Compile Include="br.com.project.VIEW\BaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="br.com.project.VIEW\FormCategorias.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -211,6 +214,12 @@
     <Compile Include="br.com.project.VIEW\FormMenu.Designer.cs">
       <DependentUpon>FormMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="br.com.project.VIEW\FormPagamentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.com.project.VIEW\FormPagamentos.Designer.cs">
+      <DependentUpon>FormPagamentos.cs</DependentUpon>
+    </Compile>
     <Compile Include="br.com.project.VIEW\FormProdutos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -240,6 +249,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="br.com.project.VIEW\FormMenu.resx">
       <DependentUpon>FormMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="br.com.project.VIEW\FormPagamentos.resx">
+      <DependentUpon>FormPagamentos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="br.com.project.VIEW\FormProdutos.resx">
       <DependentUpon>FormProdutos.cs</DependentUpon>

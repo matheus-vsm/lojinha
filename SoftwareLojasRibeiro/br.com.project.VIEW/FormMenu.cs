@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace SoftwareLojasRibeiro.br.com.project.VIEW
 {
-    public partial class FormMenu : Form
+    public partial class FormMenu : BaseForm
     {
         public FormMenu()
         {

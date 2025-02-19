@@ -7,24 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SoftwareLojasRibeiro.br.com.project.MODEL;
 
 namespace SoftwareLojasRibeiro.br.com.project.VIEW
 {
-    public partial class FormLogin : BaseForm
+    public partial class FormPagamentos: Form
     {
-        public FormLogin()
+        Cliente cliente = new Cliente();
+        DataTable carrinho = new DataTable();
+        public FormPagamentos(Cliente cli, DataTable carr)
         {
             InitializeComponent();
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
+            cliente = cli;
+            carrinho = carr;
         }
     }
 }

@@ -252,5 +252,45 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
         }
         #endregion
 
+        #region RetornarProduto
+        public Produto RetornarProduto(int id)
+        {
+            try
+            {
+                string sql = @"SELECT * FROM tb_produtos WHERE Id_Produto = @id";
+
+                MySqlCommand executacmd = new MySqlCommand(sql, connection);
+                executacmd.Parameters.AddWithValue("@id", id);
+
+                connection.Open();
+
+                MySqlDataReader rs = executacmd.ExecuteReader();
+
+                if (rs.Read())
+                {
+                    Produto p = new Produto();
+                    p.Id = rs.GetInt32("Id_Produto").ToString();
+                    p.Descricao = rs.GetString("Descricao");
+                    p.Preco = rs.GetDecimal("Preco");
+
+                    return p;
+                }
+                else
+                {
+                    MessageBox.Show("Nenhum Produto encontrado!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return null;
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Erro ao retornar o Produto!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
+            finally
+            {
+                connection.Close(); // Sempre fechar a conexão
+            }
+            #endregion
+        }
     }
 }
