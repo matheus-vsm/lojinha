@@ -105,9 +105,15 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
         private void buttonPagamento_Click(object sender, EventArgs e)
         {
-            FormPagamentos tela = new FormPagamentos(cliente, carrinho);
+            DateTime dataatual = DateTime.Parse(maskedTextBoxData.Text);
+            FormPagamentos tela = new FormPagamentos(cliente, carrinho, dataatual);
             tela.textBoxTotal.Text = total.ToString();
             tela.ShowDialog();
+        }
+
+        private void maskedTextBoxData_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
         }
 
         private void maskedTextBoxCpf_KeyPress(object sender, KeyPressEventArgs e)

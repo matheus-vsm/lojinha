@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SoftwareLojasRibeiro.br.com.project.MODEL
 {
-    public class ItemsVenda
+    public class ItensVenda
     {
         public string Id { get; set; }
         public string Id_Venda { get; set; }

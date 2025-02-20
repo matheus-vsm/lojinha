@@ -44,6 +44,8 @@
             this.buttonFinalizar = new System.Windows.Forms.Button();
             this.comboBoxFormaPagamento = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.maskedTextBoxData = new System.Windows.Forms.MaskedTextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -191,11 +193,31 @@
             this.label6.Text = "Forma de Pagemento: fazer um ifnesse campo para quando for cartao, ficar readonly" +
     " apagado";
             // 
+            // maskedTextBoxData
+            // 
+            this.maskedTextBoxData.Location = new System.Drawing.Point(85, 183);
+            this.maskedTextBoxData.Mask = "00/00/0000 90:00";
+            this.maskedTextBoxData.Name = "maskedTextBoxData";
+            this.maskedTextBoxData.Size = new System.Drawing.Size(246, 20);
+            this.maskedTextBoxData.TabIndex = 14;
+            this.maskedTextBoxData.ValidatingType = typeof(System.DateTime);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(43, 186);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(33, 13);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "Data:";
+            // 
             // FormPagamentos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1030, 647);
+            this.Controls.Add(this.maskedTextBoxData);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.comboBoxFormaPagamento);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.buttonFinalizar);
@@ -213,6 +235,7 @@
             this.Name = "FormPagamentos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormPagamentos";
+            this.Load += new System.EventHandler(this.FormPagamentos_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -238,5 +261,7 @@
         private System.Windows.Forms.ComboBox comboBoxFormaPagamento;
         private System.Windows.Forms.Label label6;
         public System.Windows.Forms.TextBox textBoxTotal;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxData;
+        private System.Windows.Forms.Label label7;
     }
 }

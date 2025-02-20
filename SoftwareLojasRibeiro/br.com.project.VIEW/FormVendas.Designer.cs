@@ -116,6 +116,7 @@
             this.maskedTextBoxData.Size = new System.Drawing.Size(246, 20);
             this.maskedTextBoxData.TabIndex = 12;
             this.maskedTextBoxData.ValidatingType = typeof(System.DateTime);
+            this.maskedTextBoxData.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBoxData_MaskInputRejected);
             // 
             // label5
             // 

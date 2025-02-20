@@ -15,11 +15,21 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
     {
         Cliente cliente = new Cliente();
         DataTable carrinho = new DataTable();
-        public FormPagamentos(Cliente cli, DataTable carr)
+        DateTime dataatual;
+
+        public FormPagamentos(Cliente cli, DataTable carr, DateTime dataatu)
         {
             InitializeComponent();
             cliente = cli;
             carrinho = carr;
+            dataatual = dataatu;
+            maskedTextBoxData.ReadOnly = true;
+            maskedTextBoxData.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+        }
+
+        private void FormPagamentos_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
