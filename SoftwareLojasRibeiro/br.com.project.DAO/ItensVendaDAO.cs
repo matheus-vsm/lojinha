@@ -19,12 +19,12 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             this.connection = new ConnectionFactory().GetConnection();
         }
 
-        #region CadastrarItemsVenda
-        public void CadastrarItemsVenda(ItensVenda item)
+        #region CadastrarItensVenda
+        public void CadastrarItensVenda(ItensVenda item)
         {
             try
             {
-                string sql = @"INSERT INTO tb_itens_venda (Venda_Id, Produto_Id, 
+                string sql = @"INSERT INTO tb_itensvendas (Venda_Id, Produto_Id, 
                         Qtd, Preco_Unitario, Subtotal) 
                         VALUES (@venda, @produto, @qntd, @preco, @subtotal)";
 
@@ -36,9 +36,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                 executacmd.Parameters.AddWithValue("@subtotal", item.Subtotal);
 
                 connection.Open();
-                executacmd.ExecuteNonQuery();
-
-                MessageBox.Show("Item cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                executacmd.ExecuteNonQuery();                
             }
             catch (Exception error)
             {

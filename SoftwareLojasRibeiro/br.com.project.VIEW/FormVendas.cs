@@ -121,7 +121,16 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             if (e.KeyChar == 13)
             {
                 cliente = cDAO.RetornarClienteCPF(maskedTextBoxCpf.Text);
-                textBoxNome.Text = cliente.Nome;
+
+                if (cliente != null)
+                {
+                    textBoxNome.Text = cliente.Nome;
+                }
+                else
+                {
+                    maskedTextBoxCpf.Clear();
+                    maskedTextBoxCpf.Focus();
+                }
             }
         }
 
@@ -130,8 +139,18 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             if (e.KeyChar == 13)
             {
                 produto = pDAO.RetornarProduto(int.Parse(textBoxID.Text));
-                textBoxDescrição.Text = produto.Descricao;
-                textBoxPreco.Text = produto.Preco.ToString();
+                
+                if (produto != null)
+                {
+                    textBoxDescrição.Text = produto.Descricao;
+                    textBoxPreco.Text = produto.Preco.ToString();
+                }
+                else
+                {
+                    textBoxID.Clear();
+                    textBoxID.Focus();
+                }
+
             }
         }
     }

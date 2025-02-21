@@ -41,7 +41,6 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
 
                 connection.Open();
                 executacmd.ExecuteNonQuery();
-                MessageBox.Show("Venda cadastrada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception error)
             {
@@ -56,11 +55,11 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
         #endregion
 
         #region RetornarIdLastVenda
-        public int RetornarIdLastVenda()
+        public string RetornarIdLastVenda()
         {
             try
             {
-                int idvenda = 0;
+                string idvenda = "0";
                 string sql = @"SELECT MAX(Id_Venda) Id_Venda FROM tb_vendas";
 
                 MySqlCommand executacmd = new MySqlCommand(sql, connection);
@@ -69,19 +68,19 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
 
                 if (rs.Read())
                 {
-                    idvenda = rs.GetInt32("Id_Venda");
+                    idvenda = rs.GetInt32("Id_Venda").ToString();
                     return idvenda;
                 }
                 else
                 {
                     MessageBox.Show("Erro ao retornar o ID da Venda.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return 0;
+                    return "0";
                 }
             }
             catch (Exception error)
             {
                 MessageBox.Show("Erro ao retornar o ID da Venda.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return 0;
+                return "0";
             }
             finally
             {

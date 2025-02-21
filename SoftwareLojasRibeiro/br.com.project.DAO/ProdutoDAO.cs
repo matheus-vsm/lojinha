@@ -290,7 +290,73 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             {
                 connection.Close(); // Sempre fechar a conexão
             }
-            #endregion
         }
+        #endregion
+
+        #region RemoverEstoque
+        public void RemoverEstoque(string idprod, int qntdestoque)
+        {
+            try
+            {
+                string sql = @"UPDATE tb_produtos SET Qtd_Estoque = @qtd 
+                            WHERE Id_Produto = @id";
+
+                MySqlCommand executacmd = new MySqlCommand(sql, connection);
+                executacmd.Parameters.AddWithValue("@qtd", qntdestoque);
+                executacmd.Parameters.AddWithValue("@id", idprod);
+
+                connection.Open();
+                executacmd.ExecuteNonQuery();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Erro ao remover o estoque: " + error.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        #endregion
+
+        #region AdicionarEstoque
+        #endregion
+
+        #region RetornaEstoqueAtual
+        public int RetornaEstoqueAtual(string idprod)
+        {
+            try
+            {
+                string sql = @"SELECT Qtd_Estoque FROM tb_produtos 
+                                WHERE Id_Produto = @id";
+
+                MySqlCommand executacmd = new MySqlCommand(sql, connection);
+                executacmd.Parameters.AddWithValue("@id", idprod);
+
+                connection.Open();
+                MySqlDataReader rs = executacmd.ExecuteReader();
+
+                if(rs.Read())
+                {
+                    return rs.GetInt32("Qtd_Estoque");
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao retornar o estoque!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return 0;
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Erro ao retornar o estoque: " + error.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        #endregion
     }
 }

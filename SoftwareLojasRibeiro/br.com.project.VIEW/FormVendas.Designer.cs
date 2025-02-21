@@ -132,7 +132,7 @@
             this.textBoxNome.Location = new System.Drawing.Point(52, 100);
             this.textBoxNome.Name = "textBoxNome";
             this.textBoxNome.Size = new System.Drawing.Size(247, 20);
-            this.textBoxNome.TabIndex = 8;
+            this.textBoxNome.TabIndex = 1;
             // 
             // label2
             // 
@@ -149,7 +149,7 @@
             this.maskedTextBoxCpf.Mask = "###,###,###-##";
             this.maskedTextBoxCpf.Name = "maskedTextBoxCpf";
             this.maskedTextBoxCpf.Size = new System.Drawing.Size(246, 20);
-            this.maskedTextBoxCpf.TabIndex = 8;
+            this.maskedTextBoxCpf.TabIndex = 2;
             this.maskedTextBoxCpf.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.maskedTextBoxCpf_KeyPress);
             // 
             // label6
@@ -185,7 +185,7 @@
             this.buttonRemover.Location = new System.Drawing.Point(208, 194);
             this.buttonRemover.Name = "buttonRemover";
             this.buttonRemover.Size = new System.Drawing.Size(171, 40);
-            this.buttonRemover.TabIndex = 52;
+            this.buttonRemover.TabIndex = 3;
             this.buttonRemover.Text = "Remover Item";
             this.buttonRemover.UseVisualStyleBackColor = true;
             this.buttonRemover.Click += new System.EventHandler(this.buttonRemover_Click);
@@ -195,7 +195,7 @@
             this.buttonAdicionar.Location = new System.Drawing.Point(15, 194);
             this.buttonAdicionar.Name = "buttonAdicionar";
             this.buttonAdicionar.Size = new System.Drawing.Size(171, 40);
-            this.buttonAdicionar.TabIndex = 10;
+            this.buttonAdicionar.TabIndex = 2;
             this.buttonAdicionar.Text = "Adicionar Item";
             this.buttonAdicionar.UseVisualStyleBackColor = true;
             this.buttonAdicionar.Click += new System.EventHandler(this.buttonAdicionar_Click);
@@ -214,14 +214,14 @@
             this.textBoxQuantidade.Location = new System.Drawing.Point(280, 121);
             this.textBoxQuantidade.Name = "textBoxQuantidade";
             this.textBoxQuantidade.Size = new System.Drawing.Size(99, 20);
-            this.textBoxQuantidade.TabIndex = 50;
+            this.textBoxQuantidade.TabIndex = 1;
             // 
             // textBoxID
             // 
             this.textBoxID.Location = new System.Drawing.Point(87, 29);
             this.textBoxID.Name = "textBoxID";
             this.textBoxID.Size = new System.Drawing.Size(49, 20);
-            this.textBoxID.TabIndex = 49;
+            this.textBoxID.TabIndex = 0;
             this.textBoxID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxID_KeyPress);
             // 
             // label12
@@ -294,7 +294,7 @@
             this.buttonCancelar.Location = new System.Drawing.Point(222, 74);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(171, 40);
-            this.buttonCancelar.TabIndex = 54;
+            this.buttonCancelar.TabIndex = 1;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
             // 
@@ -303,7 +303,7 @@
             this.buttonPagamento.Location = new System.Drawing.Point(29, 74);
             this.buttonPagamento.Name = "buttonPagamento";
             this.buttonPagamento.Size = new System.Drawing.Size(171, 40);
-            this.buttonPagamento.TabIndex = 53;
+            this.buttonPagamento.TabIndex = 0;
             this.buttonPagamento.Text = "Pagamento";
             this.buttonPagamento.UseVisualStyleBackColor = true;
             this.buttonPagamento.Click += new System.EventHandler(this.buttonPagamento_Click);
