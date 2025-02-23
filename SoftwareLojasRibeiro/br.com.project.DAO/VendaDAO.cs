@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -88,5 +89,80 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             }
         }
         #endregion
+
+        #region ListarVendas
+        public DataTable ListarVendas(DateTime inicio, DateTime fim)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+
+                string sql = @"SELECT v.Id_Venda AS 'ID', c.Nome AS 'Cliente', v.Data_Venda AS 
+                            'Data da Venda', v.Total_Venda AS 'Total (R$)', v.Desconto, 
+                            v.Forma_Pagamento AS 'Forma de Pagamento', v.Valor_Pago, Status, v.Observacoes 
+                            FROM tb_vendas AS v 
+                            INNER JOIN tb_clientes AS c ON (v.Cliente_Id=c.Id_Cliente) 
+                            WHERE v.Data_Venda BETWEEN @inicio AND @fim";
+
+                MySqlCommand executacmd = new MySqlCommand(sql, connection);
+
+                executacmd.Parameters.AddWithValue("@inicio", inicio);
+                executacmd.Parameters.AddWithValue("@fim", fim);
+
+                connection.Open();
+                executacmd.ExecuteNonQuery();
+
+                MySqlDataAdapter da = new MySqlDataAdapter(executacmd);
+                da.Fill(dt);
+
+                return dt;
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Erro ao listar as vendas: " + error.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        #endregion
+
+        #region ListarTodasVendas
+        public DataTable ListarTodasVendas()
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+
+                string sql = @"SELECT v.Id_Venda AS 'ID', c.Nome AS 'Cliente', v.Data_Venda AS 
+                            'Data da Venda', v.Total_Venda AS 'Total (R$)', v.Desconto, 
+                            v.Forma_Pagamento AS 'Forma de Pagamento', v.Valor_Pago, Status, v.Observacoes 
+                            FROM tb_vendas AS v 
+                            JOIN tb_clientes AS c ON (v.Cliente_Id=c.Id_Cliente)";
+
+                MySqlCommand executacmd = new MySqlCommand(sql, connection);
+
+                connection.Open();
+                executacmd.ExecuteNonQuery();
+
+                MySqlDataAdapter da = new MySqlDataAdapter(executacmd);
+                da.Fill(dt);
+
+                return dt;
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Erro ao listar as vendas: " + error.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        #endregion
+
     }
 }

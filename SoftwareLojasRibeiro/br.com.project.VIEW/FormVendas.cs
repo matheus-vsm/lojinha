@@ -28,7 +28,10 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
         public FormVendas()
         {
-            InitializeComponent();
+            InitializeComponent(); 
+            this.Size = new Size(1567, 1051); // Define o tamanho do formulário
+            this.WindowState = FormWindowState.Normal; // Abre o formulário no estado normal
+
             maskedTextBoxData.ReadOnly = true;
             maskedTextBoxData.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
 
@@ -39,6 +42,38 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             carrinho.Columns.Add("Subtotal", typeof(decimal));
 
             dataGridViewProdutosCarrinho.DataSource = carrinho;
+        }
+
+        private void FormVendas_Load(object sender, EventArgs e)
+        {
+            VendaDAO vdao = new VendaDAO();
+
+            dataGridViewHistorico.DataSource = vdao.ListarTodasVendas();
+            dataGridViewHistorico.DefaultCellStyle.ForeColor = Color.Black;
+
+        }
+
+        public void SelecionarLinhaTabelaVendas()
+        {
+            FormDetalhesVendas tela = new FormDetalhesVendas();
+            DateTime datavenda;
+            
+            //Garantir que a linha esteja realmente selecionada antes de tentar acessa-la
+            if (dataGridViewHistorico.CurrentRow != null)
+            {
+                datavenda = Convert.ToDateTime(dataGridViewHistorico.CurrentRow.Cells[2].Value.ToString() ?? "");
+                //Pegar os dados da linha selecionada
+                tela.textBoxNomeCliente.Text = dataGridViewHistorico.CurrentRow.Cells[1].Value.ToString() ?? "";
+                tela.maskedTextBoxDataVenda.Text = datavenda.ToString("dd/MM/yyyy");
+                tela.textBoxTotal.Text = dataGridViewHistorico.CurrentRow.Cells[3].Value.ToString() ?? "";
+                tela.textBoxObs.Text = dataGridViewHistorico.CurrentRow.Cells[8].Value.ToString() ?? "";
+                
+                tela.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Nenhuma linha selecionada.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void buttonMenu_Click(object sender, EventArgs e)
@@ -114,6 +149,21 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         private void maskedTextBoxData_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
+        }
+
+        private void buttonPesquisar_Click(object sender, EventArgs e)
+        {
+            DateTime inicio = Convert.ToDateTime(dateTimePickerDataInicio.Value.ToString("yyyy-MM-dd"));
+            DateTime fim = Convert.ToDateTime(dateTimePickerDataFim.Value.ToString("yyyy-MM-dd"));
+
+            VendaDAO vdao = new VendaDAO();
+            dataGridViewHistorico.DataSource = vdao.ListarVendas(inicio, fim);
+            dataGridViewHistorico.DefaultCellStyle.ForeColor = Color.Black;
+        }
+
+        private void buttonDetalhes_Click(object sender, EventArgs e)
+        {
+            SelecionarLinhaTabelaVendas();
         }
 
         private void maskedTextBoxCpf_KeyPress(object sender, KeyPressEventArgs e)
