@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SoftwareLojasRibeiro.br.com.project.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,14 +13,18 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 {
     public partial class FormDetalhesVendas: Form
     {
-        public FormDetalhesVendas()
+        string idvenda;
+        public FormDetalhesVendas(string vendaid)
         {
+            idvenda = vendaid;
             InitializeComponent();
         }
 
         private void FormDetalhesVendas_Load(object sender, EventArgs e)
         {
-
+            ItensVendaDAO ivdao = new ItensVendaDAO();
+            
+            dataGridViewDetalhes.DataSource = ivdao.ListarItensVenda(idvenda);
         }
 
 

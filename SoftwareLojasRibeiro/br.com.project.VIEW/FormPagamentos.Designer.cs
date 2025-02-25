@@ -256,7 +256,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "FormPagamentos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormPagamentos";
+            this.Text = "Lojas Ribeiro - Pagamento";
             this.Load += new System.EventHandler(this.FormPagamentos_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

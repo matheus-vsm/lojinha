@@ -97,9 +97,15 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             {
                 DataTable dt = new DataTable();
 
-                string sql = @"SELECT v.Id_Venda AS 'ID', c.Nome AS 'Cliente', v.Data_Venda AS 
-                            'Data da Venda', v.Total_Venda AS 'Total (R$)', v.Desconto, 
-                            v.Forma_Pagamento AS 'Forma de Pagamento', v.Valor_Pago, Status, v.Observacoes 
+                string sql = @"SELECT v.Id_Venda AS 'ID', 
+                                c.Nome AS 'Cliente', 
+                                v.Data_Venda AS 'Data da Venda', 
+                                v.Total_Venda AS 'Total (R$)', 
+                                v.Desconto, 
+                                v.Forma_Pagamento AS 'Forma de Pagamento', 
+                                v.Valor_Pago, 
+                                v.Status, 
+                                v.Observacoes 
                             FROM tb_vendas AS v 
                             INNER JOIN tb_clientes AS c ON (v.Cliente_Id=c.Id_Cliente) 
                             WHERE v.Data_Venda BETWEEN @inicio AND @fim";

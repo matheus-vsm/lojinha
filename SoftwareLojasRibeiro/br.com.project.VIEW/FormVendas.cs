@@ -55,7 +55,10 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
         public void SelecionarLinhaTabelaVendas()
         {
-            FormDetalhesVendas tela = new FormDetalhesVendas();
+            //passando id da venda para a tela de detalhes
+            string idvenda = dataGridViewHistorico.CurrentRow.Cells[0].Value.ToString() ?? "";
+            
+            FormDetalhesVendas tela = new FormDetalhesVendas(idvenda);
             DateTime datavenda;
             
             //Garantir que a linha esteja realmente selecionada antes de tentar acessa-la

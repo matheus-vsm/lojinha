@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -41,6 +43,45 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             catch (Exception error)
             {
                 MessageBox.Show("Erro ao cadastrar o item: " + error.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        #endregion
+
+        #region ListarItensVenda
+        public DataTable ListarItensVenda(string idvenda)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+
+                string sql = @"SELECT it.Id_Item_Venda AS 'ID Item Venda', 
+		                        p.Nome_Produto as 'Produto', 
+                                it.Qtd AS 'Quantidade', 
+                                p.Preco AS 'Preço Unitário', 
+                                it.Subtotal AS 'SubTotal' 
+                            FROM tb_itensvendas AS it 
+                            JOIN tb_produtos AS p ON (it.Produto_Id = p.Id_Produto) 
+                            WHERE it.Venda_Id = @id";
+
+                MySqlCommand executacmd = new MySqlCommand(sql, connection);
+                executacmd.Parameters.AddWithValue("@id", idvenda);
+
+                connection.Open();
+                executacmd.ExecuteNonQuery();
+
+                MySqlDataAdapter da = new MySqlDataAdapter(executacmd);
+                da.Fill(dt);
+
+                return dt;
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Erro ao listar os itens da venda: " + error.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw;
             }
             finally
