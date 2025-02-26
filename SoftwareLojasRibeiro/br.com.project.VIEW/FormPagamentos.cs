@@ -31,26 +31,41 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         private void FormPagamentos_Load(object sender, EventArgs e)
         {
             textBoxTroco.Text = "0";
-            textBoxCartao.Text = "0";
-            textBoxPreco.Text = "0";
+            textBoxDebito.Text = "0";
+            textBoxDinheiro.Text = "0";
+            textBoxCredito.Text = "0";
+            textBoxPix.Text = "0";
+            textBoxDesconto.Text = "0";
         }
 
         private void buttonFinalizar_Click(object sender, EventArgs e)
         {
-            double v_dinheiro, v_cartao, v_total, v_troco, v_desconto, v_pago;
+            double v_dinheiro, v_debito, v_credito, v_pix, v_total, v_troco, v_desconto, v_pago;
             int qtdestoque, qtdcomprada, qtdatualizada;
 
             ProdutoDAO pdao = new ProdutoDAO();
 
-            v_cartao = double.Parse(textBoxCartao.Text);
-            v_dinheiro = double.Parse(textBoxPreco.Text);
-            v_total = double.Parse(textBoxTotal.Text);
+            v_debito = double.Parse(textBoxDebito.Text);
+            v_credito = double.Parse(textBoxCredito.Text);
+            v_dinheiro = double.Parse(textBoxDinheiro.Text);
+            v_pix = double.Parse(textBoxPix.Text);
+            v_desconto = double.Parse(textBoxDesconto.Text);
 
-            v_pago = v_cartao + v_dinheiro;
+            v_total = double.Parse(textBoxTotal.Text) - v_desconto;
 
-            if(v_total > v_pago)
+            if (v_desconto > v_total)
+            {
+                MessageBox.Show("Desconto maior que o total da compra!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            v_pago = v_dinheiro + v_credito + v_debito + v_pix;
+
+            if (v_total > v_pago)
             {
                 MessageBox.Show("Valor pago menor que o total da compra!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //depois adicionar uma caixa de dialogo falando que o valor é menor, perguntando se deseja adicionar o cliente para a lista de devedores
+                //status = pendente
             }
             else
             {
@@ -60,18 +75,25 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                     Id_Cliente = cliente.Id,
                     Data_Venda = dataatual,
                     Total_Venda = v_total,
-                    Desconto = 0,
-                    Forma_Pagamento = "Dinheiro",
+                    Desconto = v_desconto,
                     Valor_Pago = v_pago,
-                    Status = "Pendente",
+                    Status = "Concluída",
                     Observacoes = textBoxObservacoes.Text,
                 };
                 textBoxTroco.Text = v_troco.ToString();
 
                 VendaDAO vdao = new VendaDAO();
+
+                Pagamento paga = new Pagamento
+                {
+                    Id_Venda = vdao.RetornarIdLastVenda(),
+                    Forma_Pagamento = "Dinheiro",
+                    Valor_Pago = v_pago
+                };
+
                 vdao.CadastrarVenda(ven);
 
-                foreach(DataRow linha in carrinho.Rows)
+                foreach (DataRow linha in carrinho.Rows)
                 {
                     ItensVenda item = new ItensVenda {
                         Id_Venda = vdao.RetornarIdLastVenda(),

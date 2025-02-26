@@ -174,12 +174,14 @@
     <Compile Include="br.com.project.DAO\ClienteDAO.cs" />
     <Compile Include="br.com.project.DAO\FuncionarioDAO.cs" />
     <Compile Include="br.com.project.DAO\ItensVendaDAO.cs" />
+    <Compile Include="br.com.project.DAO\PagamentoDAO.cs" />
     <Compile Include="br.com.project.DAO\ProdutoDAO.cs" />
     <Compile Include="br.com.project.DAO\VendaDAO.cs" />
     <Compile Include="br.com.project.MODEL\Categoria.cs" />
     <Compile Include="br.com.project.MODEL\Funcionario.cs" />
     <Compile Include="br.com.project.MODEL\Helpers.cs" />
     <Compile Include="br.com.project.MODEL\ItensVenda.cs" />
+    <Compile Include="br.com.project.MODEL\Pagamento.cs" />
     <Compile Include="br.com.project.MODEL\Produto.cs" />
     <Compile Include="br.com.project.MODEL\Venda.cs" />
     <Compile Include="br.com.project.VIEW\BaseForm.cs">

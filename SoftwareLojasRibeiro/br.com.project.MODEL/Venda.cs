@@ -13,7 +13,6 @@ namespace SoftwareLojasRibeiro.br.com.project.MODEL
         public DateTime Data_Venda { get; set; }
         public double Total_Venda { get; set; }
         public double Desconto { get; set; }
-        public string Forma_Pagamento { get; set; }
         public double Valor_Pago { get; set; }
         public string Status { get; set; }
         public string Observacoes { get; set; }

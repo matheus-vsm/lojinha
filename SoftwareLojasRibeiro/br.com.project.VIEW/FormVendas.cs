@@ -21,6 +21,9 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         Produto produto = new Produto();
         ProdutoDAO pDAO = new ProdutoDAO();
 
+        Pagamento paga = new Pagamento();
+        PagamentoDAO pagaDAO = new PagamentoDAO();
+
         int qntd;
         decimal preco, subtotal, total;
 

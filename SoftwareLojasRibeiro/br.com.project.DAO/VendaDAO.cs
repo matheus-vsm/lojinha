@@ -26,8 +26,8 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             try
             {
                 string sql = @"INSERT INTO tb_vendas (Cliente_Id, Data_Venda, 
-                            Total_Venda, Desconto, Forma_Pagamento, Valor_Pago, Status, Observacoes) 
-                            VALUES (@id, @data, @total, @desconto, @pagamento, 
+                            Total_Venda, Desconto, Valor_Pago, Status, Observacoes) 
+                            VALUES (@id, @data, @total, @desconto, 
                             @valor, @status, @observacoes)";
 
                 MySqlCommand executacmd = new MySqlCommand(sql, connection);
@@ -35,7 +35,6 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                 executacmd.Parameters.AddWithValue("@data", ven.Data_Venda);
                 executacmd.Parameters.AddWithValue("@total", ven.Total_Venda);
                 executacmd.Parameters.AddWithValue("@desconto", ven.Desconto);
-                executacmd.Parameters.AddWithValue("@pagamento", ven.Forma_Pagamento);
                 executacmd.Parameters.AddWithValue("@valor", ven.Valor_Pago);
                 executacmd.Parameters.AddWithValue("@status", ven.Status);
                 executacmd.Parameters.AddWithValue("@observacoes", ven.Observacoes);
@@ -102,14 +101,13 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                                 v.Data_Venda AS 'Data da Venda', 
                                 v.Total_Venda AS 'Total (R$)', 
                                 v.Desconto, 
-                                v.Forma_Pagamento AS 'Forma de Pagamento', 
                                 v.Valor_Pago, 
                                 v.Status, 
                                 v.Observacoes 
                             FROM tb_vendas AS v 
                             INNER JOIN tb_clientes AS c ON (v.Cliente_Id=c.Id_Cliente) 
                             WHERE v.Data_Venda BETWEEN @inicio AND @fim";
-
+                //adicioar o PAGAMENTO fazendo JOIN com a tabela de pagamentos
                 MySqlCommand executacmd = new MySqlCommand(sql, connection);
 
                 executacmd.Parameters.AddWithValue("@inicio", inicio);
@@ -142,9 +140,13 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             {
                 DataTable dt = new DataTable();
 
-                string sql = @"SELECT v.Id_Venda AS 'ID', c.Nome AS 'Cliente', v.Data_Venda AS 
-                            'Data da Venda', v.Total_Venda AS 'Total (R$)', v.Desconto, 
-                            v.Forma_Pagamento AS 'Forma de Pagamento', v.Valor_Pago, Status, v.Observacoes 
+                string sql = @"SELECT 
+                                v.Id_Venda AS 'ID', 
+                                c.Nome AS 'Cliente', v.Data_Venda AS 'Data da Venda', 
+                                v.Total_Venda AS 'Total (R$)', 
+                                v.Desconto, 
+                                v.Valor_Pago, Status, 
+                                v.Observacoes 
                             FROM tb_vendas AS v 
                             JOIN tb_clientes AS c ON (v.Cliente_Id=c.Id_Cliente)";
 
