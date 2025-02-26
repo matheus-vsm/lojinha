@@ -25,7 +25,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             try
             {
                 string sql = @"INSERT INTO tb_pagamentos 
-                                (Venda_Id, 
+                                (Vendaa_Id, 
                                 Forma_Pagamento, 
                                 Valor_Pago) 
                             VALUES (@venda, @forma, @valor)";

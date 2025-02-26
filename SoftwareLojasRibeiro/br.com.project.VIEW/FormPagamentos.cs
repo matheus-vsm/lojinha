@@ -83,13 +83,48 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 textBoxTroco.Text = v_troco.ToString();
 
                 VendaDAO vdao = new VendaDAO();
+                PagamentoDAO pagaDAO = new PagamentoDAO();
 
-                Pagamento paga = new Pagamento
+                if (v_debito > 0)
                 {
-                    Id_Venda = vdao.RetornarIdLastVenda(),
-                    Forma_Pagamento = "Dinheiro",
-                    Valor_Pago = v_pago
-                };
+                    Pagamento paga = new Pagamento
+                    {
+                        Id_Venda = vdao.RetornarIdLastVenda(),
+                        Forma_Pagamento = "Cartão de Débito",
+                        Valor_Pago = v_debito
+                    };
+                    pagaDAO.CadastrarPagamento(paga);
+                }
+                if (v_credito > 0)
+                {
+                    Pagamento paga = new Pagamento
+                    {
+                        Id_Venda = vdao.RetornarIdLastVenda(),
+                        Forma_Pagamento = "Cartão de Crédito",
+                        Valor_Pago = v_credito
+                    };
+                    pagaDAO.CadastrarPagamento(paga);
+                }
+                if (v_dinheiro > 0)
+                {
+                    Pagamento paga = new Pagamento
+                    {
+                        Id_Venda = vdao.RetornarIdLastVenda(),
+                        Forma_Pagamento = "Dinheiro",
+                        Valor_Pago = v_dinheiro
+                    };
+                    pagaDAO.CadastrarPagamento(paga);
+                }
+                if (v_pix > 0)
+                {
+                    Pagamento paga = new Pagamento
+                    {
+                        Id_Venda = vdao.RetornarIdLastVenda(),
+                        Forma_Pagamento = "PIX",
+                        Valor_Pago = v_pix
+                    };
+                    pagaDAO.CadastrarPagamento(paga);
+                }
 
                 vdao.CadastrarVenda(ven);
 
