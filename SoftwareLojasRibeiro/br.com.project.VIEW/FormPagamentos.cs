@@ -12,7 +12,7 @@ using SoftwareLojasRibeiro.br.com.project.MODEL;
 
 namespace SoftwareLojasRibeiro.br.com.project.VIEW
 {
-    public partial class FormPagamentos: Form
+    public partial class FormPagamentos : Form
     {
         Cliente cliente = new Cliente();
         DataTable carrinho = new DataTable();
@@ -71,7 +71,8 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             {
                 v_troco = v_pago - v_total;
 
-                Venda ven = new Venda {
+                Venda ven = new Venda
+                {
                     Id_Cliente = cliente.Id,
                     Data_Venda = dataatual,
                     Total_Venda = v_total,
@@ -85,52 +86,35 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 VendaDAO vdao = new VendaDAO();
                 PagamentoDAO pagaDAO = new PagamentoDAO();
 
-                if (v_debito > 0)
+                string idVenda = vdao.RetornarIdLastVenda();
+                Dictionary<string, double> pagamentos = new Dictionary<string, double>
                 {
-                    Pagamento paga = new Pagamento
-                    {
-                        Id_Venda = vdao.RetornarIdLastVenda(),
-                        Forma_Pagamento = "Cartão de Débito",
-                        Valor_Pago = v_debito
-                    };
-                    pagaDAO.CadastrarPagamento(paga);
-                }
-                if (v_credito > 0)
+                    { "Cartão de Débito", v_debito },
+                    { "Cartão de Crédito", v_credito },
+                    { "Dinheiro", v_dinheiro },
+                    { "PIX", v_pix }
+                };
+
+                foreach (var pagamento in pagamentos)
                 {
-                    Pagamento paga = new Pagamento
+                    if (pagamento.Value > 0)
                     {
-                        Id_Venda = vdao.RetornarIdLastVenda(),
-                        Forma_Pagamento = "Cartão de Crédito",
-                        Valor_Pago = v_credito
-                    };
-                    pagaDAO.CadastrarPagamento(paga);
-                }
-                if (v_dinheiro > 0)
-                {
-                    Pagamento paga = new Pagamento
-                    {
-                        Id_Venda = vdao.RetornarIdLastVenda(),
-                        Forma_Pagamento = "Dinheiro",
-                        Valor_Pago = v_dinheiro
-                    };
-                    pagaDAO.CadastrarPagamento(paga);
-                }
-                if (v_pix > 0)
-                {
-                    Pagamento paga = new Pagamento
-                    {
-                        Id_Venda = vdao.RetornarIdLastVenda(),
-                        Forma_Pagamento = "PIX",
-                        Valor_Pago = v_pix
-                    };
-                    pagaDAO.CadastrarPagamento(paga);
+                        Pagamento paga = new Pagamento
+                        {
+                            Id_Venda = idVenda,
+                            Forma_Pagamento = pagamento.Key,
+                            Valor_Pago = pagamento.Value
+                        };
+                        pagaDAO.CadastrarPagamento(paga);
+                    }
                 }
 
                 vdao.CadastrarVenda(ven);
 
                 foreach (DataRow linha in carrinho.Rows)
                 {
-                    ItensVenda item = new ItensVenda {
+                    ItensVenda item = new ItensVenda
+                    {
                         Id_Venda = vdao.RetornarIdLastVenda(),
                         Id_Produto = linha["ID"].ToString(),
                         Quantidade = int.Parse(linha["Quantidade"].ToString()),
@@ -155,9 +139,8 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 }
 
                 MessageBox.Show("Venda finalizada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Dispose();
-
-                new FormVendas().ShowDialog();
+                //this.DialogResult = DialogResult.OK; // Retorna "OK" para quem chamou essa tela
+                this.Dispose(); // Fecha a tela de vendas
             }
         }
     }

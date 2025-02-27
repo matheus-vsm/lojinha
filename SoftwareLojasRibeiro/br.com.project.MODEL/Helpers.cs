@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using Org.BouncyCastle.Crypto.Generators;
 using BCrypt.Net;
+using System.Data;
 
 namespace SoftwareLojasRibeiro.br.com.project.MODEL
 {
@@ -17,23 +18,38 @@ namespace SoftwareLojasRibeiro.br.com.project.MODEL
         {
             foreach (Control ctrPai in tela.Controls)
             {
-                foreach (Control ctr1 in ctrPai.Controls)
+                if (ctrPai is TabControl || ctrPai is GroupBox) // Adicionado suporte para GroupBox
                 {
-                    if (ctr1 is TabPage)
+                    foreach (Control ctr1 in ctrPai.Controls)
                     {
-                        foreach (Control ctr2 in ctr1.Controls)
+                        if (ctr1 is TabPage)
                         {
-                            if (ctr2 is TextBox)
+                            foreach (Control ctr2 in ctr1.Controls)
                             {
-                                (ctr2 as TextBox).Text = string.Empty;
-                            }
-                            else if (ctr2 is MaskedTextBox)
-                            {
-                                (ctr2 as MaskedTextBox).Text = string.Empty;
-                            }
-                            else if (ctr2 is ComboBox)
-                            {
-                                (ctr2 as ComboBox).Text = string.Empty;
+                                if (ctr2 is TextBox)
+                                {
+                                    (ctr2 as TextBox).Text = string.Empty;
+                                }
+                                else if (ctr2 is MaskedTextBox)
+                                {
+                                    (ctr2 as MaskedTextBox).Text = string.Empty;
+                                }
+                                else if (ctr2 is ComboBox)
+                                {
+                                    (ctr2 as ComboBox).SelectedItem = -1;
+                                    (ctr2 as ComboBox).Text = string.Empty;
+                                }
+                                else if (ctr2 is DataGridView dataGridView && dataGridView.Name == "dataGridViewProdutosCarrinho")
+                                {
+                                    if (dataGridView.DataSource is DataTable dataTable)
+                                    {
+                                        dataTable.Rows.Clear(); // Limpa apenas os dados, mantendo os cabeçalhos
+                                    }
+                                    else
+                                    {
+                                        dataGridView.Rows.Clear(); // Se não houver DataSource, remove todas as linhas
+                                    }
+                                }
                             }
                         }
                     }

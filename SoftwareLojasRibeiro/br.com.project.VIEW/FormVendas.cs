@@ -72,7 +72,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 tela.textBoxNomeCliente.Text = dataGridViewHistorico.CurrentRow.Cells[1].Value.ToString() ?? "";
                 tela.maskedTextBoxDataVenda.Text = datavenda.ToString("dd/MM/yyyy");
                 tela.textBoxTotal.Text = dataGridViewHistorico.CurrentRow.Cells[3].Value.ToString() ?? "";
-                tela.textBoxObs.Text = dataGridViewHistorico.CurrentRow.Cells[8].Value.ToString() ?? "";
+                tela.textBoxObs.Text = dataGridViewHistorico.CurrentRow.Cells[7].Value.ToString() ?? "";
                 
                 tela.ShowDialog();
             }
@@ -150,6 +150,11 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             FormPagamentos tela = new FormPagamentos(cliente, carrinho, dataatual);
             tela.textBoxTotal.Text = total.ToString();
             tela.ShowDialog();
+            new Helpers().LimparTela(this);
+            //if (tela.ShowDialog() == DialogResult.OK)
+            //{
+            //    new Helpers().LimparTela(this);
+            //}
         }
 
         private void maskedTextBoxData_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
@@ -170,6 +175,11 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         private void buttonDetalhes_Click(object sender, EventArgs e)
         {
             SelecionarLinhaTabelaVendas();
+        }
+
+        private void buttonLimparCampos_Click(object sender, EventArgs e)
+        {
+            new Helpers().LimparTela(this);
         }
 
         private void maskedTextBoxCpf_KeyPress(object sender, KeyPressEventArgs e)
