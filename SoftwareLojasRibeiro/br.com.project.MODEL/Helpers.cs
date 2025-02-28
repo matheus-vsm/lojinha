@@ -43,7 +43,7 @@ namespace SoftwareLojasRibeiro.br.com.project.MODEL
                                 {
                                     if (dataGridView.DataSource is DataTable dataTable)
                                     {
-                                        dataTable.Rows.Clear(); // Limpa apenas os dados, mantendo os cabeçalhos
+                                        dataTable.Clear(); // Limpa apenas os dados, mantendo os cabeçalhos
                                     }
                                     else
                                     {

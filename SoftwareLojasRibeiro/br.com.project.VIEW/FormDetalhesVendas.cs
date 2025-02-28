@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace SoftwareLojasRibeiro.br.com.project.VIEW
 {
-    public partial class FormDetalhesVendas : Form
+    public partial class FormDetalhesVendas : BaseForm
     {
         string idvenda;
         public FormDetalhesVendas(string vendaid)

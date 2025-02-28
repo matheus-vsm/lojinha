@@ -54,10 +54,11 @@
             this.groupBoxCarrinho = new System.Windows.Forms.GroupBox();
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.buttonPagamento = new System.Windows.Forms.Button();
-            this.textBoxTotal = new System.Windows.Forms.TextBox();
+            this.textBoxTotall = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tabControlVendas = new System.Windows.Forms.TabControl();
             this.tabPageVenda = new System.Windows.Forms.TabPage();
+            this.buttonLimparCampos = new System.Windows.Forms.Button();
             this.tabPageHistorico = new System.Windows.Forms.TabPage();
             this.dataGridViewHistorico = new System.Windows.Forms.DataGridView();
             this.groupBoxConsulta = new System.Windows.Forms.GroupBox();
@@ -67,7 +68,6 @@
             this.dateTimePickerDataInicio = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.buttonLimparCampos = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBoxCliente.SuspendLayout();
             this.groupBoxProduto.SuspendLayout();
@@ -130,6 +130,7 @@
             this.maskedTextBoxData.Location = new System.Drawing.Point(51, 28);
             this.maskedTextBoxData.Mask = "00/00/0000 90:00";
             this.maskedTextBoxData.Name = "maskedTextBoxData";
+            this.maskedTextBoxData.ReadOnly = true;
             this.maskedTextBoxData.Size = new System.Drawing.Size(246, 20);
             this.maskedTextBoxData.TabIndex = 12;
             this.maskedTextBoxData.ValidatingType = typeof(System.DateTime);
@@ -239,6 +240,7 @@
             this.textBoxID.Name = "textBoxID";
             this.textBoxID.Size = new System.Drawing.Size(49, 20);
             this.textBoxID.TabIndex = 0;
+            this.textBoxID.TextChanged += new System.EventHandler(this.textBoxID_TextChanged);
             this.textBoxID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxID_KeyPress);
             // 
             // label12
@@ -254,6 +256,7 @@
             // 
             this.textBoxDescrição.Location = new System.Drawing.Point(87, 68);
             this.textBoxDescrição.Name = "textBoxDescrição";
+            this.textBoxDescrição.ReadOnly = true;
             this.textBoxDescrição.Size = new System.Drawing.Size(229, 20);
             this.textBoxDescrição.TabIndex = 44;
             // 
@@ -293,12 +296,13 @@
             this.dataGridViewProdutosCarrinho.RowHeadersWidth = 62;
             this.dataGridViewProdutosCarrinho.Size = new System.Drawing.Size(572, 308);
             this.dataGridViewProdutosCarrinho.TabIndex = 8;
+            this.dataGridViewProdutosCarrinho.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewProdutosCarrinho_CellContentClick);
             // 
             // groupBoxCarrinho
             // 
             this.groupBoxCarrinho.Controls.Add(this.buttonCancelar);
             this.groupBoxCarrinho.Controls.Add(this.buttonPagamento);
-            this.groupBoxCarrinho.Controls.Add(this.textBoxTotal);
+            this.groupBoxCarrinho.Controls.Add(this.textBoxTotall);
             this.groupBoxCarrinho.Controls.Add(this.label4);
             this.groupBoxCarrinho.Location = new System.Drawing.Point(435, 332);
             this.groupBoxCarrinho.Name = "groupBoxCarrinho";
@@ -326,12 +330,13 @@
             this.buttonPagamento.UseVisualStyleBackColor = true;
             this.buttonPagamento.Click += new System.EventHandler(this.buttonPagamento_Click);
             // 
-            // textBoxTotal
+            // textBoxTotall
             // 
-            this.textBoxTotal.Location = new System.Drawing.Point(94, 35);
-            this.textBoxTotal.Name = "textBoxTotal";
-            this.textBoxTotal.Size = new System.Drawing.Size(247, 20);
-            this.textBoxTotal.TabIndex = 8;
+            this.textBoxTotall.Location = new System.Drawing.Point(94, 35);
+            this.textBoxTotall.Name = "textBoxTotall";
+            this.textBoxTotall.ReadOnly = true;
+            this.textBoxTotall.Size = new System.Drawing.Size(247, 20);
+            this.textBoxTotall.TabIndex = 8;
             // 
             // label4
             // 
@@ -368,6 +373,16 @@
             this.tabPageVenda.TabIndex = 0;
             this.tabPageVenda.Text = "Venda";
             this.tabPageVenda.UseVisualStyleBackColor = true;
+            // 
+            // buttonLimparCampos
+            // 
+            this.buttonLimparCampos.Location = new System.Drawing.Point(109, 433);
+            this.buttonLimparCampos.Name = "buttonLimparCampos";
+            this.buttonLimparCampos.Size = new System.Drawing.Size(171, 40);
+            this.buttonLimparCampos.TabIndex = 52;
+            this.buttonLimparCampos.Text = "Limpar Campos";
+            this.buttonLimparCampos.UseVisualStyleBackColor = true;
+            this.buttonLimparCampos.Click += new System.EventHandler(this.buttonLimparCampos_Click);
             // 
             // tabPageHistorico
             // 
@@ -469,16 +484,6 @@
             this.label7.TabIndex = 12;
             this.label7.Text = "Data Início:";
             // 
-            // buttonLimparCampos
-            // 
-            this.buttonLimparCampos.Location = new System.Drawing.Point(109, 433);
-            this.buttonLimparCampos.Name = "buttonLimparCampos";
-            this.buttonLimparCampos.Size = new System.Drawing.Size(171, 40);
-            this.buttonLimparCampos.TabIndex = 52;
-            this.buttonLimparCampos.Text = "Limpar Campos";
-            this.buttonLimparCampos.UseVisualStyleBackColor = true;
-            this.buttonLimparCampos.Click += new System.EventHandler(this.buttonLimparCampos_Click);
-            // 
             // FormVendas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -529,11 +534,9 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button buttonRemover;
         private System.Windows.Forms.Button buttonAdicionar;
-        private System.Windows.Forms.DataGridView dataGridViewProdutosCarrinho;
         private System.Windows.Forms.GroupBox groupBoxCarrinho;
         private System.Windows.Forms.Button buttonCancelar;
         private System.Windows.Forms.Button buttonPagamento;
-        private System.Windows.Forms.TextBox textBoxTotal;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button buttonMenu;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxData;
@@ -550,5 +553,7 @@
         private System.Windows.Forms.Button buttonPesquisar;
         private System.Windows.Forms.Button buttonDetalhes;
         private System.Windows.Forms.Button buttonLimparCampos;
+        public System.Windows.Forms.TextBox textBoxTotall;
+        public System.Windows.Forms.DataGridView dataGridViewProdutosCarrinho;
     }
 }

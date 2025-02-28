@@ -8,6 +8,7 @@ using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Google.Protobuf.WellKnownTypes;
 using SoftwareLojasRibeiro.br.com.project.DAO;
 using SoftwareLojasRibeiro.br.com.project.MODEL;
 
@@ -102,7 +103,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
                 //adicionando produto no carrinho
                 carrinho.Rows.Add(int.Parse(textBoxID.Text), textBoxDescrição.Text, qntd, preco, subtotal);
-                textBoxTotal.Text = total.ToString();
+                textBoxTotall.Text = total.ToString();
 
                 textBoxID.Clear();
                 textBoxDescrição.Clear();
@@ -112,7 +113,14 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             }
             catch (Exception error)
             {
-                MessageBox.Show("Digite o Código do Produto!");
+                if (qntd == 0)
+                {
+                    MessageBox.Show("Digite a Quantidade do Produto!");
+                }
+                else
+                {
+                    MessageBox.Show("Digite o Código do Produto!");
+                }
             }
         }
 
@@ -139,7 +147,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             carrinho.AcceptChanges(); //atualizando a tabela
 
             total -= subproduto;
-            textBoxTotal.Text = total.ToString();
+            textBoxTotall.Text = total.ToString();
 
             MessageBox.Show("Produto Removido do Carrinho!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -147,14 +155,11 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         private void buttonPagamento_Click(object sender, EventArgs e)
         {
             DateTime dataatual = DateTime.Parse(maskedTextBoxData.Text);
-            FormPagamentos tela = new FormPagamentos(cliente, carrinho, dataatual);
+            FormPagamentos tela = new FormPagamentos(cliente, carrinho, dataatual, this);
             tela.textBoxTotal.Text = total.ToString();
-            tela.ShowDialog();
+            tela.Show();
+            this.Hide();
             new Helpers().LimparTela(this);
-            //if (tela.ShowDialog() == DialogResult.OK)
-            //{
-            //    new Helpers().LimparTela(this);
-            //}
         }
 
         private void maskedTextBoxData_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
@@ -180,6 +185,19 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         private void buttonLimparCampos_Click(object sender, EventArgs e)
         {
             new Helpers().LimparTela(this);
+            FormVendas novatela = new FormVendas();
+            novatela.Show();
+            this.Hide();
+        }
+
+        private void textBoxID_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridViewProdutosCarrinho_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
         private void maskedTextBoxCpf_KeyPress(object sender, KeyPressEventArgs e)

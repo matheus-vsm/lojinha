@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonMenu = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -55,7 +56,13 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.textBoxDesconto = new System.Windows.Forms.TextBox();
+            this.dataGridViewProdutosCarrinhoPagamento = new System.Windows.Forms.DataGridView();
+            this.formVendasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.formVendasBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProdutosCarrinhoPagamento)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.formVendasBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.formVendasBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -65,7 +72,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(715, 111);
+            this.panel1.Size = new System.Drawing.Size(1065, 111);
             this.panel1.TabIndex = 6;
             // 
             // buttonMenu
@@ -102,6 +109,7 @@
             this.textBoxDinheiro.Name = "textBoxDinheiro";
             this.textBoxDinheiro.Size = new System.Drawing.Size(99, 20);
             this.textBoxDinheiro.TabIndex = 48;
+            this.textBoxDinheiro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxDinheiro_KeyPress);
             // 
             // label2
             // 
@@ -171,7 +179,7 @@
             // 
             // buttonFinalizar
             // 
-            this.buttonFinalizar.Location = new System.Drawing.Point(219, 522);
+            this.buttonFinalizar.Location = new System.Drawing.Point(330, 522);
             this.buttonFinalizar.Name = "buttonFinalizar";
             this.buttonFinalizar.Size = new System.Drawing.Size(232, 40);
             this.buttonFinalizar.TabIndex = 58;
@@ -200,7 +208,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(528, 183);
+            this.label8.Location = new System.Drawing.Point(427, 183);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(73, 13);
             this.label8.TabIndex = 61;
@@ -208,10 +216,10 @@
             // 
             // textBoxObservacoes
             // 
-            this.textBoxObservacoes.Location = new System.Drawing.Point(431, 199);
+            this.textBoxObservacoes.Location = new System.Drawing.Point(368, 199);
             this.textBoxObservacoes.Multiline = true;
             this.textBoxObservacoes.Name = "textBoxObservacoes";
-            this.textBoxObservacoes.Size = new System.Drawing.Size(258, 233);
+            this.textBoxObservacoes.Size = new System.Drawing.Size(186, 188);
             this.textBoxObservacoes.TabIndex = 62;
             // 
             // label10
@@ -290,12 +298,34 @@
             this.textBoxDesconto.Name = "textBoxDesconto";
             this.textBoxDesconto.Size = new System.Drawing.Size(99, 20);
             this.textBoxDesconto.TabIndex = 71;
+            this.textBoxDesconto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxDesconto_KeyPress);
+            // 
+            // dataGridViewProdutosCarrinhoPagamento
+            // 
+            this.dataGridViewProdutosCarrinhoPagamento.AllowUserToAddRows = false;
+            this.dataGridViewProdutosCarrinhoPagamento.AllowUserToDeleteRows = false;
+            this.dataGridViewProdutosCarrinhoPagamento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewProdutosCarrinhoPagamento.Location = new System.Drawing.Point(607, 140);
+            this.dataGridViewProdutosCarrinhoPagamento.Name = "dataGridViewProdutosCarrinhoPagamento";
+            this.dataGridViewProdutosCarrinhoPagamento.ReadOnly = true;
+            this.dataGridViewProdutosCarrinhoPagamento.RowHeadersWidth = 62;
+            this.dataGridViewProdutosCarrinhoPagamento.Size = new System.Drawing.Size(413, 308);
+            this.dataGridViewProdutosCarrinhoPagamento.TabIndex = 74;
+            // 
+            // formVendasBindingSource
+            // 
+            this.formVendasBindingSource.DataSource = typeof(SoftwareLojasRibeiro.br.com.project.VIEW.FormVendas);
+            // 
+            // formVendasBindingSource1
+            // 
+            this.formVendasBindingSource1.DataSource = typeof(SoftwareLojasRibeiro.br.com.project.VIEW.FormVendas);
             // 
             // FormPagamentos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(724, 588);
+            this.ClientSize = new System.Drawing.Size(1072, 588);
+            this.Controls.Add(this.dataGridViewProdutosCarrinhoPagamento);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.textBoxDesconto);
@@ -327,6 +357,9 @@
             this.Load += new System.EventHandler(this.FormPagamentos_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProdutosCarrinhoPagamento)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.formVendasBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.formVendasBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -361,5 +394,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox textBoxDesconto;
+        private System.Windows.Forms.DataGridView dataGridViewProdutosCarrinhoPagamento;
+        private System.Windows.Forms.BindingSource formVendasBindingSource;
+        private System.Windows.Forms.BindingSource formVendasBindingSource1;
     }
 }

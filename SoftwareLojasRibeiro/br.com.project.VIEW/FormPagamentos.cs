@@ -12,20 +12,38 @@ using SoftwareLojasRibeiro.br.com.project.MODEL;
 
 namespace SoftwareLojasRibeiro.br.com.project.VIEW
 {
-    public partial class FormPagamentos : Form
+    public partial class FormPagamentos : BaseForm
     {
         Cliente cliente = new Cliente();
         DataTable carrinho = new DataTable();
         DateTime dataatual;
-
-        public FormPagamentos(Cliente cli, DataTable carr, DateTime dataatu)
+        private FormVendas telavendas;
+        public FormPagamentos(Cliente cli, DataTable carr, DateTime dataatu, FormVendas telaven)
         {
             InitializeComponent();
             cliente = cli;
             carrinho = carr;
             dataatual = dataatu;
+            telavendas = telaven;
             maskedTextBoxData.ReadOnly = true;
             maskedTextBoxData.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+            dataGridViewProdutosCarrinhoPagamento.DataSource = carrinho;
+            //foreach (DataRow linha in carrinho.Rows)
+            //{
+            //    dataGridViewProdutosCarrinhoPagamento.Rows.Add(linha["ID"]);
+            //    dataGridViewProdutosCarrinhoPagamento.Rows.Add(linha["Produto"]);
+            //    dataGridViewProdutosCarrinhoPagamento.Rows.Add(linha["Quantidade"]);
+            //    dataGridViewProdutosCarrinhoPagamento.Rows.Add(linha["Preço"]);
+            //    dataGridViewProdutosCarrinhoPagamento.Rows.Add(linha["Subtotal"]);
+            //    //ItensVenda item = new ItensVenda
+            //    //{
+            //    //    Id_Venda = vdao.RetornarIdLastVenda(),
+            //    //    Id_Produto = linha["ID"].ToString(),
+            //    //    Quantidade = int.Parse(linha["Quantidade"].ToString()),
+            //    //    Preco_Unitario = double.Parse(linha["Preço"].ToString()),
+            //    //    Subtotal = double.Parse(linha["Subtotal"].ToString()),
+            //    //};
+            //}
         }
 
         private void FormPagamentos_Load(object sender, EventArgs e)
@@ -36,6 +54,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             textBoxCredito.Text = "0";
             textBoxPix.Text = "0";
             textBoxDesconto.Text = "0";
+            dataGridViewProdutosCarrinhoPagamento.DataSource = carrinho;
         }
 
         private void buttonFinalizar_Click(object sender, EventArgs e)
@@ -140,8 +159,52 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
                 MessageBox.Show("Venda finalizada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //this.DialogResult = DialogResult.OK; // Retorna "OK" para quem chamou essa tela
-                this.Dispose(); // Fecha a tela de vendas
+                //this.Dispose(); // Fecha a tela de vendas
+                //new Helpers().LimparTela(telavendas);
+                FormVendas novatelavendas = new FormVendas();
+                novatelavendas.Show();
+                this.Hide();
+                telavendas.Hide();
             }
+        }
+
+        private void textBoxDinheiro_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                double totaltudo = double.Parse(telavendas.textBoxTotall.Text);
+                double dinheiro = double.Parse(textBoxDinheiro.Text);
+                double desconto = double.Parse(textBoxDesconto.Text);
+                double total = double.Parse(textBoxTotal.Text);
+                if (textBoxDesconto.Text != "0")
+                {
+                    textBoxTroco.Text = (dinheiro - total - desconto).ToString();
+                }
+                else
+                {
+                    textBoxTroco.Text = (dinheiro - totaltudo).ToString();
+                }
+            }
+        }
+
+        private void textBoxDesconto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                double totaltudo = double.Parse(telavendas.textBoxTotall.Text);
+                double desconto = double.Parse(textBoxDesconto.Text);
+                double dinheiro = double.Parse(textBoxDinheiro.Text);
+                if (textBoxDinheiro.Text != "0")
+                {
+                    textBoxTotal.Text = (totaltudo - desconto).ToString();
+                    textBoxTroco.Text = (dinheiro - double.Parse(textBoxTotal.Text)).ToString();
+                }
+                else
+                {
+                    textBoxTotal.Text = (totaltudo - desconto).ToString();
+                }
+            }
+
         }
     }
 }
