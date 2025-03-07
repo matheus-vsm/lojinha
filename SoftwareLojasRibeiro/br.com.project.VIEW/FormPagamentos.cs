@@ -15,19 +15,25 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
     public partial class FormPagamentos : BaseForm
     {
         Cliente cliente = new Cliente();
-        DataTable carrinho = new DataTable();
+        DataTable carrin = new DataTable();
         DateTime dataatual;
         private FormVendas telavendas;
+        
+        
+        public FormPagamentos()
+        {
+            InitializeComponent();
+        }
         public FormPagamentos(Cliente cli, DataTable carr, DateTime dataatu, FormVendas telaven)
         {
             InitializeComponent();
             cliente = cli;
-            carrinho = carr;
+            carrin = carr;
             dataatual = dataatu;
             telavendas = telaven;
             maskedTextBoxData.ReadOnly = true;
             maskedTextBoxData.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
-            dataGridViewProdutosCarrinhoPagamento.DataSource = carrinho;
+            dataGridViewProdutosCarrinhoPagamento.DataSource = carrin;
             //foreach (DataRow linha in carrinho.Rows)
             //{
             //    dataGridViewProdutosCarrinhoPagamento.Rows.Add(linha["ID"]);
@@ -54,7 +60,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             textBoxCredito.Text = "0";
             textBoxPix.Text = "0";
             textBoxDesconto.Text = "0";
-            dataGridViewProdutosCarrinhoPagamento.DataSource = carrinho;
+            dataGridViewProdutosCarrinhoPagamento.DataSource = carrin;
         }
 
         private void buttonFinalizar_Click(object sender, EventArgs e)
@@ -125,12 +131,13 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                             Valor_Pago = pagamento.Value
                         };
                         pagaDAO.CadastrarPagamento(paga);
+                        break;
                     }
                 }
 
                 vdao.CadastrarVenda(ven);
 
-                foreach (DataRow linha in carrinho.Rows)
+                foreach (DataRow linha in carrin.Rows)
                 {
                     ItensVenda item = new ItensVenda
                     {
@@ -161,10 +168,10 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 //this.DialogResult = DialogResult.OK; // Retorna "OK" para quem chamou essa tela
                 //this.Dispose(); // Fecha a tela de vendas
                 //new Helpers().LimparTela(telavendas);
-                FormVendas novatelavendas = new FormVendas();
-                novatelavendas.Show();
-                this.Hide();
-                telavendas.Hide();
+                //FormVendas novatelavendas = new FormVendas();
+                //novatelavendas.Show();
+                this.Close();
+                //telavendas.Hide();
             }
         }
 
@@ -204,7 +211,13 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                     textBoxTotal.Text = (totaltudo - desconto).ToString();
                 }
             }
+        }
 
+        private void buttonCancelar_Click(object sender, EventArgs e)
+        {
+            //telavendas.Show();
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
         }
     }
 }

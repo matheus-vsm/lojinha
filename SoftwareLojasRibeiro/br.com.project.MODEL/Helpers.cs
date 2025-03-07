@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using Org.BouncyCastle.Crypto.Generators;
 using BCrypt.Net;
 using System.Data;
+using SoftwareLojasRibeiro.br.com.project.VIEW;
 
 namespace SoftwareLojasRibeiro.br.com.project.MODEL
 {
@@ -71,6 +72,19 @@ namespace SoftwareLojasRibeiro.br.com.project.MODEL
         public static bool VerificarSenha(string senhaDigitada, string senhaArmazenada)
         {
             return BCrypt.Net.BCrypt.Verify(senhaDigitada, senhaArmazenada);
+        }
+        #endregion
+
+        #region FecharOutrasTelas
+        public void FecharOutrasTelas(Form currentForm)
+        {
+            foreach (Form form in Application.OpenForms.Cast<Form>().ToList())
+            {
+                if ((form is FormPagamentos || form is FormVendas) && form != currentForm)
+                {
+                    form.Invoke((Action)(() => form.Close()));
+                }
+            }
         }
         #endregion
     }

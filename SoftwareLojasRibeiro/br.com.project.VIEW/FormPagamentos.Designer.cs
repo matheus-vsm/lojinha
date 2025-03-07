@@ -59,6 +59,7 @@
             this.dataGridViewProdutosCarrinhoPagamento = new System.Windows.Forms.DataGridView();
             this.formVendasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.formVendasBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.buttonCancelar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProdutosCarrinhoPagamento)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.formVendasBindingSource)).BeginInit();
@@ -72,7 +73,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1065, 111);
+            this.panel1.Size = new System.Drawing.Size(1259, 111);
             this.panel1.TabIndex = 6;
             // 
             // buttonMenu
@@ -179,7 +180,7 @@
             // 
             // buttonFinalizar
             // 
-            this.buttonFinalizar.Location = new System.Drawing.Point(330, 522);
+            this.buttonFinalizar.Location = new System.Drawing.Point(292, 519);
             this.buttonFinalizar.Name = "buttonFinalizar";
             this.buttonFinalizar.Size = new System.Drawing.Size(232, 40);
             this.buttonFinalizar.TabIndex = 58;
@@ -309,7 +310,7 @@
             this.dataGridViewProdutosCarrinhoPagamento.Name = "dataGridViewProdutosCarrinhoPagamento";
             this.dataGridViewProdutosCarrinhoPagamento.ReadOnly = true;
             this.dataGridViewProdutosCarrinhoPagamento.RowHeadersWidth = 62;
-            this.dataGridViewProdutosCarrinhoPagamento.Size = new System.Drawing.Size(413, 308);
+            this.dataGridViewProdutosCarrinhoPagamento.Size = new System.Drawing.Size(646, 308);
             this.dataGridViewProdutosCarrinhoPagamento.TabIndex = 74;
             // 
             // formVendasBindingSource
@@ -320,11 +321,22 @@
             // 
             this.formVendasBindingSource1.DataSource = typeof(SoftwareLojasRibeiro.br.com.project.VIEW.FormVendas);
             // 
+            // buttonCancelar
+            // 
+            this.buttonCancelar.Location = new System.Drawing.Point(569, 519);
+            this.buttonCancelar.Name = "buttonCancelar";
+            this.buttonCancelar.Size = new System.Drawing.Size(232, 40);
+            this.buttonCancelar.TabIndex = 75;
+            this.buttonCancelar.Text = "Cancelar";
+            this.buttonCancelar.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
+            // 
             // FormPagamentos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1072, 588);
+            this.ClientSize = new System.Drawing.Size(1265, 588);
+            this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.dataGridViewProdutosCarrinhoPagamento);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label11);
@@ -397,5 +409,6 @@
         private System.Windows.Forms.DataGridView dataGridViewProdutosCarrinhoPagamento;
         private System.Windows.Forms.BindingSource formVendasBindingSource;
         private System.Windows.Forms.BindingSource formVendasBindingSource1;
+        private System.Windows.Forms.Button buttonCancelar;
     }
 }

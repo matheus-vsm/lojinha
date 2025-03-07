@@ -29,6 +29,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         decimal preco, subtotal, total;
 
         DataTable carrinho = new DataTable();
+        DataTable carrinho2 = new DataTable();
 
         public FormVendas()
         {
@@ -50,13 +51,13 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
         private void FormVendas_Load(object sender, EventArgs e)
         {
+            //new Helpers().FecharOutrasTelas(this);
             VendaDAO vdao = new VendaDAO();
-
             dataGridViewHistorico.DataSource = vdao.ListarTodasVendas();
             dataGridViewHistorico.DefaultCellStyle.ForeColor = Color.Black;
-
         }
 
+        
         public void SelecionarLinhaTabelaVendas()
         {
             //passando id da venda para a tela de detalhes
@@ -155,11 +156,13 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         private void buttonPagamento_Click(object sender, EventArgs e)
         {
             DateTime dataatual = DateTime.Parse(maskedTextBoxData.Text);
+            carrinho2 = carrinho;
             FormPagamentos tela = new FormPagamentos(cliente, carrinho, dataatual, this);
+            //dawdawd tela = new dawdawd(cliente, carrinho, dataatual, this);
             tela.textBoxTotal.Text = total.ToString();
-            tela.Show();
-            this.Hide();
-            new Helpers().LimparTela(this);
+            tela.ShowDialog();
+            //this.Hide();
+            //new Helpers().LimparTela(this);
         }
 
         private void maskedTextBoxData_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
@@ -219,6 +222,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         }
 
         private void textBoxID_KeyPress(object sender, KeyPressEventArgs e)
+        
         {
             if (e.KeyChar == 13)
             {
