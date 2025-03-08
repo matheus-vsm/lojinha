@@ -40,6 +40,7 @@
             this.maskedTextBoxCpf = new System.Windows.Forms.MaskedTextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBoxProduto = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.buttonRemover = new System.Windows.Forms.Button();
             this.buttonAdicionar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -181,6 +182,7 @@
             // 
             // groupBoxProduto
             // 
+            this.groupBoxProduto.Controls.Add(this.button1);
             this.groupBoxProduto.Controls.Add(this.buttonRemover);
             this.groupBoxProduto.Controls.Add(this.buttonAdicionar);
             this.groupBoxProduto.Controls.Add(this.label3);
@@ -197,6 +199,15 @@
             this.groupBoxProduto.TabIndex = 7;
             this.groupBoxProduto.TabStop = false;
             this.groupBoxProduto.Text = "Produto";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(183, 27);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(114, 26);
+            this.button1.TabIndex = 52;
+            this.button1.Text = "Buscar Produto";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // buttonRemover
             // 
@@ -555,5 +566,6 @@
         private System.Windows.Forms.Button buttonLimparCampos;
         public System.Windows.Forms.TextBox textBoxTotall;
         public System.Windows.Forms.DataGridView dataGridViewProdutosCarrinho;
+        private System.Windows.Forms.Button button1;
     }
 }

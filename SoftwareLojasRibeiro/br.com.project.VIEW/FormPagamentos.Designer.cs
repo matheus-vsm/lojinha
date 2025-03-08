@@ -57,9 +57,9 @@
             this.label11 = new System.Windows.Forms.Label();
             this.textBoxDesconto = new System.Windows.Forms.TextBox();
             this.dataGridViewProdutosCarrinhoPagamento = new System.Windows.Forms.DataGridView();
+            this.buttonCancelar = new System.Windows.Forms.Button();
             this.formVendasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.formVendasBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.buttonCancelar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProdutosCarrinhoPagamento)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.formVendasBindingSource)).BeginInit();
@@ -147,7 +147,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(135, 435);
+            this.label4.Location = new System.Drawing.Point(106, 455);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(61, 13);
             this.label4.TabIndex = 55;
@@ -155,7 +155,7 @@
             // 
             // textBoxTroco
             // 
-            this.textBoxTroco.Location = new System.Drawing.Point(204, 432);
+            this.textBoxTroco.Location = new System.Drawing.Point(175, 452);
             this.textBoxTroco.Name = "textBoxTroco";
             this.textBoxTroco.ReadOnly = true;
             this.textBoxTroco.Size = new System.Drawing.Size(99, 20);
@@ -164,7 +164,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(124, 481);
+            this.label5.Location = new System.Drawing.Point(365, 455);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(57, 13);
             this.label5.TabIndex = 57;
@@ -172,7 +172,7 @@
             // 
             // textBoxTotal
             // 
-            this.textBoxTotal.Location = new System.Drawing.Point(204, 478);
+            this.textBoxTotal.Location = new System.Drawing.Point(445, 452);
             this.textBoxTotal.Name = "textBoxTotal";
             this.textBoxTotal.ReadOnly = true;
             this.textBoxTotal.Size = new System.Drawing.Size(99, 20);
@@ -313,14 +313,6 @@
             this.dataGridViewProdutosCarrinhoPagamento.Size = new System.Drawing.Size(646, 308);
             this.dataGridViewProdutosCarrinhoPagamento.TabIndex = 74;
             // 
-            // formVendasBindingSource
-            // 
-            this.formVendasBindingSource.DataSource = typeof(SoftwareLojasRibeiro.br.com.project.VIEW.FormVendas);
-            // 
-            // formVendasBindingSource1
-            // 
-            this.formVendasBindingSource1.DataSource = typeof(SoftwareLojasRibeiro.br.com.project.VIEW.FormVendas);
-            // 
             // buttonCancelar
             // 
             this.buttonCancelar.Location = new System.Drawing.Point(569, 519);
@@ -330,6 +322,14 @@
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
             this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
+            // 
+            // formVendasBindingSource
+            // 
+            this.formVendasBindingSource.DataSource = typeof(SoftwareLojasRibeiro.br.com.project.VIEW.FormVendas);
+            // 
+            // formVendasBindingSource1
+            // 
+            this.formVendasBindingSource1.DataSource = typeof(SoftwareLojasRibeiro.br.com.project.VIEW.FormVendas);
             // 
             // FormPagamentos
             // 

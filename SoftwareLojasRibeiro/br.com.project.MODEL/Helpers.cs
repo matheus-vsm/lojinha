@@ -87,5 +87,50 @@ namespace SoftwareLojasRibeiro.br.com.project.MODEL
             }
         }
         #endregion
+
+        #region LimparTelaVendas
+        public void LimparTelaVendas(Control tela)
+        {
+            foreach (Control ctrPai in tela.Controls)
+            {
+                LimparControle(ctrPai);
+            }
+        }
+
+        private void LimparControle(Control controle)
+        {
+            if (controle is TextBox)
+            {
+                (controle as TextBox).Clear();
+            }
+            else if (controle is MaskedTextBox)
+            {
+                (controle as MaskedTextBox).Clear();
+            }
+            else if (controle is ComboBox)
+            {
+                (controle as ComboBox).SelectedIndex = -1;
+                (controle as ComboBox).Text = string.Empty;
+            }
+            else if (controle is DataGridView dataGridView && dataGridView.Name == "dataGridViewProdutosCarrinho")
+            {
+                if (dataGridView.DataSource is DataTable dataTable)
+                {
+                    dataTable.Clear(); // Limpa apenas os dados, mantendo os cabeçalhos
+                }
+                else
+                {
+                    dataGridView.Rows.Clear(); // Se não houver DataSource, remove todas as linhas
+                }
+            }
+            else if (controle.HasChildren)
+            {
+                foreach (Control child in controle.Controls)
+                {
+                    LimparControle(child);
+                }
+            }
+        }
+        #endregion
     }
 }

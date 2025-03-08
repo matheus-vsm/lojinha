@@ -187,10 +187,14 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
         private void buttonLimparCampos_Click(object sender, EventArgs e)
         {
-            new Helpers().LimparTela(this);
-            FormVendas novatela = new FormVendas();
-            novatela.Show();
-            this.Hide();
+            new Helpers().LimparTelaVendas(this);
+            maskedTextBoxData.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+            total = 0;
+            //limpar dados do carrinho, n so linhas
+
+            //FormVendas novatela = new FormVendas();
+            //novatela.Show();
+            //this.Hide();
         }
 
         private void textBoxID_TextChanged(object sender, EventArgs e)

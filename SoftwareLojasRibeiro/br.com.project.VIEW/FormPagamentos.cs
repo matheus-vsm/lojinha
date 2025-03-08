@@ -12,7 +12,7 @@ using SoftwareLojasRibeiro.br.com.project.MODEL;
 
 namespace SoftwareLojasRibeiro.br.com.project.VIEW
 {
-    public partial class FormPagamentos : BaseForm
+    public partial class FormPagamentos : Form
     {
         Cliente cliente = new Cliente();
         DataTable carrin = new DataTable();
@@ -167,9 +167,10 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 MessageBox.Show("Venda finalizada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //this.DialogResult = DialogResult.OK; // Retorna "OK" para quem chamou essa tela
                 //this.Dispose(); // Fecha a tela de vendas
-                //new Helpers().LimparTela(telavendas);
-                //FormVendas novatelavendas = new FormVendas();
+                new Helpers().LimparTela(telavendas);
+                FormVendas novatelavendas = new FormVendas();
                 //novatelavendas.Show();
+                //telavendas.Close();
                 this.Close();
                 //telavendas.Hide();
             }

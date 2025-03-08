@@ -187,12 +187,6 @@
     <Compile Include="br.com.project.VIEW\BaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="br.com.project.VIEW\dawdawd.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="br.com.project.VIEW\dawdawd.Designer.cs">
-      <DependentUpon>dawdawd.cs</DependentUpon>
-    </Compile>
     <Compile Include="br.com.project.VIEW\FormCategorias.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -250,9 +244,6 @@
     <Compile Include="br.com.project.MODEL\Cliente.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="br.com.project.VIEW\dawdawd.resx">
-      <DependentUpon>dawdawd.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="br.com.project.VIEW\FormCategorias.resx">
       <DependentUpon>FormCategorias.cs</DependentUpon>
     </EmbeddedResource>
