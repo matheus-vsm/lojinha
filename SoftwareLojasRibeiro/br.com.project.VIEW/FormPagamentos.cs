@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SoftwareLojasRibeiro.br.com.project.DAO;
 using SoftwareLojasRibeiro.br.com.project.MODEL;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace SoftwareLojasRibeiro.br.com.project.VIEW
 {
@@ -34,22 +35,6 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             maskedTextBoxData.ReadOnly = true;
             maskedTextBoxData.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
             dataGridViewProdutosCarrinhoPagamento.DataSource = carrin;
-            //foreach (DataRow linha in carrinho.Rows)
-            //{
-            //    dataGridViewProdutosCarrinhoPagamento.Rows.Add(linha["ID"]);
-            //    dataGridViewProdutosCarrinhoPagamento.Rows.Add(linha["Produto"]);
-            //    dataGridViewProdutosCarrinhoPagamento.Rows.Add(linha["Quantidade"]);
-            //    dataGridViewProdutosCarrinhoPagamento.Rows.Add(linha["Preço"]);
-            //    dataGridViewProdutosCarrinhoPagamento.Rows.Add(linha["Subtotal"]);
-            //    //ItensVenda item = new ItensVenda
-            //    //{
-            //    //    Id_Venda = vdao.RetornarIdLastVenda(),
-            //    //    Id_Produto = linha["ID"].ToString(),
-            //    //    Quantidade = int.Parse(linha["Quantidade"].ToString()),
-            //    //    Preco_Unitario = double.Parse(linha["Preço"].ToString()),
-            //    //    Subtotal = double.Parse(linha["Subtotal"].ToString()),
-            //    //};
-            //}
         }
 
         private void FormPagamentos_Load(object sender, EventArgs e)
@@ -65,6 +50,19 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
         private void buttonFinalizar_Click(object sender, EventArgs e)
         {
+            // Perguntar ao usuário antes de alterar
+            DialogResult resultado = MessageBox.Show("Tem certeza que deseja prosseguir com o Pagamento?",
+                                                     "Confirmação",
+                                                     MessageBoxButtons.YesNo,
+                                                     MessageBoxIcon.Question);
+
+            // Se o usuário clicar em "Não", cancelar a operação
+            if (resultado == DialogResult.No)
+            {
+                MessageBox.Show("Operação cancelada!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             double v_dinheiro, v_debito, v_credito, v_pix, v_total, v_troco, v_desconto, v_pago;
             int qtdestoque, qtdcomprada, qtdatualizada;
 
@@ -75,7 +73,6 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             v_dinheiro = double.Parse(textBoxDinheiro.Text);
             v_pix = double.Parse(textBoxPix.Text);
             v_desconto = double.Parse(textBoxDesconto.Text);
-
             v_total = double.Parse(textBoxTotal.Text) - v_desconto;
 
             if (v_desconto > v_total)
@@ -111,7 +108,10 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 VendaDAO vdao = new VendaDAO();
                 PagamentoDAO pagaDAO = new PagamentoDAO();
 
+                vdao.CadastrarVenda(ven);
+
                 string idVenda = vdao.RetornarIdLastVenda();
+                //int idvendapag = int.Parse(idVenda) + 1;
                 Dictionary<string, double> pagamentos = new Dictionary<string, double>
                 {
                     { "Cartão de Débito", v_debito },
@@ -126,16 +126,13 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                     {
                         Pagamento paga = new Pagamento
                         {
-                            Id_Venda = idVenda,
+                            Id_Venda = idVenda,//idvendapag.ToString(),
                             Forma_Pagamento = pagamento.Key,
                             Valor_Pago = pagamento.Value
                         };
                         pagaDAO.CadastrarPagamento(paga);
-                        break;
                     }
                 }
-
-                vdao.CadastrarVenda(ven);
 
                 foreach (DataRow linha in carrin.Rows)
                 {
@@ -165,14 +162,14 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 }
 
                 MessageBox.Show("Venda finalizada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //this.DialogResult = DialogResult.OK; // Retorna "OK" para quem chamou essa tela
-                //this.Dispose(); // Fecha a tela de vendas
-                new Helpers().LimparTela(telavendas);
-                FormVendas novatelavendas = new FormVendas();
-                //novatelavendas.Show();
-                //telavendas.Close();
+
+                new Helpers().LimparTelaVendas(telavendas);
+                telavendas.dataGridViewHistorico.DataSource = vdao.ListarTodasVendas();
+                telavendas.maskedTextBoxData.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                telavendas.textBoxNome.ReadOnly = false;
+                telavendas.maskedTextBoxCpf.ReadOnly = false;
+
                 this.Close();
-                //telavendas.Hide();
             }
         }
 
@@ -184,6 +181,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 double dinheiro = double.Parse(textBoxDinheiro.Text);
                 double desconto = double.Parse(textBoxDesconto.Text);
                 double total = double.Parse(textBoxTotal.Text);
+
                 if (textBoxDesconto.Text != "0")
                 {
                     textBoxTroco.Text = (dinheiro - total - desconto).ToString();
@@ -216,9 +214,10 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
         private void buttonCancelar_Click(object sender, EventArgs e)
         {
-            //telavendas.Show();
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
+
+        private void textBoxTotal_TextChanged(object sender, EventArgs e) { }
     }
 }

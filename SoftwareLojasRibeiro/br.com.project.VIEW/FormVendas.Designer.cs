@@ -33,6 +33,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonMenu = new System.Windows.Forms.Button();
             this.groupBoxCliente = new System.Windows.Forms.GroupBox();
+            this.buttonLimparCpf = new System.Windows.Forms.Button();
             this.maskedTextBoxData = new System.Windows.Forms.MaskedTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textBoxNome = new System.Windows.Forms.TextBox();
@@ -40,7 +41,10 @@
             this.maskedTextBoxCpf = new System.Windows.Forms.MaskedTextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBoxProduto = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonLimparId = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.textBoxEstoque = new System.Windows.Forms.TextBox();
+            this.buttonExibirProds = new System.Windows.Forms.Button();
             this.buttonRemover = new System.Windows.Forms.Button();
             this.buttonAdicionar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -113,6 +117,7 @@
             // 
             // groupBoxCliente
             // 
+            this.groupBoxCliente.Controls.Add(this.buttonLimparCpf);
             this.groupBoxCliente.Controls.Add(this.maskedTextBoxData);
             this.groupBoxCliente.Controls.Add(this.label5);
             this.groupBoxCliente.Controls.Add(this.textBoxNome);
@@ -125,6 +130,16 @@
             this.groupBoxCliente.TabIndex = 6;
             this.groupBoxCliente.TabStop = false;
             this.groupBoxCliente.Text = "Cliente";
+            // 
+            // buttonLimparCpf
+            // 
+            this.buttonLimparCpf.Location = new System.Drawing.Point(313, 46);
+            this.buttonLimparCpf.Name = "buttonLimparCpf";
+            this.buttonLimparCpf.Size = new System.Drawing.Size(84, 52);
+            this.buttonLimparCpf.TabIndex = 56;
+            this.buttonLimparCpf.Text = "Limpar CPF";
+            this.buttonLimparCpf.UseVisualStyleBackColor = true;
+            this.buttonLimparCpf.Click += new System.EventHandler(this.buttonLimparCpf_Click);
             // 
             // maskedTextBoxData
             // 
@@ -169,6 +184,7 @@
             this.maskedTextBoxCpf.Name = "maskedTextBoxCpf";
             this.maskedTextBoxCpf.Size = new System.Drawing.Size(246, 20);
             this.maskedTextBoxCpf.TabIndex = 2;
+            this.maskedTextBoxCpf.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBoxCpf_MaskInputRejected);
             this.maskedTextBoxCpf.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.maskedTextBoxCpf_KeyPress);
             // 
             // label6
@@ -182,7 +198,10 @@
             // 
             // groupBoxProduto
             // 
-            this.groupBoxProduto.Controls.Add(this.button1);
+            this.groupBoxProduto.Controls.Add(this.buttonLimparId);
+            this.groupBoxProduto.Controls.Add(this.label11);
+            this.groupBoxProduto.Controls.Add(this.textBoxEstoque);
+            this.groupBoxProduto.Controls.Add(this.buttonExibirProds);
             this.groupBoxProduto.Controls.Add(this.buttonRemover);
             this.groupBoxProduto.Controls.Add(this.buttonAdicionar);
             this.groupBoxProduto.Controls.Add(this.label3);
@@ -200,20 +219,48 @@
             this.groupBoxProduto.TabStop = false;
             this.groupBoxProduto.Text = "Produto";
             // 
-            // button1
+            // buttonLimparId
             // 
-            this.button1.Location = new System.Drawing.Point(183, 27);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(114, 26);
-            this.button1.TabIndex = 52;
-            this.button1.Text = "Buscar Produto";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonLimparId.Location = new System.Drawing.Point(276, 194);
+            this.buttonLimparId.Name = "buttonLimparId";
+            this.buttonLimparId.Size = new System.Drawing.Size(121, 40);
+            this.buttonLimparId.TabIndex = 55;
+            this.buttonLimparId.Text = "Limpar ID";
+            this.buttonLimparId.UseVisualStyleBackColor = true;
+            this.buttonLimparId.Click += new System.EventHandler(this.buttonLimparId_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(215, 124);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(49, 13);
+            this.label11.TabIndex = 54;
+            this.label11.Text = "Estoque:";
+            // 
+            // textBoxEstoque
+            // 
+            this.textBoxEstoque.Location = new System.Drawing.Point(270, 121);
+            this.textBoxEstoque.Name = "textBoxEstoque";
+            this.textBoxEstoque.ReadOnly = true;
+            this.textBoxEstoque.Size = new System.Drawing.Size(53, 20);
+            this.textBoxEstoque.TabIndex = 53;
+            // 
+            // buttonExibirProds
+            // 
+            this.buttonExibirProds.Location = new System.Drawing.Point(161, 25);
+            this.buttonExibirProds.Name = "buttonExibirProds";
+            this.buttonExibirProds.Size = new System.Drawing.Size(125, 26);
+            this.buttonExibirProds.TabIndex = 52;
+            this.buttonExibirProds.Text = "Exibir Produtos";
+            this.buttonExibirProds.UseVisualStyleBackColor = true;
+            this.buttonExibirProds.Click += new System.EventHandler(this.buttonExibirProds_Click);
             // 
             // buttonRemover
             // 
-            this.buttonRemover.Location = new System.Drawing.Point(208, 194);
+            this.buttonRemover.Location = new System.Drawing.Point(143, 194);
             this.buttonRemover.Name = "buttonRemover";
-            this.buttonRemover.Size = new System.Drawing.Size(171, 40);
+            this.buttonRemover.Size = new System.Drawing.Size(121, 40);
             this.buttonRemover.TabIndex = 3;
             this.buttonRemover.Text = "Remover Item";
             this.buttonRemover.UseVisualStyleBackColor = true;
@@ -223,7 +270,7 @@
             // 
             this.buttonAdicionar.Location = new System.Drawing.Point(15, 194);
             this.buttonAdicionar.Name = "buttonAdicionar";
-            this.buttonAdicionar.Size = new System.Drawing.Size(171, 40);
+            this.buttonAdicionar.Size = new System.Drawing.Size(121, 40);
             this.buttonAdicionar.TabIndex = 2;
             this.buttonAdicionar.Text = "Adicionar Item";
             this.buttonAdicionar.UseVisualStyleBackColor = true;
@@ -232,7 +279,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(200, 124);
+            this.label3.Location = new System.Drawing.Point(118, 161);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 13);
             this.label3.TabIndex = 51;
@@ -240,7 +287,7 @@
             // 
             // textBoxQuantidade
             // 
-            this.textBoxQuantidade.Location = new System.Drawing.Point(280, 121);
+            this.textBoxQuantidade.Location = new System.Drawing.Point(198, 158);
             this.textBoxQuantidade.Name = "textBoxQuantidade";
             this.textBoxQuantidade.Size = new System.Drawing.Size(99, 20);
             this.textBoxQuantidade.TabIndex = 1;
@@ -330,6 +377,7 @@
             this.buttonCancelar.TabIndex = 1;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
             // buttonPagamento
             // 
@@ -467,6 +515,7 @@
             this.dateTimePickerDataFim.Name = "dateTimePickerDataFim";
             this.dateTimePickerDataFim.Size = new System.Drawing.Size(95, 20);
             this.dateTimePickerDataFim.TabIndex = 15;
+            this.dateTimePickerDataFim.Value = new System.DateTime(2025, 2, 1, 0, 0, 0, 0);
             // 
             // dateTimePickerDataInicio
             // 
@@ -476,6 +525,7 @@
             this.dateTimePickerDataInicio.Name = "dateTimePickerDataInicio";
             this.dateTimePickerDataInicio.Size = new System.Drawing.Size(95, 20);
             this.dateTimePickerDataInicio.TabIndex = 14;
+            this.dateTimePickerDataInicio.Value = new System.DateTime(2025, 1, 1, 22, 9, 0, 0);
             // 
             // label10
             // 
@@ -531,17 +581,11 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox groupBoxCliente;
         private System.Windows.Forms.GroupBox groupBoxProduto;
-        private System.Windows.Forms.MaskedTextBox maskedTextBoxCpf;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBoxNome;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBoxQuantidade;
-        private System.Windows.Forms.TextBox textBoxID;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBoxDescrição;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBoxPreco;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button buttonRemover;
         private System.Windows.Forms.Button buttonAdicionar;
@@ -550,13 +594,11 @@
         private System.Windows.Forms.Button buttonPagamento;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button buttonMenu;
-        private System.Windows.Forms.MaskedTextBox maskedTextBoxData;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TabControl tabControlVendas;
         private System.Windows.Forms.TabPage tabPageVenda;
         private System.Windows.Forms.TabPage tabPageHistorico;
         private System.Windows.Forms.GroupBox groupBoxConsulta;
-        private System.Windows.Forms.DataGridView dataGridViewHistorico;
         private System.Windows.Forms.DateTimePicker dateTimePickerDataFim;
         private System.Windows.Forms.DateTimePicker dateTimePickerDataInicio;
         private System.Windows.Forms.Label label10;
@@ -566,6 +608,18 @@
         private System.Windows.Forms.Button buttonLimparCampos;
         public System.Windows.Forms.TextBox textBoxTotall;
         public System.Windows.Forms.DataGridView dataGridViewProdutosCarrinho;
-        private System.Windows.Forms.Button button1;
+        public System.Windows.Forms.TextBox textBoxID;
+        public System.Windows.Forms.TextBox textBoxDescrição;
+        public System.Windows.Forms.TextBox textBoxPreco;
+        private System.Windows.Forms.Button buttonExibirProds;
+        public System.Windows.Forms.DataGridView dataGridViewHistorico;
+        private System.Windows.Forms.Label label11;
+        public System.Windows.Forms.MaskedTextBox maskedTextBoxData;
+        private System.Windows.Forms.Button buttonLimparId;
+        public System.Windows.Forms.TextBox textBoxEstoque;
+        public System.Windows.Forms.TextBox textBoxQuantidade;
+        private System.Windows.Forms.Button buttonLimparCpf;
+        public System.Windows.Forms.MaskedTextBox maskedTextBoxCpf;
+        public System.Windows.Forms.TextBox textBoxNome;
     }
 }

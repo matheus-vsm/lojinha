@@ -56,9 +56,9 @@
             this.groupBox4.Controls.Add(this.label8);
             this.groupBox4.Controls.Add(this.label2);
             this.groupBox4.Location = new System.Drawing.Point(8, 133);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox4.Size = new System.Drawing.Size(702, 121);
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
@@ -70,6 +70,7 @@
             this.textBoxObs.Multiline = true;
             this.textBoxObs.Name = "textBoxObs";
             this.textBoxObs.ReadOnly = true;
+            this.textBoxObs.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBoxObs.Size = new System.Drawing.Size(175, 59);
             this.textBoxObs.TabIndex = 19;
             // 
@@ -160,7 +161,7 @@
             this.dataGridViewDetalhes.AllowUserToDeleteRows = false;
             this.dataGridViewDetalhes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDetalhes.Location = new System.Drawing.Point(8, 265);
-            this.dataGridViewDetalhes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridViewDetalhes.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewDetalhes.Name = "dataGridViewDetalhes";
             this.dataGridViewDetalhes.ReadOnly = true;
             this.dataGridViewDetalhes.RowHeadersWidth = 62;
@@ -176,7 +177,7 @@
             this.Controls.Add(this.dataGridViewDetalhes);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox4);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormDetalhesVendas";
             this.Text = "Lojas Ribeiro - Detalhes Vendas";
             this.Load += new System.EventHandler(this.FormDetalhesVendas_Load);

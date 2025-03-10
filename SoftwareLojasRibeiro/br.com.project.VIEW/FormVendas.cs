@@ -25,11 +25,12 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         Pagamento paga = new Pagamento();
         PagamentoDAO pagaDAO = new PagamentoDAO();
 
-        int qntd;
+        int qntd, qntdestoque;
         decimal preco, subtotal, total;
+        DateTime iniciozada = Convert.ToDateTime("2000-01-01");
+        DateTime fimzada = Convert.ToDateTime("3000-01-01");
 
         DataTable carrinho = new DataTable();
-        DataTable carrinho2 = new DataTable();
 
         public FormVendas()
         {
@@ -51,9 +52,11 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
         private void FormVendas_Load(object sender, EventArgs e)
         {
-            //new Helpers().FecharOutrasTelas(this);
+            dateTimePickerDataInicio.Value = DateTime.Now;
+            dateTimePickerDataFim.Value = DateTime.Now.AddDays(1);
+
             VendaDAO vdao = new VendaDAO();
-            dataGridViewHistorico.DataSource = vdao.ListarTodasVendas();
+            dataGridViewHistorico.DataSource = vdao.ListarVendas(iniciozada, fimzada);
             dataGridViewHistorico.DefaultCellStyle.ForeColor = Color.Black;
         }
 
@@ -74,8 +77,28 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 tela.textBoxNomeCliente.Text = dataGridViewHistorico.CurrentRow.Cells[1].Value.ToString() ?? "";
                 tela.maskedTextBoxDataVenda.Text = datavenda.ToString("dd/MM/yyyy");
                 tela.textBoxTotal.Text = dataGridViewHistorico.CurrentRow.Cells[3].Value.ToString() ?? "";
-                tela.textBoxObs.Text = dataGridViewHistorico.CurrentRow.Cells[7].Value.ToString() ?? "";
-                
+
+                // Obter as formas de pagamento
+                List<Pagamento> pagamentos = pagaDAO.RetornarPagamentos(idvenda);
+                StringBuilder sbPagamentos = new StringBuilder();
+
+                sbPagamentos.AppendLine("Forma(s) de Pagamento:");
+                if (pagamentos != null && pagamentos.Count > 0)
+                {
+                    foreach (var pagamento in pagamentos)
+                    {
+                        sbPagamentos.AppendLine($"{pagamento.Forma_Pagamento}: R${pagamento.Valor_Pago:F2}");
+                    }
+                }
+                else
+                {
+                    sbPagamentos.AppendLine("Nenhuma Forma de Pagamento foi encontrada.");
+                }
+
+                // Concatenar as informações de pagamento com as observações
+                string observacoes = "\n" + dataGridViewHistorico.CurrentRow.Cells[7].Value.ToString() ?? "";
+                tela.textBoxObs.Text = sbPagamentos.ToString() + observacoes;
+
                 tela.ShowDialog();
             }
             else
@@ -96,6 +119,16 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             try
             {
                 qntd = int.Parse(textBoxQuantidade.Text);
+                qntdestoque = int.Parse(textBoxEstoque.Text);
+
+                if (qntd > qntdestoque)
+                {
+                    MessageBox.Show("Quantidade Indisponível no Estoque!");
+                    textBoxQuantidade.Clear();
+                    textBoxQuantidade.Focus();
+                    return;
+                }
+
                 preco = decimal.Parse(textBoxPreco.Text);
 
                 subtotal = qntd * preco;
@@ -110,6 +143,8 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 textBoxDescrição.Clear();
                 textBoxPreco.Clear();
                 textBoxQuantidade.Clear();
+                textBoxEstoque.Clear();
+                textBoxID.ReadOnly = false;
                 textBoxID.Focus();
             }
             catch (Exception error)
@@ -155,14 +190,28 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
         private void buttonPagamento_Click(object sender, EventArgs e)
         {
+            if (textBoxNome.Text == "" && carrinho.Rows.Count == 0)
+            {
+                MessageBox.Show("Nenhum Cliente foi definido e não há Produtos no Carrinho!");
+                maskedTextBoxCpf.Focus();
+                return;
+            }
+            if (textBoxNome.Text == "")
+            {
+                MessageBox.Show("Digite o CPF para definir o Cliente!");
+                maskedTextBoxCpf.Focus();
+                return;
+            }
+            if (carrinho.Rows.Count == 0)
+            {
+                MessageBox.Show("O Carrinho está vazio! Adicione Produtos ao Carrinho.");
+                textBoxID.Focus();
+                return;
+            }
             DateTime dataatual = DateTime.Parse(maskedTextBoxData.Text);
-            carrinho2 = carrinho;
             FormPagamentos tela = new FormPagamentos(cliente, carrinho, dataatual, this);
-            //dawdawd tela = new dawdawd(cliente, carrinho, dataatual, this);
             tela.textBoxTotal.Text = total.ToString();
             tela.ShowDialog();
-            //this.Hide();
-            //new Helpers().LimparTela(this);
         }
 
         private void maskedTextBoxData_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
@@ -189,12 +238,12 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         {
             new Helpers().LimparTelaVendas(this);
             maskedTextBoxData.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+            maskedTextBoxCpf.ReadOnly = false;
+            textBoxNome.ReadOnly = false;
+            textBoxID.ReadOnly = false;
+            textBoxEstoque.ReadOnly = false;
             total = 0;
             //limpar dados do carrinho, n so linhas
-
-            //FormVendas novatela = new FormVendas();
-            //novatela.Show();
-            //this.Hide();
         }
 
         private void textBoxID_TextChanged(object sender, EventArgs e)
@@ -203,6 +252,59 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         }
 
         private void dataGridViewProdutosCarrinho_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void buttonExibirProds_Click(object sender, EventArgs e)
+        {
+            FormExibirProdutos tela = new FormExibirProdutos(this);
+            tela.ShowDialog();
+        }
+
+        private void buttonLimparId_Click(object sender, EventArgs e)
+        {
+            textBoxID.Clear();
+            textBoxDescrição.Clear();
+            textBoxPreco.Clear();
+            textBoxEstoque.Clear();
+            textBoxID.ReadOnly = false;
+            textBoxID.Focus();
+        }
+
+        private void buttonLimparCpf_Click(object sender, EventArgs e)
+        {
+            textBoxNome.Clear();
+            maskedTextBoxCpf.Clear();
+            maskedTextBoxCpf.ReadOnly = false;
+            textBoxNome.ReadOnly = false;
+            maskedTextBoxCpf.Focus();
+        }
+
+        private void buttonCancelar_Click(object sender, EventArgs e)
+        {
+            // Perguntar ao usuário antes de excluir
+            DialogResult resultado = MessageBox.Show("Tem certeza que deseja Cancelar a Venda?",
+                                                     "Confirmação",
+                                                     MessageBoxButtons.YesNo,
+                                                     MessageBoxIcon.Question);
+
+            // Se o usuário clicar em "Não", a função retorna e não executa a exclusão
+            if (resultado == DialogResult.No)
+            {
+                MessageBox.Show("Operação cancelada!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            new Helpers().LimparTelaVendas(this);
+            maskedTextBoxData.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+            maskedTextBoxCpf.ReadOnly = false;
+            textBoxNome.ReadOnly = false;
+            textBoxID.ReadOnly = false;
+            textBoxEstoque.ReadOnly = false;
+            total = 0;
+        }
+
+        private void maskedTextBoxCpf_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
         }
@@ -216,6 +318,9 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 if (cliente != null)
                 {
                     textBoxNome.Text = cliente.Nome;
+                    maskedTextBoxCpf.ReadOnly = true;
+                    textBoxNome.ReadOnly = true;
+                    textBoxID.Focus();
                 }
                 else
                 {
@@ -236,13 +341,15 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 {
                     textBoxDescrição.Text = produto.Descricao;
                     textBoxPreco.Text = produto.Preco.ToString();
+                    textBoxEstoque.Text = produto.Estoque.ToString();
+                    textBoxQuantidade.Focus();
+                    textBoxID.ReadOnly = true;
                 }
                 else
                 {
                     textBoxID.Clear();
                     textBoxID.Focus();
                 }
-
             }
         }
     }

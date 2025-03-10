@@ -147,36 +147,41 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(106, 455);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.label4.Location = new System.Drawing.Point(50, 450);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 13);
+            this.label4.Size = new System.Drawing.Size(112, 25);
             this.label4.TabIndex = 55;
             this.label4.Text = "Troco (R$):";
             // 
             // textBoxTroco
             // 
-            this.textBoxTroco.Location = new System.Drawing.Point(175, 452);
+            this.textBoxTroco.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.textBoxTroco.Location = new System.Drawing.Point(159, 447);
             this.textBoxTroco.Name = "textBoxTroco";
             this.textBoxTroco.ReadOnly = true;
-            this.textBoxTroco.Size = new System.Drawing.Size(99, 20);
+            this.textBoxTroco.Size = new System.Drawing.Size(99, 30);
             this.textBoxTroco.TabIndex = 54;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(365, 455);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.label5.Location = new System.Drawing.Point(281, 447);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 13);
+            this.label5.Size = new System.Drawing.Size(143, 31);
             this.label5.TabIndex = 57;
             this.label5.Text = "Total (R$):";
             // 
             // textBoxTotal
             // 
-            this.textBoxTotal.Location = new System.Drawing.Point(445, 452);
+            this.textBoxTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.textBoxTotal.Location = new System.Drawing.Point(430, 447);
             this.textBoxTotal.Name = "textBoxTotal";
             this.textBoxTotal.ReadOnly = true;
-            this.textBoxTotal.Size = new System.Drawing.Size(99, 20);
+            this.textBoxTotal.Size = new System.Drawing.Size(171, 38);
             this.textBoxTotal.TabIndex = 56;
+            this.textBoxTotal.TextChanged += new System.EventHandler(this.textBoxTotal_TextChanged);
             // 
             // buttonFinalizar
             // 

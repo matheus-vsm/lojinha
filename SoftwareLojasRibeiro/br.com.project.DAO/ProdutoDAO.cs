@@ -272,6 +272,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                     p.Id = rs.GetInt32("Id_Produto").ToString();
                     p.Descricao = rs.GetString("Descricao");
                     p.Preco = rs.GetDecimal("Preco");
+                    p.Estoque = rs.GetInt32("Qtd_Estoque");
 
                     return p;
                 }

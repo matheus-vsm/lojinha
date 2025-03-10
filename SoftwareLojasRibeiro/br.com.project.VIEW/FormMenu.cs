@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SoftwareLojasRibeiro.br.com.project.MODEL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace SoftwareLojasRibeiro.br.com.project.VIEW
 {
@@ -19,7 +21,8 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
         private void FormMenu_Load(object sender, EventArgs e)
         {
-
+            this.Focus();
+            this.ActiveControl = null;
         }
 
         private void buttonClientes_Click(object sender, EventArgs e)
@@ -55,6 +58,43 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             FormVendas telacli = new FormVendas();
             telacli.Show();
             this.Hide();
+        }
+
+        private void FormMenu_KeyPress(object sender, KeyPressEventArgs e){ }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.D1) // tecla 1
+            {
+                buttonClientes_Click(this, EventArgs.Empty);
+                return true;
+            }
+            else if (keyData == Keys.D2) // tecla 2
+            {
+                buttonFuncionarios_Click(this, EventArgs.Empty);
+                return true;
+            }
+            else if (keyData == Keys.D3) // tecla 3
+            {
+                // Adicione a ação desejada para a tecla '3'
+                return true;
+            }
+            else if (keyData == Keys.D4) // tecla 4
+            {
+                buttonCategorias_Click(this, EventArgs.Empty);
+                return true;
+            }
+            else if (keyData == Keys.D5) // tecla 5
+            {
+                buttonProdutos_Click(this, EventArgs.Empty);
+                return true;
+            }
+            else if (keyData == Keys.D6) // tecla 6
+            {
+                buttonVendas_Click(this, EventArgs.Empty);
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 }

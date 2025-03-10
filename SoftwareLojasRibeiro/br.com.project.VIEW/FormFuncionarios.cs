@@ -20,10 +20,8 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             textBoxID.ReadOnly = true;
         }
 
-        private void FormFuncionarios_Load(object sender, EventArgs e)
-        {
-            
-        }
+        private void FormFuncionarios_Load(object sender, EventArgs e) { }
+
         private void FormFuncionarios_Load_1(object sender, EventArgs e)
         {
             FuncionarioDAO dao = new FuncionarioDAO();
