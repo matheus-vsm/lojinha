@@ -103,14 +103,14 @@
             this.panel1.Location = new System.Drawing.Point(2, 5);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1024, 111);
-            this.panel1.TabIndex = 5;
+            this.panel1.TabIndex = 1;
             // 
             // buttonMenu
             // 
             this.buttonMenu.Location = new System.Drawing.Point(-1, -1);
             this.buttonMenu.Name = "buttonMenu";
             this.buttonMenu.Size = new System.Drawing.Size(103, 24);
-            this.buttonMenu.TabIndex = 11;
+            this.buttonMenu.TabIndex = 0;
             this.buttonMenu.Text = "Menu";
             this.buttonMenu.UseVisualStyleBackColor = true;
             this.buttonMenu.Click += new System.EventHandler(this.buttonMenu_Click);
@@ -136,7 +136,7 @@
             this.buttonLimparCpf.Location = new System.Drawing.Point(313, 46);
             this.buttonLimparCpf.Name = "buttonLimparCpf";
             this.buttonLimparCpf.Size = new System.Drawing.Size(84, 52);
-            this.buttonLimparCpf.TabIndex = 56;
+            this.buttonLimparCpf.TabIndex = 4;
             this.buttonLimparCpf.Text = "Limpar CPF";
             this.buttonLimparCpf.UseVisualStyleBackColor = true;
             this.buttonLimparCpf.Click += new System.EventHandler(this.buttonLimparCpf_Click);
@@ -148,7 +148,7 @@
             this.maskedTextBoxData.Name = "maskedTextBoxData";
             this.maskedTextBoxData.ReadOnly = true;
             this.maskedTextBoxData.Size = new System.Drawing.Size(246, 20);
-            this.maskedTextBoxData.TabIndex = 12;
+            this.maskedTextBoxData.TabIndex = 3;
             this.maskedTextBoxData.ValidatingType = typeof(System.DateTime);
             this.maskedTextBoxData.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBoxData_MaskInputRejected);
             // 
@@ -166,7 +166,7 @@
             this.textBoxNome.Location = new System.Drawing.Point(52, 100);
             this.textBoxNome.Name = "textBoxNome";
             this.textBoxNome.Size = new System.Drawing.Size(247, 20);
-            this.textBoxNome.TabIndex = 1;
+            this.textBoxNome.TabIndex = 2;
             // 
             // label2
             // 
@@ -183,7 +183,7 @@
             this.maskedTextBoxCpf.Mask = "###,###,###-##";
             this.maskedTextBoxCpf.Name = "maskedTextBoxCpf";
             this.maskedTextBoxCpf.Size = new System.Drawing.Size(246, 20);
-            this.maskedTextBoxCpf.TabIndex = 2;
+            this.maskedTextBoxCpf.TabIndex = 0;
             this.maskedTextBoxCpf.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBoxCpf_MaskInputRejected);
             this.maskedTextBoxCpf.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.maskedTextBoxCpf_KeyPress);
             // 
@@ -224,7 +224,7 @@
             this.buttonLimparId.Location = new System.Drawing.Point(276, 194);
             this.buttonLimparId.Name = "buttonLimparId";
             this.buttonLimparId.Size = new System.Drawing.Size(121, 40);
-            this.buttonLimparId.TabIndex = 55;
+            this.buttonLimparId.TabIndex = 4;
             this.buttonLimparId.Text = "Limpar ID";
             this.buttonLimparId.UseVisualStyleBackColor = true;
             this.buttonLimparId.Click += new System.EventHandler(this.buttonLimparId_Click);
@@ -244,7 +244,7 @@
             this.textBoxEstoque.Name = "textBoxEstoque";
             this.textBoxEstoque.ReadOnly = true;
             this.textBoxEstoque.Size = new System.Drawing.Size(53, 20);
-            this.textBoxEstoque.TabIndex = 53;
+            this.textBoxEstoque.TabIndex = 5;
             // 
             // buttonExibirProds
             // 
@@ -316,7 +316,7 @@
             this.textBoxDescrição.Name = "textBoxDescrição";
             this.textBoxDescrição.ReadOnly = true;
             this.textBoxDescrição.Size = new System.Drawing.Size(229, 20);
-            this.textBoxDescrição.TabIndex = 44;
+            this.textBoxDescrição.TabIndex = 7;
             // 
             // label9
             // 
@@ -332,7 +332,7 @@
             this.textBoxPreco.Location = new System.Drawing.Point(87, 121);
             this.textBoxPreco.Name = "textBoxPreco";
             this.textBoxPreco.Size = new System.Drawing.Size(99, 20);
-            this.textBoxPreco.TabIndex = 45;
+            this.textBoxPreco.TabIndex = 6;
             // 
             // label8
             // 
@@ -353,7 +353,7 @@
             this.dataGridViewProdutosCarrinho.ReadOnly = true;
             this.dataGridViewProdutosCarrinho.RowHeadersWidth = 62;
             this.dataGridViewProdutosCarrinho.Size = new System.Drawing.Size(572, 308);
-            this.dataGridViewProdutosCarrinho.TabIndex = 8;
+            this.dataGridViewProdutosCarrinho.TabIndex = 1;
             this.dataGridViewProdutosCarrinho.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewProdutosCarrinho_CellContentClick);
             // 
             // groupBoxCarrinho
@@ -395,7 +395,7 @@
             this.textBoxTotall.Name = "textBoxTotall";
             this.textBoxTotall.ReadOnly = true;
             this.textBoxTotall.Size = new System.Drawing.Size(247, 20);
-            this.textBoxTotall.TabIndex = 8;
+            this.textBoxTotall.TabIndex = 2;
             // 
             // label4
             // 
@@ -415,7 +415,7 @@
             this.tabControlVendas.Name = "tabControlVendas";
             this.tabControlVendas.SelectedIndex = 0;
             this.tabControlVendas.Size = new System.Drawing.Size(1024, 524);
-            this.tabControlVendas.TabIndex = 11;
+            this.tabControlVendas.TabIndex = 0;
             // 
             // tabPageVenda
             // 
@@ -438,7 +438,7 @@
             this.buttonLimparCampos.Location = new System.Drawing.Point(109, 433);
             this.buttonLimparCampos.Name = "buttonLimparCampos";
             this.buttonLimparCampos.Size = new System.Drawing.Size(171, 40);
-            this.buttonLimparCampos.TabIndex = 52;
+            this.buttonLimparCampos.TabIndex = 0;
             this.buttonLimparCampos.Text = "Limpar Campos";
             this.buttonLimparCampos.UseVisualStyleBackColor = true;
             this.buttonLimparCampos.Click += new System.EventHandler(this.buttonLimparCampos_Click);
@@ -557,6 +557,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lojas Ribeiro - Vendas";
             this.Load += new System.EventHandler(this.FormVendas_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FormVendas_KeyPress);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.groupBoxCliente.ResumeLayout(false);

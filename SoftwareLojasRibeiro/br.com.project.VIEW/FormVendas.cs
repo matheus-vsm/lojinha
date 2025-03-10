@@ -60,7 +60,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             dataGridViewHistorico.DefaultCellStyle.ForeColor = Color.Black;
         }
 
-        
+
         public void SelecionarLinhaTabelaVendas()
         {
             //passando id da venda para a tela de detalhes
@@ -304,6 +304,8 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             total = 0;
         }
 
+        private void FormVendas_KeyPress(object sender, KeyPressEventArgs e) { }
+
         private void maskedTextBoxCpf_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
@@ -330,8 +332,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             }
         }
 
-        private void textBoxID_KeyPress(object sender, KeyPressEventArgs e)
-        
+        private void textBoxID_KeyPress(object sender, KeyPressEventArgs e)        
         {
             if (e.KeyChar == 13)
             {

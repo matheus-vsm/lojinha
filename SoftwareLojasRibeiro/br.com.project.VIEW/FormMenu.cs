@@ -64,32 +64,37 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            if (keyData == Keys.D1) // tecla 1
+            if (keyData == Keys.D0 || keyData == Keys.NumPad0) // tecla 1
+            {
+                this.Close();
+                return true;
+            }
+            else if (keyData == Keys.D1 || keyData == Keys.NumPad1) // tecla 1
             {
                 buttonClientes_Click(this, EventArgs.Empty);
                 return true;
             }
-            else if (keyData == Keys.D2) // tecla 2
+            else if (keyData == Keys.D2 || keyData == Keys.NumPad2) // tecla 2
             {
                 buttonFuncionarios_Click(this, EventArgs.Empty);
                 return true;
             }
-            else if (keyData == Keys.D3) // tecla 3
+            else if (keyData == Keys.D3 || keyData == Keys.NumPad3) // tecla 3
             {
                 // Adicione a ação desejada para a tecla '3'
                 return true;
             }
-            else if (keyData == Keys.D4) // tecla 4
+            else if (keyData == Keys.D4 || keyData == Keys.NumPad4) // tecla 4
             {
                 buttonCategorias_Click(this, EventArgs.Empty);
                 return true;
             }
-            else if (keyData == Keys.D5) // tecla 5
+            else if (keyData == Keys.D5 || keyData == Keys.NumPad5) // tecla 5
             {
                 buttonProdutos_Click(this, EventArgs.Empty);
                 return true;
             }
-            else if (keyData == Keys.D6) // tecla 6
+            else if (keyData == Keys.D6 || keyData == Keys.NumPad6) // tecla 6
             {
                 buttonVendas_Click(this, EventArgs.Empty);
                 return true;
