@@ -47,7 +47,7 @@
             // 
             // buttonClientes
             // 
-            this.buttonClientes.Location = new System.Drawing.Point(324, 155);
+            this.buttonClientes.Location = new System.Drawing.Point(409, 169);
             this.buttonClientes.Name = "buttonClientes";
             this.buttonClientes.Size = new System.Drawing.Size(149, 42);
             this.buttonClientes.TabIndex = 0;
@@ -57,7 +57,7 @@
             // 
             // buttonProdutos
             // 
-            this.buttonProdutos.Location = new System.Drawing.Point(324, 375);
+            this.buttonProdutos.Location = new System.Drawing.Point(409, 389);
             this.buttonProdutos.Name = "buttonProdutos";
             this.buttonProdutos.Size = new System.Drawing.Size(149, 42);
             this.buttonProdutos.TabIndex = 1;
@@ -67,7 +67,7 @@
             // 
             // buttonVendas
             // 
-            this.buttonVendas.Location = new System.Drawing.Point(324, 434);
+            this.buttonVendas.Location = new System.Drawing.Point(409, 448);
             this.buttonVendas.Name = "buttonVendas";
             this.buttonVendas.Size = new System.Drawing.Size(149, 42);
             this.buttonVendas.TabIndex = 2;
@@ -85,7 +85,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(375, 122);
+            this.label2.Location = new System.Drawing.Point(460, 136);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(37, 13);
             this.label2.TabIndex = 3;
@@ -93,7 +93,7 @@
             // 
             // buttonFuncionarios
             // 
-            this.buttonFuncionarios.Location = new System.Drawing.Point(324, 211);
+            this.buttonFuncionarios.Location = new System.Drawing.Point(409, 225);
             this.buttonFuncionarios.Name = "buttonFuncionarios";
             this.buttonFuncionarios.Size = new System.Drawing.Size(149, 42);
             this.buttonFuncionarios.TabIndex = 4;
@@ -103,7 +103,7 @@
             // 
             // buttonCategorias
             // 
-            this.buttonCategorias.Location = new System.Drawing.Point(324, 320);
+            this.buttonCategorias.Location = new System.Drawing.Point(409, 334);
             this.buttonCategorias.Name = "buttonCategorias";
             this.buttonCategorias.Size = new System.Drawing.Size(149, 42);
             this.buttonCategorias.TabIndex = 5;
@@ -113,7 +113,7 @@
             // 
             // buttonFornecedores
             // 
-            this.buttonFornecedores.Location = new System.Drawing.Point(324, 267);
+            this.buttonFornecedores.Location = new System.Drawing.Point(409, 281);
             this.buttonFornecedores.Name = "buttonFornecedores";
             this.buttonFornecedores.Size = new System.Drawing.Size(149, 42);
             this.buttonFornecedores.TabIndex = 6;
@@ -124,7 +124,7 @@
             // 
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.label3.Location = new System.Drawing.Point(284, 157);
+            this.label3.Location = new System.Drawing.Point(369, 171);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(31, 36);
             this.label3.TabIndex = 7;
@@ -134,7 +134,7 @@
             // 
             this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.label4.Location = new System.Drawing.Point(284, 211);
+            this.label4.Location = new System.Drawing.Point(369, 225);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(31, 36);
             this.label4.TabIndex = 8;
@@ -144,7 +144,7 @@
             // 
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.label5.Location = new System.Drawing.Point(284, 267);
+            this.label5.Location = new System.Drawing.Point(369, 281);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(31, 36);
             this.label5.TabIndex = 9;
@@ -154,7 +154,7 @@
             // 
             this.label6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.label6.Location = new System.Drawing.Point(287, 320);
+            this.label6.Location = new System.Drawing.Point(372, 334);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(31, 36);
             this.label6.TabIndex = 10;
@@ -164,7 +164,7 @@
             // 
             this.label7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.label7.Location = new System.Drawing.Point(287, 375);
+            this.label7.Location = new System.Drawing.Point(372, 389);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(31, 36);
             this.label7.TabIndex = 11;
@@ -174,7 +174,7 @@
             // 
             this.label8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.label8.Location = new System.Drawing.Point(287, 440);
+            this.label8.Location = new System.Drawing.Point(372, 454);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(31, 36);
             this.label8.TabIndex = 12;
