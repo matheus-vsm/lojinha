@@ -23,10 +23,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         private void FormDetalhesVendas_Load(object sender, EventArgs e)
         {
             ItensVendaDAO ivdao = new ItensVendaDAO();
-            
             dataGridViewDetalhes.DataSource = ivdao.ListarItensVenda(idvenda);
         }
-
-
     }
 }

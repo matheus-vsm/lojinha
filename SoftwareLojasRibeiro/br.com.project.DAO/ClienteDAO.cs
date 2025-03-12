@@ -276,5 +276,65 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             }
         }
         #endregion
+
+        #region ListarClientesDevedores
+        public DataTable ListarClientesDevedores(Cliente cli)
+        {
+            try
+            {
+                //Criar o DataTable e o comando SQL
+                DataTable tabelaclientesdevedores = new DataTable();
+
+                // Se o nome for informado, adicionamos um filtro na consulta
+                string sql = @"SELECT 
+                                v.Id_Venda AS 'ID da Venda', 
+                                c.Id_Cliente AS 'ID do Cliente', 
+                                c.Nome, 
+                                c.Cpf, 
+	                            v.Total_Venda AS 'Total da Venda', 
+                                v.Valor_Pago AS 'Valor Pago', 
+                                (v.Total_Venda - v.Valor_Pago) AS 'Dívida', 
+                                v.Data_Venda AS 'Data da Venda', 
+                                v.Observacoes AS 'Observações', 
+                                c.Email, 
+                                c.Numero AS 'Telefone' 
+                            FROM tb_clientes c 
+                            JOIN tb_vendas v ON c.Id_Cliente = v.Cliente_Id 
+                            WHERE v.Status = 'Pendente'";
+                if (!string.IsNullOrEmpty(cli.Nome))
+                {
+                    sql += " AND c.Nome LIKE @nome";
+                }
+
+                //Organizar o comando SQL e executar
+                MySqlCommand executacmd = new MySqlCommand(sql, connection);
+
+                // Se houver um nome para buscar, adicionamos o parâmetro
+                if (!string.IsNullOrEmpty(cli.Nome))
+                {
+                    executacmd.Parameters.AddWithValue("@nome", "%" + cli.Nome + "%");
+                }
+
+                connection.Open();
+                executacmd.ExecuteNonQuery();
+
+                //Criar o MySQLDataAdapter para preencher os dados do DataTable
+                MySqlDataAdapter da = new MySqlDataAdapter(executacmd);
+                da.Fill(tabelaclientesdevedores); //preenche o datatable
+
+                return tabelaclientesdevedores;
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show($"Erro ao executar o Comando SQL! (ListarClientesDevedores) {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                connection.Close(); // Sempre fechar a conexão
+            }
+        }
+        #endregion
+
     }
 }

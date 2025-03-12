@@ -19,8 +19,8 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         DataTable carrin = new DataTable();
         DateTime dataatual;
         private FormVendas telavendas;
-        
-        
+
+
         public FormPagamentos()
         {
             InitializeComponent();
@@ -59,12 +59,12 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             // Se o usuário clicar em "Não", cancelar a operação
             if (resultado == DialogResult.No)
             {
-                MessageBox.Show("Operação cancelada!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             double v_dinheiro, v_debito, v_credito, v_pix, v_total, v_troco, v_desconto, v_pago;
             int qtdestoque, qtdcomprada, qtdatualizada;
+            string status = "Concluída";
 
             ProdutoDAO pdao = new ProdutoDAO();
 
@@ -83,36 +83,46 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
             v_pago = v_dinheiro + v_credito + v_debito + v_pix;
 
+            Venda ven;
+
             if (v_total > v_pago)
             {
-                MessageBox.Show("Valor pago menor que o total da compra!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //depois adicionar uma caixa de dialogo falando que o valor é menor, perguntando se deseja adicionar o cliente para a lista de devedores
-                //status = pendente
-            }
-            else
-            {
-                v_troco = v_pago - v_total;
-
-                Venda ven = new Venda
+                // Perguntar ao usuário antes de seguir com a finalização da compra
+                DialogResult resultadoo = MessageBox.Show("Valor pago menor que o total da compra!\nDeseja ADICIONAR esse Cliente a LISTA de DEVEDORES?",
+                                                         "Confirmação",
+                                                         MessageBoxButtons.YesNo,
+                                                         MessageBoxIcon.Question);
+                status = "Pendente";
+                // Se o usuário clicar em "Não", retorna
+                if (resultadoo == DialogResult.No)
                 {
-                    Id_Cliente = cliente.Id,
-                    Data_Venda = dataatual,
-                    Total_Venda = v_total,
-                    Desconto = v_desconto,
-                    Valor_Pago = v_pago,
-                    Status = "Concluída",
-                    Observacoes = textBoxObservacoes.Text,
-                };
-                textBoxTroco.Text = v_troco.ToString();
+                    return;
+                }
+            }
 
-                VendaDAO vdao = new VendaDAO();
-                PagamentoDAO pagaDAO = new PagamentoDAO();
+            v_troco = v_pago - v_total;
 
-                vdao.CadastrarVenda(ven);
+            ven = new Venda
+            {
+                Id_Cliente = cliente.Id,
+                Data_Venda = dataatual,
+                Total_Venda = v_total,
+                Desconto = v_desconto,
+                Valor_Pago = v_pago,
+                Status = status,
+                Observacoes = textBoxObservacoes.Text
+            };
 
-                string idVenda = vdao.RetornarIdLastVenda();
-                //int idvendapag = int.Parse(idVenda) + 1;
-                Dictionary<string, double> pagamentos = new Dictionary<string, double>
+            textBoxTroco.Text = v_troco.ToString();
+
+            VendaDAO vdao = new VendaDAO();
+            PagamentoDAO pagaDAO = new PagamentoDAO();
+
+            vdao.CadastrarVenda(ven);
+
+            string idVenda = vdao.RetornarIdLastVenda();
+
+            Dictionary<string, double> pagamentos = new Dictionary<string, double>
                 {
                     { "Cartão de Débito", v_debito },
                     { "Cartão de Crédito", v_credito },
@@ -120,57 +130,56 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                     { "PIX", v_pix }
                 };
 
-                foreach (var pagamento in pagamentos)
+            foreach (var pagamento in pagamentos)
+            {
+                if (pagamento.Value > 0)
                 {
-                    if (pagamento.Value > 0)
+                    Pagamento paga = new Pagamento
                     {
-                        Pagamento paga = new Pagamento
-                        {
-                            Id_Venda = idVenda,//idvendapag.ToString(),
-                            Forma_Pagamento = pagamento.Key,
-                            Valor_Pago = pagamento.Value
-                        };
-                        pagaDAO.CadastrarPagamento(paga);
-                    }
-                }
-
-                foreach (DataRow linha in carrin.Rows)
-                {
-                    ItensVenda item = new ItensVenda
-                    {
-                        Id_Venda = vdao.RetornarIdLastVenda(),
-                        Id_Produto = linha["ID"].ToString(),
-                        Quantidade = int.Parse(linha["Quantidade"].ToString()),
-                        Preco_Unitario = double.Parse(linha["Preço"].ToString()),
-                        Subtotal = double.Parse(linha["Subtotal"].ToString()),
+                        Id_Venda = idVenda,//idvendapag.ToString(),
+                        Forma_Pagamento = pagamento.Key,
+                        Valor_Pago = pagamento.Value
                     };
-
-                    //remove a quantidade de produtos do estoque
-                    qtdestoque = pdao.RetornaEstoqueAtual(item.Id_Produto);
-                    qtdcomprada = item.Quantidade;
-
-                    if (qtdestoque < qtdcomprada)
-                    {
-                        MessageBox.Show("Quantidade de produtos insuficiente no estoque!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-                    qtdatualizada = qtdestoque - qtdcomprada;
-                    pdao.RemoverEstoque(item.Id_Produto, qtdatualizada);
-
-                    ItensVendaDAO ivdao = new ItensVendaDAO();
-                    ivdao.CadastrarItensVenda(item);
+                    pagaDAO.CadastrarPagamento(paga);
                 }
-
-                MessageBox.Show("Venda finalizada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                new Helpers().LimparTelaVendas(telavendas);
-                telavendas.dataGridViewHistorico.DataSource = vdao.ListarTodasVendas();
-                telavendas.maskedTextBoxData.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
-                telavendas.textBoxNome.ReadOnly = false;
-                telavendas.maskedTextBoxCpf.ReadOnly = false;
-
-                this.Close();
             }
+
+            foreach (DataRow linha in carrin.Rows)
+            {
+                ItensVenda item = new ItensVenda
+                {
+                    Id_Venda = vdao.RetornarIdLastVenda(),
+                    Id_Produto = linha["ID"].ToString(),
+                    Quantidade = int.Parse(linha["Quantidade"].ToString()),
+                    Preco_Unitario = double.Parse(linha["Preço"].ToString()),
+                    Subtotal = double.Parse(linha["Subtotal"].ToString()),
+                };
+
+                //remove a quantidade de produtos do estoque
+                qtdestoque = pdao.RetornaEstoqueAtual(item.Id_Produto);
+                qtdcomprada = item.Quantidade;
+
+                if (qtdestoque < qtdcomprada)
+                {
+                    MessageBox.Show("Quantidade de produtos insuficiente no estoque!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                qtdatualizada = qtdestoque - qtdcomprada;
+                pdao.RemoverEstoque(item.Id_Produto, qtdatualizada);
+
+                ItensVendaDAO ivdao = new ItensVendaDAO();
+                ivdao.CadastrarItensVenda(item);
+            }
+
+            MessageBox.Show("Venda finalizada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            new Helpers().LimparTelaVendas(telavendas);
+            telavendas.dataGridViewHistorico.DataSource = vdao.ListarTodasVendas();
+            telavendas.maskedTextBoxData.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+            telavendas.textBoxNome.ReadOnly = false;
+            telavendas.maskedTextBoxCpf.ReadOnly = false;
+
+            this.Close();
         }
 
         private void textBoxDinheiro_KeyPress(object sender, KeyPressEventArgs e)

@@ -59,13 +59,16 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             {
                 DataTable dt = new DataTable();
 
-                string sql = @"SELECT it.Id_Item_Venda AS 'ID Item Venda', 
+                string sql = @"SELECT 
+                                v.Id_Venda AS 'ID Venda',
+                                it.Id_Item_Venda AS 'ID Item Venda', 
 		                        p.Nome_Produto as 'Produto', 
                                 it.Qtd AS 'Quantidade', 
                                 p.Preco AS 'Preço Unitário', 
                                 it.Subtotal AS 'SubTotal' 
                             FROM tb_itensvendas AS it 
                             JOIN tb_produtos AS p ON (it.Produto_Id = p.Id_Produto) 
+                            JOIN tb_vendas AS v ON (it.Venda_Id = v.Id_Venda)
                             WHERE it.Venda_Id = @id";
                             //SELECT 
                             //    GROUP_CONCAT(p.Forma_Pagamento 

@@ -77,6 +77,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 tela.textBoxNomeCliente.Text = dataGridViewHistorico.CurrentRow.Cells[1].Value.ToString() ?? "";
                 tela.maskedTextBoxDataVenda.Text = datavenda.ToString("dd/MM/yyyy");
                 tela.textBoxTotal.Text = dataGridViewHistorico.CurrentRow.Cells[3].Value.ToString() ?? "";
+                tela.textBoxValorPago.Text = dataGridViewHistorico.CurrentRow.Cells[5].Value.ToString() ?? "";
 
                 // Obter as formas de pagamento
                 List<Pagamento> pagamentos = pagaDAO.RetornarPagamentos(idvenda);

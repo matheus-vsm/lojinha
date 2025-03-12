@@ -40,6 +40,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridViewDetalhes = new System.Windows.Forms.DataGridView();
+            this.textBoxValorPago = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox4.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDetalhes)).BeginInit();
@@ -47,6 +49,8 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.textBoxValorPago);
+            this.groupBox4.Controls.Add(this.label5);
             this.groupBox4.Controls.Add(this.textBoxObs);
             this.groupBox4.Controls.Add(this.label4);
             this.groupBox4.Controls.Add(this.textBoxTotal);
@@ -59,25 +63,25 @@
             this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox4.Size = new System.Drawing.Size(702, 121);
+            this.groupBox4.Size = new System.Drawing.Size(823, 121);
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Consulta";
             // 
             // textBoxObs
             // 
-            this.textBoxObs.Location = new System.Drawing.Point(446, 58);
+            this.textBoxObs.Location = new System.Drawing.Point(552, 43);
             this.textBoxObs.Multiline = true;
             this.textBoxObs.Name = "textBoxObs";
             this.textBoxObs.ReadOnly = true;
             this.textBoxObs.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxObs.Size = new System.Drawing.Size(175, 59);
+            this.textBoxObs.Size = new System.Drawing.Size(261, 73);
             this.textBoxObs.TabIndex = 19;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(370, 80);
+            this.label4.Location = new System.Drawing.Point(476, 65);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(73, 13);
             this.label4.TabIndex = 20;
@@ -85,7 +89,7 @@
             // 
             // textBoxTotal
             // 
-            this.textBoxTotal.Location = new System.Drawing.Point(446, 34);
+            this.textBoxTotal.Location = new System.Drawing.Point(552, 19);
             this.textBoxTotal.Name = "textBoxTotal";
             this.textBoxTotal.ReadOnly = true;
             this.textBoxTotal.Size = new System.Drawing.Size(175, 20);
@@ -94,7 +98,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(337, 36);
+            this.label3.Location = new System.Drawing.Point(443, 21);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(106, 13);
             this.label3.TabIndex = 18;
@@ -152,7 +156,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(6, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(707, 111);
+            this.panel1.Size = new System.Drawing.Size(825, 111);
             this.panel1.TabIndex = 17;
             // 
             // dataGridViewDetalhes
@@ -166,19 +170,37 @@
             this.dataGridViewDetalhes.ReadOnly = true;
             this.dataGridViewDetalhes.RowHeadersWidth = 62;
             this.dataGridViewDetalhes.RowTemplate.Height = 28;
-            this.dataGridViewDetalhes.Size = new System.Drawing.Size(701, 196);
+            this.dataGridViewDetalhes.Size = new System.Drawing.Size(823, 297);
             this.dataGridViewDetalhes.TabIndex = 18;
+            // 
+            // textBoxValorPago
+            // 
+            this.textBoxValorPago.Location = new System.Drawing.Point(377, 80);
+            this.textBoxValorPago.Name = "textBoxValorPago";
+            this.textBoxValorPago.ReadOnly = true;
+            this.textBoxValorPago.Size = new System.Drawing.Size(83, 20);
+            this.textBoxValorPago.TabIndex = 21;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(286, 83);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(85, 13);
+            this.label5.TabIndex = 22;
+            this.label5.Text = "Valor Pago (R$):";
             // 
             // FormDetalhesVendas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(718, 471);
+            this.ClientSize = new System.Drawing.Size(833, 563);
             this.Controls.Add(this.dataGridViewDetalhes);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox4);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormDetalhesVendas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lojas Ribeiro - Detalhes Vendas";
             this.Load += new System.EventHandler(this.FormDetalhesVendas_Load);
             this.groupBox4.ResumeLayout(false);
@@ -204,5 +226,7 @@
         public System.Windows.Forms.TextBox textBoxTotal;
         public System.Windows.Forms.TextBox textBoxNomeCliente;
         public System.Windows.Forms.MaskedTextBox maskedTextBoxDataVenda;
+        public System.Windows.Forms.TextBox textBoxValorPago;
+        private System.Windows.Forms.Label label5;
     }
 }
