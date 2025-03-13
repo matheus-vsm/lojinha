@@ -81,7 +81,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             }
             else if (keyData == Keys.D3 || keyData == Keys.NumPad3) // tecla 3
             {
-                // Adicione a ação desejada para a tecla '3'
+                buttonFornecedores_Click(this, EventArgs.Empty);
                 return true;
             }
             else if (keyData == Keys.D4 || keyData == Keys.NumPad4) // tecla 4
@@ -100,6 +100,13 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 return true;
             }
             return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void buttonFornecedores_Click(object sender, EventArgs e)
+        {
+            FormFornecedores telaforne = new FormFornecedores();
+            telaforne.Show();
+            this.Hide();
         }
     }
 }

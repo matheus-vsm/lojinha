@@ -172,12 +172,14 @@
     <Compile Include="br.com.project.CONNECTION\ConnectionFactory.cs" />
     <Compile Include="br.com.project.DAO\CategoriaDAO.cs" />
     <Compile Include="br.com.project.DAO\ClienteDAO.cs" />
+    <Compile Include="br.com.project.DAO\FornecedorDAO.cs" />
     <Compile Include="br.com.project.DAO\FuncionarioDAO.cs" />
     <Compile Include="br.com.project.DAO\ItensVendaDAO.cs" />
     <Compile Include="br.com.project.DAO\PagamentoDAO.cs" />
     <Compile Include="br.com.project.DAO\ProdutoDAO.cs" />
     <Compile Include="br.com.project.DAO\VendaDAO.cs" />
     <Compile Include="br.com.project.MODEL\Categoria.cs" />
+    <Compile Include="br.com.project.MODEL\Fornecedor.cs" />
     <Compile Include="br.com.project.MODEL\Funcionario.cs" />
     <Compile Include="br.com.project.MODEL\Helpers.cs" />
     <Compile Include="br.com.project.MODEL\ItensVenda.cs" />
@@ -210,6 +212,12 @@
     </Compile>
     <Compile Include="br.com.project.VIEW\FormExibirProdutos.Designer.cs">
       <DependentUpon>FormExibirProdutos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="br.com.project.VIEW\FormFornecedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.com.project.VIEW\FormFornecedores.Designer.cs">
+      <DependentUpon>FormFornecedores.cs</DependentUpon>
     </Compile>
     <Compile Include="br.com.project.VIEW\FormFuncionarios.cs">
       <SubType>Form</SubType>
@@ -261,6 +269,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="br.com.project.VIEW\FormExibirProdutos.resx">
       <DependentUpon>FormExibirProdutos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="br.com.project.VIEW\FormFornecedores.resx">
+      <DependentUpon>FormFornecedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="br.com.project.VIEW\FormFuncionarios.resx">
       <DependentUpon>FormFuncionarios.cs</DependentUpon>

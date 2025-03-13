@@ -119,6 +119,7 @@
             this.buttonFornecedores.TabIndex = 6;
             this.buttonFornecedores.Text = "Fornecedores";
             this.buttonFornecedores.UseVisualStyleBackColor = true;
+            this.buttonFornecedores.Click += new System.EventHandler(this.buttonFornecedores_Click);
             // 
             // label3
             // 
