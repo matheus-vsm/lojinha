@@ -1,0 +1,191 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using SoftwareLojasRibeiro.br.com.project.DAO;
+using SoftwareLojasRibeiro.br.com.project.MODEL;
+
+namespace SoftwareLojasRibeiro.br.com.project.VIEW
+{
+    public partial class FormFuncionarios : BaseForm
+    {
+        public FormFuncionarios()
+        {
+            InitializeComponent();
+            textBoxID.ReadOnly = true;
+        }
+
+        private void FormFuncionarios_Load(object sender, EventArgs e) { }
+
+        private void FormFuncionarios_Load_1(object sender, EventArgs e)
+        {
+            FuncionarioDAO dao = new FuncionarioDAO();
+            Funcionario func = new Funcionario { Nome = textBoxPesquisaNome.Text };
+            dataGridViewFuncionarios.DataSource = dao.ListarFuncionarios(func);
+        }
+
+        public void SelecionarLinhaTabelaFuncionarios()
+        {
+            //Garantir que a linha esteja realmente selecionada antes de tentar acessa-la
+            if (dataGridViewFuncionarios.CurrentRow != null)
+            {
+                FuncionarioDAO dao = new FuncionarioDAO();
+                //Pegar os dados da linha selecionada
+                textBoxID.Text = dataGridViewFuncionarios.CurrentRow.Cells[0].Value.ToString() ?? "";
+                textBoxNome.Text = dataGridViewFuncionarios.CurrentRow.Cells[1].Value.ToString() ?? "";
+                maskedTextBoxRg.Text = dataGridViewFuncionarios.CurrentRow.Cells[6].Value.ToString() ?? "";
+                maskedTextBoxCpf.Text = dataGridViewFuncionarios.CurrentRow.Cells[7].Value.ToString() ?? "";
+                maskedTextBoxNumero.Text = dataGridViewFuncionarios.CurrentRow.Cells[8].Value.ToString() ?? "";
+                textBoxEmail.Text = dataGridViewFuncionarios.CurrentRow.Cells[5].Value.ToString() ?? "";
+                maskedTextBoxData.Text = dataGridViewFuncionarios.CurrentRow.Cells[9].Value.ToString() ?? "";
+                textBoxEndereco.Text = dataGridViewFuncionarios.CurrentRow.Cells[10].Value.ToString() ?? "";
+                maskedTextBoxCep.Text = dataGridViewFuncionarios.CurrentRow.Cells[11].Value.ToString() ?? "";
+                comboBoxTipoUsuario.Text = dataGridViewFuncionarios.CurrentRow.Cells[3].Value.ToString() ?? "";
+                textBoxLogin.Text = dataGridViewFuncionarios.CurrentRow.Cells[2].Value.ToString() ?? "";
+                textBoxSenha.Text = dao.ObterSenhaFuncionario(textBoxID.Text);
+            }
+            else
+            {
+                MessageBox.Show("Nenhuma linha selecionada.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        public void Pesquisar()
+        {
+            FuncionarioDAO dao = new FuncionarioDAO();
+            Funcionario func = new Funcionario { Nome = textBoxPesquisaNome.Text };
+            dataGridViewFuncionarios.DataSource = dao.ListarFuncionarios(func);
+        }
+
+        private void buttonCadastrar_Click(object sender, EventArgs e)
+        {
+            Funcionario func = new Funcionario
+            {
+                Nome = textBoxNome.Text,
+                Rg = maskedTextBoxRg.Text,//.Replace(',', '.'),
+                Cpf = maskedTextBoxCpf.Text,//.Replace(',', '.'),
+                Numero = maskedTextBoxNumero.Text,
+                Datanasc = DateTime.Parse(maskedTextBoxData.Text),
+                Email = textBoxEmail.Text,
+                Endereco = textBoxEndereco.Text,
+                Cep = maskedTextBoxCep.Text,
+                Login = textBoxLogin.Text,
+                Senha = textBoxSenha.Text,
+                Tipo = comboBoxTipoUsuario.Text
+            };
+
+            FuncionarioDAO dao = new FuncionarioDAO();
+            bool sucesso = false; // Variável para verificar sucesso da operação
+
+            if (buttonCadastrar.Text == "Cadastrar")
+            {
+                sucesso = dao.CadastrarFuncionario(func);
+            }
+            else if (buttonCadastrar.Text == "Alterar")
+            {
+                func.Id = textBoxID.Text;
+                sucesso = dao.AlterarFuncionario(func);
+
+            }
+
+            if (sucesso)
+            {
+                //LimparCampos();
+                new Helpers().LimparTela(this);
+                buttonCadastrar.Text = "Cadastrar";
+                tabPageCadastrar.Text = "Cadastrar";
+
+                // Criar novo objeto vazio
+                func = new Funcionario();
+
+                dataGridViewFuncionarios.DataSource = dao.ListarFuncionarios(func); //atualizar tabela
+            }
+        }
+
+        private void buttonPesquisar_Click(object sender, EventArgs e)
+        {
+            Pesquisar();
+        }
+
+        private void buttonLimpar_Click(object sender, EventArgs e)
+        {
+            new Helpers().LimparTela(this);
+            buttonCadastrar.Text = "Cadastrar";
+            tabPageCadastrar.Text = "Cadastrar";
+        }
+
+        private void buttonAlterar_Click(object sender, EventArgs e)
+        {
+            SelecionarLinhaTabelaFuncionarios();
+            buttonCadastrar.Text = "Alterar";
+            tabPageCadastrar.Text = "Alterar";
+            tabControlFuncionarios.SelectedTab = tabPageCadastrar;
+        }
+
+        private void buttonExcluir_Click(object sender, EventArgs e)
+        {
+            Funcionario func = new Funcionario();
+            textBoxID.Text = dataGridViewFuncionarios.CurrentRow.Cells[0].Value.ToString() ?? "";
+            func.Id = textBoxID.Text;
+
+            FuncionarioDAO dao = new FuncionarioDAO();
+            dao.ExcluirFuncionario(func);
+            dataGridViewFuncionarios.DataSource = dao.ListarFuncionarios(func); //atualizar tabela
+            textBoxID.Clear();
+        }
+
+        private void buttonLimparPesquisa_Click(object sender, EventArgs e)
+        {
+            textBoxPesquisaNome.Clear();
+            Pesquisar();
+        }
+
+        private void buttonBuscar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string cep = maskedTextBoxCep.Text;
+                string xml = $"https://viacep.com.br/ws/{cep}/xml/";
+
+                DataSet dados = new DataSet(); //objeto capaz de receber e fazer uma requisição para a API
+
+                dados.ReadXml(xml);
+                textBoxEndereco.Text = $"{dados.Tables[0].Rows[0]["logradouro"]}, " +
+                                   $"{dados.Tables[0].Rows[0]["bairro"]}, " +
+                                   $"{dados.Tables[0].Rows[0]["complemento"]}, " +
+                                   $"{dados.Tables[0].Rows[0]["localidade"]} - " +
+                                   $"{dados.Tables[0].Rows[0]["uf"]}.";
+
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show($"Endereço não encontrado. Digite manualmente. {error.Message}", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                throw;
+            }
+        }
+
+        private void buttonMenu_Click(object sender, EventArgs e)
+        {
+            FormMenu telamenu = new FormMenu();
+            telamenu.Show();
+            this.Hide();
+        }
+
+        private void textBoxPesquisaNome_TextChanged(object sender, EventArgs e)
+        {
+            Funcionario func = new Funcionario { Nome = textBoxPesquisaNome.Text };
+            FuncionarioDAO dao = new FuncionarioDAO();
+            dataGridViewFuncionarios.DataSource = dao.ListarFuncionarios(func);
+        }
+
+        private void comboBoxTipoUsuario_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
+}

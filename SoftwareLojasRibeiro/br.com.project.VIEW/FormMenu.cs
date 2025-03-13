@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SoftwareLojasRibeiro.br.com.project.MODEL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,10 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace SoftwareLojasRibeiro.br.com.project.VIEW
 {
-    public partial class FormMenu : Form
+    public partial class FormMenu : BaseForm
     {
         public FormMenu()
         {
@@ -19,7 +21,85 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
         private void FormMenu_Load(object sender, EventArgs e)
         {
+            this.Focus();
+            this.ActiveControl = null;
+        }
 
+        private void buttonClientes_Click(object sender, EventArgs e)
+        {
+            FormClientes telacli = new FormClientes();
+            telacli.Show();
+            this.Hide();
+        }
+
+        private void buttonFuncionarios_Click(object sender, EventArgs e)
+        {
+            FormFuncionarios telacli = new FormFuncionarios();
+            telacli.Show();
+            this.Hide();
+        }
+
+        private void buttonCategorias_Click(object sender, EventArgs e)
+        {
+            FormCategorias telacat = new FormCategorias();
+            telacat.Show();
+            this.Hide();
+        }
+
+        private void buttonProdutos_Click(object sender, EventArgs e)
+        {
+            FormProdutos telacli = new FormProdutos();
+            telacli.Show();
+            this.Hide();
+        }
+
+        private void buttonVendas_Click(object sender, EventArgs e)
+        {
+            FormVendas telacli = new FormVendas();
+            telacli.Show();
+            this.Hide();
+        }
+
+        private void FormMenu_KeyPress(object sender, KeyPressEventArgs e){ }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.D0 || keyData == Keys.NumPad0) // tecla 1
+            {
+                this.Close();
+                return true;
+            }
+            else if (keyData == Keys.D1 || keyData == Keys.NumPad1) // tecla 1
+            {
+                buttonClientes_Click(this, EventArgs.Empty);
+                return true;
+            }
+            else if (keyData == Keys.D2 || keyData == Keys.NumPad2) // tecla 2
+            {
+                buttonFuncionarios_Click(this, EventArgs.Empty);
+                return true;
+            }
+            else if (keyData == Keys.D3 || keyData == Keys.NumPad3) // tecla 3
+            {
+                // Adicione a ação desejada para a tecla '3'
+                return true;
+            }
+            else if (keyData == Keys.D4 || keyData == Keys.NumPad4) // tecla 4
+            {
+                buttonCategorias_Click(this, EventArgs.Empty);
+                return true;
+            }
+            else if (keyData == Keys.D5 || keyData == Keys.NumPad5) // tecla 5
+            {
+                buttonProdutos_Click(this, EventArgs.Empty);
+                return true;
+            }
+            else if (keyData == Keys.D6 || keyData == Keys.NumPad6) // tecla 6
+            {
+                buttonVendas_Click(this, EventArgs.Empty);
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 }

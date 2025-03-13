@@ -31,13 +31,30 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormClientes));
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.tabControlClientes = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.buttonMenu = new System.Windows.Forms.Button();
+            this.tabPageConsultar = new System.Windows.Forms.TabPage();
+            this.button2 = new System.Windows.Forms.Button();
+            this.buttonLimparPesquisa = new System.Windows.Forms.Button();
+            this.buttonExcluir = new System.Windows.Forms.Button();
+            this.buttonAlterar = new System.Windows.Forms.Button();
+            this.dataGridViewClientes = new System.Windows.Forms.DataGridView();
+            this.buttonPesquisar = new System.Windows.Forms.Button();
+            this.textBoxPesquisaNome = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.tabPageCadastrar = new System.Windows.Forms.TabPage();
+            this.buttonBuscar = new System.Windows.Forms.Button();
+            this.maskedTextBoxCep = new System.Windows.Forms.MaskedTextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.textBoxID = new System.Windows.Forms.TextBox();
+            this.textBoxEndereco = new System.Windows.Forms.TextBox();
+            this.textBoxEmail = new System.Windows.Forms.TextBox();
+            this.textBoxNome = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.buttonLimpar = new System.Windows.Forms.Button();
             this.buttonCadastrar = new System.Windows.Forms.Button();
             this.maskedTextBoxData = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBoxNumero = new System.Windows.Forms.MaskedTextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBoxEndereco = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.maskedTextBoxCpf = new System.Windows.Forms.MaskedTextBox();
@@ -45,23 +62,25 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBoxNome = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.dataGridViewClientes = new System.Windows.Forms.DataGridView();
-            this.buttonPesquisar = new System.Windows.Forms.Button();
-            this.textBoxPesquisaNome = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.buttonLimpar = new System.Windows.Forms.Button();
+            this.tabControlClientes = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.dataGridViewClientesDevedores = new System.Windows.Forms.DataGridView();
+            this.buttonDetalhesVenda = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
+            this.textBoxPesquisaDevedor = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
+            this.tabPageConsultar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClientes)).BeginInit();
+            this.tabPageCadastrar.SuspendLayout();
             this.tabControlClientes.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClientes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClientesDevedores)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -70,64 +89,240 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(53, 57);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(177, 20);
+            this.label1.Size = new System.Drawing.Size(117, 20);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Cadastro de Clientes";
+            this.label1.Text = "Área Clientes";
             // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.buttonMenu);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(1, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1020, 143);
             this.panel1.TabIndex = 1;
             // 
-            // tabControlClientes
+            // buttonMenu
             // 
-            this.tabControlClientes.Controls.Add(this.tabPage1);
-            this.tabControlClientes.Controls.Add(this.tabPage2);
-            this.tabControlClientes.Controls.Add(this.tabPage3);
-            this.tabControlClientes.Location = new System.Drawing.Point(1, 151);
-            this.tabControlClientes.Name = "tabControlClientes";
-            this.tabControlClientes.SelectedIndex = 0;
-            this.tabControlClientes.Size = new System.Drawing.Size(1024, 484);
-            this.tabControlClientes.TabIndex = 2;
+            this.buttonMenu.Location = new System.Drawing.Point(-1, -1);
+            this.buttonMenu.Name = "buttonMenu";
+            this.buttonMenu.Size = new System.Drawing.Size(103, 24);
+            this.buttonMenu.TabIndex = 0;
+            this.buttonMenu.Text = "Menu";
+            this.buttonMenu.UseVisualStyleBackColor = true;
+            this.buttonMenu.Click += new System.EventHandler(this.buttonMenu_Click);
             // 
-            // tabPage1
+            // tabPageConsultar
             // 
-            this.tabPage1.Controls.Add(this.buttonLimpar);
-            this.tabPage1.Controls.Add(this.buttonCadastrar);
-            this.tabPage1.Controls.Add(this.maskedTextBoxData);
-            this.tabPage1.Controls.Add(this.maskedTextBoxNumero);
-            this.tabPage1.Controls.Add(this.label10);
-            this.tabPage1.Controls.Add(this.textBoxEndereco);
-            this.tabPage1.Controls.Add(this.label9);
-            this.tabPage1.Controls.Add(this.label8);
-            this.tabPage1.Controls.Add(this.maskedTextBoxCpf);
-            this.tabPage1.Controls.Add(this.maskedTextBoxRg);
-            this.tabPage1.Controls.Add(this.label7);
-            this.tabPage1.Controls.Add(this.label6);
-            this.tabPage1.Controls.Add(this.label5);
-            this.tabPage1.Controls.Add(this.textBoxEmail);
-            this.tabPage1.Controls.Add(this.label4);
-            this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.textBoxNome);
-            this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1016, 458);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Cadastrar";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPageConsultar.Controls.Add(this.button2);
+            this.tabPageConsultar.Controls.Add(this.buttonLimparPesquisa);
+            this.tabPageConsultar.Controls.Add(this.buttonExcluir);
+            this.tabPageConsultar.Controls.Add(this.buttonAlterar);
+            this.tabPageConsultar.Controls.Add(this.dataGridViewClientes);
+            this.tabPageConsultar.Controls.Add(this.buttonPesquisar);
+            this.tabPageConsultar.Controls.Add(this.textBoxPesquisaNome);
+            this.tabPageConsultar.Controls.Add(this.label11);
+            this.tabPageConsultar.Location = new System.Drawing.Point(4, 22);
+            this.tabPageConsultar.Name = "tabPageConsultar";
+            this.tabPageConsultar.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageConsultar.Size = new System.Drawing.Size(1016, 458);
+            this.tabPageConsultar.TabIndex = 2;
+            this.tabPageConsultar.Text = "Consultar Dados";
+            this.tabPageConsultar.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(860, 30);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(128, 40);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "Exibir Compras";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // buttonLimparPesquisa
+            // 
+            this.buttonLimparPesquisa.Location = new System.Drawing.Point(207, 67);
+            this.buttonLimparPesquisa.Name = "buttonLimparPesquisa";
+            this.buttonLimparPesquisa.Size = new System.Drawing.Size(72, 29);
+            this.buttonLimparPesquisa.TabIndex = 4;
+            this.buttonLimparPesquisa.Text = "Limpar";
+            this.buttonLimparPesquisa.UseVisualStyleBackColor = true;
+            this.buttonLimparPesquisa.Click += new System.EventHandler(this.buttonLimparPesquisa_Click);
+            // 
+            // buttonExcluir
+            // 
+            this.buttonExcluir.Location = new System.Drawing.Point(714, 30);
+            this.buttonExcluir.Name = "buttonExcluir";
+            this.buttonExcluir.Size = new System.Drawing.Size(128, 40);
+            this.buttonExcluir.TabIndex = 3;
+            this.buttonExcluir.Text = "Excluir";
+            this.buttonExcluir.UseVisualStyleBackColor = true;
+            this.buttonExcluir.Click += new System.EventHandler(this.buttonExcluir_Click);
+            // 
+            // buttonAlterar
+            // 
+            this.buttonAlterar.Location = new System.Drawing.Point(565, 30);
+            this.buttonAlterar.Name = "buttonAlterar";
+            this.buttonAlterar.Size = new System.Drawing.Size(128, 40);
+            this.buttonAlterar.TabIndex = 2;
+            this.buttonAlterar.Text = "Alterar";
+            this.buttonAlterar.UseVisualStyleBackColor = true;
+            this.buttonAlterar.Click += new System.EventHandler(this.buttonAlterar_Click);
+            // 
+            // dataGridViewClientes
+            // 
+            this.dataGridViewClientes.AllowUserToAddRows = false;
+            this.dataGridViewClientes.AllowUserToDeleteRows = false;
+            this.dataGridViewClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewClientes.Location = new System.Drawing.Point(6, 102);
+            this.dataGridViewClientes.Name = "dataGridViewClientes";
+            this.dataGridViewClientes.ReadOnly = true;
+            this.dataGridViewClientes.Size = new System.Drawing.Size(1004, 350);
+            this.dataGridViewClientes.TabIndex = 5;
+            this.dataGridViewClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewClientes_CellClick);
+            // 
+            // buttonPesquisar
+            // 
+            this.buttonPesquisar.Location = new System.Drawing.Point(417, 30);
+            this.buttonPesquisar.Name = "buttonPesquisar";
+            this.buttonPesquisar.Size = new System.Drawing.Size(128, 40);
+            this.buttonPesquisar.TabIndex = 1;
+            this.buttonPesquisar.Text = "Pesquisar";
+            this.buttonPesquisar.UseVisualStyleBackColor = true;
+            this.buttonPesquisar.Click += new System.EventHandler(this.buttonPesquisar_Click);
+            // 
+            // textBoxPesquisaNome
+            // 
+            this.textBoxPesquisaNome.Location = new System.Drawing.Point(130, 41);
+            this.textBoxPesquisaNome.Name = "textBoxPesquisaNome";
+            this.textBoxPesquisaNome.Size = new System.Drawing.Size(247, 20);
+            this.textBoxPesquisaNome.TabIndex = 0;
+            this.textBoxPesquisaNome.TextChanged += new System.EventHandler(this.textBoxPesquisaNome_TextChanged);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(28, 44);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(88, 13);
+            this.label11.TabIndex = 2;
+            this.label11.Text = "Nome do Cliente:";
+            // 
+            // tabPageCadastrar
+            // 
+            this.tabPageCadastrar.Controls.Add(this.buttonBuscar);
+            this.tabPageCadastrar.Controls.Add(this.maskedTextBoxCep);
+            this.tabPageCadastrar.Controls.Add(this.label13);
+            this.tabPageCadastrar.Controls.Add(this.textBoxID);
+            this.tabPageCadastrar.Controls.Add(this.textBoxEndereco);
+            this.tabPageCadastrar.Controls.Add(this.textBoxEmail);
+            this.tabPageCadastrar.Controls.Add(this.textBoxNome);
+            this.tabPageCadastrar.Controls.Add(this.label12);
+            this.tabPageCadastrar.Controls.Add(this.buttonLimpar);
+            this.tabPageCadastrar.Controls.Add(this.buttonCadastrar);
+            this.tabPageCadastrar.Controls.Add(this.maskedTextBoxData);
+            this.tabPageCadastrar.Controls.Add(this.maskedTextBoxNumero);
+            this.tabPageCadastrar.Controls.Add(this.label10);
+            this.tabPageCadastrar.Controls.Add(this.label9);
+            this.tabPageCadastrar.Controls.Add(this.label8);
+            this.tabPageCadastrar.Controls.Add(this.maskedTextBoxCpf);
+            this.tabPageCadastrar.Controls.Add(this.maskedTextBoxRg);
+            this.tabPageCadastrar.Controls.Add(this.label7);
+            this.tabPageCadastrar.Controls.Add(this.label6);
+            this.tabPageCadastrar.Controls.Add(this.label5);
+            this.tabPageCadastrar.Controls.Add(this.label4);
+            this.tabPageCadastrar.Controls.Add(this.label3);
+            this.tabPageCadastrar.Controls.Add(this.label2);
+            this.tabPageCadastrar.Location = new System.Drawing.Point(4, 22);
+            this.tabPageCadastrar.Name = "tabPageCadastrar";
+            this.tabPageCadastrar.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageCadastrar.Size = new System.Drawing.Size(1016, 458);
+            this.tabPageCadastrar.TabIndex = 0;
+            this.tabPageCadastrar.Text = "Cadastrar";
+            this.tabPageCadastrar.UseVisualStyleBackColor = true;
+            // 
+            // buttonBuscar
+            // 
+            this.buttonBuscar.Location = new System.Drawing.Point(674, 153);
+            this.buttonBuscar.Name = "buttonBuscar";
+            this.buttonBuscar.Size = new System.Drawing.Size(64, 26);
+            this.buttonBuscar.TabIndex = 6;
+            this.buttonBuscar.Text = "Buscar";
+            this.buttonBuscar.UseVisualStyleBackColor = true;
+            this.buttonBuscar.Click += new System.EventHandler(this.buttonBuscar_Click);
+            // 
+            // maskedTextBoxCep
+            // 
+            this.maskedTextBoxCep.Location = new System.Drawing.Point(555, 157);
+            this.maskedTextBoxCep.Mask = "00000-000";
+            this.maskedTextBoxCep.Name = "maskedTextBoxCep";
+            this.maskedTextBoxCep.Size = new System.Drawing.Size(98, 20);
+            this.maskedTextBoxCep.TabIndex = 5;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(505, 160);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(31, 13);
+            this.label13.TabIndex = 26;
+            this.label13.Text = "CEP:";
+            // 
+            // textBoxID
+            // 
+            this.textBoxID.Location = new System.Drawing.Point(137, 50);
+            this.textBoxID.Name = "textBoxID";
+            this.textBoxID.Size = new System.Drawing.Size(49, 20);
+            this.textBoxID.TabIndex = 25;
+            this.textBoxID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBoxEndereco
+            // 
+            this.textBoxEndereco.Location = new System.Drawing.Point(555, 197);
+            this.textBoxEndereco.Name = "textBoxEndereco";
+            this.textBoxEndereco.Size = new System.Drawing.Size(229, 20);
+            this.textBoxEndereco.TabIndex = 7;
+            // 
+            // textBoxEmail
+            // 
+            this.textBoxEmail.Location = new System.Drawing.Point(537, 47);
+            this.textBoxEmail.Name = "textBoxEmail";
+            this.textBoxEmail.Size = new System.Drawing.Size(247, 20);
+            this.textBoxEmail.TabIndex = 3;
+            // 
+            // textBoxNome
+            // 
+            this.textBoxNome.Location = new System.Drawing.Point(139, 108);
+            this.textBoxNome.Name = "textBoxNome";
+            this.textBoxNome.Size = new System.Drawing.Size(247, 20);
+            this.textBoxNome.TabIndex = 0;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(98, 53);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(21, 13);
+            this.label12.TabIndex = 24;
+            this.label12.Text = "ID:";
+            // 
+            // buttonLimpar
+            // 
+            this.buttonLimpar.Location = new System.Drawing.Point(367, 379);
+            this.buttonLimpar.Name = "buttonLimpar";
+            this.buttonLimpar.Size = new System.Drawing.Size(232, 40);
+            this.buttonLimpar.TabIndex = 10;
+            this.buttonLimpar.Text = "Limpar";
+            this.buttonLimpar.UseVisualStyleBackColor = true;
+            this.buttonLimpar.Click += new System.EventHandler(this.buttonLimpar_Click);
             // 
             // buttonCadastrar
             // 
             this.buttonCadastrar.Location = new System.Drawing.Point(367, 319);
             this.buttonCadastrar.Name = "buttonCadastrar";
             this.buttonCadastrar.Size = new System.Drawing.Size(232, 40);
-            this.buttonCadastrar.TabIndex = 22;
+            this.buttonCadastrar.TabIndex = 9;
             this.buttonCadastrar.Text = "Cadastrar";
             this.buttonCadastrar.UseVisualStyleBackColor = true;
             this.buttonCadastrar.Click += new System.EventHandler(this.buttonCadastrar_Click);
@@ -138,32 +333,25 @@
             this.maskedTextBoxData.Mask = "00/00/0000";
             this.maskedTextBoxData.Name = "maskedTextBoxData";
             this.maskedTextBoxData.Size = new System.Drawing.Size(165, 20);
-            this.maskedTextBoxData.TabIndex = 21;
+            this.maskedTextBoxData.TabIndex = 4;
             this.maskedTextBoxData.ValidatingType = typeof(System.DateTime);
             // 
             // maskedTextBoxNumero
             // 
-            this.maskedTextBoxNumero.Location = new System.Drawing.Point(136, 261);
+            this.maskedTextBoxNumero.Location = new System.Drawing.Point(555, 255);
             this.maskedTextBoxNumero.Mask = "(00) 0 0000-0000";
             this.maskedTextBoxNumero.Name = "maskedTextBoxNumero";
-            this.maskedTextBoxNumero.Size = new System.Drawing.Size(246, 20);
-            this.maskedTextBoxNumero.TabIndex = 20;
+            this.maskedTextBoxNumero.Size = new System.Drawing.Size(229, 20);
+            this.maskedTextBoxNumero.TabIndex = 8;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(72, 261);
+            this.label10.Location = new System.Drawing.Point(491, 255);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(47, 13);
             this.label10.TabIndex = 19;
             this.label10.Text = "Número:";
-            // 
-            // textBoxEndereco
-            // 
-            this.textBoxEndereco.Location = new System.Drawing.Point(555, 197);
-            this.textBoxEndereco.Name = "textBoxEndereco";
-            this.textBoxEndereco.Size = new System.Drawing.Size(229, 20);
-            this.textBoxEndereco.TabIndex = 15;
             // 
             // label9
             // 
@@ -185,19 +373,19 @@
             // 
             // maskedTextBoxCpf
             // 
-            this.maskedTextBoxCpf.Location = new System.Drawing.Point(135, 197);
-            this.maskedTextBoxCpf.Mask = "###.###.###-##";
+            this.maskedTextBoxCpf.Location = new System.Drawing.Point(138, 255);
+            this.maskedTextBoxCpf.Mask = "###,###,###-##";
             this.maskedTextBoxCpf.Name = "maskedTextBoxCpf";
             this.maskedTextBoxCpf.Size = new System.Drawing.Size(246, 20);
-            this.maskedTextBoxCpf.TabIndex = 10;
+            this.maskedTextBoxCpf.TabIndex = 2;
             // 
             // maskedTextBoxRg
             // 
-            this.maskedTextBoxRg.Location = new System.Drawing.Point(136, 114);
-            this.maskedTextBoxRg.Mask = "##.###.###-##";
+            this.maskedTextBoxRg.Location = new System.Drawing.Point(139, 172);
+            this.maskedTextBoxRg.Mask = "##,###,###-##";
             this.maskedTextBoxRg.Name = "maskedTextBoxRg";
             this.maskedTextBoxRg.Size = new System.Drawing.Size(246, 20);
-            this.maskedTextBoxRg.TabIndex = 9;
+            this.maskedTextBoxRg.TabIndex = 1;
             // 
             // label7
             // 
@@ -209,7 +397,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(95, 197);
+            this.label6.Location = new System.Drawing.Point(98, 258);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(30, 13);
             this.label6.TabIndex = 6;
@@ -218,18 +406,11 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(97, 117);
+            this.label5.Location = new System.Drawing.Point(100, 175);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(29, 13);
             this.label5.TabIndex = 4;
             this.label5.Text = "R.G:";
-            // 
-            // textBoxEmail
-            // 
-            this.textBoxEmail.Location = new System.Drawing.Point(537, 47);
-            this.textBoxEmail.Name = "textBoxEmail";
-            this.textBoxEmail.Size = new System.Drawing.Size(247, 20);
-            this.textBoxEmail.TabIndex = 3;
             // 
             // label4
             // 
@@ -247,92 +428,110 @@
             this.label3.Size = new System.Drawing.Size(100, 23);
             this.label3.TabIndex = 1;
             // 
-            // textBoxNome
-            // 
-            this.textBoxNome.Location = new System.Drawing.Point(136, 50);
-            this.textBoxNome.Name = "textBoxNome";
-            this.textBoxNome.Size = new System.Drawing.Size(247, 20);
-            this.textBoxNome.TabIndex = 1;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(34, 53);
+            this.label2.Location = new System.Drawing.Point(37, 111);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(85, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "Nome Completo:";
             // 
-            // tabPage2
+            // tabControlClientes
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1016, 458);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Consultar Devedores";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabControlClientes.Controls.Add(this.tabPageCadastrar);
+            this.tabControlClientes.Controls.Add(this.tabPageConsultar);
+            this.tabControlClientes.Controls.Add(this.tabPage1);
+            this.tabControlClientes.Location = new System.Drawing.Point(1, 151);
+            this.tabControlClientes.Name = "tabControlClientes";
+            this.tabControlClientes.SelectedIndex = 0;
+            this.tabControlClientes.Size = new System.Drawing.Size(1024, 484);
+            this.tabControlClientes.TabIndex = 0;
             // 
-            // tabPage3
+            // tabPage1
             // 
-            this.tabPage3.Controls.Add(this.dataGridViewClientes);
-            this.tabPage3.Controls.Add(this.buttonPesquisar);
-            this.tabPage3.Controls.Add(this.textBoxPesquisaNome);
-            this.tabPage3.Controls.Add(this.label11);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1016, 458);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Consultar Dados";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.tabPage1.Controls.Add(this.textBoxPesquisaDevedor);
+            this.tabPage1.Controls.Add(this.button5);
+            this.tabPage1.Controls.Add(this.button1);
+            this.tabPage1.Controls.Add(this.button3);
+            this.tabPage1.Controls.Add(this.dataGridViewClientesDevedores);
+            this.tabPage1.Controls.Add(this.buttonDetalhesVenda);
+            this.tabPage1.Controls.Add(this.label14);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1016, 458);
+            this.tabPage1.TabIndex = 3;
+            this.tabPage1.Text = "Consultar Devedores";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // dataGridViewClientes
+            // button5
             // 
-            this.dataGridViewClientes.AllowUserToAddRows = false;
-            this.dataGridViewClientes.AllowUserToDeleteRows = false;
-            this.dataGridViewClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewClientes.Location = new System.Drawing.Point(6, 102);
-            this.dataGridViewClientes.Name = "dataGridViewClientes";
-            this.dataGridViewClientes.ReadOnly = true;
-            this.dataGridViewClientes.Size = new System.Drawing.Size(1004, 350);
-            this.dataGridViewClientes.TabIndex = 24;
-            this.dataGridViewClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewClientes_CellClick);
+            this.button5.Location = new System.Drawing.Point(809, 18);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(160, 40);
+            this.button5.TabIndex = 13;
+            this.button5.Text = "Remover Dívida (erro)";
+            this.button5.UseVisualStyleBackColor = true;
             // 
-            // buttonPesquisar
+            // button1
             // 
-            this.buttonPesquisar.Location = new System.Drawing.Point(404, 19);
-            this.buttonPesquisar.Name = "buttonPesquisar";
-            this.buttonPesquisar.Size = new System.Drawing.Size(232, 40);
-            this.buttonPesquisar.TabIndex = 23;
-            this.buttonPesquisar.Text = "Pesquisar";
-            this.buttonPesquisar.UseVisualStyleBackColor = true;
-            this.buttonPesquisar.Click += new System.EventHandler(this.buttonPesquisar_Click);
+            this.button1.Location = new System.Drawing.Point(207, 55);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(72, 29);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Limpar";
+            this.button1.UseVisualStyleBackColor = true;
             // 
-            // textBoxPesquisaNome
+            // button3
             // 
-            this.textBoxPesquisaNome.Location = new System.Drawing.Point(132, 30);
-            this.textBoxPesquisaNome.Name = "textBoxPesquisaNome";
-            this.textBoxPesquisaNome.Size = new System.Drawing.Size(247, 20);
-            this.textBoxPesquisaNome.TabIndex = 3;
+            this.button3.Location = new System.Drawing.Point(617, 18);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(160, 40);
+            this.button3.TabIndex = 8;
+            this.button3.Text = "Cobrir Dívida";
+            this.button3.UseVisualStyleBackColor = true;
             // 
-            // label11
+            // dataGridViewClientesDevedores
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(30, 33);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(85, 13);
-            this.label11.TabIndex = 2;
-            this.label11.Text = "Nome Completo:";
+            this.dataGridViewClientesDevedores.AllowUserToAddRows = false;
+            this.dataGridViewClientesDevedores.AllowUserToDeleteRows = false;
+            this.dataGridViewClientesDevedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewClientesDevedores.Location = new System.Drawing.Point(6, 90);
+            this.dataGridViewClientesDevedores.Name = "dataGridViewClientesDevedores";
+            this.dataGridViewClientesDevedores.ReadOnly = true;
+            this.dataGridViewClientesDevedores.Size = new System.Drawing.Size(1004, 350);
+            this.dataGridViewClientesDevedores.TabIndex = 12;
+            this.dataGridViewClientesDevedores.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // buttonLimpar
+            // buttonDetalhesVenda
             // 
-            this.buttonLimpar.Location = new System.Drawing.Point(367, 379);
-            this.buttonLimpar.Name = "buttonLimpar";
-            this.buttonLimpar.Size = new System.Drawing.Size(232, 40);
-            this.buttonLimpar.TabIndex = 23;
-            this.buttonLimpar.Text = "Limpar";
-            this.buttonLimpar.UseVisualStyleBackColor = true;
+            this.buttonDetalhesVenda.Location = new System.Drawing.Point(417, 18);
+            this.buttonDetalhesVenda.Name = "buttonDetalhesVenda";
+            this.buttonDetalhesVenda.Size = new System.Drawing.Size(160, 40);
+            this.buttonDetalhesVenda.TabIndex = 7;
+            this.buttonDetalhesVenda.Text = "Detalhes da Venda";
+            this.buttonDetalhesVenda.UseVisualStyleBackColor = true;
+            this.buttonDetalhesVenda.Click += new System.EventHandler(this.buttonDetalhesVenda_Click);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(36, 29);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(88, 26);
+            this.label14.TabIndex = 9;
+            this.label14.Text = "Nome do Cliente \r\nDevedor:";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label14.Click += new System.EventHandler(this.label14_Click);
+            // 
+            // textBoxPesquisaDevedor
+            // 
+            this.textBoxPesquisaDevedor.Location = new System.Drawing.Point(140, 26);
+            this.textBoxPesquisaDevedor.Name = "textBoxPesquisaDevedor";
+            this.textBoxPesquisaDevedor.Size = new System.Drawing.Size(253, 20);
+            this.textBoxPesquisaDevedor.TabIndex = 14;
+            this.textBoxPesquisaDevedor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxPesquisaDevedor_KeyPress);
             // 
             // FormClientes
             // 
@@ -343,16 +542,20 @@
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormClientes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lojas Ribeiro - Clientes";
             this.Load += new System.EventHandler(this.FormLogin_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.tabPageConsultar.ResumeLayout(false);
+            this.tabPageConsultar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClientes)).EndInit();
+            this.tabPageCadastrar.ResumeLayout(false);
+            this.tabPageCadastrar.PerformLayout();
             this.tabControlClientes.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClientesDevedores)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -361,32 +564,49 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TabControl tabControlClientes;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TextBox textBoxNome;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBoxEmail;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.MaskedTextBox maskedTextBoxCpf;
-        private System.Windows.Forms.MaskedTextBox maskedTextBoxRg;
-        private System.Windows.Forms.TextBox textBoxEndereco;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button buttonCadastrar;
-        private System.Windows.Forms.MaskedTextBox maskedTextBoxData;
-        private System.Windows.Forms.MaskedTextBox maskedTextBoxNumero;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tabPageConsultar;
+        private System.Windows.Forms.Button buttonLimparPesquisa;
+        private System.Windows.Forms.Button buttonExcluir;
+        private System.Windows.Forms.Button buttonAlterar;
         private System.Windows.Forms.DataGridView dataGridViewClientes;
         private System.Windows.Forms.Button buttonPesquisar;
         private System.Windows.Forms.TextBox textBoxPesquisaNome;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TabPage tabPageCadastrar;
+        private System.Windows.Forms.Button buttonBuscar;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxCep;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox textBoxID;
+        private System.Windows.Forms.TextBox textBoxEndereco;
+        private System.Windows.Forms.TextBox textBoxEmail;
+        private System.Windows.Forms.TextBox textBoxNome;
+        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button buttonLimpar;
+        private System.Windows.Forms.Button buttonCadastrar;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxData;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxNumero;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxCpf;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxRg;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TabControl tabControlClientes;
+        private System.Windows.Forms.Button buttonMenu;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.DataGridView dataGridViewClientesDevedores;
+        private System.Windows.Forms.Button buttonDetalhesVenda;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.TextBox textBoxPesquisaDevedor;
     }
 }
 

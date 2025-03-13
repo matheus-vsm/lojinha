@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace SoftwareLojasRibeiro.br.com.project.VIEW
 {
-    public partial class FormLogin : Form
+    public partial class FormLogin : BaseForm
     {
         public FormLogin()
         {
@@ -25,6 +25,13 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonEntrar_Click(object sender, EventArgs e)
+        {
+            FormMenu tela = new FormMenu();
+            tela.Show();
+            this.Hide();
         }
     }
 }
