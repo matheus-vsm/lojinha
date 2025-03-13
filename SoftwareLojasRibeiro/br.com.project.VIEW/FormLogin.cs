@@ -26,5 +26,12 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         {
 
         }
+
+        private void buttonEntrar_Click(object sender, EventArgs e)
+        {
+            FormMenu tela = new FormMenu();
+            tela.Show();
+            this.Hide();
+        }
     }
 }

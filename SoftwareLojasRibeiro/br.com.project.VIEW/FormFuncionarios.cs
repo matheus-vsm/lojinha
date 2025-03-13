@@ -182,5 +182,10 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             FuncionarioDAO dao = new FuncionarioDAO();
             dataGridViewFuncionarios.DataSource = dao.ListarFuncionarios(func);
         }
+
+        private void comboBoxTipoUsuario_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

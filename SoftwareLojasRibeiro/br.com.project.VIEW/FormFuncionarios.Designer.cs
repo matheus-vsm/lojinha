@@ -209,6 +209,7 @@
             this.comboBoxTipoUsuario.Name = "comboBoxTipoUsuario";
             this.comboBoxTipoUsuario.Size = new System.Drawing.Size(113, 21);
             this.comboBoxTipoUsuario.TabIndex = 9;
+            this.comboBoxTipoUsuario.SelectedIndexChanged += new System.EventHandler(this.comboBoxTipoUsuario_SelectedIndexChanged);
             // 
             // buttonBuscar
             // 
