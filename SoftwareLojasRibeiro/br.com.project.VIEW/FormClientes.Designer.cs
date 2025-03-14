@@ -67,13 +67,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tabControlClientes = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.textBoxPesquisaDevedor = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.dataGridViewClientesDevedores = new System.Windows.Forms.DataGridView();
             this.buttonDetalhesVenda = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBoxPesquisaDevedor = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.tabPageConsultar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClientes)).BeginInit();
@@ -465,6 +465,14 @@
             this.tabPage1.Text = "Consultar Devedores";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // textBoxPesquisaDevedor
+            // 
+            this.textBoxPesquisaDevedor.Location = new System.Drawing.Point(140, 26);
+            this.textBoxPesquisaDevedor.Name = "textBoxPesquisaDevedor";
+            this.textBoxPesquisaDevedor.Size = new System.Drawing.Size(253, 20);
+            this.textBoxPesquisaDevedor.TabIndex = 14;
+            this.textBoxPesquisaDevedor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxPesquisaDevedor_KeyPress);
+            // 
             // button5
             // 
             this.button5.Location = new System.Drawing.Point(809, 18);
@@ -489,7 +497,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(160, 40);
             this.button3.TabIndex = 8;
-            this.button3.Text = "Cobrir Dívida";
+            this.button3.Text = "Pagar Dívida";
             this.button3.UseVisualStyleBackColor = true;
             // 
             // dataGridViewClientesDevedores
@@ -524,14 +532,6 @@
             this.label14.Text = "Nome do Cliente \r\nDevedor:";
             this.label14.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label14.Click += new System.EventHandler(this.label14_Click);
-            // 
-            // textBoxPesquisaDevedor
-            // 
-            this.textBoxPesquisaDevedor.Location = new System.Drawing.Point(140, 26);
-            this.textBoxPesquisaDevedor.Name = "textBoxPesquisaDevedor";
-            this.textBoxPesquisaDevedor.Size = new System.Drawing.Size(253, 20);
-            this.textBoxPesquisaDevedor.TabIndex = 14;
-            this.textBoxPesquisaDevedor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxPesquisaDevedor_KeyPress);
             // 
             // FormClientes
             // 
