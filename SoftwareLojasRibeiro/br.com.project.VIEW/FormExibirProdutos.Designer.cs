@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormExibirProdutos));
             this.dataGridViewProds = new System.Windows.Forms.DataGridView();
             this.textBoxPesquisar = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -38,19 +39,22 @@
             // 
             // dataGridViewProds
             // 
+            this.dataGridViewProds.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridViewProds.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewProds.Location = new System.Drawing.Point(4, 136);
+            this.dataGridViewProds.Location = new System.Drawing.Point(5, 157);
+            this.dataGridViewProds.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridViewProds.Name = "dataGridViewProds";
-            this.dataGridViewProds.Size = new System.Drawing.Size(792, 312);
+            this.dataGridViewProds.Size = new System.Drawing.Size(1056, 360);
             this.dataGridViewProds.TabIndex = 0;
             this.dataGridViewProds.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewProds_CellClick);
             this.dataGridViewProds.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewProds_CellContentClick);
             // 
             // textBoxPesquisar
             // 
-            this.textBoxPesquisar.Location = new System.Drawing.Point(224, 94);
+            this.textBoxPesquisar.Location = new System.Drawing.Point(299, 108);
+            this.textBoxPesquisar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxPesquisar.Name = "textBoxPesquisar";
-            this.textBoxPesquisar.Size = new System.Drawing.Size(325, 20);
+            this.textBoxPesquisar.Size = new System.Drawing.Size(432, 23);
             this.textBoxPesquisar.TabIndex = 1;
             this.textBoxPesquisar.TextChanged += new System.EventHandler(this.textBoxPesquisar_TextChanged);
             // 
@@ -58,7 +62,8 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(33, 25);
+            this.label1.Location = new System.Drawing.Point(44, 29);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(150, 20);
             this.label1.TabIndex = 0;
@@ -68,19 +73,24 @@
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(4, 5);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(792, 70);
+            this.panel1.Size = new System.Drawing.Size(1067, 80);
             this.panel1.TabIndex = 18;
             // 
             // FormExibirProdutos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 519);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.textBoxPesquisar);
             this.Controls.Add(this.dataGridViewProds);
+            this.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "FormExibirProdutos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lojas Ribeiro - Lista de Produtos";

@@ -94,9 +94,9 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                 DataTable tabelacliente = new DataTable();
 
                 // Se o nome for informado, adicionamos um filtro na consulta
-                string sql = @"SELECT Id_Fornecedores as 'ID', Nome, 
+                string sql = @"SELECT Id_Fornecedor as 'ID', Nome, 
                                Cnpj, Email, Telefone, Celular,
-                               Endereco, Cep FROM tb_Fornecedores";
+                               Endereco, Cep FROM tb_fornecedores";
                 if (!string.IsNullOrEmpty(Forn.Nome))
                 {
                     sql += " WHERE Nome LIKE @nome";
@@ -152,10 +152,10 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                 }
 
                 // Definir comando SQL - UPDATE
-                string sql = @"UPDATE tb_Fornecedores SET 
-                      Nome=@nome, Cnpj=@cnpj, Email=@email, Telefone=@telefone, Celular=@celular,
-                      Cep=@cep, Endereco=@endereco  
-                      WHERE Id_Fornecedores=@id";
+                string sql = @"UPDATE tb_fornecedores SET 
+                      Nome=@nome, Cnpj=@cnpj, Email=@email, Telefone=@telefone, Celular=@celular, 
+                      Cep=@cep, Endereco=@endereco 
+                      WHERE Id_Fornecedor=@id";
 
                 // Organizar o comando SQL
                 MySqlCommand executacmd = new MySqlCommand(sql, connection);
@@ -179,7 +179,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                 }
                 else
                 {
-                    MessageBox.Show("Erro ao alterar fornecedor! Nenhuma linha foi modificada.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Erro ao alterar Fornecedor! Nenhuma linha foi modificada.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
 
@@ -216,7 +216,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                 }
 
                 //Definir comando SQL - INSERT INTO
-                string sql = @"DELETE FROM tb_Fornecedores WHERE Id_Fornecedores=@id";
+                string sql = @"DELETE FROM tb_Fornecedores WHERE Id_Fornecedor=@id";
 
                 //Organizar o comando SQL
                 MySqlCommand executacmd = new MySqlCommand(sql, connection);
@@ -240,6 +240,5 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             }
         }
         #endregion
-
     }
 }

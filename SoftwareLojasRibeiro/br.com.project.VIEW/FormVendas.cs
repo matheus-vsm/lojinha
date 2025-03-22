@@ -148,7 +148,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 textBoxID.ReadOnly = false;
                 textBoxID.Focus();
             }
-            catch (Exception error)
+            catch (Exception)
             {
                 if (qntd == 0)
                 {
@@ -215,10 +215,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             tela.ShowDialog();
         }
 
-        private void maskedTextBoxData_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
-        }
+        private void maskedTextBoxData_MaskInputRejected(object sender, MaskInputRejectedEventArgs e) { }
 
         private void buttonPesquisar_Click(object sender, EventArgs e)
         {
@@ -247,15 +244,9 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             //limpar dados do carrinho, n so linhas
         }
 
-        private void textBoxID_TextChanged(object sender, EventArgs e)
-        {
+        private void textBoxID_TextChanged(object sender, EventArgs e) { }
 
-        }
-
-        private void dataGridViewProdutosCarrinho_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+        private void dataGridViewProdutosCarrinho_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
 
         private void buttonExibirProds_Click(object sender, EventArgs e)
         {
@@ -307,10 +298,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
         private void FormVendas_KeyPress(object sender, KeyPressEventArgs e) { }
 
-        private void maskedTextBoxCpf_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
-        }
+        private void maskedTextBoxCpf_MaskInputRejected(object sender, MaskInputRejectedEventArgs e) { }
 
         private void maskedTextBoxCpf_KeyPress(object sender, KeyPressEventArgs e)
         {

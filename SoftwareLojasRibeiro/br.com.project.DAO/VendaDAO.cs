@@ -79,7 +79,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             }
             catch (Exception error)
             {
-                MessageBox.Show("Erro ao retornar o ID da Venda.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Erro ao retornar o ID da Venda." + error.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return "0";
             }
             finally
@@ -171,6 +171,5 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             }
         }
         #endregion
-
     }
 }

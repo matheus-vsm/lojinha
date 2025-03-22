@@ -76,10 +76,11 @@
             this.tabControlCategorias.Controls.Add(this.tabPageCadastrar);
             this.tabControlCategorias.Controls.Add(this.tabPageConsultar);
             this.tabControlCategorias.Controls.Add(this.tabPagePub);
-            this.tabControlCategorias.Location = new System.Drawing.Point(3, 158);
+            this.tabControlCategorias.Location = new System.Drawing.Point(4, 182);
+            this.tabControlCategorias.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabControlCategorias.Name = "tabControlCategorias";
             this.tabControlCategorias.SelectedIndex = 0;
-            this.tabControlCategorias.Size = new System.Drawing.Size(1024, 484);
+            this.tabControlCategorias.Size = new System.Drawing.Size(1369, 565);
             this.tabControlCategorias.TabIndex = 0;
             // 
             // tabPageCadastrar
@@ -96,10 +97,11 @@
             this.tabPageCadastrar.Controls.Add(this.label7);
             this.tabPageCadastrar.Controls.Add(this.label4);
             this.tabPageCadastrar.Controls.Add(this.label3);
-            this.tabPageCadastrar.Location = new System.Drawing.Point(4, 22);
+            this.tabPageCadastrar.Location = new System.Drawing.Point(4, 24);
+            this.tabPageCadastrar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabPageCadastrar.Name = "tabPageCadastrar";
-            this.tabPageCadastrar.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageCadastrar.Size = new System.Drawing.Size(1016, 458);
+            this.tabPageCadastrar.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tabPageCadastrar.Size = new System.Drawing.Size(1361, 537);
             this.tabPageCadastrar.TabIndex = 0;
             this.tabPageCadastrar.Text = "Cadastrar";
             this.tabPageCadastrar.UseVisualStyleBackColor = true;
@@ -110,65 +112,73 @@
             this.comboBoxTipoCat.Items.AddRange(new object[] {
             "Produto",
             "Publico"});
-            this.comboBoxTipoCat.Location = new System.Drawing.Point(397, 111);
+            this.comboBoxTipoCat.Location = new System.Drawing.Point(529, 128);
+            this.comboBoxTipoCat.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.comboBoxTipoCat.Name = "comboBoxTipoCat";
-            this.comboBoxTipoCat.Size = new System.Drawing.Size(247, 21);
+            this.comboBoxTipoCat.Size = new System.Drawing.Size(328, 23);
             this.comboBoxTipoCat.TabIndex = 0;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(290, 114);
+            this.label5.Location = new System.Drawing.Point(387, 132);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(94, 13);
+            this.label5.Size = new System.Drawing.Size(126, 15);
             this.label5.TabIndex = 28;
             this.label5.Text = "Tipo de Categoria:";
             // 
             // textBoxDescricao
             // 
-            this.textBoxDescricao.Location = new System.Drawing.Point(397, 222);
+            this.textBoxDescricao.Location = new System.Drawing.Point(529, 256);
+            this.textBoxDescricao.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxDescricao.Name = "textBoxDescricao";
-            this.textBoxDescricao.Size = new System.Drawing.Size(247, 20);
+            this.textBoxDescricao.Size = new System.Drawing.Size(328, 23);
             this.textBoxDescricao.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(333, 225);
+            this.label2.Location = new System.Drawing.Point(444, 260);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 13);
+            this.label2.Size = new System.Drawing.Size(78, 15);
             this.label2.TabIndex = 26;
             this.label2.Text = "Descrição:";
             // 
             // textBoxID
             // 
-            this.textBoxID.Location = new System.Drawing.Point(482, 57);
+            this.textBoxID.Location = new System.Drawing.Point(643, 66);
+            this.textBoxID.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxID.Name = "textBoxID";
-            this.textBoxID.Size = new System.Drawing.Size(49, 20);
+            this.textBoxID.Size = new System.Drawing.Size(64, 23);
             this.textBoxID.TabIndex = 25;
             this.textBoxID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBoxNome
             // 
-            this.textBoxNome.Location = new System.Drawing.Point(397, 165);
+            this.textBoxNome.Location = new System.Drawing.Point(529, 190);
+            this.textBoxNome.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxNome.Name = "textBoxNome";
-            this.textBoxNome.Size = new System.Drawing.Size(247, 20);
+            this.textBoxNome.Size = new System.Drawing.Size(328, 23);
             this.textBoxNome.TabIndex = 1;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(496, 41);
+            this.label12.Location = new System.Drawing.Point(661, 47);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(21, 13);
+            this.label12.Size = new System.Drawing.Size(25, 15);
             this.label12.TabIndex = 24;
             this.label12.Text = "ID:";
             // 
             // buttonLimpar
             // 
-            this.buttonLimpar.Location = new System.Drawing.Point(397, 356);
+            this.buttonLimpar.Location = new System.Drawing.Point(529, 411);
+            this.buttonLimpar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonLimpar.Name = "buttonLimpar";
-            this.buttonLimpar.Size = new System.Drawing.Size(232, 40);
+            this.buttonLimpar.Size = new System.Drawing.Size(309, 46);
             this.buttonLimpar.TabIndex = 4;
             this.buttonLimpar.Text = "Limpar";
             this.buttonLimpar.UseVisualStyleBackColor = true;
@@ -176,9 +186,10 @@
             // 
             // buttonCadastrar
             // 
-            this.buttonCadastrar.Location = new System.Drawing.Point(397, 296);
+            this.buttonCadastrar.Location = new System.Drawing.Point(529, 342);
+            this.buttonCadastrar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonCadastrar.Name = "buttonCadastrar";
-            this.buttonCadastrar.Size = new System.Drawing.Size(232, 40);
+            this.buttonCadastrar.Size = new System.Drawing.Size(309, 46);
             this.buttonCadastrar.TabIndex = 3;
             this.buttonCadastrar.Text = "Cadastrar";
             this.buttonCadastrar.UseVisualStyleBackColor = true;
@@ -187,24 +198,27 @@
             // label7
             // 
             this.label7.Location = new System.Drawing.Point(0, 0);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(100, 23);
+            this.label7.Size = new System.Drawing.Size(133, 27);
             this.label7.TabIndex = 18;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(346, 168);
+            this.label4.Location = new System.Drawing.Point(461, 194);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(38, 13);
+            this.label4.Size = new System.Drawing.Size(49, 15);
             this.label4.TabIndex = 2;
             this.label4.Text = "Nome:";
             // 
             // label3
             // 
             this.label3.Location = new System.Drawing.Point(0, 0);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 23);
+            this.label3.Size = new System.Drawing.Size(133, 27);
             this.label3.TabIndex = 1;
             // 
             // tabPageConsultar
@@ -217,18 +231,20 @@
             this.tabPageConsultar.Controls.Add(this.textBoxPesquisaNomeProd);
             this.tabPageConsultar.Controls.Add(this.label11);
             this.tabPageConsultar.Location = new System.Drawing.Point(4, 22);
+            this.tabPageConsultar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabPageConsultar.Name = "tabPageConsultar";
-            this.tabPageConsultar.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageConsultar.Size = new System.Drawing.Size(1016, 458);
+            this.tabPageConsultar.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tabPageConsultar.Size = new System.Drawing.Size(1361, 539);
             this.tabPageConsultar.TabIndex = 2;
             this.tabPageConsultar.Text = "Consultar Dados Produtos";
             this.tabPageConsultar.UseVisualStyleBackColor = true;
             // 
             // buttonLimparPesquisaProd
             // 
-            this.buttonLimparPesquisaProd.Location = new System.Drawing.Point(207, 67);
+            this.buttonLimparPesquisaProd.Location = new System.Drawing.Point(276, 77);
+            this.buttonLimparPesquisaProd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonLimparPesquisaProd.Name = "buttonLimparPesquisaProd";
-            this.buttonLimparPesquisaProd.Size = new System.Drawing.Size(72, 29);
+            this.buttonLimparPesquisaProd.Size = new System.Drawing.Size(96, 33);
             this.buttonLimparPesquisaProd.TabIndex = 27;
             this.buttonLimparPesquisaProd.Text = "Limpar";
             this.buttonLimparPesquisaProd.UseVisualStyleBackColor = true;
@@ -236,9 +252,10 @@
             // 
             // buttonExcluirProd
             // 
-            this.buttonExcluirProd.Location = new System.Drawing.Point(822, 30);
+            this.buttonExcluirProd.Location = new System.Drawing.Point(1096, 35);
+            this.buttonExcluirProd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonExcluirProd.Name = "buttonExcluirProd";
-            this.buttonExcluirProd.Size = new System.Drawing.Size(160, 40);
+            this.buttonExcluirProd.Size = new System.Drawing.Size(213, 46);
             this.buttonExcluirProd.TabIndex = 26;
             this.buttonExcluirProd.Text = "Excluir";
             this.buttonExcluirProd.UseVisualStyleBackColor = true;
@@ -246,9 +263,10 @@
             // 
             // buttonAlterarProd
             // 
-            this.buttonAlterarProd.Location = new System.Drawing.Point(617, 30);
+            this.buttonAlterarProd.Location = new System.Drawing.Point(823, 35);
+            this.buttonAlterarProd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonAlterarProd.Name = "buttonAlterarProd";
-            this.buttonAlterarProd.Size = new System.Drawing.Size(160, 40);
+            this.buttonAlterarProd.Size = new System.Drawing.Size(213, 46);
             this.buttonAlterarProd.TabIndex = 25;
             this.buttonAlterarProd.Text = "Alterar";
             this.buttonAlterarProd.UseVisualStyleBackColor = true;
@@ -258,18 +276,21 @@
             // 
             this.dataGridViewCatProd.AllowUserToAddRows = false;
             this.dataGridViewCatProd.AllowUserToDeleteRows = false;
+            this.dataGridViewCatProd.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridViewCatProd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewCatProd.Location = new System.Drawing.Point(6, 102);
+            this.dataGridViewCatProd.Location = new System.Drawing.Point(8, 118);
+            this.dataGridViewCatProd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridViewCatProd.Name = "dataGridViewCatProd";
             this.dataGridViewCatProd.ReadOnly = true;
-            this.dataGridViewCatProd.Size = new System.Drawing.Size(1004, 350);
+            this.dataGridViewCatProd.Size = new System.Drawing.Size(1339, 404);
             this.dataGridViewCatProd.TabIndex = 24;
             // 
             // buttonPesquisarProd
             // 
-            this.buttonPesquisarProd.Location = new System.Drawing.Point(417, 30);
+            this.buttonPesquisarProd.Location = new System.Drawing.Point(556, 35);
+            this.buttonPesquisarProd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonPesquisarProd.Name = "buttonPesquisarProd";
-            this.buttonPesquisarProd.Size = new System.Drawing.Size(160, 40);
+            this.buttonPesquisarProd.Size = new System.Drawing.Size(213, 46);
             this.buttonPesquisarProd.TabIndex = 23;
             this.buttonPesquisarProd.Text = "Pesquisar";
             this.buttonPesquisarProd.UseVisualStyleBackColor = true;
@@ -277,18 +298,20 @@
             // 
             // textBoxPesquisaNomeProd
             // 
-            this.textBoxPesquisaNomeProd.Location = new System.Drawing.Point(130, 41);
+            this.textBoxPesquisaNomeProd.Location = new System.Drawing.Point(173, 47);
+            this.textBoxPesquisaNomeProd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxPesquisaNomeProd.Name = "textBoxPesquisaNomeProd";
-            this.textBoxPesquisaNomeProd.Size = new System.Drawing.Size(247, 20);
+            this.textBoxPesquisaNomeProd.Size = new System.Drawing.Size(328, 23);
             this.textBoxPesquisaNomeProd.TabIndex = 3;
             this.textBoxPesquisaNomeProd.TextChanged += new System.EventHandler(this.textBoxPesquisaNomeProd_TextChanged);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(26, 41);
+            this.label11.Location = new System.Drawing.Point(35, 47);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(98, 26);
+            this.label11.Size = new System.Drawing.Size(132, 30);
             this.label11.TabIndex = 2;
             this.label11.Text = "Nome da Categoria\r\nde Produtos:";
             this.label11.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -303,18 +326,20 @@
             this.tabPagePub.Controls.Add(this.textBoxPesquisaNomePub);
             this.tabPagePub.Controls.Add(this.label6);
             this.tabPagePub.Location = new System.Drawing.Point(4, 22);
+            this.tabPagePub.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabPagePub.Name = "tabPagePub";
-            this.tabPagePub.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPagePub.Size = new System.Drawing.Size(1016, 458);
+            this.tabPagePub.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tabPagePub.Size = new System.Drawing.Size(1361, 539);
             this.tabPagePub.TabIndex = 3;
             this.tabPagePub.Text = "Consultar Dados Públicos";
             this.tabPagePub.UseVisualStyleBackColor = true;
             // 
             // buttonPub
             // 
-            this.buttonPub.Location = new System.Drawing.Point(207, 67);
+            this.buttonPub.Location = new System.Drawing.Point(276, 77);
+            this.buttonPub.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonPub.Name = "buttonPub";
-            this.buttonPub.Size = new System.Drawing.Size(72, 29);
+            this.buttonPub.Size = new System.Drawing.Size(96, 33);
             this.buttonPub.TabIndex = 4;
             this.buttonPub.Text = "Limpar";
             this.buttonPub.UseVisualStyleBackColor = true;
@@ -322,9 +347,10 @@
             // 
             // buttonExcluirPub
             // 
-            this.buttonExcluirPub.Location = new System.Drawing.Point(822, 30);
+            this.buttonExcluirPub.Location = new System.Drawing.Point(1096, 35);
+            this.buttonExcluirPub.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonExcluirPub.Name = "buttonExcluirPub";
-            this.buttonExcluirPub.Size = new System.Drawing.Size(160, 40);
+            this.buttonExcluirPub.Size = new System.Drawing.Size(213, 46);
             this.buttonExcluirPub.TabIndex = 3;
             this.buttonExcluirPub.Text = "Excluir";
             this.buttonExcluirPub.UseVisualStyleBackColor = true;
@@ -332,9 +358,10 @@
             // 
             // buttonAlterarPub
             // 
-            this.buttonAlterarPub.Location = new System.Drawing.Point(617, 30);
+            this.buttonAlterarPub.Location = new System.Drawing.Point(823, 35);
+            this.buttonAlterarPub.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonAlterarPub.Name = "buttonAlterarPub";
-            this.buttonAlterarPub.Size = new System.Drawing.Size(160, 40);
+            this.buttonAlterarPub.Size = new System.Drawing.Size(213, 46);
             this.buttonAlterarPub.TabIndex = 2;
             this.buttonAlterarPub.Text = "Alterar";
             this.buttonAlterarPub.UseVisualStyleBackColor = true;
@@ -344,18 +371,21 @@
             // 
             this.dataGridViewCatPub.AllowUserToAddRows = false;
             this.dataGridViewCatPub.AllowUserToDeleteRows = false;
+            this.dataGridViewCatPub.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridViewCatPub.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewCatPub.Location = new System.Drawing.Point(6, 102);
+            this.dataGridViewCatPub.Location = new System.Drawing.Point(8, 118);
+            this.dataGridViewCatPub.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridViewCatPub.Name = "dataGridViewCatPub";
             this.dataGridViewCatPub.ReadOnly = true;
-            this.dataGridViewCatPub.Size = new System.Drawing.Size(1004, 350);
+            this.dataGridViewCatPub.Size = new System.Drawing.Size(1339, 404);
             this.dataGridViewCatPub.TabIndex = 6;
             // 
             // buttonPesquisarPub
             // 
-            this.buttonPesquisarPub.Location = new System.Drawing.Point(417, 30);
+            this.buttonPesquisarPub.Location = new System.Drawing.Point(556, 35);
+            this.buttonPesquisarPub.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonPesquisarPub.Name = "buttonPesquisarPub";
-            this.buttonPesquisarPub.Size = new System.Drawing.Size(160, 40);
+            this.buttonPesquisarPub.Size = new System.Drawing.Size(213, 46);
             this.buttonPesquisarPub.TabIndex = 1;
             this.buttonPesquisarPub.Text = "Pesquisar";
             this.buttonPesquisarPub.UseVisualStyleBackColor = true;
@@ -363,18 +393,20 @@
             // 
             // textBoxPesquisaNomePub
             // 
-            this.textBoxPesquisaNomePub.Location = new System.Drawing.Point(130, 41);
+            this.textBoxPesquisaNomePub.Location = new System.Drawing.Point(173, 47);
+            this.textBoxPesquisaNomePub.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxPesquisaNomePub.Name = "textBoxPesquisaNomePub";
-            this.textBoxPesquisaNomePub.Size = new System.Drawing.Size(247, 20);
+            this.textBoxPesquisaNomePub.Size = new System.Drawing.Size(328, 23);
             this.textBoxPesquisaNomePub.TabIndex = 0;
             this.textBoxPesquisaNomePub.TextChanged += new System.EventHandler(this.textBoxPesquisaNomePub_TextChanged);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(26, 41);
+            this.label6.Location = new System.Drawing.Point(35, 47);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(98, 26);
+            this.label6.Size = new System.Drawing.Size(132, 30);
             this.label6.TabIndex = 28;
             this.label6.Text = "Nome da Categoria\r\nde Públicos:";
             this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -384,26 +416,31 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.buttonMenu);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(5, 5);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1020, 143);
+            this.panel1.Size = new System.Drawing.Size(1373, 165);
             this.panel1.TabIndex = 4;
             // 
             // buttonMenu
             // 
+            this.buttonMenu.BackColor = System.Drawing.Color.Red;
             this.buttonMenu.Location = new System.Drawing.Point(-1, -1);
+            this.buttonMenu.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonMenu.Name = "buttonMenu";
-            this.buttonMenu.Size = new System.Drawing.Size(103, 24);
+            this.buttonMenu.Size = new System.Drawing.Size(125, 39);
             this.buttonMenu.TabIndex = 0;
             this.buttonMenu.Text = "Menu";
-            this.buttonMenu.UseVisualStyleBackColor = true;
+            this.buttonMenu.UseVisualStyleBackColor = false;
             this.buttonMenu.Click += new System.EventHandler(this.buttonMenu_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(53, 57);
+            this.label1.Location = new System.Drawing.Point(71, 66);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(139, 20);
             this.label1.TabIndex = 0;
@@ -411,12 +448,14 @@
             // 
             // FormCategorias
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1030, 647);
+            this.ClientSize = new System.Drawing.Size(1373, 747);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tabControlCategorias);
+            this.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "FormCategorias";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lojas Ribeiro - Categorias";

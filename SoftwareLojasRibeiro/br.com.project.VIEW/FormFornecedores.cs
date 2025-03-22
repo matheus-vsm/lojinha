@@ -12,13 +12,8 @@ using SoftwareLojasRibeiro.br.com.project.MODEL;
 
 namespace SoftwareLojasRibeiro.br.com.project.VIEW
 {
-    public partial class FormFornecedores : Form
+    public partial class FormFornecedores : BaseForm
     {
-        public object MaskedTextBoxCnpj { get; private set; }
-        public static object Forn { get; private set; }
-        public object maskedTextBox { get; private set; }
-        public object TextBoxID { get; private set; }
-
         public FormFornecedores()
         {
             InitializeComponent();
