@@ -152,7 +152,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F);
-            this.button2.Location = new System.Drawing.Point(1160, 26);
+            this.button2.Location = new System.Drawing.Point(1148, 26);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(180, 40);
             this.button2.TabIndex = 6;
@@ -172,7 +172,7 @@
             // buttonExcluir
             // 
             this.buttonExcluir.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F);
-            this.buttonExcluir.Location = new System.Drawing.Point(941, 26);
+            this.buttonExcluir.Location = new System.Drawing.Point(938, 26);
             this.buttonExcluir.Name = "buttonExcluir";
             this.buttonExcluir.Size = new System.Drawing.Size(180, 40);
             this.buttonExcluir.TabIndex = 3;
@@ -183,7 +183,7 @@
             // buttonAlterar
             // 
             this.buttonAlterar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F);
-            this.buttonAlterar.Location = new System.Drawing.Point(722, 26);
+            this.buttonAlterar.Location = new System.Drawing.Point(730, 26);
             this.buttonAlterar.Name = "buttonAlterar";
             this.buttonAlterar.Size = new System.Drawing.Size(180, 40);
             this.buttonAlterar.TabIndex = 2;
@@ -207,7 +207,7 @@
             // buttonPesquisar
             // 
             this.buttonPesquisar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F);
-            this.buttonPesquisar.Location = new System.Drawing.Point(496, 26);
+            this.buttonPesquisar.Location = new System.Drawing.Point(522, 26);
             this.buttonPesquisar.Name = "buttonPesquisar";
             this.buttonPesquisar.Size = new System.Drawing.Size(180, 40);
             this.buttonPesquisar.TabIndex = 1;
@@ -220,7 +220,7 @@
             this.textBoxPesquisaNome.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F);
             this.textBoxPesquisaNome.Location = new System.Drawing.Point(173, 21);
             this.textBoxPesquisaNome.Name = "textBoxPesquisaNome";
-            this.textBoxPesquisaNome.Size = new System.Drawing.Size(247, 29);
+            this.textBoxPesquisaNome.Size = new System.Drawing.Size(301, 29);
             this.textBoxPesquisaNome.TabIndex = 0;
             this.textBoxPesquisaNome.TextChanged += new System.EventHandler(this.textBoxPesquisaNome_TextChanged);
             // 

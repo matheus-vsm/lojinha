@@ -167,7 +167,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             // maskedTextBoxCelular
             // 
             this.maskedTextBoxCelular.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F);
-            this.maskedTextBoxCelular.Location = new System.Drawing.Point(913, 189);
+            this.maskedTextBoxCelular.Location = new System.Drawing.Point(913, 191);
             this.maskedTextBoxCelular.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.maskedTextBoxCelular.Mask = "(00) 0 0000-0000";
             this.maskedTextBoxCelular.Name = "maskedTextBoxCelular";
@@ -178,7 +178,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F);
-            this.label6.Location = new System.Drawing.Point(800, 192);
+            this.label6.Location = new System.Drawing.Point(800, 194);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(105, 28);
@@ -225,10 +225,10 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             // 
             // buttonBuscar
             // 
-            this.buttonBuscar.Location = new System.Drawing.Point(1083, 255);
+            this.buttonBuscar.Location = new System.Drawing.Point(1081, 263);
             this.buttonBuscar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonBuscar.Name = "buttonBuscar";
-            this.buttonBuscar.Size = new System.Drawing.Size(85, 30);
+            this.buttonBuscar.Size = new System.Drawing.Size(64, 26);
             this.buttonBuscar.TabIndex = 6;
             this.buttonBuscar.Text = "Buscar";
             this.buttonBuscar.UseVisualStyleBackColor = true;
@@ -237,7 +237,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             // maskedTextBoxCep
             // 
             this.maskedTextBoxCep.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F);
-            this.maskedTextBoxCep.Location = new System.Drawing.Point(913, 252);
+            this.maskedTextBoxCep.Location = new System.Drawing.Point(913, 259);
             this.maskedTextBoxCep.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.maskedTextBoxCep.Mask = "00000-000";
             this.maskedTextBoxCep.Name = "maskedTextBoxCep";
@@ -248,7 +248,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F);
-            this.label13.Location = new System.Drawing.Point(842, 255);
+            this.label13.Location = new System.Drawing.Point(842, 262);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(70, 28);
@@ -401,10 +401,10 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             // 
             // buttonLimparPesquisa
             // 
-            this.buttonLimparPesquisa.Location = new System.Drawing.Point(276, 77);
+            this.buttonLimparPesquisa.Location = new System.Drawing.Point(385, 65);
             this.buttonLimparPesquisa.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonLimparPesquisa.Name = "buttonLimparPesquisa";
-            this.buttonLimparPesquisa.Size = new System.Drawing.Size(96, 33);
+            this.buttonLimparPesquisa.Size = new System.Drawing.Size(72, 29);
             this.buttonLimparPesquisa.TabIndex = 27;
             this.buttonLimparPesquisa.Text = "Limpar";
             this.buttonLimparPesquisa.UseVisualStyleBackColor = true;
@@ -412,7 +412,8 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             // 
             // buttonExcluir
             // 
-            this.buttonExcluir.Location = new System.Drawing.Point(864, 35);
+            this.buttonExcluir.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonExcluir.Location = new System.Drawing.Point(1155, 24);
             this.buttonExcluir.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonExcluir.Name = "buttonExcluir";
             this.buttonExcluir.Size = new System.Drawing.Size(142, 46);
@@ -423,7 +424,8 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             // 
             // buttonAltera
             // 
-            this.buttonAltera.Location = new System.Drawing.Point(701, 35);
+            this.buttonAltera.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAltera.Location = new System.Drawing.Point(923, 24);
             this.buttonAltera.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonAltera.Name = "buttonAltera";
             this.buttonAltera.Size = new System.Drawing.Size(142, 46);
@@ -438,20 +440,21 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             this.dataGridViewFornecedores.AllowUserToDeleteRows = false;
             this.dataGridViewFornecedores.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridViewFornecedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewFornecedores.Location = new System.Drawing.Point(0, 118);
+            this.dataGridViewFornecedores.Location = new System.Drawing.Point(0, 97);
             this.dataGridViewFornecedores.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridViewFornecedores.Name = "dataGridViewFornecedores";
             this.dataGridViewFornecedores.ReadOnly = true;
             this.dataGridViewFornecedores.RowHeadersWidth = 51;
-            this.dataGridViewFornecedores.Size = new System.Drawing.Size(1365, 454);
+            this.dataGridViewFornecedores.Size = new System.Drawing.Size(1365, 475);
             this.dataGridViewFornecedores.TabIndex = 24;
             // 
             // buttonPesquisar
             // 
-            this.buttonPesquisar.Location = new System.Drawing.Point(536, 35);
+            this.buttonPesquisar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPesquisar.Location = new System.Drawing.Point(698, 24);
             this.buttonPesquisar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonPesquisar.Name = "buttonPesquisar";
-            this.buttonPesquisar.Size = new System.Drawing.Size(142, 46);
+            this.buttonPesquisar.Size = new System.Drawing.Size(157, 46);
             this.buttonPesquisar.TabIndex = 23;
             this.buttonPesquisar.Text = "Pesquisar";
             this.buttonPesquisar.UseVisualStyleBackColor = true;
@@ -459,21 +462,23 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             // 
             // textBoxPesquisaNome
             // 
-            this.textBoxPesquisaNome.Location = new System.Drawing.Point(173, 47);
+            this.textBoxPesquisaNome.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPesquisaNome.Location = new System.Drawing.Point(259, 30);
             this.textBoxPesquisaNome.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxPesquisaNome.Name = "textBoxPesquisaNome";
-            this.textBoxPesquisaNome.Size = new System.Drawing.Size(328, 23);
+            this.textBoxPesquisaNome.Size = new System.Drawing.Size(328, 29);
             this.textBoxPesquisaNome.TabIndex = 3;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(17, 51);
+            this.label11.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(60, 36);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(149, 15);
+            this.label11.Size = new System.Drawing.Size(181, 18);
             this.label11.TabIndex = 2;
-            this.label11.Text = "Nome do Funcionário:";
+            this.label11.Text = "Nome do Fornecedor:";
             // 
             // FormFornecedores
             // 
