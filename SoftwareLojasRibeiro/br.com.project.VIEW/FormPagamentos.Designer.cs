@@ -58,33 +58,37 @@
             this.textBoxDesconto = new System.Windows.Forms.TextBox();
             this.dataGridViewProdutosCarrinhoPagamento = new System.Windows.Forms.DataGridView();
             this.buttonCancelar = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.formVendasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.formVendasBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProdutosCarrinhoPagamento)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.formVendasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.formVendasBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.OrangeRed;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1687, 128);
+            this.panel1.Size = new System.Drawing.Size(1687, 143);
             this.panel1.TabIndex = 6;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F);
-            this.label1.Location = new System.Drawing.Point(71, 48);
+            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 21.75F);
+            this.label1.Location = new System.Drawing.Point(89, 57);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 15);
+            this.label1.Size = new System.Drawing.Size(175, 33);
             this.label1.TabIndex = 0;
             this.label1.Text = "Pagamento";
             // 
@@ -147,7 +151,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F);
-            this.label4.Location = new System.Drawing.Point(67, 519);
+            this.label4.Location = new System.Drawing.Point(76, 520);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(119, 23);
@@ -178,7 +182,7 @@
             // textBoxTotal
             // 
             this.textBoxTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.textBoxTotal.Location = new System.Drawing.Point(573, 516);
+            this.textBoxTotal.Location = new System.Drawing.Point(533, 516);
             this.textBoxTotal.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxTotal.Name = "textBoxTotal";
             this.textBoxTotal.ReadOnly = true;
@@ -203,6 +207,7 @@
             this.maskedTextBoxData.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.maskedTextBoxData.Mask = "00/00/0000 90:00";
             this.maskedTextBoxData.Name = "maskedTextBoxData";
+            this.maskedTextBoxData.ReadOnly = true;
             this.maskedTextBoxData.Size = new System.Drawing.Size(135, 23);
             this.maskedTextBoxData.TabIndex = 14;
             this.maskedTextBoxData.ValidatingType = typeof(System.DateTime);
@@ -348,6 +353,16 @@
             this.buttonCancelar.UseVisualStyleBackColor = true;
             this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::SoftwareLojasRibeiro.Properties.Resources.Logo_Lojas_Ribeiro_Transparente_menor;
+            this.pictureBox1.Location = new System.Drawing.Point(1517, 6);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(163, 127);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
             // formVendasBindingSource
             // 
             this.formVendasBindingSource.DataSource = typeof(SoftwareLojasRibeiro.br.com.project.VIEW.FormVendas);
@@ -360,6 +375,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Goldenrod;
             this.ClientSize = new System.Drawing.Size(1687, 678);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.dataGridViewProdutosCarrinhoPagamento);
@@ -398,6 +414,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProdutosCarrinhoPagamento)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.formVendasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.formVendasBindingSource1)).EndInit();
             this.ResumeLayout(false);
@@ -437,5 +454,6 @@
         private System.Windows.Forms.BindingSource formVendasBindingSource;
         private System.Windows.Forms.BindingSource formVendasBindingSource1;
         private System.Windows.Forms.Button buttonCancelar;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

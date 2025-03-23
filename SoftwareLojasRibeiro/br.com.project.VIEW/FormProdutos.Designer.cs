@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProdutos));
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.buttonMenu = new System.Windows.Forms.Button();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
@@ -67,6 +68,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.tabControlProdutos = new System.Windows.Forms.TabControl();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProdutos)).BeginInit();
             this.tabPageCadastrar.SuspendLayout();
@@ -76,25 +78,37 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(71, 48);
+            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 21.75F);
+            this.label1.Location = new System.Drawing.Point(89, 57);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(124, 20);
+            this.label1.Size = new System.Drawing.Size(220, 33);
             this.label1.TabIndex = 0;
             this.label1.Text = "Área Produtos";
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.OrangeRed;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.buttonMenu);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1373, 128);
+            this.panel1.Size = new System.Drawing.Size(1373, 143);
             this.panel1.TabIndex = 3;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::SoftwareLojasRibeiro.Properties.Resources.Logo_Lojas_Ribeiro_Transparente_menor;
+            this.pictureBox1.Location = new System.Drawing.Point(1200, 6);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(163, 127);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
             // buttonMenu
             // 
@@ -110,22 +124,22 @@
             // 
             // tabPage5
             // 
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Location = new System.Drawing.Point(4, 24);
             this.tabPage5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tabPage5.Size = new System.Drawing.Size(1363, 580);
+            this.tabPage5.Size = new System.Drawing.Size(1363, 569);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Atualizar Estoque";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // tabPage4
             // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Location = new System.Drawing.Point(4, 24);
             this.tabPage4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tabPage4.Size = new System.Drawing.Size(1363, 580);
+            this.tabPage4.Size = new System.Drawing.Size(1363, 569);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Atualizar Preço";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -139,11 +153,11 @@
             this.tabPage3.Controls.Add(this.buttonAlterar);
             this.tabPage3.Controls.Add(this.textBoxPesquisaProd);
             this.tabPage3.Controls.Add(this.dataGridViewProdutos);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Location = new System.Drawing.Point(4, 24);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tabPage3.Size = new System.Drawing.Size(1363, 580);
+            this.tabPage3.Size = new System.Drawing.Size(1363, 569);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Consultar Produtos";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -252,7 +266,7 @@
             this.tabPageCadastrar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabPageCadastrar.Name = "tabPageCadastrar";
             this.tabPageCadastrar.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tabPageCadastrar.Size = new System.Drawing.Size(1363, 578);
+            this.tabPageCadastrar.Size = new System.Drawing.Size(1366, 572);
             this.tabPageCadastrar.TabIndex = 0;
             this.tabPageCadastrar.Text = "Cadastrar";
             this.tabPageCadastrar.UseVisualStyleBackColor = true;
@@ -332,6 +346,7 @@
             this.textBoxID.Location = new System.Drawing.Point(223, 45);
             this.textBoxID.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxID.Name = "textBoxID";
+            this.textBoxID.ReadOnly = true;
             this.textBoxID.Size = new System.Drawing.Size(64, 23);
             this.textBoxID.TabIndex = 43;
             // 
@@ -467,17 +482,18 @@
             this.tabControlProdutos.Controls.Add(this.tabPage3);
             this.tabControlProdutos.Controls.Add(this.tabPage4);
             this.tabControlProdutos.Controls.Add(this.tabPage5);
-            this.tabControlProdutos.Location = new System.Drawing.Point(3, 140);
+            this.tabControlProdutos.Location = new System.Drawing.Point(0, 149);
             this.tabControlProdutos.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabControlProdutos.Name = "tabControlProdutos";
             this.tabControlProdutos.SelectedIndex = 0;
-            this.tabControlProdutos.Size = new System.Drawing.Size(1371, 606);
+            this.tabControlProdutos.Size = new System.Drawing.Size(1374, 600);
             this.tabControlProdutos.TabIndex = 0;
             // 
             // FormProdutos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Goldenrod;
             this.ClientSize = new System.Drawing.Size(1373, 747);
             this.Controls.Add(this.tabControlProdutos);
             this.Controls.Add(this.panel1);
@@ -490,6 +506,7 @@
             this.Load += new System.EventHandler(this.FormProdutos_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProdutos)).EndInit();
@@ -538,5 +555,6 @@
         private System.Windows.Forms.Button buttonAlterar;
         private System.Windows.Forms.TextBox textBoxPesquisaProd;
         private System.Windows.Forms.DataGridView dataGridViewProdutos;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

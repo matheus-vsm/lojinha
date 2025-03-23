@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormFuncionarios));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.buttonMenu = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tabControlFuncionarios = new System.Windows.Forms.TabControl();
@@ -72,6 +73,7 @@
             this.textBoxPesquisaNome = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControlFuncionarios.SuspendLayout();
             this.tabPageCadastrar.SuspendLayout();
             this.tabPageConsultar.SuspendLayout();
@@ -80,15 +82,27 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.OrangeRed;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.buttonMenu);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1373, 165);
+            this.panel1.Size = new System.Drawing.Size(1373, 143);
             this.panel1.TabIndex = 2;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::SoftwareLojasRibeiro.Properties.Resources.Logo_Lojas_Ribeiro_Transparente_menor;
+            this.pictureBox1.Location = new System.Drawing.Point(1200, 6);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(163, 127);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
             // buttonMenu
             // 
@@ -105,11 +119,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(71, 66);
+            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 21.75F);
+            this.label1.Location = new System.Drawing.Point(89, 57);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(155, 20);
+            this.label1.Size = new System.Drawing.Size(277, 33);
             this.label1.TabIndex = 0;
             this.label1.Text = "Área Funcionários";
             // 
@@ -117,11 +131,11 @@
             // 
             this.tabControlFuncionarios.Controls.Add(this.tabPageCadastrar);
             this.tabControlFuncionarios.Controls.Add(this.tabPageConsultar);
-            this.tabControlFuncionarios.Location = new System.Drawing.Point(4, 182);
+            this.tabControlFuncionarios.Location = new System.Drawing.Point(0, 149);
             this.tabControlFuncionarios.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabControlFuncionarios.Name = "tabControlFuncionarios";
             this.tabControlFuncionarios.SelectedIndex = 0;
-            this.tabControlFuncionarios.Size = new System.Drawing.Size(1365, 558);
+            this.tabControlFuncionarios.Size = new System.Drawing.Size(1373, 599);
             this.tabControlFuncionarios.TabIndex = 1;
             // 
             // tabPageCadastrar
@@ -159,7 +173,7 @@
             this.tabPageCadastrar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabPageCadastrar.Name = "tabPageCadastrar";
             this.tabPageCadastrar.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tabPageCadastrar.Size = new System.Drawing.Size(1357, 530);
+            this.tabPageCadastrar.Size = new System.Drawing.Size(1365, 571);
             this.tabPageCadastrar.TabIndex = 0;
             this.tabPageCadastrar.Text = "Cadastrar";
             this.tabPageCadastrar.UseVisualStyleBackColor = true;
@@ -259,6 +273,7 @@
             this.textBoxID.Location = new System.Drawing.Point(183, 58);
             this.textBoxID.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxID.Name = "textBoxID";
+            this.textBoxID.ReadOnly = true;
             this.textBoxID.Size = new System.Drawing.Size(64, 23);
             this.textBoxID.TabIndex = 25;
             this.textBoxID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -451,11 +466,11 @@
             this.tabPageConsultar.Controls.Add(this.buttonPesquisar);
             this.tabPageConsultar.Controls.Add(this.textBoxPesquisaNome);
             this.tabPageConsultar.Controls.Add(this.label11);
-            this.tabPageConsultar.Location = new System.Drawing.Point(4, 22);
+            this.tabPageConsultar.Location = new System.Drawing.Point(4, 24);
             this.tabPageConsultar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabPageConsultar.Name = "tabPageConsultar";
             this.tabPageConsultar.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tabPageConsultar.Size = new System.Drawing.Size(1357, 532);
+            this.tabPageConsultar.Size = new System.Drawing.Size(1357, 563);
             this.tabPageConsultar.TabIndex = 2;
             this.tabPageConsultar.Text = "Consultar Dados";
             this.tabPageConsultar.UseVisualStyleBackColor = true;
@@ -540,6 +555,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Goldenrod;
             this.ClientSize = new System.Drawing.Size(1373, 747);
             this.Controls.Add(this.tabControlFuncionarios);
             this.Controls.Add(this.panel1);
@@ -552,6 +568,7 @@
             this.Load += new System.EventHandler(this.FormFuncionarios_Load_1);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabControlFuncionarios.ResumeLayout(false);
             this.tabPageCadastrar.ResumeLayout(false);
             this.tabPageCadastrar.PerformLayout();
@@ -606,5 +623,6 @@
         private System.Windows.Forms.TextBox textBoxSenha;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button buttonMenu;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

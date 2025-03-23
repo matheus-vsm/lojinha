@@ -90,7 +90,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Location = new System.Drawing.Point(53, 57);
+            this.label1.Location = new System.Drawing.Point(89, 57);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(205, 33);
             this.label1.TabIndex = 0;
@@ -122,9 +122,10 @@
             // buttonMenu
             // 
             this.buttonMenu.BackColor = System.Drawing.Color.Red;
+            this.buttonMenu.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F);
             this.buttonMenu.Location = new System.Drawing.Point(-1, -1);
             this.buttonMenu.Name = "buttonMenu";
-            this.buttonMenu.Size = new System.Drawing.Size(94, 34);
+            this.buttonMenu.Size = new System.Drawing.Size(125, 39);
             this.buttonMenu.TabIndex = 0;
             this.buttonMenu.Text = "Menu";
             this.buttonMenu.UseVisualStyleBackColor = false;
@@ -150,16 +151,17 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(860, 18);
+            this.button2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F);
+            this.button2.Location = new System.Drawing.Point(1160, 26);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(128, 40);
+            this.button2.Size = new System.Drawing.Size(180, 40);
             this.button2.TabIndex = 6;
             this.button2.Text = "Exibir Compras";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // buttonLimparPesquisa
             // 
-            this.buttonLimparPesquisa.Location = new System.Drawing.Point(207, 55);
+            this.buttonLimparPesquisa.Location = new System.Drawing.Point(255, 56);
             this.buttonLimparPesquisa.Name = "buttonLimparPesquisa";
             this.buttonLimparPesquisa.Size = new System.Drawing.Size(72, 29);
             this.buttonLimparPesquisa.TabIndex = 4;
@@ -169,9 +171,10 @@
             // 
             // buttonExcluir
             // 
-            this.buttonExcluir.Location = new System.Drawing.Point(714, 18);
+            this.buttonExcluir.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F);
+            this.buttonExcluir.Location = new System.Drawing.Point(941, 26);
             this.buttonExcluir.Name = "buttonExcluir";
-            this.buttonExcluir.Size = new System.Drawing.Size(128, 40);
+            this.buttonExcluir.Size = new System.Drawing.Size(180, 40);
             this.buttonExcluir.TabIndex = 3;
             this.buttonExcluir.Text = "Excluir";
             this.buttonExcluir.UseVisualStyleBackColor = true;
@@ -179,9 +182,10 @@
             // 
             // buttonAlterar
             // 
-            this.buttonAlterar.Location = new System.Drawing.Point(565, 18);
+            this.buttonAlterar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F);
+            this.buttonAlterar.Location = new System.Drawing.Point(722, 26);
             this.buttonAlterar.Name = "buttonAlterar";
-            this.buttonAlterar.Size = new System.Drawing.Size(128, 40);
+            this.buttonAlterar.Size = new System.Drawing.Size(180, 40);
             this.buttonAlterar.TabIndex = 2;
             this.buttonAlterar.Text = "Alterar";
             this.buttonAlterar.UseVisualStyleBackColor = true;
@@ -193,18 +197,19 @@
             this.dataGridViewClientes.AllowUserToDeleteRows = false;
             this.dataGridViewClientes.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridViewClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewClientes.Location = new System.Drawing.Point(6, 90);
+            this.dataGridViewClientes.Location = new System.Drawing.Point(0, 91);
             this.dataGridViewClientes.Name = "dataGridViewClientes";
             this.dataGridViewClientes.ReadOnly = true;
-            this.dataGridViewClientes.Size = new System.Drawing.Size(1004, 370);
+            this.dataGridViewClientes.Size = new System.Drawing.Size(1365, 479);
             this.dataGridViewClientes.TabIndex = 5;
             this.dataGridViewClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewClientes_CellClick);
             // 
             // buttonPesquisar
             // 
-            this.buttonPesquisar.Location = new System.Drawing.Point(417, 18);
+            this.buttonPesquisar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F);
+            this.buttonPesquisar.Location = new System.Drawing.Point(496, 26);
             this.buttonPesquisar.Name = "buttonPesquisar";
-            this.buttonPesquisar.Size = new System.Drawing.Size(128, 40);
+            this.buttonPesquisar.Size = new System.Drawing.Size(180, 40);
             this.buttonPesquisar.TabIndex = 1;
             this.buttonPesquisar.Text = "Pesquisar";
             this.buttonPesquisar.UseVisualStyleBackColor = true;
@@ -212,18 +217,20 @@
             // 
             // textBoxPesquisaNome
             // 
-            this.textBoxPesquisaNome.Location = new System.Drawing.Point(130, 23);
+            this.textBoxPesquisaNome.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F);
+            this.textBoxPesquisaNome.Location = new System.Drawing.Point(173, 21);
             this.textBoxPesquisaNome.Name = "textBoxPesquisaNome";
-            this.textBoxPesquisaNome.Size = new System.Drawing.Size(247, 23);
+            this.textBoxPesquisaNome.Size = new System.Drawing.Size(247, 29);
             this.textBoxPesquisaNome.TabIndex = 0;
             this.textBoxPesquisaNome.TextChanged += new System.EventHandler(this.textBoxPesquisaNome_TextChanged);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(8, 26);
+            this.label11.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
+            this.label11.Location = new System.Drawing.Point(24, 27);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(118, 15);
+            this.label11.Size = new System.Drawing.Size(143, 18);
             this.label11.TabIndex = 2;
             this.label11.Text = "Nome do Cliente:";
             // 
@@ -292,6 +299,7 @@
             // 
             this.textBoxID.Location = new System.Drawing.Point(236, 50);
             this.textBoxID.Name = "textBoxID";
+            this.textBoxID.ReadOnly = true;
             this.textBoxID.Size = new System.Drawing.Size(49, 23);
             this.textBoxID.TabIndex = 25;
             this.textBoxID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -482,31 +490,33 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1022, 471);
+            this.tabPage1.Size = new System.Drawing.Size(1365, 570);
             this.tabPage1.TabIndex = 3;
             this.tabPage1.Text = "Consultar Devedores";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // textBoxPesquisaDevedor
             // 
-            this.textBoxPesquisaDevedor.Location = new System.Drawing.Point(140, 26);
+            this.textBoxPesquisaDevedor.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F);
+            this.textBoxPesquisaDevedor.Location = new System.Drawing.Point(170, 23);
             this.textBoxPesquisaDevedor.Name = "textBoxPesquisaDevedor";
-            this.textBoxPesquisaDevedor.Size = new System.Drawing.Size(231, 23);
+            this.textBoxPesquisaDevedor.Size = new System.Drawing.Size(231, 29);
             this.textBoxPesquisaDevedor.TabIndex = 14;
             this.textBoxPesquisaDevedor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxPesquisaDevedor_KeyPress);
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(809, 18);
+            this.button5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F);
+            this.button5.Location = new System.Drawing.Point(1006, 23);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(160, 40);
+            this.button5.Size = new System.Drawing.Size(326, 40);
             this.button5.TabIndex = 13;
             this.button5.Text = "Remover Dívida (erro)";
             this.button5.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(207, 55);
+            this.button1.Location = new System.Drawing.Point(247, 58);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(72, 29);
             this.button1.TabIndex = 11;
@@ -515,11 +525,12 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(617, 18);
+            this.button3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F);
+            this.button3.Location = new System.Drawing.Point(685, 23);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(160, 40);
+            this.button3.Size = new System.Drawing.Size(255, 40);
             this.button3.TabIndex = 8;
-            this.button3.Text = "Pagar Dívida";
+            this.button3.Text = "Cobrir Dívida";
             this.button3.UseVisualStyleBackColor = true;
             // 
             // dataGridViewClientesDevedores
@@ -528,16 +539,17 @@
             this.dataGridViewClientesDevedores.AllowUserToDeleteRows = false;
             this.dataGridViewClientesDevedores.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridViewClientesDevedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewClientesDevedores.Location = new System.Drawing.Point(6, 90);
+            this.dataGridViewClientesDevedores.Location = new System.Drawing.Point(0, 93);
             this.dataGridViewClientesDevedores.Name = "dataGridViewClientesDevedores";
             this.dataGridViewClientesDevedores.ReadOnly = true;
-            this.dataGridViewClientesDevedores.Size = new System.Drawing.Size(1004, 370);
+            this.dataGridViewClientesDevedores.Size = new System.Drawing.Size(1365, 481);
             this.dataGridViewClientesDevedores.TabIndex = 12;
             this.dataGridViewClientesDevedores.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // buttonDetalhesVenda
             // 
-            this.buttonDetalhesVenda.Location = new System.Drawing.Point(417, 18);
+            this.buttonDetalhesVenda.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F);
+            this.buttonDetalhesVenda.Location = new System.Drawing.Point(469, 23);
             this.buttonDetalhesVenda.Name = "buttonDetalhesVenda";
             this.buttonDetalhesVenda.Size = new System.Drawing.Size(160, 40);
             this.buttonDetalhesVenda.TabIndex = 7;
@@ -548,9 +560,10 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(8, 23);
+            this.label14.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
+            this.label14.Location = new System.Drawing.Point(14, 21);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(117, 30);
+            this.label14.Size = new System.Drawing.Size(142, 36);
             this.label14.TabIndex = 9;
             this.label14.Text = "Nome do Cliente \r\nDevedor:";
             this.label14.TextAlign = System.Drawing.ContentAlignment.TopCenter;

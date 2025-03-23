@@ -32,6 +32,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormFornecedores));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.buttonMenu = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tabControlFornecedores = new System.Windows.Forms.TabControl();
@@ -66,6 +67,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             this.textBoxPesquisaNome = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControlFornecedores.SuspendLayout();
             this.tabPageCadastrar.SuspendLayout();
             this.tabPageConsultar.SuspendLayout();
@@ -74,15 +76,27 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.OrangeRed;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.buttonMenu);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1373, 165);
+            this.panel1.Size = new System.Drawing.Size(1373, 143);
             this.panel1.TabIndex = 3;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::SoftwareLojasRibeiro.Properties.Resources.Logo_Lojas_Ribeiro_Transparente_menor;
+            this.pictureBox1.Location = new System.Drawing.Point(1200, 6);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(163, 127);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
             // buttonMenu
             // 
@@ -90,7 +104,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             this.buttonMenu.Location = new System.Drawing.Point(-1, -1);
             this.buttonMenu.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonMenu.Name = "buttonMenu";
-            this.buttonMenu.Size = new System.Drawing.Size(94, 34);
+            this.buttonMenu.Size = new System.Drawing.Size(125, 39);
             this.buttonMenu.TabIndex = 0;
             this.buttonMenu.Text = "Menu";
             this.buttonMenu.UseVisualStyleBackColor = false;
@@ -99,11 +113,11 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(71, 66);
+            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 21.75F);
+            this.label1.Location = new System.Drawing.Point(89, 57);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(163, 20);
+            this.label1.Size = new System.Drawing.Size(290, 33);
             this.label1.TabIndex = 0;
             this.label1.Text = "Área Fornecedores";
             // 
@@ -111,11 +125,11 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             // 
             this.tabControlFornecedores.Controls.Add(this.tabPageCadastrar);
             this.tabControlFornecedores.Controls.Add(this.tabPageConsultar);
-            this.tabControlFornecedores.Location = new System.Drawing.Point(3, 173);
+            this.tabControlFornecedores.Location = new System.Drawing.Point(0, 149);
             this.tabControlFornecedores.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabControlFornecedores.Name = "tabControlFornecedores";
             this.tabControlFornecedores.SelectedIndex = 0;
-            this.tabControlFornecedores.Size = new System.Drawing.Size(1370, 576);
+            this.tabControlFornecedores.Size = new System.Drawing.Size(1373, 600);
             this.tabControlFornecedores.TabIndex = 4;
             // 
             // tabPageCadastrar
@@ -145,7 +159,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             this.tabPageCadastrar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabPageCadastrar.Name = "tabPageCadastrar";
             this.tabPageCadastrar.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tabPageCadastrar.Size = new System.Drawing.Size(1362, 548);
+            this.tabPageCadastrar.Size = new System.Drawing.Size(1365, 572);
             this.tabPageCadastrar.TabIndex = 0;
             this.tabPageCadastrar.Text = "Cadastrar";
             this.tabPageCadastrar.UseVisualStyleBackColor = true;
@@ -174,6 +188,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             this.textBoxID.Location = new System.Drawing.Point(275, 65);
             this.textBoxID.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxID.Name = "textBoxID";
+            this.textBoxID.ReadOnly = true;
             this.textBoxID.Size = new System.Drawing.Size(64, 23);
             this.textBoxID.TabIndex = 25;
             this.textBoxID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -362,7 +377,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             this.tabPageConsultar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabPageConsultar.Name = "tabPageConsultar";
             this.tabPageConsultar.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tabPageConsultar.Size = new System.Drawing.Size(1019, 447);
+            this.tabPageConsultar.Size = new System.Drawing.Size(1362, 572);
             this.tabPageConsultar.TabIndex = 2;
             this.tabPageConsultar.Text = "Consultar Dados";
             this.tabPageConsultar.UseVisualStyleBackColor = true;
@@ -447,6 +462,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Goldenrod;
             this.ClientSize = new System.Drawing.Size(1373, 747);
             this.Controls.Add(this.tabControlFornecedores);
             this.Controls.Add(this.panel1);
@@ -459,6 +475,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             this.Load += new System.EventHandler(this.FormFornecedores_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabControlFornecedores.ResumeLayout(false);
             this.tabPageCadastrar.ResumeLayout(false);
             this.tabPageCadastrar.PerformLayout();
@@ -512,5 +529,6 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxCelular;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

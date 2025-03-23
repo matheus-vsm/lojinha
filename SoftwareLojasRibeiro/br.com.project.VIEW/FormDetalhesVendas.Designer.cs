@@ -43,13 +43,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridViewDetalhes = new System.Windows.Forms.DataGridView();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox4.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDetalhes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox4
             // 
+            this.groupBox4.BackColor = System.Drawing.Color.WhiteSmoke;
             this.groupBox4.Controls.Add(this.textBoxValorPago);
             this.groupBox4.Controls.Add(this.label5);
             this.groupBox4.Controls.Add(this.textBoxObs);
@@ -60,11 +63,11 @@
             this.groupBox4.Controls.Add(this.maskedTextBoxDataVenda);
             this.groupBox4.Controls.Add(this.label8);
             this.groupBox4.Controls.Add(this.label2);
-            this.groupBox4.Location = new System.Drawing.Point(11, 153);
+            this.groupBox4.Location = new System.Drawing.Point(0, 153);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox4.Size = new System.Drawing.Size(1097, 140);
+            this.groupBox4.Size = new System.Drawing.Size(1111, 149);
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Consulta";
@@ -171,23 +174,25 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(71, 48);
+            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 21.75F);
+            this.label1.Location = new System.Drawing.Point(54, 52);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(163, 20);
+            this.label1.Size = new System.Drawing.Size(278, 33);
             this.label1.TabIndex = 0;
             this.label1.Text = "Detalhes da Venda";
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.OrangeRed;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1111, 128);
+            this.panel1.Size = new System.Drawing.Size(1111, 143);
             this.panel1.TabIndex = 17;
             // 
             // dataGridViewDetalhes
@@ -196,19 +201,30 @@
             this.dataGridViewDetalhes.AllowUserToDeleteRows = false;
             this.dataGridViewDetalhes.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridViewDetalhes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewDetalhes.Location = new System.Drawing.Point(11, 306);
+            this.dataGridViewDetalhes.Location = new System.Drawing.Point(0, 306);
             this.dataGridViewDetalhes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewDetalhes.Name = "dataGridViewDetalhes";
             this.dataGridViewDetalhes.ReadOnly = true;
             this.dataGridViewDetalhes.RowHeadersWidth = 62;
             this.dataGridViewDetalhes.RowTemplate.Height = 28;
-            this.dataGridViewDetalhes.Size = new System.Drawing.Size(1097, 343);
+            this.dataGridViewDetalhes.Size = new System.Drawing.Size(1111, 347);
             this.dataGridViewDetalhes.TabIndex = 18;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::SoftwareLojasRibeiro.Properties.Resources.Logo_Lojas_Ribeiro_Transparente_menor;
+            this.pictureBox1.Location = new System.Drawing.Point(943, 5);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(163, 127);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
             // FormDetalhesVendas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Goldenrod;
             this.ClientSize = new System.Drawing.Size(1111, 650);
             this.Controls.Add(this.dataGridViewDetalhes);
             this.Controls.Add(this.panel1);
@@ -225,6 +241,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDetalhes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -245,5 +262,6 @@
         public System.Windows.Forms.MaskedTextBox maskedTextBoxDataVenda;
         public System.Windows.Forms.TextBox textBoxValorPago;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
