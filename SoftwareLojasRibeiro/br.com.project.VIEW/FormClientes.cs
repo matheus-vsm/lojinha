@@ -311,5 +311,7 @@ namespace SoftwareLojasRibeiro//.br.com.project.VIEW se n colocar isso aqui vai 
             Cliente cli = new Cliente { Nome = textBoxPesquisaDevedor.Text };
             dataGridViewClientesDevedores.DataSource = dao.ListarClientesDevedores(cli);
         }
+
+        private void textBoxID_TextChanged(object sender, EventArgs e) { }
     }
 }

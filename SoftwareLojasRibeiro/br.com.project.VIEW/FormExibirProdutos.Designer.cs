@@ -53,10 +53,11 @@
             // 
             // textBoxPesquisar
             // 
-            this.textBoxPesquisar.Location = new System.Drawing.Point(355, 167);
+            this.textBoxPesquisar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPesquisar.Location = new System.Drawing.Point(355, 161);
             this.textBoxPesquisar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxPesquisar.Name = "textBoxPesquisar";
-            this.textBoxPesquisar.Size = new System.Drawing.Size(432, 23);
+            this.textBoxPesquisar.Size = new System.Drawing.Size(432, 35);
             this.textBoxPesquisar.TabIndex = 1;
             this.textBoxPesquisar.TextChanged += new System.EventHandler(this.textBoxPesquisar_TextChanged);
             // 

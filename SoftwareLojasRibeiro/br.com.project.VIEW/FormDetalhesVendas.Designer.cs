@@ -67,33 +67,35 @@
             this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox4.Size = new System.Drawing.Size(1111, 149);
+            this.groupBox4.Size = new System.Drawing.Size(1111, 196);
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Consulta";
             // 
             // textBoxValorPago
             // 
-            this.textBoxValorPago.Location = new System.Drawing.Point(503, 92);
+            this.textBoxValorPago.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxValorPago.Location = new System.Drawing.Point(502, 145);
             this.textBoxValorPago.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxValorPago.Name = "textBoxValorPago";
             this.textBoxValorPago.ReadOnly = true;
-            this.textBoxValorPago.Size = new System.Drawing.Size(109, 23);
+            this.textBoxValorPago.Size = new System.Drawing.Size(197, 35);
             this.textBoxValorPago.TabIndex = 21;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(381, 96);
+            this.label5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(293, 148);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(112, 15);
+            this.label5.Size = new System.Drawing.Size(201, 28);
             this.label5.TabIndex = 22;
             this.label5.Text = "Valor Pago (R$):";
             // 
             // textBoxObs
             // 
-            this.textBoxObs.Location = new System.Drawing.Point(736, 50);
+            this.textBoxObs.Location = new System.Drawing.Point(740, 32);
             this.textBoxObs.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxObs.Multiline = true;
             this.textBoxObs.Name = "textBoxObs";
@@ -105,69 +107,76 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(635, 75);
+            this.label4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(612, 57);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(96, 15);
+            this.label4.Size = new System.Drawing.Size(120, 18);
             this.label4.TabIndex = 20;
             this.label4.Text = "Observações:";
             // 
             // textBoxTotal
             // 
-            this.textBoxTotal.Location = new System.Drawing.Point(736, 22);
+            this.textBoxTotal.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTotal.Location = new System.Drawing.Point(458, 97);
             this.textBoxTotal.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxTotal.Name = "textBoxTotal";
             this.textBoxTotal.ReadOnly = true;
-            this.textBoxTotal.Size = new System.Drawing.Size(232, 23);
+            this.textBoxTotal.Size = new System.Drawing.Size(241, 35);
             this.textBoxTotal.TabIndex = 17;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(591, 24);
+            this.label3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(319, 100);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(137, 15);
+            this.label3.Size = new System.Drawing.Size(131, 28);
             this.label3.TabIndex = 18;
-            this.label3.Text = "Total da Venda (R$):";
+            this.label3.Text = "Total (R$):";
             // 
             // textBoxNomeCliente
             // 
+            this.textBoxNomeCliente.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxNomeCliente.Location = new System.Drawing.Point(88, 40);
             this.textBoxNomeCliente.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxNomeCliente.Name = "textBoxNomeCliente";
             this.textBoxNomeCliente.ReadOnly = true;
-            this.textBoxNomeCliente.Size = new System.Drawing.Size(335, 23);
+            this.textBoxNomeCliente.Size = new System.Drawing.Size(335, 26);
             this.textBoxNomeCliente.TabIndex = 13;
             // 
             // maskedTextBoxDataVenda
             // 
-            this.maskedTextBoxDataVenda.Location = new System.Drawing.Point(129, 92);
+            this.maskedTextBoxDataVenda.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskedTextBoxDataVenda.Location = new System.Drawing.Point(154, 112);
             this.maskedTextBoxDataVenda.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.maskedTextBoxDataVenda.Mask = "00/00/0000";
             this.maskedTextBoxDataVenda.Name = "maskedTextBoxDataVenda";
             this.maskedTextBoxDataVenda.ReadOnly = true;
-            this.maskedTextBoxDataVenda.Size = new System.Drawing.Size(125, 23);
+            this.maskedTextBoxDataVenda.Size = new System.Drawing.Size(125, 26);
             this.maskedTextBoxDataVenda.TabIndex = 15;
             this.maskedTextBoxDataVenda.ValidatingType = typeof(System.DateTime);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(15, 92);
+            this.label8.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(16, 115);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(105, 15);
+            this.label8.Size = new System.Drawing.Size(130, 18);
             this.label8.TabIndex = 16;
             this.label8.Text = "Data da Venda:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 43);
+            this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(11, 43);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 15);
+            this.label2.Size = new System.Drawing.Size(69, 18);
             this.label2.TabIndex = 14;
             this.label2.Text = "Cliente:";
             // 
@@ -201,13 +210,13 @@
             this.dataGridViewDetalhes.AllowUserToDeleteRows = false;
             this.dataGridViewDetalhes.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridViewDetalhes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewDetalhes.Location = new System.Drawing.Point(0, 306);
+            this.dataGridViewDetalhes.Location = new System.Drawing.Point(0, 353);
             this.dataGridViewDetalhes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewDetalhes.Name = "dataGridViewDetalhes";
             this.dataGridViewDetalhes.ReadOnly = true;
             this.dataGridViewDetalhes.RowHeadersWidth = 62;
             this.dataGridViewDetalhes.RowTemplate.Height = 28;
-            this.dataGridViewDetalhes.Size = new System.Drawing.Size(1111, 347);
+            this.dataGridViewDetalhes.Size = new System.Drawing.Size(1111, 297);
             this.dataGridViewDetalhes.TabIndex = 18;
             // 
             // pictureBox1
