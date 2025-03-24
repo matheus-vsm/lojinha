@@ -134,7 +134,7 @@
             // 
             this.label3.BackColor = System.Drawing.Color.Gainsboro;
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.label3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20F);
             this.label3.Location = new System.Drawing.Point(486, 224);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
@@ -147,7 +147,7 @@
             // 
             this.label4.BackColor = System.Drawing.Color.Gainsboro;
             this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.label4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20F);
             this.label4.Location = new System.Drawing.Point(486, 303);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
@@ -160,7 +160,7 @@
             // 
             this.label5.BackColor = System.Drawing.Color.Gainsboro;
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.label5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20F);
             this.label5.Location = new System.Drawing.Point(486, 377);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
@@ -173,7 +173,7 @@
             // 
             this.label6.BackColor = System.Drawing.Color.Gainsboro;
             this.label6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.label6.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20F);
             this.label6.Location = new System.Drawing.Point(486, 451);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
@@ -186,7 +186,7 @@
             // 
             this.label7.BackColor = System.Drawing.Color.Gainsboro;
             this.label7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.label7.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20F);
             this.label7.Location = new System.Drawing.Point(486, 524);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
@@ -199,7 +199,7 @@
             // 
             this.label8.BackColor = System.Drawing.Color.Gainsboro;
             this.label8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.label8.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20F);
             this.label8.Location = new System.Drawing.Point(486, 595);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
@@ -253,6 +253,7 @@
             this.buttonVoltar.TabIndex = 0;
             this.buttonVoltar.Text = "Voltar para Login";
             this.buttonVoltar.UseVisualStyleBackColor = false;
+            this.buttonVoltar.Click += new System.EventHandler(this.buttonVoltar_Click);
             // 
             // FormMenu
             // 

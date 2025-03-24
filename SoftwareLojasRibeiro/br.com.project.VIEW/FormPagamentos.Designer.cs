@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPagamentos));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -53,9 +54,9 @@
             this.textBoxDesconto = new System.Windows.Forms.TextBox();
             this.dataGridViewProdutosCarrinhoPagamento = new System.Windows.Forms.DataGridView();
             this.buttonCancelar = new System.Windows.Forms.Button();
-            this.formVendasBindingSource = new System.Windows.Forms.BindingSource();
-            this.formVendasBindingSource1 = new System.Windows.Forms.BindingSource();
             this.label16 = new System.Windows.Forms.Label();
+            this.formVendasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.formVendasBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProdutosCarrinhoPagamento)).BeginInit();
@@ -171,13 +172,14 @@
             // 
             // textBoxTroco
             // 
-            this.textBoxTroco.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTroco.Location = new System.Drawing.Point(212, 515);
+            this.textBoxTroco.Font = new System.Drawing.Font("Arial Rounded MT Bold", 21.75F);
+            this.textBoxTroco.Location = new System.Drawing.Point(212, 513);
             this.textBoxTroco.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxTroco.Name = "textBoxTroco";
             this.textBoxTroco.ReadOnly = true;
-            this.textBoxTroco.Size = new System.Drawing.Size(131, 40);
+            this.textBoxTroco.Size = new System.Drawing.Size(131, 41);
             this.textBoxTroco.TabIndex = 54;
+            this.textBoxTroco.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label5
             // 
@@ -192,13 +194,14 @@
             // 
             // textBoxTotal
             // 
-            this.textBoxTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTotal.Location = new System.Drawing.Point(533, 513);
+            this.textBoxTotal.Font = new System.Drawing.Font("Arial Rounded MT Bold", 24F);
+            this.textBoxTotal.Location = new System.Drawing.Point(533, 512);
             this.textBoxTotal.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxTotal.Name = "textBoxTotal";
             this.textBoxTotal.ReadOnly = true;
-            this.textBoxTotal.Size = new System.Drawing.Size(227, 44);
+            this.textBoxTotal.Size = new System.Drawing.Size(227, 45);
             this.textBoxTotal.TabIndex = 56;
+            this.textBoxTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBoxTotal.TextChanged += new System.EventHandler(this.textBoxTotal_TextChanged);
             // 
             // buttonFinalizar
@@ -216,20 +219,21 @@
             // maskedTextBoxData
             // 
             this.maskedTextBoxData.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBoxData.Location = new System.Drawing.Point(387, 175);
+            this.maskedTextBoxData.Location = new System.Drawing.Point(356, 180);
             this.maskedTextBoxData.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.maskedTextBoxData.Mask = "00/00/0000 90:00";
             this.maskedTextBoxData.Name = "maskedTextBoxData";
             this.maskedTextBoxData.ReadOnly = true;
-            this.maskedTextBoxData.Size = new System.Drawing.Size(135, 29);
+            this.maskedTextBoxData.Size = new System.Drawing.Size(196, 29);
             this.maskedTextBoxData.TabIndex = 14;
+            this.maskedTextBoxData.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.maskedTextBoxData.ValidatingType = typeof(System.DateTime);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(423, 149);
+            this.label7.Location = new System.Drawing.Point(423, 154);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(59, 22);
@@ -324,14 +328,6 @@
             this.buttonCancelar.UseVisualStyleBackColor = true;
             this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
-            // formVendasBindingSource
-            // 
-            this.formVendasBindingSource.DataSource = typeof(SoftwareLojasRibeiro.br.com.project.VIEW.FormVendas);
-            // 
-            // formVendasBindingSource1
-            // 
-            this.formVendasBindingSource1.DataSource = typeof(SoftwareLojasRibeiro.br.com.project.VIEW.FormVendas);
-            // 
             // label16
             // 
             this.label16.AutoSize = true;
@@ -342,6 +338,14 @@
             this.label16.Size = new System.Drawing.Size(95, 22);
             this.label16.TabIndex = 76;
             this.label16.Text = "Carrinho:";
+            // 
+            // formVendasBindingSource
+            // 
+            this.formVendasBindingSource.DataSource = typeof(SoftwareLojasRibeiro.br.com.project.VIEW.FormVendas);
+            // 
+            // formVendasBindingSource1
+            // 
+            this.formVendasBindingSource1.DataSource = typeof(SoftwareLojasRibeiro.br.com.project.VIEW.FormVendas);
             // 
             // FormPagamentos
             // 

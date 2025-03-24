@@ -108,5 +108,12 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             telaforne.Show();
             this.Hide();
         }
+
+        private void buttonVoltar_Click(object sender, EventArgs e)
+        {
+            FormLogin tela = new FormLogin();
+            tela.Show();
+            this.Hide();
+        }
     }
 }
