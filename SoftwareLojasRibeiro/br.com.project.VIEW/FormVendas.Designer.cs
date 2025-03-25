@@ -125,6 +125,7 @@
             // buttonMenu
             // 
             this.buttonMenu.BackColor = System.Drawing.Color.Red;
+            this.buttonMenu.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F);
             this.buttonMenu.Location = new System.Drawing.Point(-1, -1);
             this.buttonMenu.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonMenu.Name = "buttonMenu";

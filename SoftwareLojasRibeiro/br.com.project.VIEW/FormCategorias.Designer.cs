@@ -48,7 +48,6 @@
             this.buttonExcluirProd = new System.Windows.Forms.Button();
             this.buttonAlterarProd = new System.Windows.Forms.Button();
             this.dataGridViewCatProd = new System.Windows.Forms.DataGridView();
-            this.buttonPesquisarProd = new System.Windows.Forms.Button();
             this.textBoxPesquisaNomeProd = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.tabPagePub = new System.Windows.Forms.TabPage();
@@ -56,7 +55,6 @@
             this.buttonExcluirPub = new System.Windows.Forms.Button();
             this.buttonAlterarPub = new System.Windows.Forms.Button();
             this.dataGridViewCatPub = new System.Windows.Forms.DataGridView();
-            this.buttonPesquisarPub = new System.Windows.Forms.Button();
             this.textBoxPesquisaNomePub = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -240,7 +238,6 @@
             this.tabPageConsultar.Controls.Add(this.buttonExcluirProd);
             this.tabPageConsultar.Controls.Add(this.buttonAlterarProd);
             this.tabPageConsultar.Controls.Add(this.dataGridViewCatProd);
-            this.tabPageConsultar.Controls.Add(this.buttonPesquisarProd);
             this.tabPageConsultar.Controls.Add(this.textBoxPesquisaNomeProd);
             this.tabPageConsultar.Controls.Add(this.label11);
             this.tabPageConsultar.Location = new System.Drawing.Point(4, 24);
@@ -266,10 +263,10 @@
             // buttonExcluirProd
             // 
             this.buttonExcluirProd.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonExcluirProd.Location = new System.Drawing.Point(1096, 35);
+            this.buttonExcluirProd.Location = new System.Drawing.Point(961, 35);
             this.buttonExcluirProd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonExcluirProd.Name = "buttonExcluirProd";
-            this.buttonExcluirProd.Size = new System.Drawing.Size(213, 46);
+            this.buttonExcluirProd.Size = new System.Drawing.Size(348, 46);
             this.buttonExcluirProd.TabIndex = 26;
             this.buttonExcluirProd.Text = "Excluir";
             this.buttonExcluirProd.UseVisualStyleBackColor = true;
@@ -278,10 +275,10 @@
             // buttonAlterarProd
             // 
             this.buttonAlterarProd.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAlterarProd.Location = new System.Drawing.Point(823, 35);
+            this.buttonAlterarProd.Location = new System.Drawing.Point(553, 35);
             this.buttonAlterarProd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonAlterarProd.Name = "buttonAlterarProd";
-            this.buttonAlterarProd.Size = new System.Drawing.Size(213, 46);
+            this.buttonAlterarProd.Size = new System.Drawing.Size(348, 46);
             this.buttonAlterarProd.TabIndex = 25;
             this.buttonAlterarProd.Text = "Alterar";
             this.buttonAlterarProd.UseVisualStyleBackColor = true;
@@ -299,18 +296,6 @@
             this.dataGridViewCatProd.ReadOnly = true;
             this.dataGridViewCatProd.Size = new System.Drawing.Size(1365, 452);
             this.dataGridViewCatProd.TabIndex = 24;
-            // 
-            // buttonPesquisarProd
-            // 
-            this.buttonPesquisarProd.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPesquisarProd.Location = new System.Drawing.Point(556, 35);
-            this.buttonPesquisarProd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.buttonPesquisarProd.Name = "buttonPesquisarProd";
-            this.buttonPesquisarProd.Size = new System.Drawing.Size(213, 46);
-            this.buttonPesquisarProd.TabIndex = 23;
-            this.buttonPesquisarProd.Text = "Pesquisar";
-            this.buttonPesquisarProd.UseVisualStyleBackColor = true;
-            this.buttonPesquisarProd.Click += new System.EventHandler(this.buttonPesquisarProd_Click);
             // 
             // textBoxPesquisaNomeProd
             // 
@@ -340,7 +325,6 @@
             this.tabPagePub.Controls.Add(this.buttonExcluirPub);
             this.tabPagePub.Controls.Add(this.buttonAlterarPub);
             this.tabPagePub.Controls.Add(this.dataGridViewCatPub);
-            this.tabPagePub.Controls.Add(this.buttonPesquisarPub);
             this.tabPagePub.Controls.Add(this.textBoxPesquisaNomePub);
             this.tabPagePub.Controls.Add(this.label6);
             this.tabPagePub.Location = new System.Drawing.Point(4, 24);
@@ -366,10 +350,10 @@
             // buttonExcluirPub
             // 
             this.buttonExcluirPub.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F);
-            this.buttonExcluirPub.Location = new System.Drawing.Point(1096, 35);
+            this.buttonExcluirPub.Location = new System.Drawing.Point(966, 35);
             this.buttonExcluirPub.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonExcluirPub.Name = "buttonExcluirPub";
-            this.buttonExcluirPub.Size = new System.Drawing.Size(213, 46);
+            this.buttonExcluirPub.Size = new System.Drawing.Size(343, 46);
             this.buttonExcluirPub.TabIndex = 3;
             this.buttonExcluirPub.Text = "Excluir";
             this.buttonExcluirPub.UseVisualStyleBackColor = true;
@@ -378,10 +362,10 @@
             // buttonAlterarPub
             // 
             this.buttonAlterarPub.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F);
-            this.buttonAlterarPub.Location = new System.Drawing.Point(823, 35);
+            this.buttonAlterarPub.Location = new System.Drawing.Point(562, 35);
             this.buttonAlterarPub.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonAlterarPub.Name = "buttonAlterarPub";
-            this.buttonAlterarPub.Size = new System.Drawing.Size(213, 46);
+            this.buttonAlterarPub.Size = new System.Drawing.Size(343, 46);
             this.buttonAlterarPub.TabIndex = 2;
             this.buttonAlterarPub.Text = "Alterar";
             this.buttonAlterarPub.UseVisualStyleBackColor = true;
@@ -399,18 +383,6 @@
             this.dataGridViewCatPub.ReadOnly = true;
             this.dataGridViewCatPub.Size = new System.Drawing.Size(1365, 452);
             this.dataGridViewCatPub.TabIndex = 6;
-            // 
-            // buttonPesquisarPub
-            // 
-            this.buttonPesquisarPub.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F);
-            this.buttonPesquisarPub.Location = new System.Drawing.Point(556, 35);
-            this.buttonPesquisarPub.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.buttonPesquisarPub.Name = "buttonPesquisarPub";
-            this.buttonPesquisarPub.Size = new System.Drawing.Size(213, 46);
-            this.buttonPesquisarPub.TabIndex = 1;
-            this.buttonPesquisarPub.Text = "Pesquisar";
-            this.buttonPesquisarPub.UseVisualStyleBackColor = true;
-            this.buttonPesquisarPub.Click += new System.EventHandler(this.buttonPesquisarPub_Click);
             // 
             // textBoxPesquisaNomePub
             // 
@@ -461,6 +433,7 @@
             // buttonMenu
             // 
             this.buttonMenu.BackColor = System.Drawing.Color.Red;
+            this.buttonMenu.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonMenu.Location = new System.Drawing.Point(-1, -1);
             this.buttonMenu.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonMenu.Name = "buttonMenu";
@@ -520,7 +493,6 @@
         private System.Windows.Forms.Button buttonExcluirProd;
         private System.Windows.Forms.Button buttonAlterarProd;
         private System.Windows.Forms.DataGridView dataGridViewCatProd;
-        private System.Windows.Forms.Button buttonPesquisarProd;
         private System.Windows.Forms.TextBox textBoxPesquisaNomeProd;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Panel panel1;
@@ -544,7 +516,6 @@
         private System.Windows.Forms.Button buttonExcluirPub;
         private System.Windows.Forms.Button buttonAlterarPub;
         private System.Windows.Forms.DataGridView dataGridViewCatPub;
-        private System.Windows.Forms.Button buttonPesquisarPub;
         private System.Windows.Forms.TextBox textBoxPesquisaNomePub;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox1;

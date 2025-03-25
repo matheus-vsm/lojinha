@@ -322,6 +322,30 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
         #endregion
 
         #region AdicionarEstoque
+        public void AdicionarEstoque(string idprod, int qntdestoque)
+        {
+            try
+            {
+                string sql = @"UPDATE tb_produtos SET Qtd_Estoque = @qtd 
+                            WHERE Id_Produto = @id";
+
+                MySqlCommand executacmd = new MySqlCommand(sql, connection);
+                executacmd.Parameters.AddWithValue("@qtd", qntdestoque);
+                executacmd.Parameters.AddWithValue("@id", idprod);
+
+                connection.Open();
+                executacmd.ExecuteNonQuery();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Erro ao remover o estoque: " + error.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
         #endregion
 
         #region RetornaEstoqueAtual

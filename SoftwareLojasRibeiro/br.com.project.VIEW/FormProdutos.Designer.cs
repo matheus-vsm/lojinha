@@ -33,11 +33,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.buttonMenu = new System.Windows.Forms.Button();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.buttonLimparPesquisa = new System.Windows.Forms.Button();
-            this.buttonPesquisar = new System.Windows.Forms.Button();
             this.buttonExcluir = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.buttonAlterar = new System.Windows.Forms.Button();
@@ -113,6 +110,7 @@
             // buttonMenu
             // 
             this.buttonMenu.BackColor = System.Drawing.Color.Red;
+            this.buttonMenu.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F);
             this.buttonMenu.Location = new System.Drawing.Point(-1, -1);
             this.buttonMenu.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonMenu.Name = "buttonMenu";
@@ -122,32 +120,9 @@
             this.buttonMenu.UseVisualStyleBackColor = false;
             this.buttonMenu.Click += new System.EventHandler(this.buttonMenu_Click);
             // 
-            // tabPage5
-            // 
-            this.tabPage5.Location = new System.Drawing.Point(4, 24);
-            this.tabPage5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tabPage5.Size = new System.Drawing.Size(1366, 572);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "Atualizar Estoque";
-            this.tabPage5.UseVisualStyleBackColor = true;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 24);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tabPage4.Size = new System.Drawing.Size(1366, 572);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Atualizar Preço";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.buttonLimparPesquisa);
-            this.tabPage3.Controls.Add(this.buttonPesquisar);
             this.tabPage3.Controls.Add(this.buttonExcluir);
             this.tabPage3.Controls.Add(this.label11);
             this.tabPage3.Controls.Add(this.buttonAlterar);
@@ -164,7 +139,7 @@
             // 
             // buttonLimparPesquisa
             // 
-            this.buttonLimparPesquisa.Location = new System.Drawing.Point(328, 59);
+            this.buttonLimparPesquisa.Location = new System.Drawing.Point(294, 59);
             this.buttonLimparPesquisa.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonLimparPesquisa.Name = "buttonLimparPesquisa";
             this.buttonLimparPesquisa.Size = new System.Drawing.Size(72, 29);
@@ -173,25 +148,13 @@
             this.buttonLimparPesquisa.UseVisualStyleBackColor = true;
             this.buttonLimparPesquisa.Click += new System.EventHandler(this.buttonLimparPesquisa_Click);
             // 
-            // buttonPesquisar
-            // 
-            this.buttonPesquisar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPesquisar.Location = new System.Drawing.Point(586, 22);
-            this.buttonPesquisar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.buttonPesquisar.Name = "buttonPesquisar";
-            this.buttonPesquisar.Size = new System.Drawing.Size(213, 46);
-            this.buttonPesquisar.TabIndex = 1;
-            this.buttonPesquisar.Text = "Pesquisar";
-            this.buttonPesquisar.UseVisualStyleBackColor = true;
-            this.buttonPesquisar.Click += new System.EventHandler(this.buttonPesquisar_Click);
-            // 
             // buttonExcluir
             // 
             this.buttonExcluir.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonExcluir.Location = new System.Drawing.Point(1126, 22);
+            this.buttonExcluir.Location = new System.Drawing.Point(975, 23);
             this.buttonExcluir.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonExcluir.Name = "buttonExcluir";
-            this.buttonExcluir.Size = new System.Drawing.Size(213, 46);
+            this.buttonExcluir.Size = new System.Drawing.Size(311, 46);
             this.buttonExcluir.TabIndex = 3;
             this.buttonExcluir.Text = "Excluir";
             this.buttonExcluir.UseVisualStyleBackColor = true;
@@ -201,7 +164,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(48, 30);
+            this.label11.Location = new System.Drawing.Point(14, 30);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(151, 18);
@@ -211,10 +174,10 @@
             // buttonAlterar
             // 
             this.buttonAlterar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAlterar.Location = new System.Drawing.Point(852, 22);
+            this.buttonAlterar.Location = new System.Drawing.Point(546, 23);
             this.buttonAlterar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonAlterar.Name = "buttonAlterar";
-            this.buttonAlterar.Size = new System.Drawing.Size(213, 46);
+            this.buttonAlterar.Size = new System.Drawing.Size(311, 46);
             this.buttonAlterar.TabIndex = 2;
             this.buttonAlterar.Text = "Alterar";
             this.buttonAlterar.UseVisualStyleBackColor = true;
@@ -223,7 +186,7 @@
             // textBoxPesquisaProd
             // 
             this.textBoxPesquisaProd.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPesquisaProd.Location = new System.Drawing.Point(207, 27);
+            this.textBoxPesquisaProd.Location = new System.Drawing.Point(173, 27);
             this.textBoxPesquisaProd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxPesquisaProd.Name = "textBoxPesquisaProd";
             this.textBoxPesquisaProd.Size = new System.Drawing.Size(328, 26);
@@ -507,8 +470,6 @@
             // 
             this.tabControlProdutos.Controls.Add(this.tabPageCadastrar);
             this.tabControlProdutos.Controls.Add(this.tabPage3);
-            this.tabControlProdutos.Controls.Add(this.tabPage4);
-            this.tabControlProdutos.Controls.Add(this.tabPage5);
             this.tabControlProdutos.Location = new System.Drawing.Point(0, 149);
             this.tabControlProdutos.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabControlProdutos.Name = "tabControlProdutos";
@@ -548,8 +509,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button buttonMenu;
-        private System.Windows.Forms.TabPage tabPage5;
-        private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPageCadastrar;
         private System.Windows.Forms.ComboBox comboBoxCategProd;
@@ -576,7 +535,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TabControl tabControlProdutos;
         private System.Windows.Forms.Button buttonLimparPesquisa;
-        private System.Windows.Forms.Button buttonPesquisar;
         private System.Windows.Forms.Button buttonExcluir;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button buttonAlterar;

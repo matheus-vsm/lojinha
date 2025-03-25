@@ -67,7 +67,6 @@
             this.buttonExcluir = new System.Windows.Forms.Button();
             this.buttonAlterar = new System.Windows.Forms.Button();
             this.dataGridViewFuncionarios = new System.Windows.Forms.DataGridView();
-            this.buttonPesquisar = new System.Windows.Forms.Button();
             this.textBoxPesquisaNome = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
@@ -105,6 +104,7 @@
             // buttonMenu
             // 
             this.buttonMenu.BackColor = System.Drawing.Color.Red;
+            this.buttonMenu.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F);
             this.buttonMenu.Location = new System.Drawing.Point(-1, -1);
             this.buttonMenu.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonMenu.Name = "buttonMenu";
@@ -469,7 +469,6 @@
             this.tabPageConsultar.Controls.Add(this.buttonExcluir);
             this.tabPageConsultar.Controls.Add(this.buttonAlterar);
             this.tabPageConsultar.Controls.Add(this.dataGridViewFuncionarios);
-            this.tabPageConsultar.Controls.Add(this.buttonPesquisar);
             this.tabPageConsultar.Controls.Add(this.textBoxPesquisaNome);
             this.tabPageConsultar.Controls.Add(this.label11);
             this.tabPageConsultar.Location = new System.Drawing.Point(4, 24);
@@ -495,10 +494,10 @@
             // buttonExcluir
             // 
             this.buttonExcluir.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonExcluir.Location = new System.Drawing.Point(1123, 25);
+            this.buttonExcluir.Location = new System.Drawing.Point(965, 25);
             this.buttonExcluir.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonExcluir.Name = "buttonExcluir";
-            this.buttonExcluir.Size = new System.Drawing.Size(213, 46);
+            this.buttonExcluir.Size = new System.Drawing.Size(361, 46);
             this.buttonExcluir.TabIndex = 3;
             this.buttonExcluir.Text = "Excluir";
             this.buttonExcluir.UseVisualStyleBackColor = true;
@@ -507,10 +506,10 @@
             // buttonAlterar
             // 
             this.buttonAlterar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAlterar.Location = new System.Drawing.Point(861, 25);
+            this.buttonAlterar.Location = new System.Drawing.Point(567, 25);
             this.buttonAlterar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonAlterar.Name = "buttonAlterar";
-            this.buttonAlterar.Size = new System.Drawing.Size(213, 46);
+            this.buttonAlterar.Size = new System.Drawing.Size(361, 46);
             this.buttonAlterar.TabIndex = 2;
             this.buttonAlterar.Text = "Alterar";
             this.buttonAlterar.UseVisualStyleBackColor = true;
@@ -528,18 +527,6 @@
             this.dataGridViewFuncionarios.ReadOnly = true;
             this.dataGridViewFuncionarios.Size = new System.Drawing.Size(1365, 471);
             this.dataGridViewFuncionarios.TabIndex = 5;
-            // 
-            // buttonPesquisar
-            // 
-            this.buttonPesquisar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPesquisar.Location = new System.Drawing.Point(587, 25);
-            this.buttonPesquisar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.buttonPesquisar.Name = "buttonPesquisar";
-            this.buttonPesquisar.Size = new System.Drawing.Size(213, 46);
-            this.buttonPesquisar.TabIndex = 1;
-            this.buttonPesquisar.Text = "Pesquisar";
-            this.buttonPesquisar.UseVisualStyleBackColor = true;
-            this.buttonPesquisar.Click += new System.EventHandler(this.buttonPesquisar_Click);
             // 
             // textBoxPesquisaNome
             // 
@@ -623,7 +610,6 @@
         private System.Windows.Forms.Button buttonExcluir;
         private System.Windows.Forms.Button buttonAlterar;
         private System.Windows.Forms.DataGridView dataGridViewFuncionarios;
-        private System.Windows.Forms.Button buttonPesquisar;
         private System.Windows.Forms.TextBox textBoxPesquisaNome;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox comboBoxTipoUsuario;
