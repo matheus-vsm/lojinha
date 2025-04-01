@@ -173,16 +173,22 @@
     <Compile Include="br.com.project.CONNECTION\ConnectionFactory.cs" />
     <Compile Include="br.com.project.DAO\CategoriaDAO.cs" />
     <Compile Include="br.com.project.DAO\ClienteDAO.cs" />
+    <Compile Include="br.com.project.DAO\CompraProdutosDAO.cs" />
+    <Compile Include="br.com.project.DAO\DevedoresDAO.cs" />
     <Compile Include="br.com.project.DAO\FornecedorDAO.cs" />
     <Compile Include="br.com.project.DAO\FuncionarioDAO.cs" />
+    <Compile Include="br.com.project.DAO\ItensCompraProdutosDAO.cs" />
     <Compile Include="br.com.project.DAO\ItensVendaDAO.cs" />
     <Compile Include="br.com.project.DAO\PagamentoDAO.cs" />
     <Compile Include="br.com.project.DAO\ProdutoDAO.cs" />
     <Compile Include="br.com.project.DAO\VendaDAO.cs" />
     <Compile Include="br.com.project.MODEL\Categoria.cs" />
+    <Compile Include="br.com.project.MODEL\CompraProdutos.cs" />
+    <Compile Include="br.com.project.MODEL\Devedores.cs" />
     <Compile Include="br.com.project.MODEL\Fornecedor.cs" />
     <Compile Include="br.com.project.MODEL\Funcionario.cs" />
     <Compile Include="br.com.project.MODEL\Helpers.cs" />
+    <Compile Include="br.com.project.MODEL\ItensCompraProdutos.cs" />
     <Compile Include="br.com.project.MODEL\ItensVenda.cs" />
     <Compile Include="br.com.project.MODEL\Pagamento.cs" />
     <Compile Include="br.com.project.MODEL\Produto.cs" />
@@ -201,6 +207,12 @@
     </Compile>
     <Compile Include="br.com.project.VIEW\FormClientes.Designer.cs">
       <DependentUpon>FormClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="br.com.project.VIEW\FormCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.com.project.VIEW\FormCompras.Designer.cs">
+      <DependentUpon>FormCompras.cs</DependentUpon>
     </Compile>
     <Compile Include="br.com.project.VIEW\FormDetalhesVendas.cs">
       <SubType>Form</SubType>
@@ -264,6 +276,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="br.com.project.VIEW\FormClientes.resx">
       <DependentUpon>FormClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="br.com.project.VIEW\FormCompras.resx">
+      <DependentUpon>FormCompras.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="br.com.project.VIEW\FormDetalhesVendas.resx">
       <DependentUpon>FormDetalhesVendas.cs</DependentUpon>

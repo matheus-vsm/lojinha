@@ -41,10 +41,10 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                 //Definir comando SQL - INSERT INTO
                 string sql = @"INSERT INTO tb_produtos 
                             (Nome_Produto, Marca, Cor, Tamanho, Descricao, 
-                            Imagem, Preco, Qtd_Estoque, Categoria_Prod_Id, 
+                            Preco, Qtd_Estoque, Categoria_Prod_Id, 
                             Categoria_Publ_Id) VALUES 
                             (@nome, @marca, @cor, @tamanho, @descricao, 
-                            @imagem, @preco, @estoque, @prod, @pub)";
+                            @preco, @estoque, @prod, @pub)";
 
                 //Organizar o comando SQL
                 MySqlCommand executacmd = new MySqlCommand(sql, connection);
@@ -53,7 +53,6 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                 executacmd.Parameters.AddWithValue("@cor", prod.Cor);
                 executacmd.Parameters.AddWithValue("@tamanho", prod.Tamanho);
                 executacmd.Parameters.AddWithValue("@descricao", prod.Descricao);
-                executacmd.Parameters.AddWithValue("@imagem", prod.Imagem);
                 executacmd.Parameters.AddWithValue("@preco", prod.Preco);
                 executacmd.Parameters.AddWithValue("@estoque", prod.Estoque);
                 executacmd.Parameters.AddWithValue("@prod", prod.Id_Cat_Prod);

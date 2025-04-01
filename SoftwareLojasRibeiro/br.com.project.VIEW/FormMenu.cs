@@ -60,11 +60,32 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             this.Hide();
         }
 
+        private void buttonFornecedores_Click(object sender, EventArgs e)
+        {
+            FormFornecedores telaforne = new FormFornecedores();
+            telaforne.Show();
+            this.Hide();
+        }
+
+        private void buttonCompras_Click(object sender, EventArgs e)
+        {
+            FormCompras tela = new FormCompras();
+            tela.Show();
+            this.Hide();
+        }
+
+        private void buttonVoltar_Click(object sender, EventArgs e)
+        {
+            FormLogin tela = new FormLogin();
+            tela.Show();
+            this.Hide();
+        }
+
         private void FormMenu_KeyPress(object sender, KeyPressEventArgs e){ }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            if (keyData == Keys.D0 || keyData == Keys.NumPad0) // tecla 1
+            if (keyData == Keys.D0 || keyData == Keys.NumPad0) // tecla 0
             {
                 this.Close();
                 return true;
@@ -99,21 +120,12 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 buttonVendas_Click(this, EventArgs.Empty);
                 return true;
             }
+            else if (keyData == Keys.D7 || keyData == Keys.NumPad7) // tecla 7
+            {
+                buttonCompras_Click(this, EventArgs.Empty);
+                return true;
+            }
             return base.ProcessCmdKey(ref msg, keyData);
-        }
-
-        private void buttonFornecedores_Click(object sender, EventArgs e)
-        {
-            FormFornecedores telaforne = new FormFornecedores();
-            telaforne.Show();
-            this.Hide();
-        }
-
-        private void buttonVoltar_Click(object sender, EventArgs e)
-        {
-            FormLogin tela = new FormLogin();
-            tela.Show();
-            this.Hide();
-        }
+        }        
     }
 }

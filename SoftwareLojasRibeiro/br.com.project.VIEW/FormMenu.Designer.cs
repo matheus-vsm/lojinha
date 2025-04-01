@@ -44,8 +44,10 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.buttonVoltar = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.buttonCompras = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -53,7 +55,7 @@
             // buttonClientes
             // 
             this.buttonClientes.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonClientes.Location = new System.Drawing.Point(545, 224);
+            this.buttonClientes.Location = new System.Drawing.Point(545, 185);
             this.buttonClientes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonClientes.Name = "buttonClientes";
             this.buttonClientes.Size = new System.Drawing.Size(219, 48);
@@ -65,7 +67,7 @@
             // buttonProdutos
             // 
             this.buttonProdutos.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonProdutos.Location = new System.Drawing.Point(545, 524);
+            this.buttonProdutos.Location = new System.Drawing.Point(545, 485);
             this.buttonProdutos.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonProdutos.Name = "buttonProdutos";
             this.buttonProdutos.Size = new System.Drawing.Size(219, 48);
@@ -77,7 +79,7 @@
             // buttonVendas
             // 
             this.buttonVendas.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonVendas.Location = new System.Drawing.Point(545, 595);
+            this.buttonVendas.Location = new System.Drawing.Point(545, 556);
             this.buttonVendas.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonVendas.Name = "buttonVendas";
             this.buttonVendas.Size = new System.Drawing.Size(219, 48);
@@ -97,7 +99,7 @@
             // buttonFuncionarios
             // 
             this.buttonFuncionarios.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonFuncionarios.Location = new System.Drawing.Point(545, 303);
+            this.buttonFuncionarios.Location = new System.Drawing.Point(545, 264);
             this.buttonFuncionarios.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonFuncionarios.Name = "buttonFuncionarios";
             this.buttonFuncionarios.Size = new System.Drawing.Size(219, 48);
@@ -109,7 +111,7 @@
             // buttonCategorias
             // 
             this.buttonCategorias.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCategorias.Location = new System.Drawing.Point(545, 451);
+            this.buttonCategorias.Location = new System.Drawing.Point(545, 412);
             this.buttonCategorias.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonCategorias.Name = "buttonCategorias";
             this.buttonCategorias.Size = new System.Drawing.Size(219, 48);
@@ -121,7 +123,7 @@
             // buttonFornecedores
             // 
             this.buttonFornecedores.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonFornecedores.Location = new System.Drawing.Point(545, 377);
+            this.buttonFornecedores.Location = new System.Drawing.Point(545, 338);
             this.buttonFornecedores.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonFornecedores.Name = "buttonFornecedores";
             this.buttonFornecedores.Size = new System.Drawing.Size(219, 48);
@@ -135,7 +137,7 @@
             this.label3.BackColor = System.Drawing.Color.Gainsboro;
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20F);
-            this.label3.Location = new System.Drawing.Point(486, 224);
+            this.label3.Location = new System.Drawing.Point(486, 185);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(47, 48);
@@ -148,7 +150,7 @@
             this.label4.BackColor = System.Drawing.Color.Gainsboro;
             this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20F);
-            this.label4.Location = new System.Drawing.Point(486, 303);
+            this.label4.Location = new System.Drawing.Point(486, 264);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(47, 48);
@@ -161,7 +163,7 @@
             this.label5.BackColor = System.Drawing.Color.Gainsboro;
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20F);
-            this.label5.Location = new System.Drawing.Point(486, 377);
+            this.label5.Location = new System.Drawing.Point(486, 338);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(47, 48);
@@ -174,7 +176,7 @@
             this.label6.BackColor = System.Drawing.Color.Gainsboro;
             this.label6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label6.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20F);
-            this.label6.Location = new System.Drawing.Point(486, 451);
+            this.label6.Location = new System.Drawing.Point(486, 412);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(47, 48);
@@ -187,7 +189,7 @@
             this.label7.BackColor = System.Drawing.Color.Gainsboro;
             this.label7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label7.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20F);
-            this.label7.Location = new System.Drawing.Point(486, 524);
+            this.label7.Location = new System.Drawing.Point(486, 485);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(47, 48);
@@ -200,7 +202,7 @@
             this.label8.BackColor = System.Drawing.Color.Gainsboro;
             this.label8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label8.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20F);
-            this.label8.Location = new System.Drawing.Point(486, 595);
+            this.label8.Location = new System.Drawing.Point(486, 556);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(47, 48);
@@ -233,16 +235,6 @@
             this.panel1.Size = new System.Drawing.Size(1373, 143);
             this.panel1.TabIndex = 13;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImage = global::SoftwareLojasRibeiro.Properties.Resources.Logo_Lojas_Ribeiro_Transparente_menor;
-            this.pictureBox1.Location = new System.Drawing.Point(1200, 6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(163, 127);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            // 
             // buttonVoltar
             // 
             this.buttonVoltar.BackColor = System.Drawing.Color.Red;
@@ -255,6 +247,41 @@
             this.buttonVoltar.UseVisualStyleBackColor = false;
             this.buttonVoltar.Click += new System.EventHandler(this.buttonVoltar_Click);
             // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.Gainsboro;
+            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20F);
+            this.label2.Location = new System.Drawing.Point(486, 627);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(47, 48);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "7";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // buttonCompras
+            // 
+            this.buttonCompras.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCompras.Location = new System.Drawing.Point(545, 627);
+            this.buttonCompras.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.buttonCompras.Name = "buttonCompras";
+            this.buttonCompras.Size = new System.Drawing.Size(219, 48);
+            this.buttonCompras.TabIndex = 14;
+            this.buttonCompras.Text = "Compras";
+            this.buttonCompras.UseVisualStyleBackColor = true;
+            this.buttonCompras.Click += new System.EventHandler(this.buttonCompras_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::SoftwareLojasRibeiro.Properties.Resources.Logo_Lojas_Ribeiro_Transparente_menor;
+            this.pictureBox1.Location = new System.Drawing.Point(1200, 6);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(163, 127);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
             // FormMenu
             // 
             this.AcceptButton = this.buttonClientes;
@@ -262,6 +289,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Goldenrod;
             this.ClientSize = new System.Drawing.Size(1373, 747);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.buttonCompras);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -310,5 +339,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button buttonVoltar;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button buttonCompras;
     }
 }

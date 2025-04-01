@@ -86,7 +86,6 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 Cor = textBoxCor.Text,
                 Tamanho = textBoxTamanho.Text,
                 Descricao = textBoxDescrição.Text,
-                Imagem = "não",
                 Preco = decimal.Parse(textBoxPreco.Text),
                 Estoque = int.Parse(textBoxEstoque.Text),
                 Id_Cat_Prod = int.Parse(comboBoxCategProd.SelectedValue.ToString()),
