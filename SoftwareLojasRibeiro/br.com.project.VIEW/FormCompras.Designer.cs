@@ -30,21 +30,27 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCompras));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.buttonMenu = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabControlCompras = new System.Windows.Forms.TabControl();
             this.tabPageCadastrar = new System.Windows.Forms.TabPage();
+            this.textBoxObs = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.comboBoxFornecedor = new System.Windows.Forms.ComboBox();
+            this.textBoxPrecoCusto = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.comboBoxCategProd = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.comboBoxCategPub = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBoxEstoque = new System.Windows.Forms.TextBox();
+            this.textBoxQuantidade = new System.Windows.Forms.TextBox();
             this.textBoxDescrição = new System.Windows.Forms.TextBox();
             this.textBoxTamanho = new System.Windows.Forms.TextBox();
             this.textBoxMarca = new System.Windows.Forms.TextBox();
             this.textBoxID = new System.Windows.Forms.TextBox();
-            this.textBoxPreco = new System.Windows.Forms.TextBox();
+            this.textBoxPrecoVenda = new System.Windows.Forms.TextBox();
             this.textBoxCor = new System.Windows.Forms.TextBox();
             this.textBoxNomeProd = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -58,23 +64,19 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.buttonLimparPesquisa = new System.Windows.Forms.Button();
-            this.buttonExcluir = new System.Windows.Forms.Button();
+            this.buttonAddNovaIgual = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.buttonAlterar = new System.Windows.Forms.Button();
             this.textBoxPesquisaProd = new System.Windows.Forms.TextBox();
-            this.dataGridViewProdutos = new System.Windows.Forms.DataGridView();
-            this.label13 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.comboBoxFornecedor = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.dataGridViewCompras = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControlCompras.SuspendLayout();
             this.tabPageCadastrar.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProdutos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCompras)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -91,6 +93,16 @@
             this.panel1.Size = new System.Drawing.Size(1373, 143);
             this.panel1.TabIndex = 4;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::SoftwareLojasRibeiro.Properties.Resources.Logo_Lojas_Ribeiro_Transparente_menor;
+            this.pictureBox1.Location = new System.Drawing.Point(1200, 6);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(163, 127);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
             // buttonMenu
             // 
             this.buttonMenu.BackColor = System.Drawing.Color.Red;
@@ -102,6 +114,7 @@
             this.buttonMenu.TabIndex = 0;
             this.buttonMenu.Text = "Menu";
             this.buttonMenu.UseVisualStyleBackColor = false;
+            this.buttonMenu.Click += new System.EventHandler(this.buttonMenu_Click);
             // 
             // label1
             // 
@@ -113,16 +126,6 @@
             this.label1.Size = new System.Drawing.Size(219, 33);
             this.label1.TabIndex = 0;
             this.label1.Text = "Área Compras";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImage = global::SoftwareLojasRibeiro.Properties.Resources.Logo_Lojas_Ribeiro_Transparente_menor;
-            this.pictureBox1.Location = new System.Drawing.Point(1200, 6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(163, 127);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
             // 
             // tabControlCompras
             // 
@@ -137,20 +140,22 @@
             // 
             // tabPageCadastrar
             // 
+            this.tabPageCadastrar.Controls.Add(this.textBoxObs);
+            this.tabPageCadastrar.Controls.Add(this.label15);
             this.tabPageCadastrar.Controls.Add(this.comboBoxFornecedor);
-            this.tabPageCadastrar.Controls.Add(this.textBox1);
+            this.tabPageCadastrar.Controls.Add(this.textBoxPrecoCusto);
             this.tabPageCadastrar.Controls.Add(this.label14);
             this.tabPageCadastrar.Controls.Add(this.label13);
             this.tabPageCadastrar.Controls.Add(this.comboBoxCategProd);
             this.tabPageCadastrar.Controls.Add(this.label7);
             this.tabPageCadastrar.Controls.Add(this.comboBoxCategPub);
             this.tabPageCadastrar.Controls.Add(this.label3);
-            this.tabPageCadastrar.Controls.Add(this.textBoxEstoque);
+            this.tabPageCadastrar.Controls.Add(this.textBoxQuantidade);
             this.tabPageCadastrar.Controls.Add(this.textBoxDescrição);
             this.tabPageCadastrar.Controls.Add(this.textBoxTamanho);
             this.tabPageCadastrar.Controls.Add(this.textBoxMarca);
             this.tabPageCadastrar.Controls.Add(this.textBoxID);
-            this.tabPageCadastrar.Controls.Add(this.textBoxPreco);
+            this.tabPageCadastrar.Controls.Add(this.textBoxPrecoVenda);
             this.tabPageCadastrar.Controls.Add(this.textBoxCor);
             this.tabPageCadastrar.Controls.Add(this.textBoxNomeProd);
             this.tabPageCadastrar.Controls.Add(this.label2);
@@ -171,6 +176,67 @@
             this.tabPageCadastrar.TabIndex = 0;
             this.tabPageCadastrar.Text = "Cadastrar";
             this.tabPageCadastrar.UseVisualStyleBackColor = true;
+            // 
+            // textBoxObs
+            // 
+            this.textBoxObs.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxObs.Location = new System.Drawing.Point(903, 313);
+            this.textBoxObs.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.textBoxObs.Name = "textBoxObs";
+            this.textBoxObs.Size = new System.Drawing.Size(328, 35);
+            this.textBoxObs.TabIndex = 56;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(721, 316);
+            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(174, 28);
+            this.label15.TabIndex = 57;
+            this.label15.Text = "Observações:";
+            // 
+            // comboBoxFornecedor
+            // 
+            this.comboBoxFornecedor.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxFornecedor.FormattingEnabled = true;
+            this.comboBoxFornecedor.Location = new System.Drawing.Point(294, 203);
+            this.comboBoxFornecedor.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.comboBoxFornecedor.Name = "comboBoxFornecedor";
+            this.comboBoxFornecedor.Size = new System.Drawing.Size(328, 36);
+            this.comboBoxFornecedor.TabIndex = 55;
+            // 
+            // textBoxPrecoCusto
+            // 
+            this.textBoxPrecoCusto.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPrecoCusto.Location = new System.Drawing.Point(903, 209);
+            this.textBoxPrecoCusto.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.textBoxPrecoCusto.Name = "textBoxPrecoCusto";
+            this.textBoxPrecoCusto.Size = new System.Drawing.Size(328, 35);
+            this.textBoxPrecoCusto.TabIndex = 53;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(680, 209);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(215, 28);
+            this.label14.TabIndex = 54;
+            this.label14.Text = "Preço Custo (R$):";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(131, 206);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(155, 28);
+            this.label13.TabIndex = 52;
+            this.label13.Text = "Fornecedor:";
             // 
             // comboBoxCategProd
             // 
@@ -197,7 +263,7 @@
             // 
             this.comboBoxCategPub.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxCategPub.FormattingEnabled = true;
-            this.comboBoxCategPub.Location = new System.Drawing.Point(294, 172);
+            this.comboBoxCategPub.Location = new System.Drawing.Point(294, 145);
             this.comboBoxCategPub.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.comboBoxCategPub.Name = "comboBoxCategPub";
             this.comboBoxCategPub.Size = new System.Drawing.Size(328, 36);
@@ -207,44 +273,44 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(23, 175);
+            this.label3.Location = new System.Drawing.Point(23, 148);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(263, 28);
             this.label3.TabIndex = 48;
             this.label3.Text = "Categoria do Público:";
             // 
-            // textBoxEstoque
+            // textBoxQuantidade
             // 
-            this.textBoxEstoque.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxEstoque.Location = new System.Drawing.Point(903, 374);
-            this.textBoxEstoque.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textBoxEstoque.Name = "textBoxEstoque";
-            this.textBoxEstoque.Size = new System.Drawing.Size(304, 35);
-            this.textBoxEstoque.TabIndex = 8;
+            this.textBoxQuantidade.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxQuantidade.Location = new System.Drawing.Point(903, 261);
+            this.textBoxQuantidade.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.textBoxQuantidade.Name = "textBoxQuantidade";
+            this.textBoxQuantidade.Size = new System.Drawing.Size(328, 35);
+            this.textBoxQuantidade.TabIndex = 8;
             // 
             // textBoxDescrição
             // 
             this.textBoxDescrição.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDescrição.Location = new System.Drawing.Point(903, 208);
+            this.textBoxDescrição.Location = new System.Drawing.Point(903, 153);
             this.textBoxDescrição.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxDescrição.Name = "textBoxDescrição";
-            this.textBoxDescrição.Size = new System.Drawing.Size(304, 35);
+            this.textBoxDescrição.Size = new System.Drawing.Size(328, 35);
             this.textBoxDescrição.TabIndex = 6;
             // 
             // textBoxTamanho
             // 
             this.textBoxTamanho.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTamanho.Location = new System.Drawing.Point(903, 89);
+            this.textBoxTamanho.Location = new System.Drawing.Point(294, 374);
             this.textBoxTamanho.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxTamanho.Name = "textBoxTamanho";
-            this.textBoxTamanho.Size = new System.Drawing.Size(304, 35);
+            this.textBoxTamanho.Size = new System.Drawing.Size(328, 35);
             this.textBoxTamanho.TabIndex = 4;
             // 
             // textBoxMarca
             // 
             this.textBoxMarca.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxMarca.Location = new System.Drawing.Point(294, 378);
+            this.textBoxMarca.Location = new System.Drawing.Point(294, 313);
             this.textBoxMarca.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxMarca.Name = "textBoxMarca";
             this.textBoxMarca.Size = new System.Drawing.Size(328, 35);
@@ -260,28 +326,28 @@
             this.textBoxID.Size = new System.Drawing.Size(64, 35);
             this.textBoxID.TabIndex = 43;
             // 
-            // textBoxPreco
+            // textBoxPrecoVenda
             // 
-            this.textBoxPreco.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPreco.Location = new System.Drawing.Point(903, 317);
-            this.textBoxPreco.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textBoxPreco.Name = "textBoxPreco";
-            this.textBoxPreco.Size = new System.Drawing.Size(304, 35);
-            this.textBoxPreco.TabIndex = 7;
+            this.textBoxPrecoVenda.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPrecoVenda.Location = new System.Drawing.Point(903, 370);
+            this.textBoxPrecoVenda.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.textBoxPrecoVenda.Name = "textBoxPrecoVenda";
+            this.textBoxPrecoVenda.Size = new System.Drawing.Size(328, 35);
+            this.textBoxPrecoVenda.TabIndex = 7;
             // 
             // textBoxCor
             // 
             this.textBoxCor.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCor.Location = new System.Drawing.Point(903, 146);
+            this.textBoxCor.Location = new System.Drawing.Point(903, 91);
             this.textBoxCor.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxCor.Name = "textBoxCor";
-            this.textBoxCor.Size = new System.Drawing.Size(304, 35);
+            this.textBoxCor.Size = new System.Drawing.Size(328, 35);
             this.textBoxCor.TabIndex = 5;
             // 
             // textBoxNomeProd
             // 
             this.textBoxNomeProd.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNomeProd.Location = new System.Drawing.Point(294, 311);
+            this.textBoxNomeProd.Location = new System.Drawing.Point(294, 261);
             this.textBoxNomeProd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxNomeProd.Name = "textBoxNomeProd";
             this.textBoxNomeProd.Size = new System.Drawing.Size(328, 35);
@@ -291,7 +357,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(66, 314);
+            this.label2.Location = new System.Drawing.Point(66, 264);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(220, 28);
@@ -302,7 +368,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(832, 149);
+            this.label4.Location = new System.Drawing.Point(832, 94);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(63, 28);
@@ -313,7 +379,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(193, 381);
+            this.label5.Location = new System.Drawing.Point(193, 316);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(93, 28);
@@ -335,7 +401,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(769, 92);
+            this.label6.Location = new System.Drawing.Point(160, 377);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(126, 28);
@@ -363,12 +429,13 @@
             this.buttonCadastrar.TabIndex = 9;
             this.buttonCadastrar.Text = "Cadastrar";
             this.buttonCadastrar.UseVisualStyleBackColor = true;
+            this.buttonCadastrar.Click += new System.EventHandler(this.buttonCadastrar_Click);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(756, 211);
+            this.label8.Location = new System.Drawing.Point(756, 156);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(139, 28);
@@ -379,7 +446,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(673, 320);
+            this.label9.Location = new System.Drawing.Point(673, 373);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(222, 28);
@@ -390,7 +457,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(741, 377);
+            this.label10.Location = new System.Drawing.Point(741, 264);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(154, 28);
@@ -401,11 +468,11 @@
             // 
             this.tabPage3.Controls.Add(this.button1);
             this.tabPage3.Controls.Add(this.buttonLimparPesquisa);
-            this.tabPage3.Controls.Add(this.buttonExcluir);
+            this.tabPage3.Controls.Add(this.buttonAddNovaIgual);
             this.tabPage3.Controls.Add(this.label11);
             this.tabPage3.Controls.Add(this.buttonAlterar);
             this.tabPage3.Controls.Add(this.textBoxPesquisaProd);
-            this.tabPage3.Controls.Add(this.dataGridViewProdutos);
+            this.tabPage3.Controls.Add(this.dataGridViewCompras);
             this.tabPage3.Location = new System.Drawing.Point(4, 24);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabPage3.Name = "tabPage3";
@@ -414,6 +481,17 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Consultar Compras";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(1108, 23);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(248, 46);
+            this.button1.TabIndex = 29;
+            this.button1.Text = "Excluir";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // buttonLimparPesquisa
             // 
@@ -425,16 +503,17 @@
             this.buttonLimparPesquisa.Text = "Limpar";
             this.buttonLimparPesquisa.UseVisualStyleBackColor = true;
             // 
-            // buttonExcluir
+            // buttonAddNovaIgual
             // 
-            this.buttonExcluir.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonExcluir.Location = new System.Drawing.Point(821, 23);
-            this.buttonExcluir.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.buttonExcluir.Name = "buttonExcluir";
-            this.buttonExcluir.Size = new System.Drawing.Size(248, 46);
-            this.buttonExcluir.TabIndex = 3;
-            this.buttonExcluir.Text = "Add Nova Compra";
-            this.buttonExcluir.UseVisualStyleBackColor = true;
+            this.buttonAddNovaIgual.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAddNovaIgual.Location = new System.Drawing.Point(821, 23);
+            this.buttonAddNovaIgual.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.buttonAddNovaIgual.Name = "buttonAddNovaIgual";
+            this.buttonAddNovaIgual.Size = new System.Drawing.Size(248, 46);
+            this.buttonAddNovaIgual.TabIndex = 3;
+            this.buttonAddNovaIgual.Text = "Add Nova Compra";
+            this.buttonAddNovaIgual.UseVisualStyleBackColor = true;
+            this.buttonAddNovaIgual.Click += new System.EventHandler(this.buttonAddNovaIgual_Click);
             // 
             // label11
             // 
@@ -467,70 +546,18 @@
             this.textBoxPesquisaProd.Size = new System.Drawing.Size(328, 26);
             this.textBoxPesquisaProd.TabIndex = 0;
             // 
-            // dataGridViewProdutos
+            // dataGridViewCompras
             // 
-            this.dataGridViewProdutos.AllowUserToAddRows = false;
-            this.dataGridViewProdutos.AllowUserToDeleteRows = false;
-            this.dataGridViewProdutos.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridViewProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewProdutos.Location = new System.Drawing.Point(0, 94);
-            this.dataGridViewProdutos.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.dataGridViewProdutos.Name = "dataGridViewProdutos";
-            this.dataGridViewProdutos.ReadOnly = true;
-            this.dataGridViewProdutos.Size = new System.Drawing.Size(1366, 478);
-            this.dataGridViewProdutos.TabIndex = 5;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(139, 247);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(147, 28);
-            this.label13.TabIndex = 52;
-            this.label13.Text = "Fornecedor";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(903, 261);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(304, 35);
-            this.textBox1.TabIndex = 53;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(680, 264);
-            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(215, 28);
-            this.label14.TabIndex = 54;
-            this.label14.Text = "Preço Custo (R$):";
-            // 
-            // comboBoxFornecedor
-            // 
-            this.comboBoxFornecedor.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxFornecedor.FormattingEnabled = true;
-            this.comboBoxFornecedor.Location = new System.Drawing.Point(294, 244);
-            this.comboBoxFornecedor.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.comboBoxFornecedor.Name = "comboBoxFornecedor";
-            this.comboBoxFornecedor.Size = new System.Drawing.Size(328, 36);
-            this.comboBoxFornecedor.TabIndex = 55;
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(1108, 23);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(248, 46);
-            this.button1.TabIndex = 29;
-            this.button1.Text = "Excluir";
-            this.button1.UseVisualStyleBackColor = true;
+            this.dataGridViewCompras.AllowUserToAddRows = false;
+            this.dataGridViewCompras.AllowUserToDeleteRows = false;
+            this.dataGridViewCompras.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridViewCompras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewCompras.Location = new System.Drawing.Point(0, 94);
+            this.dataGridViewCompras.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.dataGridViewCompras.Name = "dataGridViewCompras";
+            this.dataGridViewCompras.ReadOnly = true;
+            this.dataGridViewCompras.Size = new System.Drawing.Size(1366, 478);
+            this.dataGridViewCompras.TabIndex = 5;
             // 
             // FormCompras
             // 
@@ -546,6 +573,7 @@
             this.Name = "FormCompras";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lojas Ribeiro - Compras";
+            this.Load += new System.EventHandler(this.FormCompras_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -554,7 +582,7 @@
             this.tabPageCadastrar.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProdutos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCompras)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -571,12 +599,12 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox comboBoxCategPub;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBoxEstoque;
+        private System.Windows.Forms.TextBox textBoxQuantidade;
         private System.Windows.Forms.TextBox textBoxDescrição;
         private System.Windows.Forms.TextBox textBoxTamanho;
         private System.Windows.Forms.TextBox textBoxMarca;
         private System.Windows.Forms.TextBox textBoxID;
-        private System.Windows.Forms.TextBox textBoxPreco;
+        private System.Windows.Forms.TextBox textBoxPrecoVenda;
         private System.Windows.Forms.TextBox textBoxCor;
         private System.Windows.Forms.TextBox textBoxNomeProd;
         private System.Windows.Forms.Label label2;
@@ -591,15 +619,17 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Button buttonLimparPesquisa;
-        private System.Windows.Forms.Button buttonExcluir;
+        private System.Windows.Forms.Button buttonAddNovaIgual;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button buttonAlterar;
         private System.Windows.Forms.TextBox textBoxPesquisaProd;
-        private System.Windows.Forms.DataGridView dataGridViewProdutos;
+        private System.Windows.Forms.DataGridView dataGridViewCompras;
         private System.Windows.Forms.ComboBox comboBoxFornecedor;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxPrecoCusto;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBoxObs;
+        private System.Windows.Forms.Label label15;
     }
 }

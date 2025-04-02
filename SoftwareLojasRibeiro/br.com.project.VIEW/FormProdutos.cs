@@ -86,7 +86,8 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 Cor = textBoxCor.Text,
                 Tamanho = textBoxTamanho.Text,
                 Descricao = textBoxDescrição.Text,
-                Preco = decimal.Parse(textBoxPreco.Text),
+                Preco_Venda = decimal.Parse(textBoxPreco.Text),
+                Preco_Medio = 0.00m,
                 Estoque = int.Parse(textBoxEstoque.Text),
                 Id_Cat_Prod = int.Parse(comboBoxCategProd.SelectedValue.ToString()),
                 Id_Cat_Pub = int.Parse(comboBoxCategPub.SelectedValue.ToString()),
@@ -160,5 +161,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             ProdutoDAO dao = new ProdutoDAO();
             dataGridViewProdutos.DataSource = dao.ListarProdutos(prod);
         }
+
+        private void comboBoxCategProd_SelectedIndexChanged(object sender, EventArgs e) { }
     }
 }

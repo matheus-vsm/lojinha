@@ -132,5 +132,24 @@ namespace SoftwareLojasRibeiro.br.com.project.MODEL
             }
         }
         #endregion
+
+        #region Confirmacao
+        public bool Confirmacao()
+        {
+            // Perguntar ao usuário antes de cadastrar
+            DialogResult resultado = MessageBox.Show("Os dados para cadastro estão corretos? Deseja continuar?",
+                                                     "Confirmação",
+                                                     MessageBoxButtons.YesNo,
+                                                     MessageBoxIcon.Question);
+
+            // Se o usuário clicar em "Não", a função retorna e não executa o cadastro
+            if (resultado == DialogResult.No)
+            {
+                MessageBox.Show("Operação cancelada!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            return true;
+        }
+        #endregion
     }
 }

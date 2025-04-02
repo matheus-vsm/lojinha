@@ -25,26 +25,13 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
         {
             try
             {
-                // Perguntar ao usuário antes de cadastrar
-                DialogResult resultado = MessageBox.Show("Os dados para cadastro estão corretos? Deseja continuar?",
-                                                         "Confirmação",
-                                                         MessageBoxButtons.YesNo,
-                                                         MessageBoxIcon.Question);
-
-                // Se o usuário clicar em "Não", a função retorna e não executa o cadastro
-                if (resultado == DialogResult.No)
-                {
-                    MessageBox.Show("Operação cancelada!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return false;
-                }
-
                 //Definir comando SQL - INSERT INTO
                 string sql = @"INSERT INTO tb_produtos 
                             (Nome_Produto, Marca, Cor, Tamanho, Descricao, 
-                            Preco, Qtd_Estoque, Categoria_Prod_Id, 
+                            Preco_Venda, Preco_Medio, Qtd_Estoque, Categoria_Prod_Id, 
                             Categoria_Publ_Id) VALUES 
                             (@nome, @marca, @cor, @tamanho, @descricao, 
-                            @preco, @estoque, @prod, @pub)";
+                            @precovenda, @precomedio, @estoque, @prod, @pub)";
 
                 //Organizar o comando SQL
                 MySqlCommand executacmd = new MySqlCommand(sql, connection);
@@ -53,7 +40,8 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                 executacmd.Parameters.AddWithValue("@cor", prod.Cor);
                 executacmd.Parameters.AddWithValue("@tamanho", prod.Tamanho);
                 executacmd.Parameters.AddWithValue("@descricao", prod.Descricao);
-                executacmd.Parameters.AddWithValue("@preco", prod.Preco);
+                executacmd.Parameters.AddWithValue("@precovenda", prod.Preco_Venda);
+                executacmd.Parameters.AddWithValue("@precomedio", prod.Preco_Medio);
                 executacmd.Parameters.AddWithValue("@estoque", prod.Estoque);
                 executacmd.Parameters.AddWithValue("@prod", prod.Id_Cat_Prod);
                 executacmd.Parameters.AddWithValue("@pub", prod.Id_Cat_Pub);
@@ -72,7 +60,6 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                     MessageBox.Show("Erro ao cadastrar Produto!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
-
             }
             catch (Exception error)
             {
@@ -95,12 +82,19 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                 DataTable tabelaproduto = new DataTable();
 
                 // Se o nome for informado, adicionamos um filtro na consulta
-                string sql = @"SELECT prod.Id_Produto AS 'ID', 
-                                prod.Nome_Produto AS 'Nome', prod.Marca, prod.Cor, 
-                                prod.Tamanho, prod.Preco, prod.Qtd_Estoque AS 'Estoque', 
+                string sql = @"SELECT 
+                                prod.Id_Produto AS 'ID', 
+                                prod.Nome_Produto AS 'Nome', 
+                                prod.Marca, 
+                                prod.Cor, 
+                                prod.Tamanho, 
+                                prod.Preco_Venda, 
+                                prod.Qtd_Estoque AS 'Estoque', 
                                 catprod.Nome AS 'Categoria Produto', 
                                 catpub.Nome AS 'Categoria Publico', 
-                                prod.Descricao, prod.DataCadastro AS 'Data de Cadastro' 
+                                prod.Descricao, 
+                                prod.DataCadastro AS 'Data de Cadastro' 
+                                
                                 FROM tb_produtos AS prod
                                 JOIN tb_categoria_produto AS catprod 
                                 ON (prod.Categoria_Prod_Id = catprod.Id_Categoria_Prod)
@@ -146,24 +140,11 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
         {
             try
             {
-                // Perguntar ao usuário antes de alterar
-                DialogResult resultado = MessageBox.Show("Tem certeza que deseja alterar os dados deste Produto?",
-                                                         "Confirmação",
-                                                         MessageBoxButtons.YesNo,
-                                                         MessageBoxIcon.Question);
-
-                // Se o usuário clicar em "Não", cancelar a operação
-                if (resultado == DialogResult.No)
-                {
-                    MessageBox.Show("Operação cancelada!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return false;
-                }
-
                 //Definir comando SQL - INSERT INTO
                 string sql = @"UPDATE tb_produtos SET 
                             Nome_Produto=@nome, Marca=@marca, Cor=@cor, Tamanho=@tamanho, 
-                            Descricao=@descricao, Preco=@preco, Qtd_Estoque=@estoque, 
-                            Categoria_Prod_Id=@prod, Categoria_Publ_Id=@pub
+                            Descricao=@descricao, Preco_Venda=@precovenda, Preco_Medio=@precomedio, 
+                            Qtd_Estoque=@estoque, Categoria_Prod_Id=@prod, Categoria_Publ_Id=@pub
                             WHERE Id_Produto=@id";
 
                 //Organizar o comando SQL
@@ -173,7 +154,8 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                 executacmd.Parameters.AddWithValue("@cor", prod.Cor);
                 executacmd.Parameters.AddWithValue("@tamanho", prod.Tamanho);
                 executacmd.Parameters.AddWithValue("@descricao", prod.Descricao);
-                executacmd.Parameters.AddWithValue("@preco", prod.Preco);
+                executacmd.Parameters.AddWithValue("@precovenda", prod.Preco_Venda);
+                executacmd.Parameters.AddWithValue("@precomedio", prod.Preco_Medio);
                 executacmd.Parameters.AddWithValue("@estoque", prod.Estoque);
                 executacmd.Parameters.AddWithValue("@prod", prod.Id_Cat_Prod);
                 executacmd.Parameters.AddWithValue("@pub", prod.Id_Cat_Pub);
@@ -193,7 +175,6 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                     MessageBox.Show("Erro ao alterar o Produto! Nenhuma linha foi modificada.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
-
             }
             catch (Exception error)
             {
@@ -212,19 +193,6 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
         {
             try
             {
-                // Perguntar ao usuário antes de excluir
-                DialogResult resultado = MessageBox.Show("Tem certeza que deseja excluir esse Produto?",
-                                                         "Confirmação",
-                                                         MessageBoxButtons.YesNo,
-                                                         MessageBoxIcon.Question);
-
-                // Se o usuário clicar em "Não", a função retorna e não executa a exclusão
-                if (resultado == DialogResult.No)
-                {
-                    MessageBox.Show("Operação cancelada!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
                 //Definir comando SQL - INSERT INTO
                 string sql = @"DELETE FROM tb_produtos WHERE Id_Produto=@id";
 
@@ -270,7 +238,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                     Produto p = new Produto();
                     p.Id = rs.GetInt32("Id_Produto").ToString();
                     p.Descricao = rs.GetString("Descricao");
-                    p.Preco = rs.GetDecimal("Preco");
+                    p.Preco_Venda = rs.GetDecimal("Preco");
                     p.Estoque = rs.GetInt32("Qtd_Estoque");
 
                     return p;

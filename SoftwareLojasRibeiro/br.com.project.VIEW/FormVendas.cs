@@ -330,7 +330,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 if (produto != null)
                 {
                     textBoxDescrição.Text = produto.Descricao;
-                    textBoxPreco.Text = produto.Preco.ToString();
+                    textBoxPreco.Text = produto.Preco_Venda.ToString();
                     textBoxEstoque.Text = produto.Estoque.ToString();
                     textBoxQuantidade.Focus();
                     textBoxID.ReadOnly = true;

@@ -248,6 +248,7 @@
             this.comboBoxCategProd.Name = "comboBoxCategProd";
             this.comboBoxCategProd.Size = new System.Drawing.Size(328, 36);
             this.comboBoxCategProd.TabIndex = 0;
+            this.comboBoxCategProd.SelectedIndexChanged += new System.EventHandler(this.comboBoxCategProd_SelectedIndexChanged);
             // 
             // label7
             // 
