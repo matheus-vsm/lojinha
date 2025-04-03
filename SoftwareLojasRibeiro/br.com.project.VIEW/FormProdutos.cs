@@ -75,6 +75,8 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             ProdutoDAO prodao = new ProdutoDAO();
             Produto prod = new Produto();
             dataGridViewProdutos.DataSource = prodao.ListarProdutos(prod);
+
+            new Helpers().LimparTela(this);
         }
 
         private void buttonCadastrar_Click(object sender, EventArgs e)

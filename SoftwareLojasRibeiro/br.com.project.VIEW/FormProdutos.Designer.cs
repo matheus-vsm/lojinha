@@ -327,6 +327,7 @@
             this.textBoxID.ReadOnly = true;
             this.textBoxID.Size = new System.Drawing.Size(64, 35);
             this.textBoxID.TabIndex = 43;
+            this.textBoxID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBoxPreco
             // 

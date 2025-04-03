@@ -35,6 +35,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabControlCompras = new System.Windows.Forms.TabControl();
             this.tabPageCadastrar = new System.Windows.Forms.TabPage();
+            this.buttonRemover = new System.Windows.Forms.Button();
+            this.buttonAdicionar = new System.Windows.Forms.Button();
+            this.dataGridViewComprasCarrinho = new System.Windows.Forms.DataGridView();
             this.textBoxObs = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.comboBoxFornecedor = new System.Windows.Forms.ComboBox();
@@ -71,10 +74,13 @@
             this.buttonAlterar = new System.Windows.Forms.Button();
             this.textBoxPesquisaProd = new System.Windows.Forms.TextBox();
             this.dataGridViewCompras = new System.Windows.Forms.DataGridView();
+            this.textBoxTotalCompra = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControlCompras.SuspendLayout();
             this.tabPageCadastrar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewComprasCarrinho)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCompras)).BeginInit();
             this.SuspendLayout();
@@ -140,6 +146,11 @@
             // 
             // tabPageCadastrar
             // 
+            this.tabPageCadastrar.Controls.Add(this.label16);
+            this.tabPageCadastrar.Controls.Add(this.textBoxTotalCompra);
+            this.tabPageCadastrar.Controls.Add(this.buttonRemover);
+            this.tabPageCadastrar.Controls.Add(this.buttonAdicionar);
+            this.tabPageCadastrar.Controls.Add(this.dataGridViewComprasCarrinho);
             this.tabPageCadastrar.Controls.Add(this.textBoxObs);
             this.tabPageCadastrar.Controls.Add(this.label15);
             this.tabPageCadastrar.Controls.Add(this.comboBoxFornecedor);
@@ -176,6 +187,44 @@
             this.tabPageCadastrar.TabIndex = 0;
             this.tabPageCadastrar.Text = "Cadastrar";
             this.tabPageCadastrar.UseVisualStyleBackColor = true;
+            // 
+            // buttonRemover
+            // 
+            this.buttonRemover.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRemover.Location = new System.Drawing.Point(17, 509);
+            this.buttonRemover.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.buttonRemover.Name = "buttonRemover";
+            this.buttonRemover.Size = new System.Drawing.Size(287, 46);
+            this.buttonRemover.TabIndex = 60;
+            this.buttonRemover.Text = "Remover do Carrinho";
+            this.buttonRemover.UseVisualStyleBackColor = true;
+            this.buttonRemover.Click += new System.EventHandler(this.buttonRemover_Click);
+            // 
+            // buttonAdicionar
+            // 
+            this.buttonAdicionar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAdicionar.Location = new System.Drawing.Point(17, 446);
+            this.buttonAdicionar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.buttonAdicionar.Name = "buttonAdicionar";
+            this.buttonAdicionar.Size = new System.Drawing.Size(287, 46);
+            this.buttonAdicionar.TabIndex = 59;
+            this.buttonAdicionar.Text = "Adicionar ao Carrinho";
+            this.buttonAdicionar.UseVisualStyleBackColor = true;
+            this.buttonAdicionar.Click += new System.EventHandler(this.buttonAdicionar_Click);
+            // 
+            // dataGridViewComprasCarrinho
+            // 
+            this.dataGridViewComprasCarrinho.AllowUserToAddRows = false;
+            this.dataGridViewComprasCarrinho.AllowUserToDeleteRows = false;
+            this.dataGridViewComprasCarrinho.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridViewComprasCarrinho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewComprasCarrinho.Location = new System.Drawing.Point(746, 424);
+            this.dataGridViewComprasCarrinho.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.dataGridViewComprasCarrinho.Name = "dataGridViewComprasCarrinho";
+            this.dataGridViewComprasCarrinho.ReadOnly = true;
+            this.dataGridViewComprasCarrinho.RowHeadersWidth = 62;
+            this.dataGridViewComprasCarrinho.Size = new System.Drawing.Size(612, 142);
+            this.dataGridViewComprasCarrinho.TabIndex = 58;
             // 
             // textBoxObs
             // 
@@ -325,6 +374,7 @@
             this.textBoxID.ReadOnly = true;
             this.textBoxID.Size = new System.Drawing.Size(64, 35);
             this.textBoxID.TabIndex = 43;
+            this.textBoxID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBoxPrecoVenda
             // 
@@ -410,24 +460,24 @@
             // 
             // buttonLimpar
             // 
-            this.buttonLimpar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonLimpar.Location = new System.Drawing.Point(529, 509);
+            this.buttonLimpar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLimpar.Location = new System.Drawing.Point(329, 509);
             this.buttonLimpar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonLimpar.Name = "buttonLimpar";
-            this.buttonLimpar.Size = new System.Drawing.Size(309, 46);
+            this.buttonLimpar.Size = new System.Drawing.Size(286, 46);
             this.buttonLimpar.TabIndex = 10;
-            this.buttonLimpar.Text = "Limpar";
+            this.buttonLimpar.Text = "Limpar Campos";
             this.buttonLimpar.UseVisualStyleBackColor = true;
             // 
             // buttonCadastrar
             // 
-            this.buttonCadastrar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCadastrar.Location = new System.Drawing.Point(529, 442);
+            this.buttonCadastrar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCadastrar.Location = new System.Drawing.Point(329, 446);
             this.buttonCadastrar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonCadastrar.Name = "buttonCadastrar";
-            this.buttonCadastrar.Size = new System.Drawing.Size(309, 46);
+            this.buttonCadastrar.Size = new System.Drawing.Size(287, 46);
             this.buttonCadastrar.TabIndex = 9;
-            this.buttonCadastrar.Text = "Cadastrar";
+            this.buttonCadastrar.Text = "Cadastrar Compra";
             this.buttonCadastrar.UseVisualStyleBackColor = true;
             this.buttonCadastrar.Click += new System.EventHandler(this.buttonCadastrar_Click);
             // 
@@ -559,6 +609,28 @@
             this.dataGridViewCompras.Size = new System.Drawing.Size(1366, 478);
             this.dataGridViewCompras.TabIndex = 5;
             // 
+            // textBoxTotalCompra
+            // 
+            this.textBoxTotalCompra.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTotalCompra.Location = new System.Drawing.Point(623, 492);
+            this.textBoxTotalCompra.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.textBoxTotalCompra.Name = "textBoxTotalCompra";
+            this.textBoxTotalCompra.ReadOnly = true;
+            this.textBoxTotalCompra.Size = new System.Drawing.Size(115, 35);
+            this.textBoxTotalCompra.TabIndex = 61;
+            this.textBoxTotalCompra.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(622, 460);
+            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(114, 24);
+            this.label16.TabIndex = 62;
+            this.label16.Text = "Total (R$):";
+            // 
             // FormCompras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -580,6 +652,7 @@
             this.tabControlCompras.ResumeLayout(false);
             this.tabPageCadastrar.ResumeLayout(false);
             this.tabPageCadastrar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewComprasCarrinho)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCompras)).EndInit();
@@ -631,5 +704,10 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBoxObs;
         private System.Windows.Forms.Label label15;
+        public System.Windows.Forms.DataGridView dataGridViewComprasCarrinho;
+        private System.Windows.Forms.Button buttonRemover;
+        private System.Windows.Forms.Button buttonAdicionar;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox textBoxTotalCompra;
     }
 }

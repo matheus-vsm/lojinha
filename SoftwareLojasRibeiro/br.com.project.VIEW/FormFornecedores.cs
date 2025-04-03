@@ -188,6 +188,13 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         {
             textBoxPesquisaNome.Clear();
         }
+
+        private void textBoxPesquisaNome_TextChanged(object sender, EventArgs e)
+        {
+            FornecedorDAO dao = new FornecedorDAO();
+            Fornecedor Forn = new Fornecedor { Nome = textBoxPesquisaNome.Text };
+            dataGridViewFornecedores.DataSource = dao.ListarFornecedores(Forn);
+        }
     }
 
 }

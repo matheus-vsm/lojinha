@@ -98,6 +98,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 {
                     return;
                 }
+                //adicionar implementação para adicionar o cliente na tabela de devedores
             }
 
             v_troco = v_pago - v_total;

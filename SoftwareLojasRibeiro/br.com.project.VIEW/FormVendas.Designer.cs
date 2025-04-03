@@ -174,6 +174,7 @@
             this.maskedTextBoxData.ReadOnly = true;
             this.maskedTextBoxData.Size = new System.Drawing.Size(151, 23);
             this.maskedTextBoxData.TabIndex = 3;
+            this.maskedTextBoxData.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.maskedTextBoxData.ValidatingType = typeof(System.DateTime);
             this.maskedTextBoxData.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBoxData_MaskInputRejected);
             // 
@@ -286,6 +287,7 @@
             this.textBoxEstoque.ReadOnly = true;
             this.textBoxEstoque.Size = new System.Drawing.Size(69, 29);
             this.textBoxEstoque.TabIndex = 5;
+            this.textBoxEstoque.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // buttonExibirProds
             // 
@@ -342,6 +344,7 @@
             this.textBoxQuantidade.Name = "textBoxQuantidade";
             this.textBoxQuantidade.Size = new System.Drawing.Size(131, 29);
             this.textBoxQuantidade.TabIndex = 1;
+            this.textBoxQuantidade.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBoxID
             // 
@@ -351,6 +354,7 @@
             this.textBoxID.Name = "textBoxID";
             this.textBoxID.Size = new System.Drawing.Size(64, 29);
             this.textBoxID.TabIndex = 0;
+            this.textBoxID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBoxID.TextChanged += new System.EventHandler(this.textBoxID_TextChanged);
             this.textBoxID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxID_KeyPress);
             // 

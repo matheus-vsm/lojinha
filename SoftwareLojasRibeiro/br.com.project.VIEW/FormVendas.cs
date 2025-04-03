@@ -35,7 +35,6 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         public FormVendas()
         {
             InitializeComponent(); 
-            this.Size = new Size(1567, 1051); // Define o tamanho do formulário
             this.WindowState = FormWindowState.Normal; // Abre o formulário no estado normal
 
             maskedTextBoxData.ReadOnly = true;

@@ -117,6 +117,7 @@
             this.textBoxDinheiro.Name = "textBoxDinheiro";
             this.textBoxDinheiro.Size = new System.Drawing.Size(166, 29);
             this.textBoxDinheiro.TabIndex = 48;
+            this.textBoxDinheiro.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBoxDinheiro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxDinheiro_KeyPress);
             // 
             // label2
@@ -138,6 +139,7 @@
             this.textBoxDebito.Name = "textBoxDebito";
             this.textBoxDebito.Size = new System.Drawing.Size(166, 29);
             this.textBoxDebito.TabIndex = 50;
+            this.textBoxDebito.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label3
             // 
@@ -158,6 +160,7 @@
             this.textBoxPix.Name = "textBoxPix";
             this.textBoxPix.Size = new System.Drawing.Size(166, 29);
             this.textBoxPix.TabIndex = 52;
+            this.textBoxPix.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label4
             // 
@@ -280,6 +283,7 @@
             this.textBoxCredito.Name = "textBoxCredito";
             this.textBoxCredito.Size = new System.Drawing.Size(166, 29);
             this.textBoxCredito.TabIndex = 63;
+            this.textBoxCredito.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label11
             // 
@@ -300,6 +304,7 @@
             this.textBoxDesconto.Name = "textBoxDesconto";
             this.textBoxDesconto.Size = new System.Drawing.Size(166, 29);
             this.textBoxDesconto.TabIndex = 71;
+            this.textBoxDesconto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBoxDesconto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxDesconto_KeyPress);
             // 
             // dataGridViewProdutosCarrinhoPagamento
