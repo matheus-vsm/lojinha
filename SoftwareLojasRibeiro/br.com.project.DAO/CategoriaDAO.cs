@@ -28,19 +28,6 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
         {
             try
             {
-                // Perguntar ao usuário antes de cadastrar
-                DialogResult resultado = MessageBox.Show("Os dados para cadastro estão corretos? Deseja continuar?",
-                                                         "Confirmação",
-                                                         MessageBoxButtons.YesNo,
-                                                         MessageBoxIcon.Question);
-
-                // Se o usuário clicar em "Não", a função retorna e não executa o cadastro
-                if (resultado == DialogResult.No)
-                {
-                    MessageBox.Show("Operação cancelada!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return false;
-                }
-
                 string sql = @"INSERT INTO tb_categoria_" + qual +  
                                 "(Nome, Descricao) VALUES (@nome, @descricao)";
 
@@ -158,6 +145,97 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             }
         }
         #endregion
+
+        #region RetornarNomeCat
+        public string RetornarNomeCat(string qual, int id)
+        {
+            try
+            {
+                string resultado = string.Empty;
+                // Se o nome for informado, adicionamos um filtro na consulta
+                string sql = @"SELECT * FROM tb_categoria_" + qual + 
+                             @" WHERE Id_Categoria_" + qual + @" = @id";
+
+                //Organizar o comando SQL e executar
+                MySqlCommand executacmd = new MySqlCommand(sql, connection);
+                executacmd.Parameters.AddWithValue("@id", id);
+
+                connection.Open();
+
+                MySqlDataReader rs = executacmd.ExecuteReader();
+
+                if (rs.Read()) //encontrou algo
+                {
+                    resultado = rs.GetString("Nome");
+                    return resultado;
+                }
+                else
+                {
+                    MessageBox.Show("Categoria não encontrada!");
+                    return null;
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show($"Erro ao executar o Comando SQL! (RetornarNomeCat) {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                connection.Close(); // Sempre fechar a conexão
+            }
+        }
+        #endregion
+
+        #region RetornarIdCat
+        public int RetornarIdCat(string qual, string nome)
+        {
+            try
+            {
+                int resultado = 0;
+                // Se o nome for informado, adicionamos um filtro na consulta
+                string sql = @"SELECT * FROM tb_categoria_" + qual +
+                             @" WHERE Nome=@nome";
+
+                //Organizar o comando SQL e executar
+                MySqlCommand executacmd = new MySqlCommand(sql, connection);
+                executacmd.Parameters.AddWithValue("@nome", nome);
+
+                connection.Open();
+
+                MySqlDataReader rs = executacmd.ExecuteReader();
+
+                if (rs.Read()) //encontrou algo
+                {
+                    if (qual == "publico")
+                    {
+                        qual = "Pub";
+                    }
+                    else
+                    {
+                        qual = "Prod";
+                    }
+                    resultado = rs.GetInt32($"Id_Categoria_{qual}");
+                    return resultado;
+                }
+                else
+                {
+                    MessageBox.Show("Categoria não encontrada!");
+                    return 0;
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show($"Erro ao executar o Comando SQL! (RetornarNomeCat) {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return 0;
+            }
+            finally
+            {
+                connection.Close(); // Sempre fechar a conexão
+            }
+        }
+        #endregion
+
 
         #region AlterarCategoria
         public bool AlterarCategoria(Categoria cat, string qual)

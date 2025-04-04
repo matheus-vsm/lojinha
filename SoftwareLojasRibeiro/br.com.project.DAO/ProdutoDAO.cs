@@ -52,7 +52,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
 
                 if (linhasAfetadas > 0)
                 {
-                    MessageBox.Show("Produto Cadastrado com Sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show($"Produto '{prod.Nome}' Cadastrado com Sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return true;
                 }
                 else

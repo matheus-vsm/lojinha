@@ -123,6 +123,17 @@ namespace SoftwareLojasRibeiro.br.com.project.MODEL
                     dataGridView.Rows.Clear(); // Se não houver DataSource, remove todas as linhas
                 }
             }
+            else if (controle is DataGridView dataGridViews && dataGridViews.Name == "dataGridViewComprasCarrinho")
+            {
+                if (dataGridViews.DataSource is DataTable dataTable)
+                {
+                    dataTable.Clear(); // Limpa apenas os dados, mantendo os cabeçalhos
+                }
+                else
+                {
+                    dataGridViews.Rows.Clear(); // Se não houver DataSource, remove todas as linhas
+                }
+            }
             else if (controle.HasChildren)
             {
                 foreach (Control child in controle.Controls)

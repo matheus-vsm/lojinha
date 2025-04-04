@@ -35,6 +35,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabControlCompras = new System.Windows.Forms.TabControl();
             this.tabPageCadastrar = new System.Windows.Forms.TabPage();
+            this.label16 = new System.Windows.Forms.Label();
+            this.textBoxTotalCompra = new System.Windows.Forms.TextBox();
             this.buttonRemover = new System.Windows.Forms.Button();
             this.buttonAdicionar = new System.Windows.Forms.Button();
             this.dataGridViewComprasCarrinho = new System.Windows.Forms.DataGridView();
@@ -74,8 +76,6 @@
             this.buttonAlterar = new System.Windows.Forms.Button();
             this.textBoxPesquisaProd = new System.Windows.Forms.TextBox();
             this.dataGridViewCompras = new System.Windows.Forms.DataGridView();
-            this.textBoxTotalCompra = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControlCompras.SuspendLayout();
@@ -187,6 +187,28 @@
             this.tabPageCadastrar.TabIndex = 0;
             this.tabPageCadastrar.Text = "Cadastrar";
             this.tabPageCadastrar.UseVisualStyleBackColor = true;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(622, 460);
+            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(114, 24);
+            this.label16.TabIndex = 62;
+            this.label16.Text = "Total (R$):";
+            // 
+            // textBoxTotalCompra
+            // 
+            this.textBoxTotalCompra.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTotalCompra.Location = new System.Drawing.Point(623, 492);
+            this.textBoxTotalCompra.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.textBoxTotalCompra.Name = "textBoxTotalCompra";
+            this.textBoxTotalCompra.ReadOnly = true;
+            this.textBoxTotalCompra.Size = new System.Drawing.Size(115, 35);
+            this.textBoxTotalCompra.TabIndex = 61;
+            this.textBoxTotalCompra.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // buttonRemover
             // 
@@ -584,7 +606,7 @@
             this.buttonAlterar.Name = "buttonAlterar";
             this.buttonAlterar.Size = new System.Drawing.Size(248, 46);
             this.buttonAlterar.TabIndex = 2;
-            this.buttonAlterar.Text = "Alterar";
+            this.buttonAlterar.Text = "Exibir Detalhes";
             this.buttonAlterar.UseVisualStyleBackColor = true;
             // 
             // textBoxPesquisaProd
@@ -608,28 +630,6 @@
             this.dataGridViewCompras.ReadOnly = true;
             this.dataGridViewCompras.Size = new System.Drawing.Size(1366, 478);
             this.dataGridViewCompras.TabIndex = 5;
-            // 
-            // textBoxTotalCompra
-            // 
-            this.textBoxTotalCompra.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTotalCompra.Location = new System.Drawing.Point(623, 492);
-            this.textBoxTotalCompra.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textBoxTotalCompra.Name = "textBoxTotalCompra";
-            this.textBoxTotalCompra.ReadOnly = true;
-            this.textBoxTotalCompra.Size = new System.Drawing.Size(115, 35);
-            this.textBoxTotalCompra.TabIndex = 61;
-            this.textBoxTotalCompra.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(622, 460);
-            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(114, 24);
-            this.label16.TabIndex = 62;
-            this.label16.Text = "Total (R$):";
             // 
             // FormCompras
             // 

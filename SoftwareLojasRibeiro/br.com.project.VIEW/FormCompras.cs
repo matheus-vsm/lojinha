@@ -44,14 +44,18 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
             new Helpers().LimparTela(this);
 
+            carrinhoCompras.Columns.Add("Fornecedor", typeof(string));
             carrinhoCompras.Columns.Add("Produto", typeof(string));
             carrinhoCompras.Columns.Add("Marca", typeof(string));
             carrinhoCompras.Columns.Add("Cor", typeof(string));
             carrinhoCompras.Columns.Add("Tamanho", typeof(string));
+            carrinhoCompras.Columns.Add("Categ Prod", typeof(string));
+            carrinhoCompras.Columns.Add("Categ Pub", typeof(string));
             carrinhoCompras.Columns.Add("Descrição", typeof(string));
             carrinhoCompras.Columns.Add("Quantidade", typeof(int));
             carrinhoCompras.Columns.Add("Preço Custo", typeof(decimal));
             carrinhoCompras.Columns.Add("Subtotal", typeof(decimal));
+            carrinhoCompras.Columns.Add("Preço Venda", typeof(decimal));
 
             dataGridViewComprasCarrinho.DataSource = carrinhoCompras;
         }
@@ -86,122 +90,12 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             this.Hide();
         }
 
-        private void buttonCadastrar_Click(object sender, EventArgs e)
-        {
-            bool confimacao = new Helpers().Confirmacao();
-            if (confimacao == false)
-            {
-                return;
-            }
-
-            double total = double.Parse(textBoxPrecoCusto.Text) * int.Parse(textBoxQuantidade.Text);
-
-            CompraProdutos compra = new CompraProdutos
-            {
-                Id_Fornecedor = comboBoxFornecedor.SelectedValue.ToString(),
-                Nome_Produto = textBoxNomeProd.Text,
-                Total_Compra = total,
-                Observacoes = textBoxObs.Text,
-            };
-
-            CompraProdutosDAO compraProdutosDAO = new CompraProdutosDAO();
-            bool sucessocompra = false;
-            if (buttonCadastrar.Text == "Cadastrar")
-            {
-                sucessocompra = compraProdutosDAO.CadastrarCompra(compra);
-            }
-
-            string lastcompra = compraProdutosDAO.RetornarIdLastCompra();
-            ItensCompraProdutos itens = new ItensCompraProdutos
-            {
-                Id_Compra = lastcompra,
-                Nome_Produto = textBoxNomeProd.Text,
-                Marca = textBoxMarca.Text,
-                Cor = textBoxCor.Text,
-                Tamanho = textBoxTamanho.Text,
-                Descricao = textBoxDescrição.Text,
-                Preco_Custo = decimal.Parse(textBoxPrecoCusto.Text),
-                Preco_Medio = 0.00m,
-                Quantidade = int.Parse(textBoxQuantidade.Text),
-                Subtotal = decimal.Parse(total.ToString()),
-            };
-
-            ItensCompraProdutosDAO itensDAO = new ItensCompraProdutosDAO();
-            if (buttonCadastrar.Text == "Cadastrar")
-            {
-                itensDAO.CadastrarItensCompra(itens);
-            }
-
-            Produto prod = new Produto
-            {
-                Nome = textBoxNomeProd.Text,
-                Marca = textBoxMarca.Text,
-                Cor = textBoxCor.Text,
-                Tamanho = textBoxTamanho.Text,
-                Descricao = textBoxDescrição.Text,
-                Preco_Venda = decimal.Parse(textBoxPrecoVenda.Text),
-                Preco_Medio = 0.00m,
-                Estoque = int.Parse(textBoxQuantidade.Text),
-                Id_Cat_Prod = int.Parse(comboBoxCategProd.SelectedValue.ToString()),
-                Id_Cat_Pub = int.Parse(comboBoxCategPub.SelectedValue.ToString()),
-            };
-
-            ProdutoDAO produtoDAO = new ProdutoDAO();
-            bool sucessoprod = false;
-            if (buttonCadastrar.Text == "Cadastrar")
-            {
-                sucessoprod = produtoDAO.CadastrarProduto(prod);
-            }
-
-            if (sucessocompra && sucessoprod)
-            {
-                new Helpers().LimparTela(this);
-                buttonCadastrar.Text = "Cadastrar";
-                tabPageCadastrar.Text = "Cadastrar";
-                CompraProdutosDAO compradao = new CompraProdutosDAO();
-                CompraProdutos compras = new CompraProdutos();
-                dataGridViewCompras.DataSource = compradao.ListarCompras(compras);
-            }
-
-            //foreach (DataRow linha in carrinhoCompras.Rows)
-            //{
-            //    ItensCompras item = new ItensCompras
-            //    {
-            //        Id_Venda = vdao.RetornarIdLastVenda(),
-            //        Id_Produto = linha["ID"].ToString(),
-            //        Quantidade = int.Parse(linha["Quantidade"].ToString()),
-            //        Preco_Unitario = double.Parse(linha["Preço"].ToString()),
-            //        Subtotal = double.Parse(linha["Subtotal"].ToString()),
-            //    };
-
-            //    //remove a quantidade de produtos do estoque
-            //    qtdestoque = pdao.RetornaEstoqueAtual(item.Id_Produto);
-            //    qtdcomprada = item.Quantidade;
-
-            //    if (qtdestoque < qtdcomprada)
-            //    {
-            //        MessageBox.Show("Quantidade de produtos insuficiente no estoque!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //        return;
-            //    }
-            //    qtdatualizada = qtdestoque - qtdcomprada;
-            //    pdao.RemoverEstoque(item.Id_Produto, qtdatualizada);
-
-            //    ItensVendaDAO ivdao = new ItensVendaDAO();
-            //    ivdao.CadastrarItensVenda(item);
-            //}
-
-            //MessageBox.Show("Venda finalizada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        private void buttonAddNovaIgual_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonAdicionar_Click(object sender, EventArgs e)
         {
             subtotal = decimal.Parse(textBoxPrecoCusto.Text) * int.Parse(textBoxQuantidade.Text);
-            carrinhoCompras.Rows.Add(textBoxNomeProd.Text, textBoxMarca.Text, textBoxCor.Text, textBoxTamanho.Text, textBoxDescrição.Text, textBoxQuantidade.Text, decimal.Parse(textBoxPrecoCusto.Text), subtotal);
+            
+            carrinhoCompras.Rows.Add(textBoxNomeProd.Text, textBoxNomeProd.Text, textBoxMarca.Text, textBoxCor.Text, textBoxTamanho.Text, comboBoxCategProd.Text, comboBoxCategPub.Text, textBoxDescrição.Text, textBoxQuantidade.Text, decimal.Parse(textBoxPrecoCusto.Text), subtotal, decimal.Parse(textBoxPrecoVenda.Text));
+            
             totalcompra += subtotal;
             textBoxTotalCompra.Text = totalcompra.ToString();
 
@@ -248,6 +142,104 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             textBoxTotalCompra.Text = totalcompra.ToString();
 
             MessageBox.Show("Produto Removido do Carrinho!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void buttonCadastrar_Click(object sender, EventArgs e)
+        {
+            bool confimacao = new Helpers().Confirmacao();
+            if (confimacao == false)
+            {
+                return;
+            }
+
+            double total = 0.0;
+            foreach (DataRow linha in carrinhoCompras.Rows)
+            {
+                double subtotal = double.Parse(linha["Subtotal"].ToString());
+                total += subtotal;
+            }
+
+            CompraProdutos compra = new CompraProdutos
+            {
+                Id_Fornecedor = comboBoxFornecedor.SelectedValue.ToString(),
+                Nome_Produto = textBoxNomeProd.Text,
+                Total_Compra = total,
+                Observacoes = textBoxObs.Text,
+            };
+
+            CompraProdutosDAO compraProdutosDAO = new CompraProdutosDAO();
+
+            bool sucessocompra = false;
+            sucessocompra = compraProdutosDAO.CadastrarCompra(compra);
+
+            string lastcompra = compraProdutosDAO.RetornarIdLastCompra();
+
+            bool sucessoprod = false;
+            CategoriaDAO catdao = new CategoriaDAO();
+            foreach (DataRow linha in carrinhoCompras.Rows)
+            {
+                int idprod = catdao.RetornarIdCat("produto", linha["Categ Prod"].ToString());
+                int idpub = catdao.RetornarIdCat("publico", linha["Categ Pub"].ToString());
+                if (idprod == 0 || idpub == 0)
+                {
+                    MessageBox.Show("Erro ao cadastrar produto!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                ItensCompraProdutos item = new ItensCompraProdutos
+                {
+                    Id_Compra = lastcompra,
+                    Nome_Produto = linha["Produto"].ToString(),
+                    Marca = linha["Marca"].ToString(),
+                    Cor = linha["Cor"].ToString(),
+                    Tamanho = linha["Tamanho"].ToString(),
+                    Descricao = linha["Descrição"].ToString(),
+                    Quantidade = int.Parse(linha["Quantidade"].ToString()),
+                    Preco_Custo = decimal.Parse(linha["Preço Custo"].ToString()),
+                    Preco_Medio = 0.00m,
+                    Subtotal = decimal.Parse(linha["Subtotal"].ToString()),
+                };
+
+                Produto prod = new Produto
+                {
+                    Nome = linha["Produto"].ToString(),
+                    Marca = linha["Marca"].ToString(),
+                    Cor = linha["Cor"].ToString(),
+                    Tamanho = linha["Tamanho"].ToString(),
+                    Descricao = linha["Descrição"].ToString(),
+                    Preco_Venda = decimal.Parse(linha["Preço Venda"].ToString()),
+                    Preco_Medio = 0.00m,
+                    Estoque = int.Parse(linha["Quantidade"].ToString()),
+                    Id_Cat_Prod = idprod,
+                    Id_Cat_Pub = idpub,
+                };
+
+                ProdutoDAO produtoDAO = new ProdutoDAO();
+                
+                produtoDAO.CadastrarProduto(prod);
+                sucessoprod = true;
+
+                ItensCompraProdutosDAO icdao = new ItensCompraProdutosDAO();
+                icdao.CadastrarItensCompra(item);
+                sucessocompra = true;
+            }
+
+            if (sucessocompra && sucessoprod)
+            {
+                new Helpers().LimparTelaVendas(this);
+                //buttonCadastrar.Text = "Cadastrar";
+                //tabPageCadastrar.Text = "Cadastrar";
+                CompraProdutosDAO compradao = new CompraProdutosDAO();
+                CompraProdutos compras = new CompraProdutos();
+                dataGridViewCompras.DataSource = compradao.ListarCompras(compras);
+            }
+
+            //MessageBox.Show("Compra registrada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void buttonAddNovaIgual_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
