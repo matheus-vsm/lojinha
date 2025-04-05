@@ -25,14 +25,10 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
         {
             try
             {
-                string sql = @"INSERT INTO tb_compras (Fornecedor_Id, 
-                            Nome_Produto, Total_Compra, Observacoes) 
-                            VALUES (@fornecedor, @prod, @total, 
-                            @observacoes)";
+                string sql = @"INSERT INTO tb_compras (Total_Compra, Observacoes) 
+                            VALUES (@total, @observacoes)";
 
                 MySqlCommand executacmd = new MySqlCommand(sql, connection);
-                executacmd.Parameters.AddWithValue("@fornecedor", compra.Id_Fornecedor);
-                executacmd.Parameters.AddWithValue("@prod", compra.Nome_Produto);
                 executacmd.Parameters.AddWithValue("@total", compra.Total_Compra);
                 executacmd.Parameters.AddWithValue("@observacoes", compra.Observacoes);
 
@@ -108,32 +104,14 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
 
                 // Se o nome for informado, adicionamos um filtro na consulta
                 string sql = @"SELECT 
-                                comp.Id_Compra AS 'ID', 
-                                forn.Nome AS 'Fornecedor', 
-                                comp.Nome_Produto AS 'Nome do Produto', 
-                                itens.Qtd AS 'Quantidade',
-                                comp.Total_Compra AS 'Total da Compra', 
-                                comp.Observacoes,
-                                comp.Data_Compra AS 'Data da Compra'
-                                
-                                FROM tb_compras AS comp
-                                JOIN tb_fornecedores AS forn
-                                ON (forn.Id_Fornecedor = comp.Fornecedor_Id)
-                                JOIN tb_itenscompras as itens
-                                ON (itens.Compra_Id = comp.Id_Compra)";
-                if (!string.IsNullOrEmpty(compra.Nome_Produto))
-                {
-                    sql += " WHERE comp.Nome_Produto LIKE @nome";
-                }
+                                Id_Compra AS 'ID', 
+                                Total_Compra AS 'Total da Compra', 
+                                Observacoes AS 'Observações',
+                                Data_Compra AS 'Data da Compra'
+                                FROM tb_compras";
 
                 //Organizar o comando SQL e executar
                 MySqlCommand executacmd = new MySqlCommand(sql, connection);
-
-                // Se houver um nome para buscar, adicionamos o parâmetro
-                if (!string.IsNullOrEmpty(compra.Nome_Produto))
-                {
-                    executacmd.Parameters.AddWithValue("@nome", "%" + compra.Nome_Produto + "%");
-                }
 
                 connection.Open();
                 executacmd.ExecuteNonQuery();

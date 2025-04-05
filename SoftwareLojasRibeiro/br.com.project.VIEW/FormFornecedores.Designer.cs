@@ -130,7 +130,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             this.tabControlFornecedores.Name = "tabControlFornecedores";
             this.tabControlFornecedores.SelectedIndex = 0;
             this.tabControlFornecedores.Size = new System.Drawing.Size(1373, 600);
-            this.tabControlFornecedores.TabIndex = 4;
+            this.tabControlFornecedores.TabIndex = 1;
             // 
             // tabPageCadastrar
             // 
@@ -172,7 +172,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             this.maskedTextBoxCelular.Mask = "(00) 0 0000-0000";
             this.maskedTextBoxCelular.Name = "maskedTextBoxCelular";
             this.maskedTextBoxCelular.Size = new System.Drawing.Size(215, 35);
-            this.maskedTextBoxCelular.TabIndex = 27;
+            this.maskedTextBoxCelular.TabIndex = 4;
             // 
             // label6
             // 
@@ -193,7 +193,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             this.textBoxID.Name = "textBoxID";
             this.textBoxID.ReadOnly = true;
             this.textBoxID.Size = new System.Drawing.Size(64, 35);
-            this.textBoxID.TabIndex = 25;
+            this.textBoxID.TabIndex = 10;
             this.textBoxID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBoxEndereco
@@ -212,7 +212,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             this.textBoxEmail.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(356, 35);
-            this.textBoxEmail.TabIndex = 3;
+            this.textBoxEmail.TabIndex = 2;
             // 
             // textBoxNome
             // 
@@ -273,7 +273,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             this.buttonLimpar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonLimpar.Name = "buttonLimpar";
             this.buttonLimpar.Size = new System.Drawing.Size(309, 46);
-            this.buttonLimpar.TabIndex = 23;
+            this.buttonLimpar.TabIndex = 9;
             this.buttonLimpar.Text = "Limpar";
             this.buttonLimpar.UseVisualStyleBackColor = true;
             this.buttonLimpar.Click += new System.EventHandler(this.buttonLimpar_Click);
@@ -285,7 +285,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             this.buttonCadastrar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonCadastrar.Name = "buttonCadastrar";
             this.buttonCadastrar.Size = new System.Drawing.Size(309, 46);
-            this.buttonCadastrar.TabIndex = 12;
+            this.buttonCadastrar.TabIndex = 8;
             this.buttonCadastrar.Text = "Cadastrar";
             this.buttonCadastrar.UseVisualStyleBackColor = true;
             this.buttonCadastrar.Click += new System.EventHandler(this.buttonCadastrar_Click);
@@ -298,7 +298,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             this.maskedTextBoxTelefone.Mask = "(00) 0000-0000";
             this.maskedTextBoxTelefone.Name = "maskedTextBoxTelefone";
             this.maskedTextBoxTelefone.Size = new System.Drawing.Size(215, 35);
-            this.maskedTextBoxTelefone.TabIndex = 8;
+            this.maskedTextBoxTelefone.TabIndex = 3;
             // 
             // label10
             // 

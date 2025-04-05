@@ -236,7 +236,6 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
         }
         #endregion
 
-
         #region AlterarCategoria
         public bool AlterarCategoria(Categoria cat, string qual)
         {

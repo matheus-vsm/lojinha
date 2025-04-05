@@ -60,7 +60,54 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             dataGridViewComprasCarrinho.DataSource = carrinhoCompras;
         }
 
-        public void SelecionarLinhaTabelaProdutos()
+        public void SelecionarLinhaTabelaComprasDetalhes()
+        {
+            ////passando id da venda para a tela de detalhes
+            //string idvenda = dataGridViewCompras.CurrentRow.Cells[0].Value.ToString() ?? "";
+
+            //FormDetalhesVendas tela = new FormDetalhesVendas(idvenda);
+
+            ////Garantir que a linha esteja realmente selecionada antes de tentar acessa-la
+            //if (dataGridViewCompras.CurrentRow != null)
+            //{
+            //    datavenda = Convert.ToDateTime(dataGridViewHistorico.CurrentRow.Cells[2].Value.ToString() ?? "");
+            //    //Pegar os dados da linha selecionada
+            //    tela.textBoxNomeCliente.Text = dataGridViewHistorico.CurrentRow.Cells[1].Value.ToString() ?? "";
+            //    tela.maskedTextBoxDataVenda.Text = datavenda.ToString("dd/MM/yyyy");
+            //    tela.textBoxTotal.Text = dataGridViewHistorico.CurrentRow.Cells[3].Value.ToString() ?? "";
+            //    tela.textBoxValorPago.Text = dataGridViewHistorico.CurrentRow.Cells[5].Value.ToString() ?? "";
+
+            //    // Obter as formas de pagamento
+            //    List<Pagamento> pagamentos = pagaDAO.RetornarPagamentos(idvenda);
+            //    StringBuilder sbPagamentos = new StringBuilder();
+
+            //    sbPagamentos.AppendLine("Forma(s) de Pagamento:");
+            //    if (pagamentos != null && pagamentos.Count > 0)
+            //    {
+            //        foreach (var pagamento in pagamentos)
+            //        {
+            //            sbPagamentos.AppendLine($"{pagamento.Forma_Pagamento}: R${pagamento.Valor_Pago:F2}");
+            //        }
+            //    }
+            //    else
+            //    {
+            //        sbPagamentos.AppendLine("Nenhuma Forma de Pagamento foi encontrada.");
+            //    }
+
+            //    // Concatenar as informações de pagamento com as observações
+            //    string observacoes = "\n" + dataGridViewHistorico.CurrentRow.Cells[7].Value.ToString() ?? "";
+            //    tela.textBoxObs.Text = sbPagamentos.ToString() + observacoes;
+
+            //    tela.ShowDialog();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Nenhuma linha selecionada.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //}
+        }
+
+
+        public void SelecionarLinhaTabelaCompras()
         {
             ////Garantir que a linha esteja realmente selecionada antes de tentar acessa-la
             if (dataGridViewCompras.CurrentRow != null)
@@ -94,7 +141,10 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         {
             subtotal = decimal.Parse(textBoxPrecoCusto.Text) * int.Parse(textBoxQuantidade.Text);
             
-            carrinhoCompras.Rows.Add(textBoxNomeProd.Text, textBoxNomeProd.Text, textBoxMarca.Text, textBoxCor.Text, textBoxTamanho.Text, comboBoxCategProd.Text, comboBoxCategPub.Text, textBoxDescrição.Text, textBoxQuantidade.Text, decimal.Parse(textBoxPrecoCusto.Text), subtotal, decimal.Parse(textBoxPrecoVenda.Text));
+            carrinhoCompras.Rows.Add(comboBoxFornecedor.Text, textBoxNomeProd.Text, textBoxMarca.Text, 
+                textBoxCor.Text, textBoxTamanho.Text, comboBoxCategProd.Text, comboBoxCategPub.Text, 
+                textBoxDescrição.Text, textBoxQuantidade.Text, decimal.Parse(textBoxPrecoCusto.Text), 
+                subtotal, decimal.Parse(textBoxPrecoVenda.Text));
             
             totalcompra += subtotal;
             textBoxTotalCompra.Text = totalcompra.ToString();
@@ -107,7 +157,6 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             textBoxQuantidade.Clear();
             textBoxPrecoCusto.Clear();
             textBoxPrecoVenda.Clear();
-            textBoxObs.Clear();
             comboBoxCategProd.SelectedItem = -1;
             comboBoxCategProd.Text = string.Empty;
             comboBoxCategPub.SelectedItem = -1;
@@ -152,19 +201,15 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 return;
             }
 
-            double total = 0.0;
-            foreach (DataRow linha in carrinhoCompras.Rows)
-            {
-                double subtotal = double.Parse(linha["Subtotal"].ToString());
-                total += subtotal;
-            }
+            // Exibir o InputBox para obter a observação
+            string observacao = Helpers.InputBox("Digite a observação para a compra:", "Observação");
+
+            double total = double.Parse(textBoxTotalCompra.Text);
 
             CompraProdutos compra = new CompraProdutos
             {
-                Id_Fornecedor = comboBoxFornecedor.SelectedValue.ToString(),
-                Nome_Produto = textBoxNomeProd.Text,
                 Total_Compra = total,
-                Observacoes = textBoxObs.Text,
+                Observacoes = observacao,
             };
 
             CompraProdutosDAO compraProdutosDAO = new CompraProdutosDAO();
@@ -175,12 +220,14 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             string lastcompra = compraProdutosDAO.RetornarIdLastCompra();
 
             bool sucessoprod = false;
-            CategoriaDAO catdao = new CategoriaDAO();
+            CategoriaDAO catDAO = new CategoriaDAO();
+            FornecedorDAO fornecedorDAO = new FornecedorDAO();
             foreach (DataRow linha in carrinhoCompras.Rows)
             {
-                int idprod = catdao.RetornarIdCat("produto", linha["Categ Prod"].ToString());
-                int idpub = catdao.RetornarIdCat("publico", linha["Categ Pub"].ToString());
-                if (idprod == 0 || idpub == 0)
+                int idprod = catDAO.RetornarIdCat("produto", linha["Categ Prod"].ToString());
+                int idpub = catDAO.RetornarIdCat("publico", linha["Categ Pub"].ToString());
+                int idforn = fornecedorDAO.RetornarIdFornecedor(linha["Fornecedor"].ToString());
+                if (idprod == 0 || idpub == 0 || idforn == 0)
                 {
                     MessageBox.Show("Erro ao cadastrar produto!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -189,12 +236,15 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 ItensCompraProdutos item = new ItensCompraProdutos
                 {
                     Id_Compra = lastcompra,
+                    Id_Fornecedor = idforn.ToString(),
                     Nome_Produto = linha["Produto"].ToString(),
                     Marca = linha["Marca"].ToString(),
                     Cor = linha["Cor"].ToString(),
                     Tamanho = linha["Tamanho"].ToString(),
                     Descricao = linha["Descrição"].ToString(),
                     Quantidade = int.Parse(linha["Quantidade"].ToString()),
+                    Id_Cat_Prod = idprod,
+                    Id_Cat_Publ = idpub,
                     Preco_Custo = decimal.Parse(linha["Preço Custo"].ToString()),
                     Preco_Medio = 0.00m,
                     Subtotal = decimal.Parse(linha["Subtotal"].ToString()),

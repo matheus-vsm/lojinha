@@ -276,5 +276,44 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
         }
         #endregion
 
+        #region RetornarIdFornecedor
+        public int RetornarIdFornecedor(string nome)
+        {
+            try
+            {
+                int resultado = 0;
+                // Se o nome for informado, adicionamos um filtro na consulta
+                string sql = @"SELECT * FROM tb_fornecedores WHERE Nome=@nome";
+
+                //Organizar o comando SQL e executar
+                MySqlCommand executacmd = new MySqlCommand(sql, connection);
+                executacmd.Parameters.AddWithValue("@nome", nome);
+
+                connection.Open();
+
+                MySqlDataReader rs = executacmd.ExecuteReader();
+
+                if (rs.Read()) //encontrou algo
+                {
+                    resultado = rs.GetInt32($"Id_Fornecedor");
+                    return resultado;
+                }
+                else
+                {
+                    MessageBox.Show("Fornecedor não encontrada!");
+                    return 0;
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show($"Erro ao executar o Comando SQL! (RetornarIdFornecedor) {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return 0;
+            }
+            finally
+            {
+                connection.Close(); // Sempre fechar a conexão
+            }
+        }
+        #endregion
     }
 }

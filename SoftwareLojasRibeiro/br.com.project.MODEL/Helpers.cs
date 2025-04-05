@@ -162,5 +162,32 @@ namespace SoftwareLojasRibeiro.br.com.project.MODEL
             return true;
         }
         #endregion
+
+        #region InputBox
+        public static string InputBox(string prompt, string title)
+        {
+            Form inputBox = new Form()
+            {
+                Width = 400,
+                Height = 200,
+                FormBorderStyle = FormBorderStyle.FixedDialog,
+                Text = title,
+                StartPosition = FormStartPosition.CenterScreen
+            };
+
+            Label label = new Label() { Left = 20, Top = 20, Text = prompt, Width = 340 };
+            TextBox textBox = new TextBox() { Left = 20, Top = 50, Width = 340 };
+            Button confirmation = new Button() { Text = "OK", Left = 270, Width = 90, Top = 100, DialogResult = DialogResult.OK };
+
+            confirmation.Click += (sender, e) => { inputBox.Close(); };
+
+            inputBox.Controls.Add(label);
+            inputBox.Controls.Add(textBox);
+            inputBox.Controls.Add(confirmation);
+            inputBox.AcceptButton = confirmation;
+
+            return inputBox.ShowDialog() == DialogResult.OK ? textBox.Text : string.Empty;
+        }
+        #endregion
     }
 }
