@@ -112,17 +112,17 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             }
             else if (keyData == Keys.D5 || keyData == Keys.NumPad5) // tecla 5
             {
-                buttonProdutos_Click(this, EventArgs.Empty);
+                buttonCompras_Click(this, EventArgs.Empty);
                 return true;
             }
             else if (keyData == Keys.D6 || keyData == Keys.NumPad6) // tecla 6
             {
-                buttonVendas_Click(this, EventArgs.Empty);
+                buttonProdutos_Click(this, EventArgs.Empty);
                 return true;
             }
             else if (keyData == Keys.D7 || keyData == Keys.NumPad7) // tecla 7
             {
-                buttonCompras_Click(this, EventArgs.Empty);
+                buttonVendas_Click(this, EventArgs.Empty);
                 return true;
             }
             return base.ProcessCmdKey(ref msg, keyData);

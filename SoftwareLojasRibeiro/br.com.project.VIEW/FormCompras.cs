@@ -58,52 +58,40 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             carrinhoCompras.Columns.Add("Preço Venda", typeof(decimal));
 
             dataGridViewComprasCarrinho.DataSource = carrinhoCompras;
+
+            dateTimePickerDataInicio.Value = DateTime.Now;
+            dateTimePickerDataFim.Value = DateTime.Now.AddDays(1);
+
+            dataGridViewCompras.DefaultCellStyle.Font = new Font("Arial Rounded MT", 20);
+            dataGridViewCompras.ColumnHeadersDefaultCellStyle.Font = new Font("Arial Rounded MT Bold", 22, FontStyle.Bold);
+            dataGridViewCompras.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridViewCompras.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
         }
 
         public void SelecionarLinhaTabelaComprasDetalhes()
         {
-            ////passando id da venda para a tela de detalhes
-            //string idvenda = dataGridViewCompras.CurrentRow.Cells[0].Value.ToString() ?? "";
+            //passando id da venda para a tela de detalhes
+            string idcompra = dataGridViewCompras.CurrentRow.Cells[0].Value.ToString() ?? "";
 
-            //FormDetalhesVendas tela = new FormDetalhesVendas(idvenda);
+            FormDetalhesCompras tela = new FormDetalhesCompras(idcompra);
+            DateTime datacompra;
 
-            ////Garantir que a linha esteja realmente selecionada antes de tentar acessa-la
-            //if (dataGridViewCompras.CurrentRow != null)
-            //{
-            //    datavenda = Convert.ToDateTime(dataGridViewHistorico.CurrentRow.Cells[2].Value.ToString() ?? "");
-            //    //Pegar os dados da linha selecionada
-            //    tela.textBoxNomeCliente.Text = dataGridViewHistorico.CurrentRow.Cells[1].Value.ToString() ?? "";
-            //    tela.maskedTextBoxDataVenda.Text = datavenda.ToString("dd/MM/yyyy");
-            //    tela.textBoxTotal.Text = dataGridViewHistorico.CurrentRow.Cells[3].Value.ToString() ?? "";
-            //    tela.textBoxValorPago.Text = dataGridViewHistorico.CurrentRow.Cells[5].Value.ToString() ?? "";
+            //Garantir que a linha esteja realmente selecionada antes de tentar acessa-la
+            if (dataGridViewCompras.CurrentRow != null)
+            {
+                datacompra = Convert.ToDateTime(dataGridViewCompras.CurrentRow.Cells[2].Value.ToString() ?? "");
+                //Pegar os dados da linha selecionada
+                tela.textBoxIdCompra.Text = idcompra;
+                tela.maskedTextBoxDataCompra.Text = datacompra.ToString("dd/MM/yyyy HH:mm");
+                tela.textBoxTotal.Text = dataGridViewCompras.CurrentRow.Cells[1].Value.ToString() ?? "";
+                tela.textBoxObs.Text = dataGridViewCompras.CurrentRow.Cells[3].Value.ToString() ?? "";
 
-            //    // Obter as formas de pagamento
-            //    List<Pagamento> pagamentos = pagaDAO.RetornarPagamentos(idvenda);
-            //    StringBuilder sbPagamentos = new StringBuilder();
-
-            //    sbPagamentos.AppendLine("Forma(s) de Pagamento:");
-            //    if (pagamentos != null && pagamentos.Count > 0)
-            //    {
-            //        foreach (var pagamento in pagamentos)
-            //        {
-            //            sbPagamentos.AppendLine($"{pagamento.Forma_Pagamento}: R${pagamento.Valor_Pago:F2}");
-            //        }
-            //    }
-            //    else
-            //    {
-            //        sbPagamentos.AppendLine("Nenhuma Forma de Pagamento foi encontrada.");
-            //    }
-
-            //    // Concatenar as informações de pagamento com as observações
-            //    string observacoes = "\n" + dataGridViewHistorico.CurrentRow.Cells[7].Value.ToString() ?? "";
-            //    tela.textBoxObs.Text = sbPagamentos.ToString() + observacoes;
-
-            //    tela.ShowDialog();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Nenhuma linha selecionada.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //}
+                tela.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Nenhuma linha selecionada.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
 
@@ -180,7 +168,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 return;
             }
 
-            decimal subproduto = decimal.Parse(dataGridViewComprasCarrinho.CurrentRow.Cells[7].Value.ToString());
+            decimal subproduto = decimal.Parse(dataGridViewComprasCarrinho.CurrentRow.Cells[10].Value.ToString());
             int indice = dataGridViewComprasCarrinho.CurrentRow.Index; //pega o indice da linha selecionada
             DataRow linha = carrinhoCompras.Rows[indice]; //definindo a linha que será excluída
 
@@ -272,6 +260,8 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 ItensCompraProdutosDAO icdao = new ItensCompraProdutosDAO();
                 icdao.CadastrarItensCompra(item);
                 sucessocompra = true;
+
+                compraProdutosDAO.ListarCompras(compra);
             }
 
             if (sucessocompra && sucessoprod)
@@ -287,9 +277,30 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             //MessageBox.Show("Compra registrada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        private void buttonExibirDetalhes_Click(object sender, EventArgs e)
+        {
+            SelecionarLinhaTabelaComprasDetalhes();
+        }
+
+        private void buttonLimpar_Click(object sender, EventArgs e)
+        {
+            new Helpers().LimparTelaVendas(this);
+            totalcompra = 0;
+        }
+
+        private void buttonPesquisar_Click(object sender, EventArgs e)
+        {
+            DateTime inicio = Convert.ToDateTime(dateTimePickerDataInicio.Value.ToString("yyyy-MM-dd"));
+            DateTime fim = Convert.ToDateTime(dateTimePickerDataFim.Value.ToString("yyyy-MM-dd"));
+
+            CompraProdutosDAO cdao = new CompraProdutosDAO();
+            dataGridViewCompras.DataSource = cdao.ListarComprasData(inicio, fim);
+            dataGridViewCompras.DefaultCellStyle.ForeColor = Color.Black;
+        }
+
         private void buttonAddNovaIgual_Click(object sender, EventArgs e)
         {
-
+            SelecionarLinhaTabelaCompras();
         }
     }
 }

@@ -67,12 +67,12 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
-            this.buttonLimparPesquisa = new System.Windows.Forms.Button();
-            this.buttonAddNovaIgual = new System.Windows.Forms.Button();
+            this.buttonPesquisar = new System.Windows.Forms.Button();
+            this.dateTimePickerDataFim = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerDataInicio = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
-            this.buttonAlterar = new System.Windows.Forms.Button();
-            this.textBoxPesquisaProd = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.buttonExibirDetalhes = new System.Windows.Forms.Button();
             this.dataGridViewCompras = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -188,7 +188,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(622, 460);
+            this.label16.Location = new System.Drawing.Point(622, 446);
             this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(114, 24);
@@ -198,7 +198,7 @@
             // textBoxTotalCompra
             // 
             this.textBoxTotalCompra.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTotalCompra.Location = new System.Drawing.Point(623, 492);
+            this.textBoxTotalCompra.Location = new System.Drawing.Point(623, 478);
             this.textBoxTotalCompra.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxTotalCompra.Name = "textBoxTotalCompra";
             this.textBoxTotalCompra.ReadOnly = true;
@@ -209,7 +209,7 @@
             // buttonRemover
             // 
             this.buttonRemover.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRemover.Location = new System.Drawing.Point(17, 509);
+            this.buttonRemover.Location = new System.Drawing.Point(17, 495);
             this.buttonRemover.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonRemover.Name = "buttonRemover";
             this.buttonRemover.Size = new System.Drawing.Size(287, 46);
@@ -221,7 +221,7 @@
             // buttonAdicionar
             // 
             this.buttonAdicionar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAdicionar.Location = new System.Drawing.Point(17, 446);
+            this.buttonAdicionar.Location = new System.Drawing.Point(17, 432);
             this.buttonAdicionar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonAdicionar.Name = "buttonAdicionar";
             this.buttonAdicionar.Size = new System.Drawing.Size(287, 46);
@@ -236,7 +236,7 @@
             this.dataGridViewComprasCarrinho.AllowUserToDeleteRows = false;
             this.dataGridViewComprasCarrinho.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridViewComprasCarrinho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewComprasCarrinho.Location = new System.Drawing.Point(746, 424);
+            this.dataGridViewComprasCarrinho.Location = new System.Drawing.Point(746, 410);
             this.dataGridViewComprasCarrinho.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridViewComprasCarrinho.Name = "dataGridViewComprasCarrinho";
             this.dataGridViewComprasCarrinho.ReadOnly = true;
@@ -248,7 +248,7 @@
             // 
             this.comboBoxFornecedor.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxFornecedor.FormattingEnabled = true;
-            this.comboBoxFornecedor.Location = new System.Drawing.Point(294, 203);
+            this.comboBoxFornecedor.Location = new System.Drawing.Point(294, 189);
             this.comboBoxFornecedor.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.comboBoxFornecedor.Name = "comboBoxFornecedor";
             this.comboBoxFornecedor.Size = new System.Drawing.Size(328, 36);
@@ -257,7 +257,7 @@
             // textBoxPrecoCusto
             // 
             this.textBoxPrecoCusto.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPrecoCusto.Location = new System.Drawing.Point(903, 233);
+            this.textBoxPrecoCusto.Location = new System.Drawing.Point(903, 219);
             this.textBoxPrecoCusto.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxPrecoCusto.Name = "textBoxPrecoCusto";
             this.textBoxPrecoCusto.Size = new System.Drawing.Size(328, 35);
@@ -267,7 +267,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(680, 233);
+            this.label14.Location = new System.Drawing.Point(680, 219);
             this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(215, 28);
@@ -278,7 +278,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(131, 206);
+            this.label13.Location = new System.Drawing.Point(131, 192);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(155, 28);
@@ -289,7 +289,7 @@
             // 
             this.comboBoxCategProd.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxCategProd.FormattingEnabled = true;
-            this.comboBoxCategProd.Location = new System.Drawing.Point(294, 93);
+            this.comboBoxCategProd.Location = new System.Drawing.Point(294, 79);
             this.comboBoxCategProd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.comboBoxCategProd.Name = "comboBoxCategProd";
             this.comboBoxCategProd.Size = new System.Drawing.Size(328, 36);
@@ -299,7 +299,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(18, 96);
+            this.label7.Location = new System.Drawing.Point(18, 82);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(268, 28);
@@ -310,7 +310,7 @@
             // 
             this.comboBoxCategPub.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxCategPub.FormattingEnabled = true;
-            this.comboBoxCategPub.Location = new System.Drawing.Point(294, 145);
+            this.comboBoxCategPub.Location = new System.Drawing.Point(294, 131);
             this.comboBoxCategPub.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.comboBoxCategPub.Name = "comboBoxCategPub";
             this.comboBoxCategPub.Size = new System.Drawing.Size(328, 36);
@@ -320,7 +320,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(23, 148);
+            this.label3.Location = new System.Drawing.Point(23, 134);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(263, 28);
@@ -330,7 +330,7 @@
             // textBoxQuantidade
             // 
             this.textBoxQuantidade.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxQuantidade.Location = new System.Drawing.Point(903, 309);
+            this.textBoxQuantidade.Location = new System.Drawing.Point(903, 295);
             this.textBoxQuantidade.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxQuantidade.Name = "textBoxQuantidade";
             this.textBoxQuantidade.Size = new System.Drawing.Size(328, 35);
@@ -339,7 +339,7 @@
             // textBoxDescrição
             // 
             this.textBoxDescrição.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDescrição.Location = new System.Drawing.Point(903, 169);
+            this.textBoxDescrição.Location = new System.Drawing.Point(903, 155);
             this.textBoxDescrição.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxDescrição.Name = "textBoxDescrição";
             this.textBoxDescrição.Size = new System.Drawing.Size(328, 35);
@@ -348,7 +348,7 @@
             // textBoxTamanho
             // 
             this.textBoxTamanho.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTamanho.Location = new System.Drawing.Point(294, 374);
+            this.textBoxTamanho.Location = new System.Drawing.Point(294, 360);
             this.textBoxTamanho.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxTamanho.Name = "textBoxTamanho";
             this.textBoxTamanho.Size = new System.Drawing.Size(328, 35);
@@ -357,7 +357,7 @@
             // textBoxMarca
             // 
             this.textBoxMarca.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxMarca.Location = new System.Drawing.Point(294, 313);
+            this.textBoxMarca.Location = new System.Drawing.Point(294, 299);
             this.textBoxMarca.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxMarca.Name = "textBoxMarca";
             this.textBoxMarca.Size = new System.Drawing.Size(328, 35);
@@ -377,7 +377,7 @@
             // textBoxPrecoVenda
             // 
             this.textBoxPrecoVenda.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPrecoVenda.Location = new System.Drawing.Point(903, 370);
+            this.textBoxPrecoVenda.Location = new System.Drawing.Point(903, 356);
             this.textBoxPrecoVenda.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxPrecoVenda.Name = "textBoxPrecoVenda";
             this.textBoxPrecoVenda.Size = new System.Drawing.Size(328, 35);
@@ -386,7 +386,7 @@
             // textBoxCor
             // 
             this.textBoxCor.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCor.Location = new System.Drawing.Point(903, 91);
+            this.textBoxCor.Location = new System.Drawing.Point(903, 77);
             this.textBoxCor.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxCor.Name = "textBoxCor";
             this.textBoxCor.Size = new System.Drawing.Size(328, 35);
@@ -395,7 +395,7 @@
             // textBoxNomeProd
             // 
             this.textBoxNomeProd.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNomeProd.Location = new System.Drawing.Point(294, 261);
+            this.textBoxNomeProd.Location = new System.Drawing.Point(294, 247);
             this.textBoxNomeProd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxNomeProd.Name = "textBoxNomeProd";
             this.textBoxNomeProd.Size = new System.Drawing.Size(328, 35);
@@ -405,7 +405,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(66, 264);
+            this.label2.Location = new System.Drawing.Point(66, 250);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(220, 28);
@@ -416,7 +416,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(832, 94);
+            this.label4.Location = new System.Drawing.Point(832, 80);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(63, 28);
@@ -427,7 +427,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(193, 316);
+            this.label5.Location = new System.Drawing.Point(193, 302);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(93, 28);
@@ -449,7 +449,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(160, 377);
+            this.label6.Location = new System.Drawing.Point(160, 363);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(126, 28);
@@ -459,18 +459,19 @@
             // buttonLimpar
             // 
             this.buttonLimpar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonLimpar.Location = new System.Drawing.Point(329, 509);
+            this.buttonLimpar.Location = new System.Drawing.Point(329, 495);
             this.buttonLimpar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonLimpar.Name = "buttonLimpar";
             this.buttonLimpar.Size = new System.Drawing.Size(286, 46);
             this.buttonLimpar.TabIndex = 14;
             this.buttonLimpar.Text = "Limpar Campos";
             this.buttonLimpar.UseVisualStyleBackColor = true;
+            this.buttonLimpar.Click += new System.EventHandler(this.buttonLimpar_Click);
             // 
             // buttonCadastrar
             // 
             this.buttonCadastrar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCadastrar.Location = new System.Drawing.Point(329, 446);
+            this.buttonCadastrar.Location = new System.Drawing.Point(329, 432);
             this.buttonCadastrar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonCadastrar.Name = "buttonCadastrar";
             this.buttonCadastrar.Size = new System.Drawing.Size(287, 46);
@@ -483,7 +484,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(756, 169);
+            this.label8.Location = new System.Drawing.Point(756, 155);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(139, 28);
@@ -494,7 +495,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(673, 373);
+            this.label9.Location = new System.Drawing.Point(673, 359);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(222, 28);
@@ -505,7 +506,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(741, 312);
+            this.label10.Location = new System.Drawing.Point(741, 298);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(154, 28);
@@ -514,12 +515,12 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.button1);
-            this.tabPage3.Controls.Add(this.buttonLimparPesquisa);
-            this.tabPage3.Controls.Add(this.buttonAddNovaIgual);
+            this.tabPage3.Controls.Add(this.buttonPesquisar);
+            this.tabPage3.Controls.Add(this.dateTimePickerDataFim);
+            this.tabPage3.Controls.Add(this.dateTimePickerDataInicio);
             this.tabPage3.Controls.Add(this.label11);
-            this.tabPage3.Controls.Add(this.buttonAlterar);
-            this.tabPage3.Controls.Add(this.textBoxPesquisaProd);
+            this.tabPage3.Controls.Add(this.label15);
+            this.tabPage3.Controls.Add(this.buttonExibirDetalhes);
             this.tabPage3.Controls.Add(this.dataGridViewCompras);
             this.tabPage3.Location = new System.Drawing.Point(4, 24);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -530,69 +531,73 @@
             this.tabPage3.Text = "Consultar Compras";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // buttonPesquisar
             // 
-            this.button1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(1108, 23);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(248, 46);
-            this.button1.TabIndex = 29;
-            this.button1.Text = "Excluir";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonPesquisar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPesquisar.Location = new System.Drawing.Point(387, 34);
+            this.buttonPesquisar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.buttonPesquisar.Name = "buttonPesquisar";
+            this.buttonPesquisar.Size = new System.Drawing.Size(252, 49);
+            this.buttonPesquisar.TabIndex = 36;
+            this.buttonPesquisar.Text = "Pesquisar";
+            this.buttonPesquisar.UseVisualStyleBackColor = true;
+            this.buttonPesquisar.Click += new System.EventHandler(this.buttonPesquisar_Click);
             // 
-            // buttonLimparPesquisa
+            // dateTimePickerDataFim
             // 
-            this.buttonLimparPesquisa.Location = new System.Drawing.Point(294, 59);
-            this.buttonLimparPesquisa.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.buttonLimparPesquisa.Name = "buttonLimparPesquisa";
-            this.buttonLimparPesquisa.Size = new System.Drawing.Size(72, 29);
-            this.buttonLimparPesquisa.TabIndex = 4;
-            this.buttonLimparPesquisa.Text = "Limpar";
-            this.buttonLimparPesquisa.UseVisualStyleBackColor = true;
+            this.dateTimePickerDataFim.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerDataFim.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerDataFim.Location = new System.Drawing.Point(145, 54);
+            this.dateTimePickerDataFim.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dateTimePickerDataFim.Name = "dateTimePickerDataFim";
+            this.dateTimePickerDataFim.Size = new System.Drawing.Size(161, 32);
+            this.dateTimePickerDataFim.TabIndex = 35;
+            this.dateTimePickerDataFim.Value = new System.DateTime(2025, 2, 1, 0, 0, 0, 0);
             // 
-            // buttonAddNovaIgual
+            // dateTimePickerDataInicio
             // 
-            this.buttonAddNovaIgual.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAddNovaIgual.Location = new System.Drawing.Point(821, 23);
-            this.buttonAddNovaIgual.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.buttonAddNovaIgual.Name = "buttonAddNovaIgual";
-            this.buttonAddNovaIgual.Size = new System.Drawing.Size(248, 46);
-            this.buttonAddNovaIgual.TabIndex = 3;
-            this.buttonAddNovaIgual.Text = "Add Nova Compra";
-            this.buttonAddNovaIgual.UseVisualStyleBackColor = true;
-            this.buttonAddNovaIgual.Click += new System.EventHandler(this.buttonAddNovaIgual_Click);
+            this.dateTimePickerDataInicio.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerDataInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerDataInicio.Location = new System.Drawing.Point(145, 18);
+            this.dateTimePickerDataInicio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dateTimePickerDataInicio.Name = "dateTimePickerDataInicio";
+            this.dateTimePickerDataInicio.Size = new System.Drawing.Size(161, 32);
+            this.dateTimePickerDataInicio.TabIndex = 34;
+            this.dateTimePickerDataInicio.Value = new System.DateTime(2025, 1, 1, 22, 9, 0, 0);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(14, 30);
+            this.label11.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(39, 59);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(151, 18);
-            this.label11.TabIndex = 28;
-            this.label11.Text = "Nome do Produto:";
+            this.label11.Size = new System.Drawing.Size(97, 22);
+            this.label11.TabIndex = 33;
+            this.label11.Text = "Data Fim:";
             // 
-            // buttonAlterar
+            // label15
             // 
-            this.buttonAlterar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAlterar.Location = new System.Drawing.Point(546, 23);
-            this.buttonAlterar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.buttonAlterar.Name = "buttonAlterar";
-            this.buttonAlterar.Size = new System.Drawing.Size(248, 46);
-            this.buttonAlterar.TabIndex = 2;
-            this.buttonAlterar.Text = "Exibir Detalhes";
-            this.buttonAlterar.UseVisualStyleBackColor = true;
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(23, 23);
+            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(113, 22);
+            this.label15.TabIndex = 32;
+            this.label15.Text = "Data Início:";
             // 
-            // textBoxPesquisaProd
+            // buttonExibirDetalhes
             // 
-            this.textBoxPesquisaProd.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPesquisaProd.Location = new System.Drawing.Point(173, 27);
-            this.textBoxPesquisaProd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textBoxPesquisaProd.Name = "textBoxPesquisaProd";
-            this.textBoxPesquisaProd.Size = new System.Drawing.Size(328, 26);
-            this.textBoxPesquisaProd.TabIndex = 0;
+            this.buttonExibirDetalhes.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonExibirDetalhes.Location = new System.Drawing.Point(873, 34);
+            this.buttonExibirDetalhes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.buttonExibirDetalhes.Name = "buttonExibirDetalhes";
+            this.buttonExibirDetalhes.Size = new System.Drawing.Size(252, 46);
+            this.buttonExibirDetalhes.TabIndex = 31;
+            this.buttonExibirDetalhes.Text = "Exibir Detalhes";
+            this.buttonExibirDetalhes.UseVisualStyleBackColor = true;
+            this.buttonExibirDetalhes.Click += new System.EventHandler(this.buttonExibirDetalhes_Click);
             // 
             // dataGridViewCompras
             // 
@@ -600,11 +605,11 @@
             this.dataGridViewCompras.AllowUserToDeleteRows = false;
             this.dataGridViewCompras.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridViewCompras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewCompras.Location = new System.Drawing.Point(0, 94);
+            this.dataGridViewCompras.Location = new System.Drawing.Point(0, 118);
             this.dataGridViewCompras.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridViewCompras.Name = "dataGridViewCompras";
             this.dataGridViewCompras.ReadOnly = true;
-            this.dataGridViewCompras.Size = new System.Drawing.Size(1366, 478);
+            this.dataGridViewCompras.Size = new System.Drawing.Size(1366, 454);
             this.dataGridViewCompras.TabIndex = 5;
             // 
             // FormCompras
@@ -667,21 +672,21 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.Button buttonLimparPesquisa;
-        private System.Windows.Forms.Button buttonAddNovaIgual;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button buttonAlterar;
-        private System.Windows.Forms.TextBox textBoxPesquisaProd;
         private System.Windows.Forms.DataGridView dataGridViewCompras;
         private System.Windows.Forms.ComboBox comboBoxFornecedor;
         private System.Windows.Forms.TextBox textBoxPrecoCusto;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Button button1;
         public System.Windows.Forms.DataGridView dataGridViewComprasCarrinho;
         private System.Windows.Forms.Button buttonRemover;
         private System.Windows.Forms.Button buttonAdicionar;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox textBoxTotalCompra;
+        private System.Windows.Forms.Button buttonExibirDetalhes;
+        private System.Windows.Forms.DateTimePicker dateTimePickerDataFim;
+        private System.Windows.Forms.DateTimePicker dateTimePickerDataInicio;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button buttonPesquisar;
     }
 }

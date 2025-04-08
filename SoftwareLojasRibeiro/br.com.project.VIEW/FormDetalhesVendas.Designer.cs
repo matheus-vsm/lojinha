@@ -95,23 +95,24 @@
             // 
             // textBoxObs
             // 
-            this.textBoxObs.Location = new System.Drawing.Point(740, 32);
+            this.textBoxObs.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxObs.Location = new System.Drawing.Point(740, 29);
             this.textBoxObs.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxObs.Multiline = true;
             this.textBoxObs.Name = "textBoxObs";
             this.textBoxObs.ReadOnly = true;
             this.textBoxObs.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxObs.Size = new System.Drawing.Size(347, 84);
+            this.textBoxObs.Size = new System.Drawing.Size(347, 148);
             this.textBoxObs.TabIndex = 19;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(612, 57);
+            this.label4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(558, 43);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(120, 18);
+            this.label4.Size = new System.Drawing.Size(174, 28);
             this.label4.TabIndex = 20;
             this.label4.Text = "Observações:";
             // 
@@ -138,45 +139,45 @@
             // 
             // textBoxNomeCliente
             // 
-            this.textBoxNomeCliente.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNomeCliente.Location = new System.Drawing.Point(88, 40);
+            this.textBoxNomeCliente.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxNomeCliente.Location = new System.Drawing.Point(121, 40);
             this.textBoxNomeCliente.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxNomeCliente.Name = "textBoxNomeCliente";
             this.textBoxNomeCliente.ReadOnly = true;
-            this.textBoxNomeCliente.Size = new System.Drawing.Size(335, 26);
+            this.textBoxNomeCliente.Size = new System.Drawing.Size(335, 35);
             this.textBoxNomeCliente.TabIndex = 13;
             // 
             // maskedTextBoxDataVenda
             // 
-            this.maskedTextBoxDataVenda.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBoxDataVenda.Location = new System.Drawing.Point(154, 112);
+            this.maskedTextBoxDataVenda.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskedTextBoxDataVenda.Location = new System.Drawing.Point(62, 139);
             this.maskedTextBoxDataVenda.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.maskedTextBoxDataVenda.Mask = "00/00/0000";
             this.maskedTextBoxDataVenda.Name = "maskedTextBoxDataVenda";
             this.maskedTextBoxDataVenda.ReadOnly = true;
-            this.maskedTextBoxDataVenda.Size = new System.Drawing.Size(125, 26);
+            this.maskedTextBoxDataVenda.Size = new System.Drawing.Size(125, 32);
             this.maskedTextBoxDataVenda.TabIndex = 15;
             this.maskedTextBoxDataVenda.ValidatingType = typeof(System.DateTime);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(16, 115);
+            this.label8.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(45, 106);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(130, 18);
+            this.label8.Size = new System.Drawing.Size(163, 24);
             this.label8.TabIndex = 16;
             this.label8.Text = "Data da Venda:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(11, 43);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 18);
+            this.label2.Size = new System.Drawing.Size(102, 28);
             this.label2.TabIndex = 14;
             this.label2.Text = "Cliente:";
             // 
@@ -218,6 +219,7 @@
             this.dataGridViewDetalhes.RowTemplate.Height = 28;
             this.dataGridViewDetalhes.Size = new System.Drawing.Size(1111, 297);
             this.dataGridViewDetalhes.TabIndex = 18;
+            this.dataGridViewDetalhes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDetalhes_CellContentClick);
             // 
             // pictureBox1
             // 

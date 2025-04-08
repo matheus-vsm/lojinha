@@ -44,10 +44,10 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.buttonVoltar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.buttonCompras = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -67,7 +67,7 @@
             // buttonProdutos
             // 
             this.buttonProdutos.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonProdutos.Location = new System.Drawing.Point(545, 485);
+            this.buttonProdutos.Location = new System.Drawing.Point(545, 556);
             this.buttonProdutos.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonProdutos.Name = "buttonProdutos";
             this.buttonProdutos.Size = new System.Drawing.Size(219, 48);
@@ -79,7 +79,7 @@
             // buttonVendas
             // 
             this.buttonVendas.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonVendas.Location = new System.Drawing.Point(545, 556);
+            this.buttonVendas.Location = new System.Drawing.Point(545, 627);
             this.buttonVendas.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonVendas.Name = "buttonVendas";
             this.buttonVendas.Size = new System.Drawing.Size(219, 48);
@@ -235,6 +235,16 @@
             this.panel1.Size = new System.Drawing.Size(1373, 143);
             this.panel1.TabIndex = 13;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::SoftwareLojasRibeiro.Properties.Resources.Logo_Lojas_Ribeiro_Transparente_menor;
+            this.pictureBox1.Location = new System.Drawing.Point(1200, 6);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(163, 127);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
             // buttonVoltar
             // 
             this.buttonVoltar.BackColor = System.Drawing.Color.Red;
@@ -263,7 +273,7 @@
             // buttonCompras
             // 
             this.buttonCompras.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCompras.Location = new System.Drawing.Point(545, 627);
+            this.buttonCompras.Location = new System.Drawing.Point(545, 485);
             this.buttonCompras.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonCompras.Name = "buttonCompras";
             this.buttonCompras.Size = new System.Drawing.Size(219, 48);
@@ -271,16 +281,6 @@
             this.buttonCompras.Text = "Compras";
             this.buttonCompras.UseVisualStyleBackColor = true;
             this.buttonCompras.Click += new System.EventHandler(this.buttonCompras_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImage = global::SoftwareLojasRibeiro.Properties.Resources.Logo_Lojas_Ribeiro_Transparente_menor;
-            this.pictureBox1.Location = new System.Drawing.Point(1200, 6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(163, 127);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
             // 
             // FormMenu
             // 

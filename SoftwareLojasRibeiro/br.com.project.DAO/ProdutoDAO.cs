@@ -88,7 +88,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                                 prod.Marca, 
                                 prod.Cor, 
                                 prod.Tamanho, 
-                                prod.Preco_Venda, 
+                                prod.Preco_Venda AS 'Preço', 
                                 prod.Qtd_Estoque AS 'Estoque', 
                                 catprod.Nome AS 'Categoria Produto', 
                                 catpub.Nome AS 'Categoria Publico', 
@@ -238,7 +238,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                     Produto p = new Produto();
                     p.Id = rs.GetInt32("Id_Produto").ToString();
                     p.Descricao = rs.GetString("Descricao");
-                    p.Preco_Venda = rs.GetDecimal("Preco");
+                    p.Preco_Venda = rs.GetDecimal("Preco_Venda");
                     p.Estoque = rs.GetInt32("Qtd_Estoque");
 
                     return p;

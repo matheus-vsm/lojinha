@@ -286,6 +286,9 @@
     <EmbeddedResource Include="br.com.project.VIEW\FormCompras.resx">
       <DependentUpon>FormCompras.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="br.com.project.VIEW\FormDetalhesCompras.resx">
+      <DependentUpon>FormDetalhesCompras.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="br.com.project.VIEW\FormDetalhesVendas.resx">
       <DependentUpon>FormDetalhesVendas.cs</DependentUpon>
     </EmbeddedResource>

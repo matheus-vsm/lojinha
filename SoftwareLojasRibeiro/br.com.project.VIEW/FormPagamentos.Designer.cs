@@ -116,7 +116,7 @@
             this.textBoxDinheiro.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxDinheiro.Name = "textBoxDinheiro";
             this.textBoxDinheiro.Size = new System.Drawing.Size(166, 29);
-            this.textBoxDinheiro.TabIndex = 48;
+            this.textBoxDinheiro.TabIndex = 0;
             this.textBoxDinheiro.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBoxDinheiro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxDinheiro_KeyPress);
             // 
@@ -138,7 +138,7 @@
             this.textBoxDebito.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxDebito.Name = "textBoxDebito";
             this.textBoxDebito.Size = new System.Drawing.Size(166, 29);
-            this.textBoxDebito.TabIndex = 50;
+            this.textBoxDebito.TabIndex = 2;
             this.textBoxDebito.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label3
@@ -159,7 +159,7 @@
             this.textBoxPix.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxPix.Name = "textBoxPix";
             this.textBoxPix.Size = new System.Drawing.Size(166, 29);
-            this.textBoxPix.TabIndex = 52;
+            this.textBoxPix.TabIndex = 3;
             this.textBoxPix.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label4
@@ -214,7 +214,7 @@
             this.buttonFinalizar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonFinalizar.Name = "buttonFinalizar";
             this.buttonFinalizar.Size = new System.Drawing.Size(309, 46);
-            this.buttonFinalizar.TabIndex = 58;
+            this.buttonFinalizar.TabIndex = 6;
             this.buttonFinalizar.Text = "Finalizar Venda";
             this.buttonFinalizar.UseVisualStyleBackColor = true;
             this.buttonFinalizar.Click += new System.EventHandler(this.buttonFinalizar_Click);
@@ -262,7 +262,7 @@
             this.textBoxObservacoes.Multiline = true;
             this.textBoxObservacoes.Name = "textBoxObservacoes";
             this.textBoxObservacoes.Size = new System.Drawing.Size(247, 216);
-            this.textBoxObservacoes.TabIndex = 62;
+            this.textBoxObservacoes.TabIndex = 5;
             // 
             // label10
             // 
@@ -282,7 +282,7 @@
             this.textBoxCredito.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxCredito.Name = "textBoxCredito";
             this.textBoxCredito.Size = new System.Drawing.Size(166, 29);
-            this.textBoxCredito.TabIndex = 63;
+            this.textBoxCredito.TabIndex = 1;
             this.textBoxCredito.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label11
@@ -303,7 +303,7 @@
             this.textBoxDesconto.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxDesconto.Name = "textBoxDesconto";
             this.textBoxDesconto.Size = new System.Drawing.Size(166, 29);
-            this.textBoxDesconto.TabIndex = 71;
+            this.textBoxDesconto.TabIndex = 4;
             this.textBoxDesconto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBoxDesconto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxDesconto_KeyPress);
             // 
@@ -328,7 +328,7 @@
             this.buttonCancelar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(309, 46);
-            this.buttonCancelar.TabIndex = 75;
+            this.buttonCancelar.TabIndex = 7;
             this.buttonCancelar.Text = "Cancelar Pagamento";
             this.buttonCancelar.UseVisualStyleBackColor = true;
             this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);

@@ -106,8 +106,8 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                 string sql = @"SELECT 
                                 Id_Compra AS 'ID', 
                                 Total_Compra AS 'Total da Compra', 
-                                Observacoes AS 'Observações',
-                                Data_Compra AS 'Data da Compra'
+                                Data_Compra AS 'Data da Compra', 
+                                Observacoes AS 'Observações' 
                                 FROM tb_compras";
 
                 //Organizar o comando SQL e executar
@@ -130,6 +130,46 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             finally
             {
                 connection.Close(); // Sempre fechar a conexão
+            }
+        }
+        #endregion
+
+        #region ListarComprasData
+        public DataTable ListarComprasData(DateTime inicio, DateTime fim)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+
+                string sql = @"SELECT 
+                                Id_Compra AS 'ID', 
+                                Total_Compra AS 'Total da Compra', 
+                                Data_Compra AS 'Data da Compra', 
+                                Observacoes AS 'Observações' 
+                                FROM tb_compras
+                                WHERE Data_Compra BETWEEN @inicio AND @fim";
+                //adicioar o PAGAMENTO fazendo JOIN com a tabela de pagamentos
+                MySqlCommand executacmd = new MySqlCommand(sql, connection);
+
+                executacmd.Parameters.AddWithValue("@inicio", inicio);
+                executacmd.Parameters.AddWithValue("@fim", fim);
+
+                connection.Open();
+                executacmd.ExecuteNonQuery();
+
+                MySqlDataAdapter da = new MySqlDataAdapter(executacmd);
+                da.Fill(dt);
+
+                return dt;
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Erro ao listar as Compras: " + error.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
         #endregion

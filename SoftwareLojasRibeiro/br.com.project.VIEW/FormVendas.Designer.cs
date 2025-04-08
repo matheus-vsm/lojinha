@@ -167,12 +167,13 @@
             // 
             // maskedTextBoxData
             // 
-            this.maskedTextBoxData.Location = new System.Drawing.Point(155, 32);
+            this.maskedTextBoxData.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskedTextBoxData.Location = new System.Drawing.Point(156, 26);
             this.maskedTextBoxData.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.maskedTextBoxData.Mask = "00/00/0000 90:00";
             this.maskedTextBoxData.Name = "maskedTextBoxData";
             this.maskedTextBoxData.ReadOnly = true;
-            this.maskedTextBoxData.Size = new System.Drawing.Size(151, 23);
+            this.maskedTextBoxData.Size = new System.Drawing.Size(177, 29);
             this.maskedTextBoxData.TabIndex = 3;
             this.maskedTextBoxData.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.maskedTextBoxData.ValidatingType = typeof(System.DateTime);
@@ -181,40 +182,42 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(99, 32);
+            this.label5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(94, 29);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(51, 18);
+            this.label5.Size = new System.Drawing.Size(59, 22);
             this.label5.TabIndex = 11;
             this.label5.Text = "Data:";
             // 
             // textBoxNome
             // 
-            this.textBoxNome.Location = new System.Drawing.Point(69, 115);
+            this.textBoxNome.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxNome.Location = new System.Drawing.Point(80, 112);
             this.textBoxNome.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxNome.Name = "textBoxNome";
-            this.textBoxNome.Size = new System.Drawing.Size(328, 23);
-            this.textBoxNome.TabIndex = 2;
+            this.textBoxNome.Size = new System.Drawing.Size(328, 29);
+            this.textBoxNome.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(4, 115);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 18);
+            this.label2.Size = new System.Drawing.Size(69, 22);
             this.label2.TabIndex = 9;
             this.label2.Text = "Nome:";
             // 
             // maskedTextBoxCpf
             // 
-            this.maskedTextBoxCpf.Location = new System.Drawing.Point(156, 73);
+            this.maskedTextBoxCpf.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskedTextBoxCpf.Location = new System.Drawing.Point(156, 69);
             this.maskedTextBoxCpf.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.maskedTextBoxCpf.Mask = "###,###,###-##";
             this.maskedTextBoxCpf.Name = "maskedTextBoxCpf";
-            this.maskedTextBoxCpf.Size = new System.Drawing.Size(151, 23);
+            this.maskedTextBoxCpf.Size = new System.Drawing.Size(177, 29);
             this.maskedTextBoxCpf.TabIndex = 0;
             this.maskedTextBoxCpf.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBoxCpf_MaskInputRejected);
             this.maskedTextBoxCpf.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.maskedTextBoxCpf_KeyPress);
@@ -222,11 +225,11 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(104, 75);
+            this.label6.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(99, 72);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(46, 18);
+            this.label6.Size = new System.Drawing.Size(54, 22);
             this.label6.TabIndex = 9;
             this.label6.Text = "CPF:";
             // 
@@ -262,7 +265,7 @@
             this.buttonLimparId.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonLimparId.Name = "buttonLimparId";
             this.buttonLimparId.Size = new System.Drawing.Size(161, 46);
-            this.buttonLimparId.TabIndex = 4;
+            this.buttonLimparId.TabIndex = 6;
             this.buttonLimparId.Text = "Limpar Produto";
             this.buttonLimparId.UseVisualStyleBackColor = true;
             this.buttonLimparId.Click += new System.EventHandler(this.buttonLimparId_Click);
@@ -296,7 +299,7 @@
             this.buttonExibirProds.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonExibirProds.Name = "buttonExibirProds";
             this.buttonExibirProds.Size = new System.Drawing.Size(167, 30);
-            this.buttonExibirProds.TabIndex = 52;
+            this.buttonExibirProds.TabIndex = 1;
             this.buttonExibirProds.Text = "Exibir Produtos";
             this.buttonExibirProds.UseVisualStyleBackColor = true;
             this.buttonExibirProds.Click += new System.EventHandler(this.buttonExibirProds_Click);
@@ -308,7 +311,7 @@
             this.buttonRemover.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonRemover.Name = "buttonRemover";
             this.buttonRemover.Size = new System.Drawing.Size(161, 46);
-            this.buttonRemover.TabIndex = 3;
+            this.buttonRemover.TabIndex = 5;
             this.buttonRemover.Text = "Remover Item";
             this.buttonRemover.UseVisualStyleBackColor = true;
             this.buttonRemover.Click += new System.EventHandler(this.buttonRemover_Click);
@@ -320,7 +323,7 @@
             this.buttonAdicionar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonAdicionar.Name = "buttonAdicionar";
             this.buttonAdicionar.Size = new System.Drawing.Size(161, 46);
-            this.buttonAdicionar.TabIndex = 2;
+            this.buttonAdicionar.TabIndex = 4;
             this.buttonAdicionar.Text = "Adicionar Item";
             this.buttonAdicionar.UseVisualStyleBackColor = true;
             this.buttonAdicionar.Click += new System.EventHandler(this.buttonAdicionar_Click);
@@ -343,7 +346,7 @@
             this.textBoxQuantidade.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxQuantidade.Name = "textBoxQuantidade";
             this.textBoxQuantidade.Size = new System.Drawing.Size(131, 29);
-            this.textBoxQuantidade.TabIndex = 1;
+            this.textBoxQuantidade.TabIndex = 3;
             this.textBoxQuantidade.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBoxID
@@ -397,7 +400,7 @@
             this.textBoxPreco.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxPreco.Name = "textBoxPreco";
             this.textBoxPreco.Size = new System.Drawing.Size(131, 29);
-            this.textBoxPreco.TabIndex = 6;
+            this.textBoxPreco.TabIndex = 2;
             // 
             // label8
             // 
@@ -520,7 +523,7 @@
             this.buttonLimparCampos.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonLimparCampos.Name = "buttonLimparCampos";
             this.buttonLimparCampos.Size = new System.Drawing.Size(228, 46);
-            this.buttonLimparCampos.TabIndex = 0;
+            this.buttonLimparCampos.TabIndex = 10;
             this.buttonLimparCampos.Text = "Limpar Campos";
             this.buttonLimparCampos.UseVisualStyleBackColor = true;
             this.buttonLimparCampos.Click += new System.EventHandler(this.buttonLimparCampos_Click);

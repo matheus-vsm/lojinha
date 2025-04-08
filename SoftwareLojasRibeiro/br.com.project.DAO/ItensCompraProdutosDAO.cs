@@ -61,8 +61,8 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
         }
         #endregion
 
-        #region ListarItensVenda
-        public DataTable ListarItensVenda(string idvenda)
+        #region ListarItensCompra
+        public DataTable ListarItensCompra(string idvenda)
         {
             try
             {
@@ -77,14 +77,16 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                                 ic.Cor,
                                 ic.Tamanho,
                                 ic.Descricao AS 'Descrição', 
+                                cprod.Nome AS 'Categoria Produto',
+                                cpub.Nome AS 'Categoria Publico',
                                 ic.Qtd AS 'Quantidade', 
-                                ic.Categoria_Prod_Id AS 'ID Categoria Produto',
-                                ic.Categoria_Pub_Id AS 'ID Categoria Publico',
                                 ic.Preco_Custo AS 'Preço de Custo', 
                                 ic.Subtotal AS 'SubTotal' 
                             FROM tb_itenscompras AS ic 
                             JOIN tb_compras AS c ON (ic.Compra_Id = c.Id_Compra) 
                             JOIN tb_fornecedores AS f ON (ic.Fornecedor_Id = f.Id_Fornecedor) 
+                            JOIN tb_categoria_produto AS cprod ON (ic.Categoria_Prod_Id = cprod.Id_Categoria_Prod)
+                            JOIN tb_categoria_publico AS cpub ON (ic.Categoria_Publ_Id = cpub.Id_Categoria_Pub)
                             WHERE ic.Compra_Id = @id";
 
                 MySqlCommand executacmd = new MySqlCommand(sql, connection);
@@ -109,6 +111,5 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             }
         }
         #endregion
-
     }
 }

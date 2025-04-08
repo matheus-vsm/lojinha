@@ -46,6 +46,11 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             textBoxPix.Text = "0";
             textBoxDesconto.Text = "0";
             dataGridViewProdutosCarrinhoPagamento.DataSource = carrin;
+
+            dataGridViewProdutosCarrinhoPagamento.DefaultCellStyle.Font = new Font("Arial Rounded MT", 16);
+            dataGridViewProdutosCarrinhoPagamento.ColumnHeadersDefaultCellStyle.Font = new Font("Arial Rounded MT Bold", 18, FontStyle.Bold);
+            dataGridViewProdutosCarrinhoPagamento.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridViewProdutosCarrinhoPagamento.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
         }
 
         private void buttonFinalizar_Click(object sender, EventArgs e)

@@ -57,6 +57,13 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             VendaDAO vdao = new VendaDAO();
             dataGridViewHistorico.DataSource = vdao.ListarVendas(iniciozada, fimzada);
             dataGridViewHistorico.DefaultCellStyle.ForeColor = Color.Black;
+
+            dataGridViewProdutosCarrinho.DefaultCellStyle.Font = new Font("Arial Rounded MT", 16);
+            dataGridViewProdutosCarrinho.ColumnHeadersDefaultCellStyle.Font = new Font("Arial Rounded MT Bold", 18, FontStyle.Bold);
+            dataGridViewProdutosCarrinho.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridViewProdutosCarrinho.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+
+            maskedTextBoxCpf.Focus();
         }
 
 
