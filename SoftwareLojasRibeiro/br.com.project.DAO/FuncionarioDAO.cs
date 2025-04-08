@@ -283,5 +283,52 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             }
         }
         #endregion
+
+        #region Efetuas Login
+
+        public bool EfetuarLogin(string usuario, string senha)
+        {
+            try
+            {
+                // Definir comando SQL - SELECT
+                string sql = @"Select * FROM tb_funcionarios 
+                                    WHERE Login = @login AND Senha = @senha;";
+
+                //Organizar o comando SQL
+                MySqlCommand executacmd = new MySqlCommand(sql, connection);
+                executacmd.Parameters.AddWithValue("@login", usuario);
+                executacmd.Parameters.AddWithValue("@senha", senha);
+
+                //Abrir conexão e executar o comando SQL
+                connection.Open();
+
+                MySqlDataReader reader = executacmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    {
+                        // Se o login for bem-sucedido.
+                        MessageBox.Show("Login realizado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return true;
+
+                    }
+                }
+
+                else
+                {
+                    MessageBox.Show("Login ou senha inválidos!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
+
+            catch (Exception erro)
+            {
+                MessageBox.Show("Erro ao efetuar login:" + erro);
+                return false;
+            }
+        }
+        
+
+        #endregion
     }
 }

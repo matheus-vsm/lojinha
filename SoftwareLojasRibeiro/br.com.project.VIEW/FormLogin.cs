@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SoftwareLojasRibeiro.br.com.project.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -29,9 +30,22 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
         private void buttonEntrar_Click(object sender, EventArgs e)
         {
-            FormMenu tela = new FormMenu();
-            tela.Show();
-            this.Hide();
+            //Botão entrar
+            string usuario = textBoxUsuario.Text;
+            string senha = textBoxSenha.Text;
+
+            FuncionarioDAO dAO = new FuncionarioDAO();
+
+            dAO.EfetuarLogin(usuario, senha);
+
+            if (dAO.EfetuarLogin(usuario, senha) == true)
+            {
+                FormMenu menu = new FormMenu();
+                menu.Show();
+
+                this.Hide();
+
+            }
         }
     }
 }
