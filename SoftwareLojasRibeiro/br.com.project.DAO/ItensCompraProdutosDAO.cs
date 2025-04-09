@@ -21,7 +21,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
         }
 
         #region CadastrarItensCompra
-        public void CadastrarItensCompra(ItensCompraProdutos item)
+        public bool CadastrarItensCompra(ItensCompraProdutos item)
         {
             try
             {
@@ -47,7 +47,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                 executacmd.Parameters.AddWithValue("@sub", item.Subtotal);
 
                 connection.Open();
-                executacmd.ExecuteNonQuery();
+                return executacmd.ExecuteNonQuery() > 0;
             }
             catch (Exception error)
             {

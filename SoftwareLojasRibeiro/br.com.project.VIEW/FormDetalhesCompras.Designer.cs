@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDetalhesCompras));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.buttonAdicionarNova = new System.Windows.Forms.Button();
+            this.textBoxIdCompra = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.textBoxObs = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxTotal = new System.Windows.Forms.TextBox();
@@ -41,9 +43,6 @@
             this.maskedTextBoxDataCompra = new System.Windows.Forms.MaskedTextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.dataGridViewDetalhes = new System.Windows.Forms.DataGridView();
-            this.textBoxIdCompra = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.buttonCadastrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -88,7 +87,7 @@
             // groupBox4
             // 
             this.groupBox4.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.groupBox4.Controls.Add(this.buttonCadastrar);
+            this.groupBox4.Controls.Add(this.buttonAdicionarNova);
             this.groupBox4.Controls.Add(this.textBoxIdCompra);
             this.groupBox4.Controls.Add(this.label2);
             this.groupBox4.Controls.Add(this.textBoxObs);
@@ -105,6 +104,41 @@
             this.groupBox4.TabIndex = 19;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Consulta";
+            // 
+            // buttonAdicionarNova
+            // 
+            this.buttonAdicionarNova.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAdicionarNova.Location = new System.Drawing.Point(200, 94);
+            this.buttonAdicionarNova.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.buttonAdicionarNova.Name = "buttonAdicionarNova";
+            this.buttonAdicionarNova.Size = new System.Drawing.Size(194, 69);
+            this.buttonAdicionarNova.TabIndex = 21;
+            this.buttonAdicionarNova.Text = "Add Nova Compra desse Produto";
+            this.buttonAdicionarNova.UseVisualStyleBackColor = true;
+            this.buttonAdicionarNova.Click += new System.EventHandler(this.buttonAdicionarNova_Click);
+            // 
+            // textBoxIdCompra
+            // 
+            this.textBoxIdCompra.Font = new System.Drawing.Font("Arial Rounded MT Bold", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxIdCompra.Location = new System.Drawing.Point(39, 121);
+            this.textBoxIdCompra.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.textBoxIdCompra.Name = "textBoxIdCompra";
+            this.textBoxIdCompra.ReadOnly = true;
+            this.textBoxIdCompra.Size = new System.Drawing.Size(118, 41);
+            this.textBoxIdCompra.TabIndex = 21;
+            this.textBoxIdCompra.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxIdCompra.TextChanged += new System.EventHandler(this.textBoxIdCompra_TextChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(29, 88);
+            this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(145, 28);
+            this.label2.TabIndex = 22;
+            this.label2.Text = "ID Compra:";
             // 
             // textBoxObs
             // 
@@ -181,14 +215,6 @@
             this.dataGridViewDetalhes.AllowUserToDeleteRows = false;
             this.dataGridViewDetalhes.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridViewDetalhes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewDetalhes.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewDetalhes.Location = new System.Drawing.Point(0, 334);
             this.dataGridViewDetalhes.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.dataGridViewDetalhes.Name = "dataGridViewDetalhes";
@@ -197,40 +223,6 @@
             this.dataGridViewDetalhes.RowTemplate.Height = 28;
             this.dataGridViewDetalhes.Size = new System.Drawing.Size(1111, 316);
             this.dataGridViewDetalhes.TabIndex = 20;
-            // 
-            // textBoxIdCompra
-            // 
-            this.textBoxIdCompra.Font = new System.Drawing.Font("Arial Rounded MT Bold", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxIdCompra.Location = new System.Drawing.Point(39, 121);
-            this.textBoxIdCompra.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.textBoxIdCompra.Name = "textBoxIdCompra";
-            this.textBoxIdCompra.ReadOnly = true;
-            this.textBoxIdCompra.Size = new System.Drawing.Size(118, 41);
-            this.textBoxIdCompra.TabIndex = 21;
-            this.textBoxIdCompra.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxIdCompra.TextChanged += new System.EventHandler(this.textBoxIdCompra_TextChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(29, 88);
-            this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(145, 28);
-            this.label2.TabIndex = 22;
-            this.label2.Text = "ID Compra:";
-            // 
-            // buttonCadastrar
-            // 
-            this.buttonCadastrar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCadastrar.Location = new System.Drawing.Point(200, 94);
-            this.buttonCadastrar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.buttonCadastrar.Name = "buttonCadastrar";
-            this.buttonCadastrar.Size = new System.Drawing.Size(194, 69);
-            this.buttonCadastrar.TabIndex = 21;
-            this.buttonCadastrar.Text = "Add Nova Compra desse Produto";
-            this.buttonCadastrar.UseVisualStyleBackColor = true;
             // 
             // FormDetalhesCompras
             // 
@@ -270,9 +262,9 @@
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.MaskedTextBox maskedTextBoxDataCompra;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DataGridView dataGridViewDetalhes;
         public System.Windows.Forms.TextBox textBoxIdCompra;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button buttonCadastrar;
+        private System.Windows.Forms.Button buttonAdicionarNova;
+        public System.Windows.Forms.DataGridView dataGridViewDetalhes;
     }
 }

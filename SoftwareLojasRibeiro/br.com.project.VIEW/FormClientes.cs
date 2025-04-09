@@ -186,21 +186,7 @@ namespace SoftwareLojasRibeiro//.br.com.project.VIEW se n colocar isso aqui vai 
             Pesquisar();
         }
 
-        private void dataGridViewClientes_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //Garantir que a linha esteja realmente selecionada antes de tentar acessa-la
-            /*if (dataGridViewClientes.CurrentRow != null)
-            {
-                //Pegar os dados da linha selecionada
-                textBoxNome.Text = dataGridViewClientes.CurrentRow.Cells[1].Value.ToString() ?? "";
-                maskedTextBoxRg.Text = dataGridViewClientes.CurrentRow.Cells[2].Value.ToString() ?? "";
-                maskedTextBoxCpf.Text = dataGridViewClientes.CurrentRow.Cells[3].Value.ToString() ?? "";
-                maskedTextBoxNumero.Text = dataGridViewClientes.CurrentRow.Cells[5].Value.ToString() ?? "";
-                textBoxEmail.Text = dataGridViewClientes.CurrentRow.Cells[4].Value.ToString() ?? "";
-                maskedTextBoxData.Text = dataGridViewClientes.CurrentRow.Cells[6].Value.ToString() ?? "";
-                textBoxEndereco.Text = dataGridViewClientes.CurrentRow.Cells[7].Value.ToString() ?? "";
-            }*/
-        }
+        private void dataGridViewClientes_CellClick(object sender, DataGridViewCellEventArgs e) { }
 
         private void buttonLimpar_Click(object sender, EventArgs e)
         {

@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
@@ -329,7 +331,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                 connection.Open();
                 MySqlDataReader rs = executacmd.ExecuteReader();
 
-                if(rs.Read())
+                if (rs.Read())
                 {
                     return rs.GetInt32("Qtd_Estoque");
                 }
@@ -347,6 +349,92 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             finally
             {
                 connection.Close();
+            }
+        }
+        #endregion
+
+        #region CadastrarProdutoNaCompra
+        public bool CadastrarProdutoNaCompra(Produto prod)
+        {
+            try
+            {
+                connection.Open();
+
+                string sql = @"SELECT Id_Produto, Qtd_Estoque 
+                               FROM tb_produtos 
+                               WHERE Nome_Produto = @nome AND 
+                                     Marca = @marca AND 
+                                     Cor = @cor AND 
+                                     Tamanho = @tamanho";
+
+                MySqlCommand executacmd = new MySqlCommand(sql, connection);
+                executacmd.Parameters.AddWithValue("@nome", prod.Nome);
+                executacmd.Parameters.AddWithValue("@marca", prod.Marca);
+                executacmd.Parameters.AddWithValue("@cor", prod.Cor);
+                executacmd.Parameters.AddWithValue("@tamanho", prod.Tamanho);
+
+                int idProduto = 0;
+                int quantidadeAtual = 0;
+
+                using (var reader = executacmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        idProduto = reader.GetInt32("Id_Produto");
+                        quantidadeAtual = reader.GetInt32("Qtd_Estoque");
+                    }
+                }
+
+                // Se encontrou o produto, atualiza o estoque
+                if (idProduto > 0)
+                {
+                    int novaQuantidade = quantidadeAtual + prod.Estoque;
+
+                    string updateSql = @"UPDATE tb_produtos 
+                                         SET Qtd_Estoque = @novoestoque 
+                                         WHERE Id_Produto = @idProduto";
+
+                    MySqlCommand updateCmd = new MySqlCommand(updateSql, connection);
+                    updateCmd.Parameters.AddWithValue("@novoestoque", novaQuantidade);
+                    updateCmd.Parameters.AddWithValue("@idProduto", idProduto);
+
+                    int linhasAfetadas = updateCmd.ExecuteNonQuery();
+
+                    if (linhasAfetadas > 0)
+                    {
+                        MessageBox.Show($"Produto '{prod.Nome}' Atualizado com Sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro ao atualizar Produto!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                }
+                else
+                {
+                    // Produto não encontrado, cadastrar novo
+                    connection.Close(); // Fecha para reabrir dentro de CadastrarProduto
+                    bool verificacao = CadastrarProduto(prod);
+
+                    if (verificacao)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show($"Ocorreu um erro ao Cadastrar o Produto: {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            finally
+            {
+                connection.Close(); // Sempre fechar a conexão
             }
         }
         #endregion

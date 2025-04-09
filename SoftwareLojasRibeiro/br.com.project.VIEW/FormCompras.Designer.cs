@@ -49,7 +49,7 @@
             this.comboBoxCategPub = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxQuantidade = new System.Windows.Forms.TextBox();
-            this.textBoxDescrição = new System.Windows.Forms.TextBox();
+            this.textBoxDescricao = new System.Windows.Forms.TextBox();
             this.textBoxTamanho = new System.Windows.Forms.TextBox();
             this.textBoxMarca = new System.Windows.Forms.TextBox();
             this.textBoxID = new System.Windows.Forms.TextBox();
@@ -66,7 +66,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabPageConsultar = new System.Windows.Forms.TabPage();
             this.buttonPesquisar = new System.Windows.Forms.Button();
             this.dateTimePickerDataFim = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerDataInicio = new System.Windows.Forms.DateTimePicker();
@@ -79,7 +79,7 @@
             this.tabControlCompras.SuspendLayout();
             this.tabPageCadastrar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewComprasCarrinho)).BeginInit();
-            this.tabPage3.SuspendLayout();
+            this.tabPageConsultar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCompras)).BeginInit();
             this.SuspendLayout();
             // 
@@ -134,7 +134,7 @@
             // tabControlCompras
             // 
             this.tabControlCompras.Controls.Add(this.tabPageCadastrar);
-            this.tabControlCompras.Controls.Add(this.tabPage3);
+            this.tabControlCompras.Controls.Add(this.tabPageConsultar);
             this.tabControlCompras.Location = new System.Drawing.Point(0, 149);
             this.tabControlCompras.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabControlCompras.Name = "tabControlCompras";
@@ -158,7 +158,7 @@
             this.tabPageCadastrar.Controls.Add(this.comboBoxCategPub);
             this.tabPageCadastrar.Controls.Add(this.label3);
             this.tabPageCadastrar.Controls.Add(this.textBoxQuantidade);
-            this.tabPageCadastrar.Controls.Add(this.textBoxDescrição);
+            this.tabPageCadastrar.Controls.Add(this.textBoxDescricao);
             this.tabPageCadastrar.Controls.Add(this.textBoxTamanho);
             this.tabPageCadastrar.Controls.Add(this.textBoxMarca);
             this.tabPageCadastrar.Controls.Add(this.textBoxID);
@@ -336,14 +336,14 @@
             this.textBoxQuantidade.Size = new System.Drawing.Size(328, 35);
             this.textBoxQuantidade.TabIndex = 9;
             // 
-            // textBoxDescrição
+            // textBoxDescricao
             // 
-            this.textBoxDescrição.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDescrição.Location = new System.Drawing.Point(903, 155);
-            this.textBoxDescrição.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textBoxDescrição.Name = "textBoxDescrição";
-            this.textBoxDescrição.Size = new System.Drawing.Size(328, 35);
-            this.textBoxDescrição.TabIndex = 7;
+            this.textBoxDescricao.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxDescricao.Location = new System.Drawing.Point(903, 155);
+            this.textBoxDescricao.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.textBoxDescricao.Name = "textBoxDescricao";
+            this.textBoxDescricao.Size = new System.Drawing.Size(328, 35);
+            this.textBoxDescricao.TabIndex = 7;
             // 
             // textBoxTamanho
             // 
@@ -513,23 +513,23 @@
             this.label10.TabIndex = 41;
             this.label10.Text = "Quantidade:";
             // 
-            // tabPage3
+            // tabPageConsultar
             // 
-            this.tabPage3.Controls.Add(this.buttonPesquisar);
-            this.tabPage3.Controls.Add(this.dateTimePickerDataFim);
-            this.tabPage3.Controls.Add(this.dateTimePickerDataInicio);
-            this.tabPage3.Controls.Add(this.label11);
-            this.tabPage3.Controls.Add(this.label15);
-            this.tabPage3.Controls.Add(this.buttonExibirDetalhes);
-            this.tabPage3.Controls.Add(this.dataGridViewCompras);
-            this.tabPage3.Location = new System.Drawing.Point(4, 24);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tabPage3.Size = new System.Drawing.Size(1366, 572);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Consultar Compras";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.tabPageConsultar.Controls.Add(this.buttonPesquisar);
+            this.tabPageConsultar.Controls.Add(this.dateTimePickerDataFim);
+            this.tabPageConsultar.Controls.Add(this.dateTimePickerDataInicio);
+            this.tabPageConsultar.Controls.Add(this.label11);
+            this.tabPageConsultar.Controls.Add(this.label15);
+            this.tabPageConsultar.Controls.Add(this.buttonExibirDetalhes);
+            this.tabPageConsultar.Controls.Add(this.dataGridViewCompras);
+            this.tabPageConsultar.Location = new System.Drawing.Point(4, 24);
+            this.tabPageConsultar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tabPageConsultar.Name = "tabPageConsultar";
+            this.tabPageConsultar.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tabPageConsultar.Size = new System.Drawing.Size(1366, 572);
+            this.tabPageConsultar.TabIndex = 2;
+            this.tabPageConsultar.Text = "Consultar Compras";
+            this.tabPageConsultar.UseVisualStyleBackColor = true;
             // 
             // buttonPesquisar
             // 
@@ -634,8 +634,8 @@
             this.tabPageCadastrar.ResumeLayout(false);
             this.tabPageCadastrar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewComprasCarrinho)).EndInit();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
+            this.tabPageConsultar.ResumeLayout(false);
+            this.tabPageConsultar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCompras)).EndInit();
             this.ResumeLayout(false);
 
@@ -647,20 +647,8 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button buttonMenu;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TabControl tabControlCompras;
-        private System.Windows.Forms.TabPage tabPageCadastrar;
-        private System.Windows.Forms.ComboBox comboBoxCategProd;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBoxCategPub;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBoxQuantidade;
-        private System.Windows.Forms.TextBox textBoxDescrição;
-        private System.Windows.Forms.TextBox textBoxTamanho;
-        private System.Windows.Forms.TextBox textBoxMarca;
-        private System.Windows.Forms.TextBox textBoxID;
-        private System.Windows.Forms.TextBox textBoxPrecoVenda;
-        private System.Windows.Forms.TextBox textBoxCor;
-        private System.Windows.Forms.TextBox textBoxNomeProd;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
@@ -671,22 +659,34 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.DataGridView dataGridViewCompras;
-        private System.Windows.Forms.ComboBox comboBoxFornecedor;
-        private System.Windows.Forms.TextBox textBoxPrecoCusto;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         public System.Windows.Forms.DataGridView dataGridViewComprasCarrinho;
-        private System.Windows.Forms.Button buttonRemover;
-        private System.Windows.Forms.Button buttonAdicionar;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBoxTotalCompra;
         private System.Windows.Forms.Button buttonExibirDetalhes;
         private System.Windows.Forms.DateTimePicker dateTimePickerDataFim;
         private System.Windows.Forms.DateTimePicker dateTimePickerDataInicio;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button buttonPesquisar;
+        public System.Windows.Forms.ComboBox comboBoxCategProd;
+        public System.Windows.Forms.ComboBox comboBoxCategPub;
+        public System.Windows.Forms.TextBox textBoxQuantidade;
+        public System.Windows.Forms.TextBox textBoxDescricao;
+        public System.Windows.Forms.TextBox textBoxTamanho;
+        public System.Windows.Forms.TextBox textBoxMarca;
+        public System.Windows.Forms.TextBox textBoxPrecoVenda;
+        public System.Windows.Forms.TextBox textBoxCor;
+        public System.Windows.Forms.TextBox textBoxNomeProd;
+        public System.Windows.Forms.ComboBox comboBoxFornecedor;
+        public System.Windows.Forms.TextBox textBoxPrecoCusto;
+        public System.Windows.Forms.Button buttonRemover;
+        public System.Windows.Forms.Button buttonAdicionar;
+        public System.Windows.Forms.TabControl tabControlCompras;
+        public System.Windows.Forms.TabPage tabPageCadastrar;
+        public System.Windows.Forms.TabPage tabPageConsultar;
+        public System.Windows.Forms.TextBox textBoxID;
+        public System.Windows.Forms.TextBox textBoxTotalCompra;
     }
 }

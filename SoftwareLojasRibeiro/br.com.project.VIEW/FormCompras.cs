@@ -94,6 +94,23 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             }
         }
 
+        public void AddNovaCompra(string forn, string nome, string marca, string cor, string tam, string desc,
+            string catprod, string catpub, string qntd, string precusto, string tot)
+        {
+                comboBoxFornecedor.Text = forn;
+                textBoxNomeProd.Text = nome;
+                textBoxMarca.Text = marca;
+                textBoxCor.Text = cor;
+                textBoxTamanho.Text = tam;
+                textBoxDescricao.Text = desc;
+                comboBoxCategProd.Text = catprod;
+                comboBoxCategPub.Text = catpub;
+                textBoxQuantidade.Text = qntd;
+                textBoxPrecoCusto.Text = precusto;
+                textBoxTotalCompra.Text = tot;
+
+                tabControlCompras.SelectedTab = tabPageCadastrar;
+        }
 
         public void SelecionarLinhaTabelaCompras()
         {
@@ -118,6 +135,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             }
         }
 
+
         private void buttonMenu_Click(object sender, EventArgs e)
         {
             FormMenu telamenu = new FormMenu();
@@ -131,7 +149,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             
             carrinhoCompras.Rows.Add(comboBoxFornecedor.Text, textBoxNomeProd.Text, textBoxMarca.Text, 
                 textBoxCor.Text, textBoxTamanho.Text, comboBoxCategProd.Text, comboBoxCategPub.Text, 
-                textBoxDescrição.Text, textBoxQuantidade.Text, decimal.Parse(textBoxPrecoCusto.Text), 
+                textBoxDescricao.Text, textBoxQuantidade.Text, decimal.Parse(textBoxPrecoCusto.Text), 
                 subtotal, decimal.Parse(textBoxPrecoVenda.Text));
             
             totalcompra += subtotal;
@@ -141,7 +159,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             textBoxMarca.Clear();
             textBoxCor.Clear();
             textBoxTamanho.Clear();
-            textBoxDescrição.Clear();
+            textBoxDescricao.Clear();
             textBoxQuantidade.Clear();
             textBoxPrecoCusto.Clear();
             textBoxPrecoVenda.Clear();
@@ -210,6 +228,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             bool sucessoprod = false;
             CategoriaDAO catDAO = new CategoriaDAO();
             FornecedorDAO fornecedorDAO = new FornecedorDAO();
+
             foreach (DataRow linha in carrinhoCompras.Rows)
             {
                 int idprod = catDAO.RetornarIdCat("produto", linha["Categ Prod"].ToString());
@@ -254,21 +273,15 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
                 ProdutoDAO produtoDAO = new ProdutoDAO();
                 
-                produtoDAO.CadastrarProduto(prod);
-                sucessoprod = true;
+                sucessoprod = produtoDAO.CadastrarProdutoNaCompra(prod);
 
                 ItensCompraProdutosDAO icdao = new ItensCompraProdutosDAO();
-                icdao.CadastrarItensCompra(item);
-                sucessocompra = true;
-
-                compraProdutosDAO.ListarCompras(compra);
+                sucessocompra = icdao.CadastrarItensCompra(item);
             }
 
             if (sucessocompra && sucessoprod)
             {
                 new Helpers().LimparTelaVendas(this);
-                //buttonCadastrar.Text = "Cadastrar";
-                //tabPageCadastrar.Text = "Cadastrar";
                 CompraProdutosDAO compradao = new CompraProdutosDAO();
                 CompraProdutos compras = new CompraProdutos();
                 dataGridViewCompras.DataSource = compradao.ListarCompras(compras);
