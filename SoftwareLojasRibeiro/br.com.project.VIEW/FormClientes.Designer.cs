@@ -66,22 +66,30 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tabControlClientes = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPageConsultarDevedoresOn = new System.Windows.Forms.TabPage();
             this.textBoxPesquisaDevedor = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.buttonLimparDevedor = new System.Windows.Forms.Button();
+            this.buttonAtualizarDivida = new System.Windows.Forms.Button();
             this.dataGridViewClientesDevedores = new System.Windows.Forms.DataGridView();
             this.buttonDetalhesVenda = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
+            this.tabPageConsultarDevedoresOff = new System.Windows.Forms.TabPage();
+            this.textBoxPesquisaDevedorOff = new System.Windows.Forms.TextBox();
+            this.buttonLimparOff = new System.Windows.Forms.Button();
+            this.dataGridViewClientesDevedoresOff = new System.Windows.Forms.DataGridView();
+            this.buttonDetalhesOff = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPageConsultar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClientes)).BeginInit();
             this.tabPageCadastrar.SuspendLayout();
             this.tabControlClientes.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.tabPageConsultarDevedoresOn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClientesDevedores)).BeginInit();
+            this.tabPageConsultarDevedoresOff.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClientesDevedoresOff)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -478,7 +486,8 @@
             // 
             this.tabControlClientes.Controls.Add(this.tabPageCadastrar);
             this.tabControlClientes.Controls.Add(this.tabPageConsultar);
-            this.tabControlClientes.Controls.Add(this.tabPage1);
+            this.tabControlClientes.Controls.Add(this.tabPageConsultarDevedoresOn);
+            this.tabControlClientes.Controls.Add(this.tabPageConsultarDevedoresOff);
             this.tabControlClientes.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControlClientes.Location = new System.Drawing.Point(0, 151);
             this.tabControlClientes.Name = "tabControlClientes";
@@ -486,22 +495,22 @@
             this.tabControlClientes.Size = new System.Drawing.Size(1373, 598);
             this.tabControlClientes.TabIndex = 0;
             // 
-            // tabPage1
+            // tabPageConsultarDevedoresOn
             // 
-            this.tabPage1.Controls.Add(this.textBoxPesquisaDevedor);
-            this.tabPage1.Controls.Add(this.button5);
-            this.tabPage1.Controls.Add(this.button1);
-            this.tabPage1.Controls.Add(this.button3);
-            this.tabPage1.Controls.Add(this.dataGridViewClientesDevedores);
-            this.tabPage1.Controls.Add(this.buttonDetalhesVenda);
-            this.tabPage1.Controls.Add(this.label14);
-            this.tabPage1.Location = new System.Drawing.Point(4, 24);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1365, 570);
-            this.tabPage1.TabIndex = 3;
-            this.tabPage1.Text = "Consultar Devedores";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPageConsultarDevedoresOn.Controls.Add(this.textBoxPesquisaDevedor);
+            this.tabPageConsultarDevedoresOn.Controls.Add(this.button5);
+            this.tabPageConsultarDevedoresOn.Controls.Add(this.buttonLimparDevedor);
+            this.tabPageConsultarDevedoresOn.Controls.Add(this.buttonAtualizarDivida);
+            this.tabPageConsultarDevedoresOn.Controls.Add(this.dataGridViewClientesDevedores);
+            this.tabPageConsultarDevedoresOn.Controls.Add(this.buttonDetalhesVenda);
+            this.tabPageConsultarDevedoresOn.Controls.Add(this.label14);
+            this.tabPageConsultarDevedoresOn.Location = new System.Drawing.Point(4, 24);
+            this.tabPageConsultarDevedoresOn.Name = "tabPageConsultarDevedoresOn";
+            this.tabPageConsultarDevedoresOn.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageConsultarDevedoresOn.Size = new System.Drawing.Size(1365, 570);
+            this.tabPageConsultarDevedoresOn.TabIndex = 3;
+            this.tabPageConsultarDevedoresOn.Text = "Consultar Devedores";
+            this.tabPageConsultarDevedoresOn.UseVisualStyleBackColor = true;
             // 
             // textBoxPesquisaDevedor
             // 
@@ -510,6 +519,7 @@
             this.textBoxPesquisaDevedor.Name = "textBoxPesquisaDevedor";
             this.textBoxPesquisaDevedor.Size = new System.Drawing.Size(231, 29);
             this.textBoxPesquisaDevedor.TabIndex = 14;
+            this.textBoxPesquisaDevedor.TextChanged += new System.EventHandler(this.textBoxPesquisaDevedor_TextChanged);
             this.textBoxPesquisaDevedor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxPesquisaDevedor_KeyPress);
             // 
             // button5
@@ -522,24 +532,26 @@
             this.button5.Text = "Remover Dívida (erro)";
             this.button5.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // buttonLimparDevedor
             // 
-            this.button1.Location = new System.Drawing.Point(247, 58);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(72, 29);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Limpar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonLimparDevedor.Location = new System.Drawing.Point(247, 58);
+            this.buttonLimparDevedor.Name = "buttonLimparDevedor";
+            this.buttonLimparDevedor.Size = new System.Drawing.Size(72, 29);
+            this.buttonLimparDevedor.TabIndex = 11;
+            this.buttonLimparDevedor.Text = "Limpar";
+            this.buttonLimparDevedor.UseVisualStyleBackColor = true;
+            this.buttonLimparDevedor.Click += new System.EventHandler(this.buttonLimparDevedor_Click);
             // 
-            // button3
+            // buttonAtualizarDivida
             // 
-            this.button3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F);
-            this.button3.Location = new System.Drawing.Point(685, 23);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(255, 40);
-            this.button3.TabIndex = 8;
-            this.button3.Text = "Cobrir Dívida";
-            this.button3.UseVisualStyleBackColor = true;
+            this.buttonAtualizarDivida.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F);
+            this.buttonAtualizarDivida.Location = new System.Drawing.Point(685, 23);
+            this.buttonAtualizarDivida.Name = "buttonAtualizarDivida";
+            this.buttonAtualizarDivida.Size = new System.Drawing.Size(255, 40);
+            this.buttonAtualizarDivida.TabIndex = 8;
+            this.buttonAtualizarDivida.Text = "Atualizar Dívida";
+            this.buttonAtualizarDivida.UseVisualStyleBackColor = true;
+            this.buttonAtualizarDivida.Click += new System.EventHandler(this.buttonAtualizarDivida_Click);
             // 
             // dataGridViewClientesDevedores
             // 
@@ -577,6 +589,74 @@
             this.label14.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label14.Click += new System.EventHandler(this.label14_Click);
             // 
+            // tabPageConsultarDevedoresOff
+            // 
+            this.tabPageConsultarDevedoresOff.Controls.Add(this.textBoxPesquisaDevedorOff);
+            this.tabPageConsultarDevedoresOff.Controls.Add(this.buttonLimparOff);
+            this.tabPageConsultarDevedoresOff.Controls.Add(this.dataGridViewClientesDevedoresOff);
+            this.tabPageConsultarDevedoresOff.Controls.Add(this.buttonDetalhesOff);
+            this.tabPageConsultarDevedoresOff.Controls.Add(this.label15);
+            this.tabPageConsultarDevedoresOff.Location = new System.Drawing.Point(4, 24);
+            this.tabPageConsultarDevedoresOff.Name = "tabPageConsultarDevedoresOff";
+            this.tabPageConsultarDevedoresOff.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageConsultarDevedoresOff.Size = new System.Drawing.Size(1365, 570);
+            this.tabPageConsultarDevedoresOff.TabIndex = 4;
+            this.tabPageConsultarDevedoresOff.Text = "Consultar Devedores Quitados";
+            this.tabPageConsultarDevedoresOff.UseVisualStyleBackColor = true;
+            // 
+            // textBoxPesquisaDevedorOff
+            // 
+            this.textBoxPesquisaDevedorOff.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F);
+            this.textBoxPesquisaDevedorOff.Location = new System.Drawing.Point(170, 21);
+            this.textBoxPesquisaDevedorOff.Name = "textBoxPesquisaDevedorOff";
+            this.textBoxPesquisaDevedorOff.Size = new System.Drawing.Size(231, 29);
+            this.textBoxPesquisaDevedorOff.TabIndex = 21;
+            this.textBoxPesquisaDevedorOff.TextChanged += new System.EventHandler(this.textBoxPesquisaDevedorOff_TextChanged);
+            // 
+            // buttonLimparOff
+            // 
+            this.buttonLimparOff.Location = new System.Drawing.Point(247, 56);
+            this.buttonLimparOff.Name = "buttonLimparOff";
+            this.buttonLimparOff.Size = new System.Drawing.Size(72, 29);
+            this.buttonLimparOff.TabIndex = 18;
+            this.buttonLimparOff.Text = "Limpar";
+            this.buttonLimparOff.UseVisualStyleBackColor = true;
+            this.buttonLimparOff.Click += new System.EventHandler(this.buttonLimparOff_Click);
+            // 
+            // dataGridViewClientesDevedoresOff
+            // 
+            this.dataGridViewClientesDevedoresOff.AllowUserToAddRows = false;
+            this.dataGridViewClientesDevedoresOff.AllowUserToDeleteRows = false;
+            this.dataGridViewClientesDevedoresOff.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridViewClientesDevedoresOff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewClientesDevedoresOff.Location = new System.Drawing.Point(0, 91);
+            this.dataGridViewClientesDevedoresOff.Name = "dataGridViewClientesDevedoresOff";
+            this.dataGridViewClientesDevedoresOff.ReadOnly = true;
+            this.dataGridViewClientesDevedoresOff.Size = new System.Drawing.Size(1365, 477);
+            this.dataGridViewClientesDevedoresOff.TabIndex = 19;
+            // 
+            // buttonDetalhesOff
+            // 
+            this.buttonDetalhesOff.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F);
+            this.buttonDetalhesOff.Location = new System.Drawing.Point(469, 21);
+            this.buttonDetalhesOff.Name = "buttonDetalhesOff";
+            this.buttonDetalhesOff.Size = new System.Drawing.Size(160, 40);
+            this.buttonDetalhesOff.TabIndex = 15;
+            this.buttonDetalhesOff.Text = "Detalhes da Venda";
+            this.buttonDetalhesOff.UseVisualStyleBackColor = true;
+            this.buttonDetalhesOff.Click += new System.EventHandler(this.buttonDetalhesOff_Click);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
+            this.label15.Location = new System.Drawing.Point(14, 19);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(142, 36);
+            this.label15.TabIndex = 17;
+            this.label15.Text = "Nome do Cliente \r\nDevedor:";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // FormClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -599,9 +679,12 @@
             this.tabPageCadastrar.ResumeLayout(false);
             this.tabPageCadastrar.PerformLayout();
             this.tabControlClientes.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
+            this.tabPageConsultarDevedoresOn.ResumeLayout(false);
+            this.tabPageConsultarDevedoresOn.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClientesDevedores)).EndInit();
+            this.tabPageConsultarDevedoresOff.ResumeLayout(false);
+            this.tabPageConsultarDevedoresOff.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClientesDevedoresOff)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -643,9 +726,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TabControl tabControlClientes;
         private System.Windows.Forms.Button buttonMenu;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TabPage tabPageConsultarDevedoresOn;
+        private System.Windows.Forms.Button buttonLimparDevedor;
+        private System.Windows.Forms.Button buttonAtualizarDivida;
         private System.Windows.Forms.DataGridView dataGridViewClientesDevedores;
         private System.Windows.Forms.Button buttonDetalhesVenda;
         private System.Windows.Forms.Label label14;
@@ -653,6 +736,12 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.TextBox textBoxPesquisaDevedor;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TabPage tabPageConsultarDevedoresOff;
+        private System.Windows.Forms.TextBox textBoxPesquisaDevedorOff;
+        private System.Windows.Forms.Button buttonLimparOff;
+        private System.Windows.Forms.DataGridView dataGridViewClientesDevedoresOff;
+        private System.Windows.Forms.Button buttonDetalhesOff;
+        private System.Windows.Forms.Label label15;
     }
 }
 

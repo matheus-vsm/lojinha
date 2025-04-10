@@ -12,7 +12,10 @@ namespace SoftwareLojasRibeiro.br.com.project.MODEL
         public string Id_Cliente { get; set; }
         public string Id_Venda { get; set; }
         public double Divida { get; set; }
+        //public double Divida_Inicial { get; set; }
+        //public double Divida_Atual { get; set; }
         public DateTime Data_Inicio { get; set; }
-        public DateTime Data_Fim { get; set; }
+        public DateTime Data_Atualizacao { get; set; }
+        public DateTime? Data_Fim { get; set; }
     }
 }

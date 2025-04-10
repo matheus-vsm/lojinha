@@ -27,11 +27,14 @@ namespace SoftwareLojasRibeiro//.br.com.project.VIEW se n colocar isso aqui vai 
 
         private void FormLogin_Load(object sender, EventArgs e)
         {
-            ClienteDAO dao = new ClienteDAO();
+            ClienteDAO cliDAO = new ClienteDAO();
             Cliente cli = new Cliente { Nome = textBoxPesquisaNome.Text };
             Cliente cli2 = new Cliente { Nome = textBoxPesquisaDevedor.Text };
-            dataGridViewClientes.DataSource = dao.ListarClientes(cli);
-            dataGridViewClientesDevedores.DataSource = dao.ListarClientesDevedores(cli2);
+            Cliente cli3 = new Cliente { Nome = textBoxPesquisaDevedorOff.Text };
+            DevedoresDAO devDAO = new DevedoresDAO();
+            dataGridViewClientes.DataSource = cliDAO.ListarClientes(cli);
+            dataGridViewClientesDevedores.DataSource = devDAO.ListarDevedores(cli2);
+            dataGridViewClientesDevedoresOff.DataSource = devDAO.ListarDevedoresQuitados(cli3);
         }
         private void FormClientes_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -131,9 +134,15 @@ namespace SoftwareLojasRibeiro//.br.com.project.VIEW se n colocar isso aqui vai 
         }
         public void PesquisarDevedor()
         {
-            ClienteDAO dao = new ClienteDAO();
+            DevedoresDAO dao = new DevedoresDAO();
             Cliente cli = new Cliente { Nome = textBoxPesquisaDevedor.Text };
-            dataGridViewClientesDevedores.DataSource = dao.ListarClientesDevedores(cli);
+            dataGridViewClientesDevedores.DataSource = dao.ListarDevedores(cli);
+        }
+        public void PesquisarDevedorOff()
+        {
+            DevedoresDAO dao = new DevedoresDAO();
+            Cliente cli = new Cliente { Nome = textBoxPesquisaDevedorOff.Text };
+            dataGridViewClientesDevedores.DataSource = dao.ListarDevedoresQuitados(cli);
         }
 
 
@@ -220,6 +229,17 @@ namespace SoftwareLojasRibeiro//.br.com.project.VIEW se n colocar isso aqui vai 
             textBoxPesquisaNome.Clear();
             Pesquisar();
         }
+        private void buttonLimparDevedor_Click(object sender, EventArgs e)
+        {
+            textBoxPesquisaDevedor.Clear();
+            PesquisarDevedor();
+        }
+
+        private void buttonLimparOff_Click(object sender, EventArgs e)
+        {
+            textBoxPesquisaDevedorOff.Clear();
+            PesquisarDevedorOff();
+        }
 
         private void buttonBuscar_Click(object sender, EventArgs e)
         {
@@ -287,9 +307,7 @@ namespace SoftwareLojasRibeiro//.br.com.project.VIEW se n colocar isso aqui vai 
             SelecionarLinhaTabelaClientesDevedores();
         }
 
-        private void textBoxNomeDevedor_KeyPress(object sender, KeyPressEventArgs e)
-        {
-        }
+        private void textBoxNomeDevedor_KeyPress(object sender, KeyPressEventArgs e) { }
 
         private void textBoxPesquisaDevedor_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -299,5 +317,88 @@ namespace SoftwareLojasRibeiro//.br.com.project.VIEW se n colocar isso aqui vai 
         }
 
         private void textBoxID_TextChanged(object sender, EventArgs e) { }
+
+        private void buttonAtualizarDivida_Click(object sender, EventArgs e)
+        {
+            string idcliente = dataGridViewClientesDevedores.CurrentRow.Cells[1].Value.ToString() ?? "";
+            string idvenda = dataGridViewClientesDevedores.CurrentRow.Cells[0].Value.ToString() ?? "";
+            double dividaatual = Convert.ToDouble(dataGridViewClientesDevedores.CurrentRow.Cells[6].Value.ToString() ?? "");
+
+            string pagamento = Helpers.InputBox($"A dídida atual é R${dividaatual:F2}. Quanto deseja cobrir?", "Atualização de Dívida");
+            double novadivida = dividaatual - Convert.ToDouble(pagamento);
+            DateTime data = DateTime.Now;
+
+            Devedores devedor;
+            if (novadivida < 0)
+            {
+                MessageBox.Show("Valor inválido! A dívida não pode ser negativa.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (string.IsNullOrEmpty(pagamento))
+            {
+                MessageBox.Show("Insira um Valor!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (novadivida == 0)
+            {
+                devedor = new Devedores
+                {
+                    Id_Cliente = idcliente,
+                    Id_Venda = idvenda,
+                    Divida = novadivida,
+                    Data_Atualizacao = data,
+                    Data_Fim = data
+                };
+            }
+            else
+            {
+                devedor = new Devedores
+                {
+                    Id_Cliente = idcliente,
+                    Id_Venda = idvenda,
+                    Divida = novadivida,
+                    Data_Atualizacao = data,
+                    Data_Fim = null,
+                };
+            }
+
+            DevedoresDAO devedoresDAO = new DevedoresDAO();
+            bool sucesso = devedoresDAO.AtualizarDivida(devedor);
+            double retornodivida = devedoresDAO.RetornaDividaAtual(idcliente, idvenda);
+
+            if (sucesso)
+            {
+                if (retornodivida == 0.00)
+                {
+                    MessageBox.Show("Dívida quitada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show($"Dívida atualizada para R${retornodivida:F2}!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                Cliente cli = new Cliente { Nome = textBoxPesquisaDevedor.Text };
+                dataGridViewClientesDevedores.DataSource = devedoresDAO.ListarDevedores(cli);
+                dataGridViewClientesDevedoresOff.DataSource = devedoresDAO.ListarDevedoresQuitados(cli);
+            }
+            else
+            {
+                MessageBox.Show("Erro ao atualizar a dívida.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void textBoxPesquisaDevedor_TextChanged(object sender, EventArgs e)
+        {
+            PesquisarDevedor();
+        }
+
+        private void buttonDetalhesOff_Click(object sender, EventArgs e)
+        {
+            SelecionarLinhaTabelaClientesDevedores();
+        }
+
+        private void textBoxPesquisaDevedorOff_TextChanged(object sender, EventArgs e)
+        {
+            PesquisarDevedorOff();
+        }
     }
 }

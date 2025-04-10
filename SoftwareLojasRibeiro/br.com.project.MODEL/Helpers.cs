@@ -168,15 +168,15 @@ namespace SoftwareLojasRibeiro.br.com.project.MODEL
         {
             Form inputBox = new Form()
             {
-                Width = 400,
-                Height = 200,
+                Width = 500,
+                Height = 300,
                 FormBorderStyle = FormBorderStyle.FixedDialog,
                 Text = title,
                 StartPosition = FormStartPosition.CenterScreen
             };
 
-            Label label = new Label() { Left = 20, Top = 20, Text = prompt, Width = 340 };
-            TextBox textBox = new TextBox() { Left = 20, Top = 50, Width = 340 };
+            Label label = new Label() { Left = 30, Top = 30, Text = prompt, Width = 440 };
+            TextBox textBox = new TextBox() { Left = 30, Top = 60, Width = 440 };
             Button confirmation = new Button() { Text = "OK", Left = 270, Width = 90, Top = 100, DialogResult = DialogResult.OK };
 
             confirmation.Click += (sender, e) => { inputBox.Close(); };
