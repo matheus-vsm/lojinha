@@ -26,8 +26,6 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             Fornecedor Forn = new Fornecedor { Nome = textBoxPesquisaNome.Text }; 
             dataGridViewFornecedores.DataSource = dao.ListarFornecedores(Forn);
         }
-
-        #region Selecionar Tabela Fornecedores
         public void SelecionarLinhaTabelaFornecedores()
         {
             if (dataGridViewFornecedores.CurrentRow != null)
@@ -48,15 +46,18 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 MessageBox.Show("Nenhuma linha selecionada.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-        #endregion
-
-        #region Botao Pesquisa
 
         public void Pesquisa()
         {
             FornecedorDAO dao = new FornecedorDAO();
             Fornecedor Forn = new Fornecedor { Nome = textBoxPesquisaNome.Text };
             dataGridViewFornecedores.DataSource = dao.ListarFornecedores(Forn);
+        }
+        public void PesquisaCnpj()
+        {
+            FornecedorDAO dao = new FornecedorDAO();
+            Fornecedor Forn = new Fornecedor { Cnpj = textBoxPesquisaCnpj.Text };
+            dataGridViewFornecedores.DataSource = dao.ListarFornecedoresCnpj(Forn);
         }
 
         private void buttonBuscar_Click(object sender, EventArgs e)
@@ -83,9 +84,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 throw;
             }
         }
-        #endregion
 
-        #region Botao Limpar
         private void buttonLimpar_Click(object sender, EventArgs e)
         {
             new Helpers().LimparTela(this);
@@ -100,9 +99,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             textBoxEndereco.Clear();
             maskedTextBoxCep.Clear();
         }
-        #endregion
 
-        #region Botao Cadastro
         private void buttonCadastrar_Click(object sender, EventArgs e)
         {
             Fornecedor Forn = new Fornecedor
@@ -142,16 +139,12 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 dataGridViewFornecedores.DataSource = dao.ListarFornecedores(Forn);
             }
         }
-        #endregion
 
-        #region Pesquisa Click
         private void buttonPesquisar_Click(object sender, EventArgs e)
         {
             Pesquisa();
         }
-        #endregion
 
-        #region Botão Alterar
         private void buttonAlterar_Click(object sender, EventArgs e)
         {
             SelecionarLinhaTabelaFornecedores();
@@ -159,9 +152,6 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             tabPageCadastrar.Text = "Alterar";
             tabControlFornecedores.SelectedTab = tabPageCadastrar;
         }
-        #endregion
-
-        #region Botao Excluir
         private void buttonExcluir_Click(object sender, EventArgs e)
         {
             Fornecedor Fonr = new Fornecedor();
@@ -174,31 +164,28 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             textBoxID.Clear();
         }
 
-        #endregion
-
         private void buttonMenu_Click(object sender, EventArgs e)
         {
             FormMenu telamenu = new FormMenu();
             telamenu.Show();
             this.Hide();
-     
         }
 
         private void buttonLimparPesquisar_Click(object sender, EventArgs e)
         {
             textBoxPesquisaNome.Clear();
+            textBoxPesquisaCnpj.Clear();
+            Pesquisa();
         }
 
         private void textBoxPesquisaNome_TextChanged(object sender, EventArgs e)
         {
-            FornecedorDAO dao = new FornecedorDAO();
-            Fornecedor Forn = new Fornecedor { Nome = textBoxPesquisaNome.Text };
-            dataGridViewFornecedores.DataSource = dao.ListarFornecedores(Forn);
+            Pesquisa();
+        }
+
+        private void textBoxPesquisaCnpj_TextChanged(object sender, EventArgs e)
+        {
+            PesquisaCnpj();
         }
     }
-
 }
-
-
-
-

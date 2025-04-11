@@ -61,9 +61,8 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             this.Close();
         }
 
-        private void dataGridViewProds_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+        #region Lixos
+        private void dataGridViewProds_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
+        #endregion
     }
 }

@@ -81,8 +81,6 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             this.Hide();
         }
 
-        private void FormMenu_KeyPress(object sender, KeyPressEventArgs e){ }
-
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             if (keyData == Keys.D0 || keyData == Keys.NumPad0) // tecla 0
@@ -126,6 +124,10 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 return true;
             }
             return base.ProcessCmdKey(ref msg, keyData);
-        }        
+        }
+
+        #region Lixos
+        private void FormMenu_KeyPress(object sender, KeyPressEventArgs e) { }
+        #endregion
     }
 }

@@ -20,8 +20,6 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             textBoxID.ReadOnly = true;
         }
 
-        private void FormFuncionarios_Load(object sender, EventArgs e) { }
-
         private void FormFuncionarios_Load_1(object sender, EventArgs e)
         {
             FuncionarioDAO dao = new FuncionarioDAO();
@@ -60,6 +58,12 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             FuncionarioDAO dao = new FuncionarioDAO();
             Funcionario func = new Funcionario { Nome = textBoxPesquisaNome.Text };
             dataGridViewFuncionarios.DataSource = dao.ListarFuncionarios(func);
+        }
+        public void PesquisarCpf()
+        {
+            FuncionarioDAO dao = new FuncionarioDAO();
+            Funcionario func = new Funcionario { Cpf = textBoxPesquisaCpf.Text };
+            dataGridViewFuncionarios.DataSource = dao.ListarFuncionariosCpf(func);
         }
 
         private void buttonCadastrar_Click(object sender, EventArgs e)
@@ -142,6 +146,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         private void buttonLimparPesquisa_Click(object sender, EventArgs e)
         {
             textBoxPesquisaNome.Clear();
+            textBoxPesquisaCpf.Clear();
             Pesquisar();
         }
 
@@ -178,13 +183,18 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
         private void textBoxPesquisaNome_TextChanged(object sender, EventArgs e)
         {
-            Funcionario func = new Funcionario { Nome = textBoxPesquisaNome.Text };
-            FuncionarioDAO dao = new FuncionarioDAO();
-            dataGridViewFuncionarios.DataSource = dao.ListarFuncionarios(func);
+            Pesquisar();
+        }
+        
+        private void textBoxPesquisaCpf_TextChanged(object sender, EventArgs e)
+        {
+            PesquisarCpf();
         }
 
+        #region Lixos
+        private void FormFuncionarios_Load(object sender, EventArgs e) { }
         private void comboBoxTipoUsuario_SelectedIndexChanged(object sender, EventArgs e) { }
-
         private void label11_Click(object sender, EventArgs e) { }
+        #endregion
     }
 }

@@ -103,8 +103,6 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 {
                     return;
                 }
-                //adicionar implementação para adicionar o cliente na tabela de devedores
-
             }
 
             v_troco = v_pago - v_total;
@@ -135,7 +133,8 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 {
                     Id_Cliente = cliente.Id,
                     Id_Venda = idVenda,
-                    Divida = v_total - v_pago,
+                    Divida_Inicial = v_total - v_pago,
+                    Divida_Atual = v_total - v_pago,
                     Data_Inicio = dataatual
                 };
 
@@ -248,6 +247,8 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             this.Close();
         }
 
+        #region Lixos
         private void textBoxTotal_TextChanged(object sender, EventArgs e) { }
+        #endregion
     }
 }

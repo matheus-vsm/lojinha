@@ -164,6 +164,8 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             dataGridViewProdutos.DataSource = dao.ListarProdutos(prod);
         }
 
+        #region Lixos
         private void comboBoxCategProd_SelectedIndexChanged(object sender, EventArgs e) { }
+        #endregion
     }
 }

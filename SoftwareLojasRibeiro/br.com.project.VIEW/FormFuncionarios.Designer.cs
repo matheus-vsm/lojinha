@@ -69,6 +69,8 @@
             this.dataGridViewFuncionarios = new System.Windows.Forms.DataGridView();
             this.textBoxPesquisaNome = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.textBoxPesquisaCpf = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControlFuncionarios.SuspendLayout();
@@ -465,6 +467,8 @@
             // 
             // tabPageConsultar
             // 
+            this.tabPageConsultar.Controls.Add(this.textBoxPesquisaCpf);
+            this.tabPageConsultar.Controls.Add(this.label3);
             this.tabPageConsultar.Controls.Add(this.buttonLimparPesquisa);
             this.tabPageConsultar.Controls.Add(this.buttonExcluir);
             this.tabPageConsultar.Controls.Add(this.buttonAlterar);
@@ -482,7 +486,7 @@
             // 
             // buttonLimparPesquisa
             // 
-            this.buttonLimparPesquisa.Location = new System.Drawing.Point(332, 65);
+            this.buttonLimparPesquisa.Location = new System.Drawing.Point(549, 33);
             this.buttonLimparPesquisa.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonLimparPesquisa.Name = "buttonLimparPesquisa";
             this.buttonLimparPesquisa.Size = new System.Drawing.Size(72, 29);
@@ -494,10 +498,10 @@
             // buttonExcluir
             // 
             this.buttonExcluir.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonExcluir.Location = new System.Drawing.Point(965, 25);
+            this.buttonExcluir.Location = new System.Drawing.Point(969, 25);
             this.buttonExcluir.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonExcluir.Name = "buttonExcluir";
-            this.buttonExcluir.Size = new System.Drawing.Size(361, 46);
+            this.buttonExcluir.Size = new System.Drawing.Size(278, 46);
             this.buttonExcluir.TabIndex = 3;
             this.buttonExcluir.Text = "Excluir";
             this.buttonExcluir.UseVisualStyleBackColor = true;
@@ -506,10 +510,10 @@
             // buttonAlterar
             // 
             this.buttonAlterar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAlterar.Location = new System.Drawing.Point(567, 25);
+            this.buttonAlterar.Location = new System.Drawing.Point(665, 25);
             this.buttonAlterar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonAlterar.Name = "buttonAlterar";
-            this.buttonAlterar.Size = new System.Drawing.Size(361, 46);
+            this.buttonAlterar.Size = new System.Drawing.Size(278, 46);
             this.buttonAlterar.TabIndex = 2;
             this.buttonAlterar.Text = "Alterar";
             this.buttonAlterar.UseVisualStyleBackColor = true;
@@ -531,7 +535,7 @@
             // textBoxPesquisaNome
             // 
             this.textBoxPesquisaNome.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPesquisaNome.Location = new System.Drawing.Point(204, 29);
+            this.textBoxPesquisaNome.Location = new System.Drawing.Point(200, 17);
             this.textBoxPesquisaNome.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxPesquisaNome.Name = "textBoxPesquisaNome";
             this.textBoxPesquisaNome.Size = new System.Drawing.Size(328, 29);
@@ -542,13 +546,34 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(14, 35);
+            this.label11.Location = new System.Drawing.Point(10, 23);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(182, 18);
             this.label11.TabIndex = 2;
             this.label11.Text = "Nome do Funcionário:";
             this.label11.Click += new System.EventHandler(this.label11_Click);
+            // 
+            // textBoxPesquisaCpf
+            // 
+            this.textBoxPesquisaCpf.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPesquisaCpf.Location = new System.Drawing.Point(200, 53);
+            this.textBoxPesquisaCpf.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.textBoxPesquisaCpf.Name = "textBoxPesquisaCpf";
+            this.textBoxPesquisaCpf.Size = new System.Drawing.Size(328, 29);
+            this.textBoxPesquisaCpf.TabIndex = 6;
+            this.textBoxPesquisaCpf.TextChanged += new System.EventHandler(this.textBoxPesquisaCpf_TextChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(23, 59);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(169, 18);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "CPF do Funcionário:";
             // 
             // FormFuncionarios
             // 
@@ -620,5 +645,7 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button buttonMenu;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox textBoxPesquisaCpf;
+        private System.Windows.Forms.Label label3;
     }
 }

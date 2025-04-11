@@ -64,33 +64,6 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             dataGridViewCatPub.DataSource = dao.ListarCategorias(cat, "Publico");
         }
 
-        #region lixo
-        private void buttonLimparPesquisa_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonExcluir_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonAlterar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridViewClientes_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void buttonPesquisar_Click(object sender, EventArgs e)
-        {
-
-        }
-        #endregion
-
         private void buttonMenu_Click(object sender, EventArgs e)
         {
             FormMenu telamenu = new FormMenu();
@@ -235,16 +208,20 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
         private void textBoxPesquisaNomeProd_TextChanged(object sender, EventArgs e)
         {
-            Categoria cat = new Categoria { Nome = textBoxPesquisaNomeProd.Text };
-            CategoriaDAO dao = new CategoriaDAO();
-            dataGridViewCatProd.DataSource = dao.ListarCategorias(cat, "Produto");
+            PesquisarProd();
         }
 
         private void textBoxPesquisaNomePub_TextChanged(object sender, EventArgs e)
         {
-            Categoria cat = new Categoria { Nome = textBoxPesquisaNomePub.Text };
-            CategoriaDAO dao = new CategoriaDAO();
-            dataGridViewCatPub.DataSource = dao.ListarCategorias(cat, "Publico");
+            PesquisarPub();
         }
+
+        #region Lixos
+        private void buttonLimparPesquisa_Click(object sender, EventArgs e) { }
+        private void buttonExcluir_Click(object sender, EventArgs e) { }
+        private void buttonAlterar_Click(object sender, EventArgs e) { }
+        private void dataGridViewClientes_CellClick(object sender, DataGridViewCellEventArgs e) { }
+        private void buttonPesquisar_Click(object sender, EventArgs e) { }
+        #endregion
     }
 }

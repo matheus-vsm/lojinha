@@ -94,24 +94,6 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             }
         }
 
-        public void AddNovaCompra(string forn, string nome, string marca, string cor, string tam, string desc,
-            string catprod, string catpub, string qntd, string precusto, string tot)
-        {
-                comboBoxFornecedor.Text = forn;
-                textBoxNomeProd.Text = nome;
-                textBoxMarca.Text = marca;
-                textBoxCor.Text = cor;
-                textBoxTamanho.Text = tam;
-                textBoxDescricao.Text = desc;
-                comboBoxCategProd.Text = catprod;
-                comboBoxCategPub.Text = catpub;
-                textBoxQuantidade.Text = qntd;
-                textBoxPrecoCusto.Text = precusto;
-                textBoxTotalCompra.Text = tot;
-
-                tabControlCompras.SelectedTab = tabPageCadastrar;
-        }
-
         public void SelecionarLinhaTabelaCompras()
         {
             ////Garantir que a linha esteja realmente selecionada antes de tentar acessa-la
@@ -315,5 +297,8 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         {
             SelecionarLinhaTabelaCompras();
         }
+
+        #region Lixos
+        #endregion
     }
 }

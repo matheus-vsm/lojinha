@@ -221,8 +221,6 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             tela.ShowDialog();
         }
 
-        private void maskedTextBoxData_MaskInputRejected(object sender, MaskInputRejectedEventArgs e) { }
-
         private void buttonPesquisar_Click(object sender, EventArgs e)
         {
             DateTime inicio = Convert.ToDateTime(dateTimePickerDataInicio.Value.ToString("yyyy-MM-dd"));
@@ -249,10 +247,6 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             total = 0;
             //limpar dados do carrinho, n so linhas
         }
-
-        private void textBoxID_TextChanged(object sender, EventArgs e) { }
-
-        private void dataGridViewProdutosCarrinho_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
 
         private void buttonExibirProds_Click(object sender, EventArgs e)
         {
@@ -302,10 +296,6 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             total = 0;
         }
 
-        private void FormVendas_KeyPress(object sender, KeyPressEventArgs e) { }
-
-        private void maskedTextBoxCpf_MaskInputRejected(object sender, MaskInputRejectedEventArgs e) { }
-
         private void maskedTextBoxCpf_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == 13)
@@ -348,5 +338,13 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 }
             }
         }
+
+        #region Lixos
+        private void textBoxID_TextChanged(object sender, EventArgs e) { }
+        private void maskedTextBoxData_MaskInputRejected(object sender, MaskInputRejectedEventArgs e) { }
+        private void dataGridViewProdutosCarrinho_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
+        private void FormVendas_KeyPress(object sender, KeyPressEventArgs e) { }
+        private void maskedTextBoxCpf_MaskInputRejected(object sender, MaskInputRejectedEventArgs e) { }
+        #endregion
     }
 }

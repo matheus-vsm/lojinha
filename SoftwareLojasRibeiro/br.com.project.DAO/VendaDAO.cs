@@ -171,5 +171,48 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             }
         }
         #endregion
+
+        #region AtualizarStatusVenda
+        public bool AtualizarStatusVenda(Devedores devedor)
+        {
+            try
+            {
+                //Definir comando SQL - INSERT INTO
+                string sql = @"UPDATE tb_vendas 
+                            SET Status='Concluída' 
+                            WHERE Cliente_Id=@idcli AND Id_Venda=@idven";
+
+                //Organizar o comando SQL
+                MySqlCommand executacmd = new MySqlCommand(sql, connection);
+                executacmd.Parameters.AddWithValue("@idcli", devedor.Id_Cliente);
+                executacmd.Parameters.AddWithValue("@idven", devedor.Id_Venda);
+
+                //Abrir conexão e executar o comando SQL
+                connection.Open();
+                int linhasAfetadas = executacmd.ExecuteNonQuery();
+
+                if (linhasAfetadas > 0)
+                {
+                    MessageBox.Show("Dívida quitada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao alterar Status da Venda! Nenhuma linha foi modificada.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show($"Ocorreu um erro ao Alterar o Status da Venda: {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            finally
+            {
+                connection.Close(); // Sempre fechar a conexão
+            }
+        }
+        #endregion
     }
 }

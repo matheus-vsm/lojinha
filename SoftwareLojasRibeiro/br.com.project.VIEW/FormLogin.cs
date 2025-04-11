@@ -17,12 +17,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             InitializeComponent();
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void FormLogin_Load(object sender, EventArgs e)
         {
 
         }
@@ -33,5 +28,10 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             tela.Show();
             this.Hide();
         }
+
+        #region Lixos
+        private void label2_Click(object sender, EventArgs e) { }
+        private void textBox1_TextChanged(object sender, EventArgs e) { }
+        #endregion
     }
 }

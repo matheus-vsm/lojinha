@@ -31,6 +31,8 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             dataGridViewDetalhes.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
         }
 
+        #region Lixos
         private void dataGridViewDetalhes_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
+        #endregion
     }
 }

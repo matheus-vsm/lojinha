@@ -90,9 +90,17 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                 DataTable tabelacliente = new DataTable();
 
                 // Se o nome for informado, adicionamos um filtro na consulta
-                string sql = @"SELECT Id_Cliente as ID, Nome, 
-                                Rg, Cpf, Email, Numero, Datanasc as 
-                                'Data de Nascimento', Endereco, Cep FROM tb_clientes";
+                string sql = @"SELECT 
+                                Id_Cliente as ID, 
+                                Nome, 
+                                Cpf, 
+                                Rg, 
+                                Email, 
+                                Numero, 
+                                Datanasc as 'Data de Nascimento', 
+                                Cep, 
+                                Endereco 
+                                FROM tb_clientes";
                 if (!string.IsNullOrEmpty(cli.Nome))
                 {
                     sql += " WHERE Nome LIKE @nome";
@@ -119,6 +127,61 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             catch (Exception error)
             {
                 MessageBox.Show($"Erro ao executar o Comando SQL! (ListarClientes) {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                connection.Close(); // Sempre fechar a conexão
+            }
+        }
+        #endregion
+
+        #region ListarClientesCpf
+        public DataTable ListarClientesCpf(Cliente cli)
+        {
+            try
+            {
+                //Criar o DataTable e o comando SQL
+                DataTable tabelacliente = new DataTable();
+
+                // Se o nome for informado, adicionamos um filtro na consulta
+                string sql = @"SELECT 
+                                Id_Cliente AS ID, 
+                                Nome, 
+                                Cpf, 
+                                Rg, 
+                                Email, 
+                                Numero, 
+                                Datanasc AS 'Data de Nascimento', 
+                                Cep, 
+                                Endereco 
+                                FROM tb_clientes";
+                if (!string.IsNullOrEmpty(cli.Cpf))
+                {
+                    sql += " WHERE Cpf LIKE @cpf";
+                }
+
+                //Organizar o comando SQL e executar
+                MySqlCommand executacmd = new MySqlCommand(sql, connection);
+
+                // Se houver um cpf para buscar, adicionamos o parâmetro
+                if (!string.IsNullOrEmpty(cli.Cpf))
+                {
+                    executacmd.Parameters.AddWithValue("@cpf", "%" + cli.Cpf + "%");
+                }
+
+                connection.Open();
+                executacmd.ExecuteNonQuery();
+
+                //Criar o MySQLDataAdapter para preencher os dados do DataTable
+                MySqlDataAdapter da = new MySqlDataAdapter(executacmd);
+                da.Fill(tabelacliente); //preenche o datatable
+
+                return tabelacliente;
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show($"Erro ao executar o Comando SQL! (ListarClientesCpf) {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
             finally
@@ -334,10 +397,6 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                 connection.Close(); // Sempre fechar a conexão
             }
         }
-        #endregion
-
-        #region AtualizarStatus
-
         #endregion
     }
 }

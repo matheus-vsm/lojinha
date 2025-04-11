@@ -96,12 +96,21 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                 DataTable tabelafuncionario = new DataTable();
 
                 // Se o nome for informado, adicionamos um filtro na consulta
-                string sql = @"SELECT Id_Funcionario as ID, Nome, Login, Tipo_Usuario as 
-                                'Tipo de Usuário', Data_Cadastro as 'Data Cadastro', Email, 
-                                Rg, Cpf, Numero, Datanasc as 'Data de Nascimento', 
-                                Endereco, Cep
+                string sql = @"SELECT 
+                                Id_Funcionario as ID, 
+                                Nome, 
+                                Login, 
+                                Tipo_Usuario as 'Tipo de Usuário', 
+                                Data_Cadastro as 'Data de Cadastro', 
+                                Cpf, 
+                                Email, 
+                                Rg, 
+                                Numero, 
+                                Datanasc as 'Data de Nascimento', 
+                                Cep, 
+                                Endereco 
                                 FROM tb_funcionarios";
-                //string sql = "SELECT * FROM tb_funcionarios";
+
                 if (!string.IsNullOrEmpty(func.Nome))
                 {
                     sql += " WHERE Nome LIKE @nome";
@@ -127,6 +136,64 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             catch (Exception error)
             {
                 MessageBox.Show($"Erro ao executar o Comando SQL! (ListarFuncionarios) {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                connection.Close(); // Sempre fechar a conexão
+            }
+        }
+        #endregion
+
+        #region ListarFuncionariosCpf
+        public DataTable ListarFuncionariosCpf(Funcionario func)
+        {
+            try
+            {
+                //Criar o DataTable e o comando SQL
+                DataTable tabelafuncionario = new DataTable();
+
+                // Se o nome for informado, adicionamos um filtro na consulta
+                string sql = @"SELECT 
+                                Id_Funcionario as ID, 
+                                Nome, 
+                                Login, 
+                                Tipo_Usuario as 'Tipo de Usuário', 
+                                Data_Cadastro as 'Data de Cadastro', 
+                                Cpf, 
+                                Email, 
+                                Rg, 
+                                Numero, 
+                                Datanasc as 'Data de Nascimento', 
+                                Cep, 
+                                Endereco 
+                                FROM tb_funcionarios";
+
+                if (!string.IsNullOrEmpty(func.Cpf))
+                {
+                    sql += " WHERE Cpf LIKE @Cpf";
+                }
+
+                //Organizar o comando SQL e executar
+                MySqlCommand executacmd = new MySqlCommand(sql, connection);
+
+                // Se houver um Cpf para buscar, adicionamos o parâmetro
+                if (!string.IsNullOrEmpty(func.Cpf))
+                {
+                    executacmd.Parameters.AddWithValue("@Cpf", "%" + func.Cpf + "%");
+                }
+
+                connection.Open();
+
+                //Criar o MySQLDataAdapter para preencher os dados do DataTable
+                MySqlDataAdapter da = new MySqlDataAdapter(executacmd);
+                da.Fill(tabelafuncionario); //preenche o datatable
+
+                return tabelafuncionario;
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show($"Erro ao executar o Comando SQL! (ListarFuncionariosCpf) {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
             finally

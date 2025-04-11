@@ -22,8 +22,6 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             InitializeComponent();
         }
 
-        private void textBoxIdCompra_TextChanged(object sender, EventArgs e) { }
-
         private void FormDetalhesCompras_Load(object sender, EventArgs e)
         {
             ItensCompraProdutosDAO icdao = new ItensCompraProdutosDAO();
@@ -50,7 +48,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 string catpub = tela.comboBoxCategPub.Text = dataGridViewDetalhes.CurrentRow.Cells[9].Value.ToString() ?? "";
                 string precusto = tela.textBoxPrecoCusto.Text = dataGridViewDetalhes.CurrentRow.Cells[11].Value.ToString() ?? "";
                 string tot = tela.textBoxTotalCompra.Text = dataGridViewDetalhes.CurrentRow.Cells[12].Value.ToString() ?? "";
-                
+
                 this.Hide();
                 tela.tabControlCompras.SelectedTab = tela.tabPageCadastrar;
             }
@@ -59,5 +57,9 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 MessageBox.Show("Nenhuma linha selecionada.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        #region Lixos
+        private void textBoxIdCompra_TextChanged(object sender, EventArgs e) { }
+        #endregion
     }
 }

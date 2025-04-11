@@ -85,7 +85,6 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
         #endregion
 
         #region ListarFornecedores
-
         public DataTable ListarFornecedores(Fornecedor Forn)
         {
             try
@@ -94,9 +93,17 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                 DataTable tabelacliente = new DataTable();
 
                 // Se o nome for informado, adicionamos um filtro na consulta
-                string sql = @"SELECT Id_Fornecedor as 'ID', Nome, 
-                               Cnpj, Email, Telefone, Celular,
-                               Endereco, Cep FROM tb_fornecedores";
+                string sql = @"SELECT 
+                                Id_Fornecedor as ID, 
+                                Nome, 
+                                Cnpj, 
+                                Email, 
+                                Telefone, 
+                                Celular, 
+                                Cep, 
+                                Endereco 
+                                FROM tb_fornecedores";
+
                 if (!string.IsNullOrEmpty(Forn.Nome))
                 {
                     sql += " WHERE Nome LIKE @nome";
@@ -131,6 +138,61 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             }
         }
 
+        #endregion
+
+        #region ListarFornecedoresCnpj
+        public DataTable ListarFornecedoresCnpj(Fornecedor Forn)
+        {
+            try
+            {
+                //Criar o DataTable e o comando SQL
+                DataTable tabelacliente = new DataTable();
+
+                // Se o nome for informado, adicionamos um filtro na consulta
+                string sql = @"SELECT 
+                                Id_Fornecedor as ID, 
+                                Nome, 
+                                Cnpj, 
+                                Email, 
+                                Telefone, 
+                                Celular, 
+                                Cep, 
+                                Endereco 
+                                FROM tb_fornecedores";
+
+                if (!string.IsNullOrEmpty(Forn.Cnpj))
+                {
+                    sql += " WHERE Cnpj LIKE @Cnpj";
+                }
+
+                //Organizar o comando SQL e executar
+                MySqlCommand executacmd = new MySqlCommand(sql, connection);
+
+                // Se houver um Cnpj para buscar, adicionamos o parâmetro
+                if (!string.IsNullOrEmpty(Forn.Cnpj))
+                {
+                    executacmd.Parameters.AddWithValue("@Cnpj", "%" + Forn.Cnpj + "%");
+                }
+
+                connection.Open();
+                executacmd.ExecuteNonQuery();
+
+                //Criar o MySQLDataAdapter para preencher os dados do DataTable
+                MySqlDataAdapter da = new MySqlDataAdapter(executacmd);
+                da.Fill(tabelacliente); //preenche o datatable
+
+                return tabelacliente;
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show($"Erro ao executar o Comando SQL! {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                connection.Close(); // Sempre fechar a conexão
+            }
+        }
         #endregion
 
         #region AlterarForncedor

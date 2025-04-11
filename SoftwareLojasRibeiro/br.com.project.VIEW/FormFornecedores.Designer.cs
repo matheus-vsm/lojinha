@@ -59,6 +59,8 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPageConsultar = new System.Windows.Forms.TabPage();
+            this.textBoxPesquisaCnpj = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.buttonLimparPesquisa = new System.Windows.Forms.Button();
             this.buttonExcluir = new System.Windows.Forms.Button();
             this.buttonAltera = new System.Windows.Forms.Button();
@@ -383,6 +385,8 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             // 
             // tabPageConsultar
             // 
+            this.tabPageConsultar.Controls.Add(this.textBoxPesquisaCnpj);
+            this.tabPageConsultar.Controls.Add(this.label8);
             this.tabPageConsultar.Controls.Add(this.buttonLimparPesquisa);
             this.tabPageConsultar.Controls.Add(this.buttonExcluir);
             this.tabPageConsultar.Controls.Add(this.buttonAltera);
@@ -398,9 +402,30 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             this.tabPageConsultar.Text = "Consultar Dados";
             this.tabPageConsultar.UseVisualStyleBackColor = true;
             // 
+            // textBoxPesquisaCnpj
+            // 
+            this.textBoxPesquisaCnpj.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPesquisaCnpj.Location = new System.Drawing.Point(220, 54);
+            this.textBoxPesquisaCnpj.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.textBoxPesquisaCnpj.Name = "textBoxPesquisaCnpj";
+            this.textBoxPesquisaCnpj.Size = new System.Drawing.Size(328, 29);
+            this.textBoxPesquisaCnpj.TabIndex = 29;
+            this.textBoxPesquisaCnpj.TextChanged += new System.EventHandler(this.textBoxPesquisaCnpj_TextChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(21, 60);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(179, 18);
+            this.label8.TabIndex = 28;
+            this.label8.Text = "CNPJ do Fornecedor:";
+            // 
             // buttonLimparPesquisa
             // 
-            this.buttonLimparPesquisa.Location = new System.Drawing.Point(385, 65);
+            this.buttonLimparPesquisa.Location = new System.Drawing.Point(580, 41);
             this.buttonLimparPesquisa.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonLimparPesquisa.Name = "buttonLimparPesquisa";
             this.buttonLimparPesquisa.Size = new System.Drawing.Size(72, 29);
@@ -450,7 +475,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             // textBoxPesquisaNome
             // 
             this.textBoxPesquisaNome.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPesquisaNome.Location = new System.Drawing.Point(259, 30);
+            this.textBoxPesquisaNome.Location = new System.Drawing.Point(220, 16);
             this.textBoxPesquisaNome.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxPesquisaNome.Name = "textBoxPesquisaNome";
             this.textBoxPesquisaNome.Size = new System.Drawing.Size(328, 29);
@@ -461,7 +486,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(60, 36);
+            this.label11.Location = new System.Drawing.Point(21, 22);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(181, 18);
@@ -500,6 +525,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         {
             // Limpar o campo de pesquisa
             textBoxPesquisaNome.Clear();
+            textBoxPesquisaCnpj.Clear();
             Pesquisa();
         }
 
@@ -539,5 +565,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         private System.Windows.Forms.MaskedTextBox maskedTextBoxCelular;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox textBoxPesquisaCnpj;
+        private System.Windows.Forms.Label label8;
     }
 }
