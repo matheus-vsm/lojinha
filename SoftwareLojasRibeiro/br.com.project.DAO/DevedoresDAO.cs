@@ -135,7 +135,39 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                     MessageBox.Show("Erro ao alterar dívida! Nenhuma linha foi modificada.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show($"Ocorreu um erro ao Alterar o Cliente Devedor: {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            finally
+            {
+                connection.Close(); // Sempre fechar a conexão
+            }
+        }
+        #endregion
 
+        #region AtualizarStatus
+        public bool AtualizarStatus(Devedores devedor)
+        {
+            try
+            {
+                //Definir comando SQL - INSERT INTO
+                string sql = @"UPDATE tb_historico_devedores 
+                            SET Status=FALSE 
+                            WHERE Cliente_Id=@idcli AND Venda_Id=@idven";
+
+                //Organizar o comando SQL
+                MySqlCommand executacmd = new MySqlCommand(sql, connection);
+                executacmd.Parameters.AddWithValue("@idcli", devedor.Id_Cliente);
+                executacmd.Parameters.AddWithValue("@idven", devedor.Id_Venda);
+
+                //Abrir conexão e executar o comando SQL
+                connection.Open();
+                int linhasAfetadas = executacmd.ExecuteNonQuery();
+
+                return linhasAfetadas > 0 ? true : false;
             }
             catch (Exception error)
             {
@@ -175,7 +207,8 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                             FROM tb_historico_devedores hd
                             JOIN tb_clientes c ON c.Id_Cliente = hd.Cliente_Id
                             JOIN tb_vendas v ON v.Id_Venda = hd.Venda_Id
-                            WHERE hd.Data_Quitacao IS NULL";
+                            WHERE hd.Data_Quitacao IS NULL
+                            AND hd.Status = TRUE";
                 if (!string.IsNullOrEmpty(cli.Nome))
                 {
                     sql += " AND c.Nome LIKE @nome";
@@ -237,7 +270,8 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                             FROM tb_historico_devedores hd
                             JOIN tb_clientes c ON c.Id_Cliente = hd.Cliente_Id
                             JOIN tb_vendas v ON v.Id_Venda = hd.Venda_Id
-                            WHERE hd.Data_Quitacao IS NOT NULL";
+                            WHERE hd.Data_Quitacao IS NOT NULL
+                            AND hd.Status = FALSE";
                 if (!string.IsNullOrEmpty(cli.Nome))
                 {
                     sql += " AND c.Nome LIKE @nome";
@@ -299,7 +333,8 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                             FROM tb_historico_devedores hd
                             JOIN tb_clientes c ON c.Id_Cliente = hd.Cliente_Id
                             JOIN tb_vendas v ON v.Id_Venda = hd.Venda_Id
-                            WHERE hd.Data_Quitacao IS NULL";
+                            WHERE hd.Data_Quitacao IS NULL
+                            AND hd.Status = TRUE";
                 if (!string.IsNullOrEmpty(cli.Cpf))
                 {
                     sql += " AND c.Cpf LIKE @Cpf";
@@ -361,7 +396,8 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                             FROM tb_historico_devedores hd
                             JOIN tb_clientes c ON c.Id_Cliente = hd.Cliente_Id
                             JOIN tb_vendas v ON v.Id_Venda = hd.Venda_Id
-                            WHERE hd.Data_Quitacao IS NOT NULL";
+                            WHERE hd.Data_Quitacao IS NOT NULL
+                            AND hd.Status = FALSE";
                 if (!string.IsNullOrEmpty(cli.Cpf))
                 {
                     sql += " AND c.Cpf LIKE @Cpf";

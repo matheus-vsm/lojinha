@@ -62,7 +62,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
         private void buttonFornecedores_Click(object sender, EventArgs e)
         {
-            FormFornecedores telaforne = new FormFornecedores();
+            FormFornecedoress telaforne = new FormFornecedoress();
             telaforne.Show();
             this.Hide();
         }

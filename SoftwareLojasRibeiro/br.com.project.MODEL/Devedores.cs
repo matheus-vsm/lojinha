@@ -16,5 +16,6 @@ namespace SoftwareLojasRibeiro.br.com.project.MODEL
         public DateTime Data_Inicio { get; set; }
         public DateTime Data_Atualizacao { get; set; }
         public DateTime? Data_Fim { get; set; }
+        public bool Status { get; set; }
     }
 }

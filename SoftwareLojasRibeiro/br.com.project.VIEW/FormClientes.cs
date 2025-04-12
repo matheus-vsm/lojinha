@@ -340,6 +340,7 @@ namespace SoftwareLojasRibeiro//.br.com.project.VIEW se n colocar isso aqui vai 
                 if (retornodivida == 0.00)
                 {
                     new VendaDAO().AtualizarStatusVenda(devedor);
+                    devedoresDAO.AtualizarStatus(devedor);
                 }
                 else
                 {

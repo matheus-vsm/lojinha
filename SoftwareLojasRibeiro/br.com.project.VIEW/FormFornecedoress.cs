@@ -1,4 +1,5 @@
 ﻿using SoftwareLojasRibeiro.br.com.project.DAO;
+using SoftwareLojasRibeiro.br.com.project.MODEL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,24 +9,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using SoftwareLojasRibeiro.br.com.project.MODEL;
 
 namespace SoftwareLojasRibeiro.br.com.project.VIEW
 {
-    public partial class FormFornecedores : BaseForm
+    public partial class FormFornecedoress : BaseForm
     {
-        public FormFornecedores()
+        public FormFornecedoress()
         {
             InitializeComponent();
-            textBoxID.ReadOnly = true;
         }
 
-        private void FormFornecedores_Load(object sender, EventArgs e)
+        private void FormFornecedoress_Load(object sender, EventArgs e)
         {
             FornecedorDAO dao = new FornecedorDAO();
-            Fornecedor Forn = new Fornecedor { Nome = textBoxPesquisaNome.Text }; 
+            Fornecedor Forn = new Fornecedor { Nome = textBoxPesquisaNome.Text };
             dataGridViewFornecedores.DataSource = dao.ListarFornecedores(Forn);
         }
+
         public void SelecionarLinhaTabelaFornecedores()
         {
             if (dataGridViewFornecedores.CurrentRow != null)
@@ -38,8 +38,8 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 textBoxEmail.Text = dataGridViewFornecedores.CurrentRow.Cells[3].Value?.ToString() ?? "";
                 maskedTextBoxTelefone.Text = dataGridViewFornecedores.CurrentRow.Cells[4].Value?.ToString() ?? "";
                 maskedTextBoxCelular.Text = dataGridViewFornecedores.CurrentRow.Cells[5].Value?.ToString() ?? "";
-                textBoxEndereco.Text = dataGridViewFornecedores.CurrentRow.Cells[6].Value?.ToString() ?? "";
-                maskedTextBoxCep.Text = dataGridViewFornecedores.CurrentRow.Cells[7].Value?.ToString() ?? "";
+                maskedTextBoxCep.Text = dataGridViewFornecedores.CurrentRow.Cells[6].Value?.ToString() ?? "";
+                textBoxEndereco.Text = dataGridViewFornecedores.CurrentRow.Cells[7].Value?.ToString() ?? "";
             }
             else
             {
@@ -60,45 +60,6 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             dataGridViewFornecedores.DataSource = dao.ListarFornecedoresCnpj(Forn);
         }
 
-        private void buttonBuscar_Click(object sender, EventArgs e)
-        {
-            //Botão Consultar CEP
-            try
-            {
-                string cep = maskedTextBoxCep.Text;
-                string xml = $"https://viacep.com.br/ws/{cep}/xml/";
-
-                DataSet dados = new DataSet(); //objeto capaz de receber e fazer uma requisição para a API
-
-                dados.ReadXml(xml);
-                textBoxEndereco.Text = $"{dados.Tables[0].Rows[0]["logradouro"]}, " +
-                                       $"{dados.Tables[0].Rows[0]["bairro"]}, " +
-                                       $"{dados.Tables[0].Rows[0]["complemento"]}, " +
-                                       $"{dados.Tables[0].Rows[0]["localidade"]} - " +
-                                       $"{dados.Tables[0].Rows[0]["uf"]}.";
-
-            }
-            catch (Exception error)
-            {
-                MessageBox.Show($"Endereço não encontrado. Digite manualmente. {error.Message}", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                throw;
-            }
-        }
-
-        private void buttonLimpar_Click(object sender, EventArgs e)
-        {
-            new Helpers().LimparTela(this);
-            buttonCadastrar.Text = "Cadastrar";
-            tabPageCadastrar.Text = "Cadastrar";
-            textBoxID.Clear();
-            textBoxNome.Clear();
-            maskedTextBoxCnpj.Clear();
-            textBoxEmail.Clear();
-            maskedTextBoxTelefone.Clear();
-            maskedTextBoxCelular.Clear();
-            textBoxEndereco.Clear();
-            maskedTextBoxCep.Clear();
-        }
 
         private void buttonCadastrar_Click(object sender, EventArgs e)
         {
@@ -140,18 +101,45 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             }
         }
 
-        private void buttonPesquisar_Click(object sender, EventArgs e)
+        private void buttonBuscar_Click(object sender, EventArgs e)
         {
-            Pesquisa();
+            try
+            {
+                string cep = maskedTextBoxCep.Text;
+                string xml = $"https://viacep.com.br/ws/{cep}/xml/";
+
+                DataSet dados = new DataSet(); //objeto capaz de receber e fazer uma requisição para a API
+
+                dados.ReadXml(xml);
+                textBoxEndereco.Text = $"{dados.Tables[0].Rows[0]["logradouro"]}, " +
+                                       $"{dados.Tables[0].Rows[0]["bairro"]}, " +
+                                       $"{dados.Tables[0].Rows[0]["complemento"]}, " +
+                                       $"{dados.Tables[0].Rows[0]["localidade"]} - " +
+                                       $"{dados.Tables[0].Rows[0]["uf"]}.";
+
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show($"Endereço não encontrado. Digite manualmente. {error.Message}", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                throw;
+            }
         }
 
-        private void buttonAlterar_Click(object sender, EventArgs e)
+        private void buttonLimpar_Click(object sender, EventArgs e)
+        {
+            new Helpers().LimparTela(this);
+            buttonCadastrar.Text = "Cadastrar";
+            tabPageCadastrar.Text = "Cadastrar";
+        }
+
+        private void buttonAltera_Click(object sender, EventArgs e)
         {
             SelecionarLinhaTabelaFornecedores();
             buttonCadastrar.Text = "Alterar";
             tabPageCadastrar.Text = "Alterar";
             tabControlFornecedores.SelectedTab = tabPageCadastrar;
         }
+
         private void buttonExcluir_Click(object sender, EventArgs e)
         {
             Fornecedor Fonr = new Fornecedor();
@@ -171,7 +159,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             this.Hide();
         }
 
-        private void buttonLimparPesquisar_Click(object sender, EventArgs e)
+        private void buttonLimparPesquisa_Click(object sender, EventArgs e)
         {
             textBoxPesquisaNome.Clear();
             textBoxPesquisaCnpj.Clear();

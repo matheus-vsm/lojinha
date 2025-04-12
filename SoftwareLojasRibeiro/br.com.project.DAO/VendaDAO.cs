@@ -142,10 +142,12 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
 
                 string sql = @"SELECT 
                                 v.Id_Venda AS 'ID', 
-                                c.Nome AS 'Cliente', v.Data_Venda AS 'Data da Venda', 
+                                c.Nome AS 'Cliente', 
+                                v.Data_Venda AS 'Data da Venda', 
                                 v.Total_Venda AS 'Total (R$)', 
                                 v.Desconto, 
-                                v.Valor_Pago, Status, 
+                                v.Valor_Pago, 
+                                v.Status, 
                                 v.Observacoes 
                             FROM tb_vendas AS v 
                             JOIN tb_clientes AS c ON (v.Cliente_Id=c.Id_Cliente)";

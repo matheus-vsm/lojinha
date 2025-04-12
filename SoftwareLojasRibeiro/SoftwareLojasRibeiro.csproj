@@ -232,11 +232,11 @@
     <Compile Include="br.com.project.VIEW\FormExibirProdutos.Designer.cs">
       <DependentUpon>FormExibirProdutos.cs</DependentUpon>
     </Compile>
-    <Compile Include="br.com.project.VIEW\FormFornecedores.cs">
+    <Compile Include="br.com.project.VIEW\FormFornecedoress.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="br.com.project.VIEW\FormFornecedores.Designer.cs">
-      <DependentUpon>FormFornecedores.cs</DependentUpon>
+    <Compile Include="br.com.project.VIEW\FormFornecedoress.Designer.cs">
+      <DependentUpon>FormFornecedoress.cs</DependentUpon>
     </Compile>
     <Compile Include="br.com.project.VIEW\FormFuncionarios.cs">
       <SubType>Form</SubType>
@@ -295,8 +295,8 @@
     <EmbeddedResource Include="br.com.project.VIEW\FormExibirProdutos.resx">
       <DependentUpon>FormExibirProdutos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="br.com.project.VIEW\FormFornecedores.resx">
-      <DependentUpon>FormFornecedores.cs</DependentUpon>
+    <EmbeddedResource Include="br.com.project.VIEW\FormFornecedoress.resx">
+      <DependentUpon>FormFornecedoress.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="br.com.project.VIEW\FormFuncionarios.resx">
       <DependentUpon>FormFuncionarios.cs</DependentUpon>

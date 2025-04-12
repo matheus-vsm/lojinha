@@ -12,9 +12,10 @@ namespace SoftwareLojasRibeiro.br.com.project.MODEL
         public string Nome { get; set; }
         public string Cnpj { get; set; }
         public string Email { get; set; }
-        public string Celular { get; set; }
         public string Telefone { get; set; }
-        public string Endereco { get; set; }
+        public string Celular { get; set; }
         public string Cep { get; set; }
+        public string Endereco { get; set; }
+        public bool Status { get; set; }
     }
 }

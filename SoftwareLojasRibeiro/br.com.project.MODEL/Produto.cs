@@ -19,5 +19,6 @@ namespace SoftwareLojasRibeiro.br.com.project.MODEL
         public int Estoque { get; set; }
         public int Id_Cat_Prod { get; set; } //int pois o combobox está armazenando os IDs das categorias
         public int Id_Cat_Pub { get; set; }
+        public bool Status { get; set; }
     }
 }

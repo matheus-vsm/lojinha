@@ -20,55 +20,39 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             this.connection = new ConnectionFactory().GetConnection();
         }
 
-        #region CadastroFornecedor
-
+        #region CadastrarFornecedor
         public bool CadastrarFornecedor(Fornecedor Forn)
         {
             try
             {
-                // Perguntar ao usuário antes de cadastrar
-                DialogResult resultado = MessageBox.Show("Os Dados para Cadastrar estão corretos? Deseja Continuar",
-                                                         "Confirmação",
-                                                         MessageBoxButtons.YesNo,
-                                                         MessageBoxIcon.Question);
-
-                // Se o usuário clicar em "Não", a função retorna e não executa o cadastro
-                if (resultado == DialogResult.No)
-                {
-                    MessageBox.Show("Operação cancelada!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return false;
-                }
-
                 // Definir comando SQL - INSERT INTO
                 string sql = @"INSERT INTO tb_fornecedores
-                      (Nome, Cnpj, Email, Telefone, Celular, Cep, Endereco) VALUES 
-                      (@nome, @cnpj, @email, @telefone, @celular, @cep, @endereco)";
+                      (Nome, Cnpj, Email, Telefone, Celular, Cep, Endereco) 
+                        VALUES (@nome, @cnpj, @email, @telefone, @celular, @cep, @endereco)";
 
                 // Organizar o comando SQL
-                using (MySqlCommand executacmd = new MySqlCommand(sql, connection))
+                MySqlCommand executacmd = new MySqlCommand(sql, connection);
+                executacmd.Parameters.AddWithValue("@nome", Forn.Nome);
+                executacmd.Parameters.AddWithValue("@cnpj", Forn.Cnpj);
+                executacmd.Parameters.AddWithValue("@email", Forn.Email);
+                executacmd.Parameters.AddWithValue("@celular", Forn.Celular);
+                executacmd.Parameters.AddWithValue("@telefone", Forn.Telefone);
+                executacmd.Parameters.AddWithValue("@endereco", Forn.Endereco);
+                executacmd.Parameters.AddWithValue("@cep", Forn.Cep);
+
+                // Abrir conexão e executar o comando SQL
+                connection.Open();
+                int linhasAfetadas = executacmd.ExecuteNonQuery();
+
+                if (linhasAfetadas > 0)
                 {
-                    executacmd.Parameters.AddWithValue("@nome", Forn.Nome);
-                    executacmd.Parameters.AddWithValue("@cnpj", Forn.Cnpj);
-                    executacmd.Parameters.AddWithValue("@email", Forn.Email);
-                    executacmd.Parameters.AddWithValue("@celular", Forn.Celular);
-                    executacmd.Parameters.AddWithValue("@telefone", Forn.Telefone);
-                    executacmd.Parameters.AddWithValue("@endereco", Forn.Endereco);
-                    executacmd.Parameters.AddWithValue("@cep", Forn.Cep);
-
-                    // Abrir conexão e executar o comando SQL
-                    connection.Open();
-                    int linhasAfetadas = executacmd.ExecuteNonQuery();
-
-                    if (linhasAfetadas > 0)
-                    {
-                        MessageBox.Show("Fornecedor Cadastrado com Sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        return true;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Erro ao cadastrar Fornecedor!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return false;
-                    }
+                    MessageBox.Show("Fornecedor Cadastrado com Sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao cadastrar Fornecedor!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
                 }
             }
             catch (Exception error)
@@ -81,7 +65,6 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                 connection.Close(); // Sempre fechar a conexão
             }
         }
-
         #endregion
 
         #region ListarFornecedores
@@ -137,7 +120,6 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                 connection.Close(); // Sempre fechar a conexão
             }
         }
-
         #endregion
 
         #region ListarFornecedoresCnpj
@@ -146,7 +128,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             try
             {
                 //Criar o DataTable e o comando SQL
-                DataTable tabelacliente = new DataTable();
+                DataTable tabelafornecedor = new DataTable();
 
                 // Se o nome for informado, adicionamos um filtro na consulta
                 string sql = @"SELECT 
@@ -179,9 +161,9 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
 
                 //Criar o MySQLDataAdapter para preencher os dados do DataTable
                 MySqlDataAdapter da = new MySqlDataAdapter(executacmd);
-                da.Fill(tabelacliente); //preenche o datatable
+                da.Fill(tabelafornecedor); //preenche o datatable
 
-                return tabelacliente;
+                return tabelafornecedor;
             }
             catch (Exception error)
             {
@@ -200,19 +182,6 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
         {
             try
             {
-                // Perguntar ao usuário antes de alterar
-                DialogResult resultado = MessageBox.Show("Tem certeza que deseja alterar os dados deste Fornecedor?",
-                                                         "Confirmação",
-                                                         MessageBoxButtons.YesNo,
-                                                         MessageBoxIcon.Question);
-
-                // Se o usuário clicar em "Não", cancelar a operação
-                if (resultado == DialogResult.No)
-                {
-                    MessageBox.Show("Operação cancelada!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return false;
-                }
-
                 // Definir comando SQL - UPDATE
                 string sql = @"UPDATE tb_fornecedores SET 
                       Nome=@nome, Cnpj=@cnpj, Email=@email, Telefone=@telefone, Celular=@celular, 
@@ -244,7 +213,6 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                     MessageBox.Show("Erro ao alterar Fornecedor! Nenhuma linha foi modificada.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
-
             }
             catch (Exception error)
             {
@@ -258,8 +226,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
         }
         #endregion
 
-        #region Excluir Fornecedor
-
+        #region ExcluirFornecedor
         public void ExcluirFornecedor(Fornecedor Forn)
         {
             try
@@ -289,7 +256,6 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                 executacmd.ExecuteNonQuery();
 
                 MessageBox.Show("Fornecedor excluído com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
             }
             catch (Exception error)
             {
@@ -309,7 +275,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             try
             {
                 //Criar o DataTable e o comando SQL
-                DataTable tabelacategoria = new DataTable();
+                DataTable tabelafornecedor = new DataTable();
 
                 // Se o nome for informado, adicionamos um filtro na consulta
                 string sql = @"SELECT * FROM tb_fornecedores";
@@ -322,9 +288,9 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
 
                 //Criar o MySQLDataAdapter para preencher os dados do DataTable
                 MySqlDataAdapter da = new MySqlDataAdapter(executacmd);
-                da.Fill(tabelacategoria); //preenche o datatable
+                da.Fill(tabelafornecedor); //preenche o datatable
 
-                return tabelacategoria;
+                return tabelafornecedor;
             }
             catch (Exception error)
             {

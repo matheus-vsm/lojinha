@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace SoftwareLojasRibeiro.br.com.project.VIEW
+﻿namespace SoftwareLojasRibeiro.br.com.project.VIEW
 {
-    partial class FormFornecedores
+    partial class FormFornecedoress
     {
         /// <summary>
         /// Required designer variable.
@@ -30,11 +28,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormFornecedores));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.buttonMenu = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormFornecedoress));
             this.tabControlFornecedores = new System.Windows.Forms.TabControl();
             this.tabPageCadastrar = new System.Windows.Forms.TabPage();
             this.maskedTextBoxCelular = new System.Windows.Forms.MaskedTextBox();
@@ -67,72 +61,28 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             this.dataGridViewFornecedores = new System.Windows.Forms.DataGridView();
             this.textBoxPesquisaNome = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.buttonMenu = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.tabControlFornecedores.SuspendLayout();
             this.tabPageCadastrar.SuspendLayout();
             this.tabPageConsultar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFornecedores)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.OrangeRed;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.buttonMenu);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1373, 143);
-            this.panel1.TabIndex = 3;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImage = global::SoftwareLojasRibeiro.Properties.Resources.Logo_Lojas_Ribeiro_Transparente_menor;
-            this.pictureBox1.Location = new System.Drawing.Point(1200, 6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(163, 127);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            // 
-            // buttonMenu
-            // 
-            this.buttonMenu.BackColor = System.Drawing.Color.Red;
-            this.buttonMenu.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F);
-            this.buttonMenu.Location = new System.Drawing.Point(-1, -1);
-            this.buttonMenu.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.buttonMenu.Name = "buttonMenu";
-            this.buttonMenu.Size = new System.Drawing.Size(125, 39);
-            this.buttonMenu.TabIndex = 0;
-            this.buttonMenu.Text = "Menu";
-            this.buttonMenu.UseVisualStyleBackColor = false;
-            this.buttonMenu.Click += new System.EventHandler(this.buttonMenu_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 21.75F);
-            this.label1.Location = new System.Drawing.Point(89, 57);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(290, 33);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Área Fornecedores";
             // 
             // tabControlFornecedores
             // 
             this.tabControlFornecedores.Controls.Add(this.tabPageCadastrar);
             this.tabControlFornecedores.Controls.Add(this.tabPageConsultar);
-            this.tabControlFornecedores.Location = new System.Drawing.Point(0, 149);
+            this.tabControlFornecedores.Location = new System.Drawing.Point(0, 147);
             this.tabControlFornecedores.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabControlFornecedores.Name = "tabControlFornecedores";
             this.tabControlFornecedores.SelectedIndex = 0;
             this.tabControlFornecedores.Size = new System.Drawing.Size(1373, 600);
-            this.tabControlFornecedores.TabIndex = 1;
+            this.tabControlFornecedores.TabIndex = 3;
             // 
             // tabPageCadastrar
             // 
@@ -425,7 +375,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             // 
             // buttonLimparPesquisa
             // 
-            this.buttonLimparPesquisa.Location = new System.Drawing.Point(580, 41);
+            this.buttonLimparPesquisa.Location = new System.Drawing.Point(577, 38);
             this.buttonLimparPesquisa.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonLimparPesquisa.Name = "buttonLimparPesquisa";
             this.buttonLimparPesquisa.Size = new System.Drawing.Size(72, 29);
@@ -456,7 +406,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             this.buttonAltera.TabIndex = 25;
             this.buttonAltera.Text = "Alterar";
             this.buttonAltera.UseVisualStyleBackColor = true;
-            this.buttonAltera.Click += new System.EventHandler(this.buttonAlterar_Click);
+            this.buttonAltera.Click += new System.EventHandler(this.buttonAltera_Click);
             // 
             // dataGridViewFornecedores
             // 
@@ -493,56 +443,87 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             this.label11.TabIndex = 2;
             this.label11.Text = "Nome do Fornecedor:";
             // 
-            // FormFornecedores
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.OrangeRed;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.buttonMenu);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1373, 143);
+            this.panel1.TabIndex = 4;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::SoftwareLojasRibeiro.Properties.Resources.Logo_Lojas_Ribeiro_Transparente_menor;
+            this.pictureBox1.Location = new System.Drawing.Point(1200, 6);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(163, 127);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
+            // buttonMenu
+            // 
+            this.buttonMenu.BackColor = System.Drawing.Color.Red;
+            this.buttonMenu.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F);
+            this.buttonMenu.Location = new System.Drawing.Point(-1, -1);
+            this.buttonMenu.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.buttonMenu.Name = "buttonMenu";
+            this.buttonMenu.Size = new System.Drawing.Size(125, 39);
+            this.buttonMenu.TabIndex = 0;
+            this.buttonMenu.Text = "Menu";
+            this.buttonMenu.UseVisualStyleBackColor = false;
+            this.buttonMenu.Click += new System.EventHandler(this.buttonMenu_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 21.75F);
+            this.label1.Location = new System.Drawing.Point(89, 57);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(290, 33);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Área Fornecedores";
+            // 
+            // FormFornecedoress
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Goldenrod;
             this.ClientSize = new System.Drawing.Size(1373, 747);
-            this.Controls.Add(this.tabControlFornecedores);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.tabControlFornecedores);
             this.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.Name = "FormFornecedores";
+            this.Name = "FormFornecedoress";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Lojas Ribeiro - Fornecedores";
-            this.Load += new System.EventHandler(this.FormFornecedores_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Text = "Lojas Ribeiro - Fornecedoress";
+            this.Load += new System.EventHandler(this.FormFornecedoress_Load);
             this.tabControlFornecedores.ResumeLayout(false);
             this.tabPageCadastrar.ResumeLayout(false);
             this.tabPageCadastrar.PerformLayout();
             this.tabPageConsultar.ResumeLayout(false);
             this.tabPageConsultar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFornecedores)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
-        // Remover a assinatura duplicada do evento buttonLimparPesquisar_Click
-        private void buttonLimparPesquisa_Click(object sender, EventArgs e)
-        {
-            // Limpar o campo de pesquisa
-            textBoxPesquisaNome.Clear();
-            textBoxPesquisaCnpj.Clear();
-            Pesquisa();
-        }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button buttonMenu;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabControl tabControlFornecedores;
-        private System.Windows.Forms.TabPage tabPageConsultar;
-        private System.Windows.Forms.Button buttonLimparPesquisa;
-        private System.Windows.Forms.Button buttonExcluir;
-        private System.Windows.Forms.Button buttonAltera;
-        private System.Windows.Forms.DataGridView dataGridViewFornecedores;
-        private System.Windows.Forms.TextBox textBoxPesquisaNome;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TabPage tabPageCadastrar;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxCelular;
+        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBoxID;
         private System.Windows.Forms.TextBox textBoxEndereco;
         private System.Windows.Forms.TextBox textBoxEmail;
@@ -562,10 +543,18 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.MaskedTextBox maskedTextBoxCelular;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TabPage tabPageConsultar;
         private System.Windows.Forms.TextBox textBoxPesquisaCnpj;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button buttonLimparPesquisa;
+        private System.Windows.Forms.Button buttonExcluir;
+        private System.Windows.Forms.Button buttonAltera;
+        private System.Windows.Forms.DataGridView dataGridViewFornecedores;
+        private System.Windows.Forms.TextBox textBoxPesquisaNome;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button buttonMenu;
+        private System.Windows.Forms.Label label1;
     }
 }

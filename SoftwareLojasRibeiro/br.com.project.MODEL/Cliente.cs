@@ -17,5 +17,6 @@ namespace SoftwareLojasRibeiro.br.com.project.MODEL
         public DateTime Datanasc { get; set; }
         public string Endereco { get; set; }
         public string Cep { get; set; }
+        public bool Status { get; set; }
     }
 }
