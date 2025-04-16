@@ -260,6 +260,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             textBoxDescrição.Clear();
             textBoxPreco.Clear();
             textBoxEstoque.Clear();
+            textBoxQuantidade.Clear();
             textBoxID.ReadOnly = false;
             textBoxID.Focus();
         }

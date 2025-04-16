@@ -78,6 +78,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                 // Se o nome for informado, adicionamos um filtro na consulta
                 string sql = @"SELECT 
                                 Id_Fornecedor as ID, 
+                                'Ativado' AS Status, 
                                 Nome, 
                                 Cnpj, 
                                 Email, 
@@ -85,11 +86,12 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                                 Celular, 
                                 Cep, 
                                 Endereco 
-                                FROM tb_fornecedores";
+                                FROM tb_fornecedores
+                                WHERE Status = TRUE";
 
                 if (!string.IsNullOrEmpty(Forn.Nome))
                 {
-                    sql += " WHERE Nome LIKE @nome";
+                    sql += " AND Nome LIKE @nome";
                 }
 
                 //Organizar o comando SQL e executar
@@ -133,6 +135,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                 // Se o nome for informado, adicionamos um filtro na consulta
                 string sql = @"SELECT 
                                 Id_Fornecedor as ID, 
+                                'Ativado' AS Status, 
                                 Nome, 
                                 Cnpj, 
                                 Email, 
@@ -140,11 +143,126 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                                 Celular, 
                                 Cep, 
                                 Endereco 
-                                FROM tb_fornecedores";
+                                FROM tb_fornecedores
+                                WHERE Status = TRUE";
 
                 if (!string.IsNullOrEmpty(Forn.Cnpj))
                 {
-                    sql += " WHERE Cnpj LIKE @Cnpj";
+                    sql += " AND Cnpj LIKE @Cnpj";
+                }
+
+                //Organizar o comando SQL e executar
+                MySqlCommand executacmd = new MySqlCommand(sql, connection);
+
+                // Se houver um Cnpj para buscar, adicionamos o parâmetro
+                if (!string.IsNullOrEmpty(Forn.Cnpj))
+                {
+                    executacmd.Parameters.AddWithValue("@Cnpj", "%" + Forn.Cnpj + "%");
+                }
+
+                connection.Open();
+                executacmd.ExecuteNonQuery();
+
+                //Criar o MySQLDataAdapter para preencher os dados do DataTable
+                MySqlDataAdapter da = new MySqlDataAdapter(executacmd);
+                da.Fill(tabelafornecedor); //preenche o datatable
+
+                return tabelafornecedor;
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show($"Erro ao executar o Comando SQL! {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                connection.Close(); // Sempre fechar a conexão
+            }
+        }
+        #endregion
+
+        #region ListarFornecedoresDesativados
+        public DataTable ListarFornecedoresDesativados(Fornecedor Forn)
+        {
+            try
+            {
+                //Criar o DataTable e o comando SQL
+                DataTable tabelacliente = new DataTable();
+
+                // Se o nome for informado, adicionamos um filtro na consulta
+                string sql = @"SELECT 
+                                Id_Fornecedor as ID, 
+                                'Desativado' AS Status, 
+                                Nome, 
+                                Cnpj, 
+                                Email, 
+                                Telefone, 
+                                Celular, 
+                                Cep, 
+                                Endereco 
+                                FROM tb_fornecedores
+                                WHERE Status = FALSE";
+
+                if (!string.IsNullOrEmpty(Forn.Nome))
+                {
+                    sql += " AND Nome LIKE @nome";
+                }
+
+                //Organizar o comando SQL e executar
+                MySqlCommand executacmd = new MySqlCommand(sql, connection);
+
+                // Se houver um nome para buscar, adicionamos o parâmetro
+                if (!string.IsNullOrEmpty(Forn.Nome))
+                {
+                    executacmd.Parameters.AddWithValue("@nome", "%" + Forn.Nome + "%");
+                }
+
+                connection.Open();
+                executacmd.ExecuteNonQuery();
+
+                //Criar o MySQLDataAdapter para preencher os dados do DataTable
+                MySqlDataAdapter da = new MySqlDataAdapter(executacmd);
+                da.Fill(tabelacliente); //preenche o datatable
+
+                return tabelacliente;
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show($"Erro ao executar o Comando SQL! {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                connection.Close(); // Sempre fechar a conexão
+            }
+        }
+        #endregion
+
+        #region ListarFornecedoresDesativadosCnpj
+        public DataTable ListarFornecedoresDesativadosCnpj(Fornecedor Forn)
+        {
+            try
+            {
+                //Criar o DataTable e o comando SQL
+                DataTable tabelafornecedor = new DataTable();
+
+                // Se o nome for informado, adicionamos um filtro na consulta
+                string sql = @"SELECT 
+                                Id_Fornecedor as ID, 
+                                'Desativado' AS Status, 
+                                Nome, 
+                                Cnpj, 
+                                Email, 
+                                Telefone, 
+                                Celular, 
+                                Cep, 
+                                Endereco 
+                                FROM tb_fornecedores
+                                WHERE Status = FALSE";
+
+                if (!string.IsNullOrEmpty(Forn.Cnpj))
+                {
+                    sql += " AND Cnpj LIKE @Cnpj";
                 }
 
                 //Organizar o comando SQL e executar
@@ -336,6 +454,88 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             {
                 MessageBox.Show($"Erro ao executar o Comando SQL! (RetornarIdFornecedor) {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return 0;
+            }
+            finally
+            {
+                connection.Close(); // Sempre fechar a conexão
+            }
+        }
+        #endregion
+
+        #region AtivarFornecedor
+        public bool AtivarFornecedor(Fornecedor forn)
+        {
+            try
+            {
+                //Definir comando SQL - INSERT INTO
+                string sql = @"UPDATE tb_fornecedores SET 
+                            Status = TRUE 
+                            WHERE Id_Fornecedor=@id";
+
+                //Organizar o comando SQL
+                MySqlCommand executacmd = new MySqlCommand(sql, connection);
+                executacmd.Parameters.AddWithValue("@id", forn.Id);
+
+                //Abrir conexão e executar o comando SQL
+                connection.Open();
+                int linhasAfetadas = executacmd.ExecuteNonQuery();
+
+                if (linhasAfetadas > 0)
+                {
+                    MessageBox.Show("Fornecedor Ativado com Sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao Ativar o Fornecedor! Nenhuma linha foi modificada.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show($"Ocorreu um erro ao Ativar o Fornecedor: {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            finally
+            {
+                connection.Close(); // Sempre fechar a conexão
+            }
+        }
+        #endregion
+
+        #region DesativarFornecedor
+        public bool DesativarFuncionario(Fornecedor forn)
+        {
+            try
+            {
+                //Definir comando SQL - INSERT INTO
+                string sql = @"UPDATE tb_fornecedores SET 
+                            Status = FALSE 
+                            WHERE Id_Fornecedor=@id";
+
+                //Organizar o comando SQL
+                MySqlCommand executacmd = new MySqlCommand(sql, connection);
+                executacmd.Parameters.AddWithValue("@id", forn.Id);
+
+                //Abrir conexão e executar o comando SQL
+                connection.Open();
+                int linhasAfetadas = executacmd.ExecuteNonQuery();
+
+                if (linhasAfetadas > 0)
+                {
+                    MessageBox.Show("Fornecedor Desativado com Sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao Desativar o Fornecedor! Nenhuma linha foi modificada.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show($"Ocorreu um erro ao Desativar o Fornecedor: {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
             finally
             {

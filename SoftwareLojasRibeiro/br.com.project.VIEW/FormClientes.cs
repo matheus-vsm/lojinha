@@ -29,12 +29,11 @@ namespace SoftwareLojasRibeiro//.br.com.project.VIEW se n colocar isso aqui vai 
         {
             ClienteDAO cliDAO = new ClienteDAO();
             Cliente cli = new Cliente { Nome = textBoxPesquisaNome.Text };
-            Cliente cli2 = new Cliente { Nome = textBoxPesquisaDevedor.Text };
-            Cliente cli3 = new Cliente { Nome = textBoxPesquisaDevedorOff.Text };
             DevedoresDAO devDAO = new DevedoresDAO();
             dataGridViewClientes.DataSource = cliDAO.ListarClientes(cli);
-            dataGridViewClientesDevedores.DataSource = devDAO.ListarDevedores(cli2);
-            dataGridViewClientesDevedoresOff.DataSource = devDAO.ListarDevedoresQuitados(cli3);
+            dataGridViewClientesDesativados.DataSource = cliDAO.ListarClientesDesativados(cli);
+            dataGridViewClientesDevedores.DataSource = devDAO.ListarDevedores(cli);
+            dataGridViewClientesDevedoresOff.DataSource = devDAO.ListarDevedoresQuitados(cli);
         }
         private void FormClientes_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -63,23 +62,23 @@ namespace SoftwareLojasRibeiro//.br.com.project.VIEW se n colocar isso aqui vai 
             }
         }
 
-        public void SelecionarLinhaTabelaClientesDevedores()
+        public void SelecionarLinhaTabelaClientesDevedores(DataGridView tabela)
         {
             //passando id da venda para a tela de detalhes
-            string idvenda = dataGridViewClientesDevedores.CurrentRow.Cells[0].Value.ToString() ?? "";
+            string idvenda = tabela.CurrentRow.Cells[0].Value.ToString() ?? "";
 
             FormDetalhesVendas tela = new FormDetalhesVendas(idvenda);
             DateTime datavenda;
 
             //Garantir que a linha esteja realmente selecionada antes de tentar acessa-la
-            if (dataGridViewClientesDevedores.CurrentRow != null)
+            if (tabela.CurrentRow != null)
             {
-                datavenda = Convert.ToDateTime(dataGridViewClientesDevedores.CurrentRow.Cells[8].Value.ToString() ?? "");
+                datavenda = Convert.ToDateTime(tabela.CurrentRow.Cells[8].Value.ToString() ?? "");
                 //Pegar os dados da linha selecionada
-                tela.textBoxNomeCliente.Text = dataGridViewClientesDevedores.CurrentRow.Cells[2].Value.ToString() ?? "";
+                tela.textBoxNomeCliente.Text = tabela.CurrentRow.Cells[2].Value.ToString() ?? "";
                 tela.maskedTextBoxDataVenda.Text = datavenda.ToString("dd/MM/yyyy");
-                tela.textBoxTotal.Text = dataGridViewClientesDevedores.CurrentRow.Cells[4].Value.ToString() ?? "";
-                tela.textBoxValorPago.Text = dataGridViewClientesDevedores.CurrentRow.Cells[5].Value.ToString() ?? "";
+                tela.textBoxTotal.Text = tabela.CurrentRow.Cells[4].Value.ToString() ?? "";
+                tela.textBoxValorPago.Text = tabela.CurrentRow.Cells[5].Value.ToString() ?? "";
 
                 // Obter as formas de pagamento
                 List<Pagamento> pagamentos = pagaDAO.RetornarPagamentos(idvenda);
@@ -99,7 +98,7 @@ namespace SoftwareLojasRibeiro//.br.com.project.VIEW se n colocar isso aqui vai 
                 }
 
                 // Concatenar as informações de pagamento com as observações
-                string observacoes = "\n" + dataGridViewClientesDevedores.CurrentRow.Cells[8].Value.ToString() ?? "";
+                string observacoes = "\n" + tabela.CurrentRow.Cells[8].Value.ToString() ?? "";
                 tela.textBoxObs.Text = sbPagamentos.ToString() + observacoes;
 
                 tela.ShowDialog();
@@ -110,42 +109,52 @@ namespace SoftwareLojasRibeiro//.br.com.project.VIEW se n colocar isso aqui vai 
             }
         }
 
-        public void PesquisarNome()
+        public void PesquisarNome(string nome, DataGridView tabela)
         {
-            ClienteDAO dao = new ClienteDAO();
-            Cliente cli = new Cliente { Nome = textBoxPesquisaNome.Text };
-            dataGridViewClientes.DataSource = dao.ListarClientes(cli);
-        }
-        public void PesquisarNomeDevedor()
-        {
-            DevedoresDAO dao = new DevedoresDAO();
-            Cliente cli = new Cliente { Nome = textBoxPesquisaDevedor.Text };
-            dataGridViewClientesDevedores.DataSource = dao.ListarDevedores(cli);
-        }
-        public void PesquisarNomeDevedorOff()
-        {
-            DevedoresDAO dao = new DevedoresDAO();
-            Cliente cli = new Cliente { Nome = textBoxPesquisaDevedorOff.Text };
-            dataGridViewClientesDevedoresOff.DataSource = dao.ListarDevedoresQuitados(cli);
+            ClienteDAO clidao = new ClienteDAO(); 
+            DevedoresDAO devdao = new DevedoresDAO();
+            Cliente cli = new Cliente { Nome = nome };
+
+            if (tabela == dataGridViewClientes)
+            {
+                tabela.DataSource = clidao.ListarClientes(cli);
+            }
+            else if (tabela == dataGridViewClientesDesativados)
+            {
+                tabela.DataSource = clidao.ListarClientesDesativados(cli);
+            }
+            else if (tabela == dataGridViewClientesDevedores)
+            {
+                tabela.DataSource = devdao.ListarDevedores(cli);
+            }
+            else if (tabela == dataGridViewClientesDevedoresOff)
+            {
+                tabela.DataSource = devdao.ListarDevedoresQuitados(cli);
+            }
         }
 
-        public void PesquisarCpf()
+        public void PesquisarCpf(string cpf, DataGridView tabela)
         {
-            ClienteDAO dao = new ClienteDAO();
-            Cliente cli = new Cliente { Cpf = textBoxPesquisaCpf.Text };
-            dataGridViewClientes.DataSource = dao.ListarClientesCpf(cli);
-        }
-        public void PesquisarCpfDevedor()
-        {
-            DevedoresDAO dao = new DevedoresDAO();
-            Cliente cli = new Cliente { Cpf = textBoxPesquisaDevedorCpf.Text };
-            dataGridViewClientesDevedores.DataSource = dao.ListarDevedoresCpf(cli);
-        }
-        public void PesquisarCpfDevedorOff()
-        {
-            DevedoresDAO dao = new DevedoresDAO();
-            Cliente cli = new Cliente { Cpf = textBoxPesquisaDevedorOffCpf.Text };
-            dataGridViewClientesDevedoresOff.DataSource = dao.ListarDevedoresQuitadosCpf(cli);
+            ClienteDAO clidao = new ClienteDAO();
+            DevedoresDAO devdao = new DevedoresDAO();
+            Cliente cli = new Cliente { Cpf = cpf };
+
+            if (tabela == dataGridViewClientes)
+            {
+                tabela.DataSource = clidao.ListarClientesCpf(cli);
+            }
+            else if (tabela == dataGridViewClientesDesativados)
+            {
+                tabela.DataSource = clidao.ListarClientesDesativadosCpf(cli);
+            }
+            else if (tabela == dataGridViewClientesDevedores)
+            {
+                tabela.DataSource = devdao.ListarDevedoresCpf(cli);
+            }
+            else if (tabela == dataGridViewClientesDevedoresOff)
+            {
+                tabela.DataSource = devdao.ListarDevedoresQuitadosCpf(cli);
+            }
         }
 
 
@@ -201,16 +210,60 @@ namespace SoftwareLojasRibeiro//.br.com.project.VIEW se n colocar isso aqui vai 
 
         private void buttonExcluir_Click(object sender, EventArgs e)
         {
+            // Perguntar ao usuário antes de cadastrar
+            DialogResult resultado = MessageBox.Show("Tem certeza que deseja Desativar esse Cliente?",
+                                                     "Confirmação",
+                                                     MessageBoxButtons.YesNo,
+                                                     MessageBoxIcon.Question);
+
+            // Se o usuário clicar em "Não", a função retorna e não executa o cadastro
+            if (resultado == DialogResult.No)
+            {
+                MessageBox.Show("Operação cancelada!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             Cliente cli = new Cliente();
             textBoxID.Text = dataGridViewClientes.CurrentRow.Cells[0].Value.ToString() ?? "";
             cli.Id = textBoxID.Text;
 
             ClienteDAO dao = new ClienteDAO();
-            dao.ExcluirCliente(cli);
+            //dao.ExcluirCliente(cli);
+            dao.DesativarCliente(cli);
             dataGridViewClientes.DataSource = dao.ListarClientes(cli); //atualizar tabela
+            dataGridViewClientesDevedores.DataSource = dao.ListarClientesDevedores(cli);
+            dataGridViewClientesDesativados.DataSource = dao.ListarClientesDesativados(cli);
             textBoxID.Clear();
         }
 
+        private void buttonAtivarCliente_Click(object sender, EventArgs e)
+        {
+            // Perguntar ao usuário antes de cadastrar
+            DialogResult resultado = MessageBox.Show("Tem certeza que deseja Ativar esse Cliente?",
+                                                     "Confirmação",
+                                                     MessageBoxButtons.YesNo,
+                                                     MessageBoxIcon.Question);
+
+            // Se o usuário clicar em "Não", a função retorna e não executa o cadastro
+            if (resultado == DialogResult.No)
+            {
+                MessageBox.Show("Operação cancelada!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            Cliente cli = new Cliente();
+            textBoxID.Text = dataGridViewClientesDesativados.CurrentRow.Cells[0].Value.ToString() ?? "";
+            cli.Id = textBoxID.Text;
+
+            ClienteDAO dao = new ClienteDAO();
+            dao.AtivarCliente(cli);
+            dataGridViewClientes.DataSource = dao.ListarClientes(cli); //atualizar tabela
+            dataGridViewClientesDevedores.DataSource = dao.ListarClientesDevedores(cli);
+            dataGridViewClientesDesativados.DataSource = dao.ListarClientesDesativados(cli);
+            textBoxID.Clear();
+        }
+
+        #region Botões Limpar
         private void buttonLimpar_Click(object sender, EventArgs e)
         {
             new Helpers().LimparTela(this);
@@ -222,21 +275,66 @@ namespace SoftwareLojasRibeiro//.br.com.project.VIEW se n colocar isso aqui vai 
         {
             textBoxPesquisaNome.Clear();
             textBoxPesquisaCpf.Clear();
-            PesquisarNome();
+            PesquisarNome("", dataGridViewClientes);
+        }
+        private void buttonLimparDesativados_Click(object sender, EventArgs e)
+        {
+            textBoxPesquisaNomeDesativado.Clear();
+            textBoxPesquisaCpfDesativado.Clear();
+            PesquisarNome("", dataGridViewClientesDesativados);
         }
         private void buttonLimparDevedor_Click(object sender, EventArgs e)
         {
             textBoxPesquisaDevedor.Clear();
             textBoxPesquisaDevedorCpf.Clear();
-            PesquisarNomeDevedor();
+            PesquisarNome("", dataGridViewClientesDevedores);
         }
 
         private void buttonLimparOff_Click(object sender, EventArgs e)
         {
             textBoxPesquisaDevedorOff.Clear();
             textBoxPesquisaDevedorOffCpf.Clear();
-            PesquisarNomeDevedorOff();
+            PesquisarNome("", dataGridViewClientesDevedoresOff);
         }
+        #endregion
+
+        #region Campos de Pesquisa
+        private void textBoxPesquisaNome_TextChanged(object sender, EventArgs e)
+        {
+            PesquisarNome(textBoxPesquisaNome.Text, dataGridViewClientes);
+        }
+        private void textBoxPesquisaCpf_TextChanged(object sender, EventArgs e)
+        {
+            PesquisarCpf(textBoxPesquisaCpf.Text, dataGridViewClientes);
+        }
+
+        private void textBoxPesquisaNomeDesativado_TextChanged(object sender, EventArgs e)
+        {
+            PesquisarNome(textBoxPesquisaNomeDesativado.Text, dataGridViewClientesDesativados);
+        }
+        private void textBoxPesquisaCpfDesativado_TextChanged(object sender, EventArgs e)
+        {
+            PesquisarCpf(textBoxPesquisaCpfDesativado.Text, dataGridViewClientesDesativados);
+        }
+
+        private void textBoxPesquisaDevedor_TextChanged(object sender, EventArgs e)
+        {
+            PesquisarNome(textBoxPesquisaDevedor.Text, dataGridViewClientesDevedores);
+        }
+        private void textBoxPesquisaDevedorCpf_TextChanged(object sender, EventArgs e)
+        {
+            PesquisarCpf(textBoxPesquisaDevedorCpf.Text, dataGridViewClientesDevedores);
+        }
+
+        private void textBoxPesquisaDevedorOff_TextChanged(object sender, EventArgs e)
+        {
+            PesquisarNome(textBoxPesquisaDevedorOff.Text, dataGridViewClientesDevedoresOff);
+        }
+        private void textBoxPesquisaDevedorOffCpf_TextChanged(object sender, EventArgs e)
+        {
+            PesquisarCpf(textBoxPesquisaDevedorOffCpf.Text, dataGridViewClientesDevedoresOff);
+        }
+        #endregion
 
         private void buttonBuscar_Click(object sender, EventArgs e)
         {
@@ -268,23 +366,14 @@ namespace SoftwareLojasRibeiro//.br.com.project.VIEW se n colocar isso aqui vai 
             this.Hide();
         }
 
-        private void textBoxPesquisaNome_TextChanged(object sender, EventArgs e)
-        {
-            Cliente cli = new Cliente { Nome = textBoxPesquisaNome.Text };
-            ClienteDAO dao = new ClienteDAO();
-            dataGridViewClientes.DataSource = dao.ListarClientes(cli);
-        }
-
         private void buttonDetalhesVenda_Click(object sender, EventArgs e)
         {
-            SelecionarLinhaTabelaClientesDevedores();
+            SelecionarLinhaTabelaClientesDevedores(dataGridViewClientesDevedores);
         }
 
-        private void textBoxPesquisaDevedor_KeyPress(object sender, KeyPressEventArgs e)
+        private void buttonDetalhesOff_Click(object sender, EventArgs e)
         {
-            ClienteDAO dao = new ClienteDAO();
-            Cliente cli = new Cliente { Nome = textBoxPesquisaDevedor.Text };
-            dataGridViewClientesDevedores.DataSource = dao.ListarClientesDevedores(cli);
+            SelecionarLinhaTabelaClientesDevedores(dataGridViewClientesDevedoresOff);
         }
 
         private void buttonAtualizarDivida_Click(object sender, EventArgs e)
@@ -356,43 +445,14 @@ namespace SoftwareLojasRibeiro//.br.com.project.VIEW se n colocar isso aqui vai 
             }
         }
 
-        private void textBoxPesquisaDevedor_TextChanged(object sender, EventArgs e)
-        {
-            PesquisarNomeDevedor();
-        }
-
-        private void buttonDetalhesOff_Click(object sender, EventArgs e)
-        {
-            SelecionarLinhaTabelaClientesDevedores();
-        }
-
-        private void textBoxPesquisaDevedorOff_TextChanged(object sender, EventArgs e)
-        {
-            PesquisarNomeDevedorOff();
-        }
-
-        private void textBoxPesquisaCpf_TextChanged(object sender, EventArgs e)
-        {
-            PesquisarCpf();
-        }
-
-        private void textBoxPesquisaDevedorCpf_TextChanged(object sender, EventArgs e)
-        {
-            PesquisarCpfDevedor();
-        }
-
-        private void textBoxPesquisaDevedorOffCpf_TextChanged(object sender, EventArgs e)
-        {
-            PesquisarCpfDevedorOff();
-        }
-
         #region Lixos
         private void label14_Click(object sender, EventArgs e) { }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
         private void textBoxNomeDevedor_KeyPress(object sender, KeyPressEventArgs e) { }
         private void textBoxID_TextChanged(object sender, EventArgs e) { }
-        private void buttonPesquisar_Click(object sender, EventArgs e) { PesquisarNome(); }
+        private void buttonPesquisar_Click(object sender, EventArgs e) { }
         private void dataGridViewClientes_CellClick(object sender, DataGridViewCellEventArgs e) { }
+        private void textBoxPesquisaDevedor_KeyPress(object sender, EventArgs e) { }
         #endregion
     }
 }

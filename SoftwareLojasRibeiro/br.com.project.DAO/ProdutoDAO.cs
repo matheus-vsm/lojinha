@@ -86,13 +86,16 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                 // Se o nome for informado, adicionamos um filtro na consulta
                 string sql = @"SELECT 
                                 prod.Id_Produto AS 'ID', 
+                                'Ativado' AS 'Status Produtos', 
                                 prod.Nome_Produto AS 'Nome', 
                                 prod.Marca, 
                                 prod.Cor, 
                                 prod.Tamanho, 
                                 prod.Preco_Venda AS 'Preço', 
                                 prod.Qtd_Estoque AS 'Estoque', 
+                                'Ativado' AS 'Status Categoria Produtos', 
                                 catprod.Nome AS 'Categoria Produto', 
+                                'Ativado' AS 'Status Categoria Público',                                 
                                 catpub.Nome AS 'Categoria Publico', 
                                 prod.Descricao, 
                                 prod.DataCadastro AS 'Data de Cadastro' 
@@ -101,10 +104,11 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                                 JOIN tb_categoria_produto AS catprod 
                                 ON (prod.Categoria_Prod_Id = catprod.Id_Categoria_Prod)
                                 JOIN tb_categoria_publico AS catpub 
-                                ON (prod.Categoria_Publ_Id = catpub.Id_Categoria_Pub)";
+                                ON (prod.Categoria_Publ_Id = catpub.Id_Categoria_Pub)
+                                WHERE prod.Status = TRUE";
                 if (!string.IsNullOrEmpty(prod.Nome))
                 {
-                    sql += " WHERE prod.Nome_Produto LIKE @nome";
+                    sql += " AND prod.Nome_Produto LIKE @nome";
                 }
 
                 //Organizar o comando SQL e executar
@@ -128,6 +132,72 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             catch (Exception error)
             {
                 MessageBox.Show($"Erro ao executar o Comando SQL! (ListarProdutos) {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                connection.Close(); // Sempre fechar a conexão
+            }
+        }
+        #endregion
+
+        #region ListarProdutosDesativados
+        public DataTable ListarProdutosDesativados(Produto prod)
+        {
+            try
+            {
+                //Criar o DataTable e o comando SQL
+                DataTable tabelaproduto = new DataTable();
+
+                // Se o nome for informado, adicionamos um filtro na consulta
+                string sql = @"SELECT 
+                                prod.Id_Produto AS 'ID', 
+                                'Desativado' AS 'Status Produtos', 
+                                prod.Nome_Produto AS 'Nome', 
+                                prod.Marca, 
+                                prod.Cor, 
+                                prod.Tamanho, 
+                                prod.Preco_Venda AS 'Preço', 
+                                prod.Qtd_Estoque AS 'Estoque', 
+                                'Desativado' AS 'Status Produtos', 
+                                catprod.Nome AS 'Categoria Produto', 
+                                'Desativado' AS 'Status Produtos',                                 
+                                catpub.Nome AS 'Categoria Publico', 
+                                prod.Descricao, 
+                                prod.DataCadastro AS 'Data de Cadastro' 
+                                
+                                FROM tb_produtos AS prod
+                                JOIN tb_categoria_produto AS catprod 
+                                ON (prod.Categoria_Prod_Id = catprod.Id_Categoria_Prod)
+                                JOIN tb_categoria_publico AS catpub 
+                                ON (prod.Categoria_Publ_Id = catpub.Id_Categoria_Pub)
+                                WHERE prod.Status = FALSE";
+                if (!string.IsNullOrEmpty(prod.Nome))
+                {
+                    sql += " AND prod.Nome_Produto LIKE @nome";
+                }
+
+                //Organizar o comando SQL e executar
+                MySqlCommand executacmd = new MySqlCommand(sql, connection);
+
+                // Se houver um nome para buscar, adicionamos o parâmetro
+                if (!string.IsNullOrEmpty(prod.Nome))
+                {
+                    executacmd.Parameters.AddWithValue("@nome", "%" + prod.Nome + "%");
+                }
+
+                connection.Open();
+                executacmd.ExecuteNonQuery();
+
+                //Criar o MySQLDataAdapter para preencher os dados do DataTable
+                MySqlDataAdapter da = new MySqlDataAdapter(executacmd);
+                da.Fill(tabelaproduto); //preenche o datatable
+
+                return tabelaproduto;
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show($"Erro ao executar o Comando SQL! (ListarProdutosDesativados) {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
             finally
@@ -430,6 +500,88 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             catch (Exception error)
             {
                 MessageBox.Show($"Ocorreu um erro ao Cadastrar o Produto: {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            finally
+            {
+                connection.Close(); // Sempre fechar a conexão
+            }
+        }
+        #endregion
+
+        #region AtivarProduto
+        public bool AtivarProduto(Produto prod)
+        {
+            try
+            {
+                //Definir comando SQL - INSERT INTO
+                string sql = @"UPDATE tb_produtos SET 
+                            Status = TRUE 
+                            WHERE Id_Produto=@id";
+
+                //Organizar o comando SQL
+                MySqlCommand executacmd = new MySqlCommand(sql, connection);
+                executacmd.Parameters.AddWithValue("@id", prod.Id);
+
+                //Abrir conexão e executar o comando SQL
+                connection.Open();
+                int linhasAfetadas = executacmd.ExecuteNonQuery();
+
+                if (linhasAfetadas > 0)
+                {
+                    MessageBox.Show("Produto Ativado com Sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao Ativar o Produto! Nenhuma linha foi modificada.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show($"Ocorreu um erro ao Ativar o Produto: {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            finally
+            {
+                connection.Close(); // Sempre fechar a conexão
+            }
+        }
+        #endregion
+
+        #region DesativarProduto
+        public bool DesativarProduto(Produto prod)
+        {
+            try
+            {
+                //Definir comando SQL - INSERT INTO
+                string sql = @"UPDATE tb_produtos SET 
+                            Status = FALSE 
+                            WHERE Id_Produto=@id";
+
+                //Organizar o comando SQL
+                MySqlCommand executacmd = new MySqlCommand(sql, connection);
+                executacmd.Parameters.AddWithValue("@id", prod.Id);
+
+                //Abrir conexão e executar o comando SQL
+                connection.Open();
+                int linhasAfetadas = executacmd.ExecuteNonQuery();
+
+                if (linhasAfetadas > 0)
+                {
+                    MessageBox.Show("Produto Desativado com Sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao Desativar o Produto! Nenhuma linha foi modificada.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show($"Ocorreu um erro ao Desativar o Produto: {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             finally

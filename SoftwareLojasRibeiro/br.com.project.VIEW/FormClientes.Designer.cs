@@ -34,7 +34,9 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.buttonMenu = new System.Windows.Forms.Button();
             this.tabPageConsultar = new System.Windows.Forms.TabPage();
-            this.button2 = new System.Windows.Forms.Button();
+            this.textBoxPesquisaCpf = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.buttonExibirCompras = new System.Windows.Forms.Button();
             this.buttonLimparPesquisa = new System.Windows.Forms.Button();
             this.buttonExcluir = new System.Windows.Forms.Button();
             this.buttonAlterar = new System.Windows.Forms.Button();
@@ -66,7 +68,18 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tabControlClientes = new System.Windows.Forms.TabControl();
+            this.tabPageConsultarDesativados = new System.Windows.Forms.TabPage();
+            this.textBoxPesquisaCpfDesativado = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.buttonExibirComprasDesativado = new System.Windows.Forms.Button();
+            this.buttonLimparDesativados = new System.Windows.Forms.Button();
+            this.buttonAtivarCliente = new System.Windows.Forms.Button();
+            this.dataGridViewClientesDesativados = new System.Windows.Forms.DataGridView();
+            this.textBoxPesquisaNomeDesativado = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
             this.tabPageConsultarDevedoresOn = new System.Windows.Forms.TabPage();
+            this.textBoxPesquisaDevedorCpf = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.textBoxPesquisaDevedor = new System.Windows.Forms.TextBox();
             this.buttonLimparDevedor = new System.Windows.Forms.Button();
             this.buttonAtualizarDivida = new System.Windows.Forms.Button();
@@ -74,23 +87,21 @@
             this.buttonDetalhesVenda = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.tabPageConsultarDevedoresOff = new System.Windows.Forms.TabPage();
+            this.textBoxPesquisaDevedorOffCpf = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
             this.textBoxPesquisaDevedorOff = new System.Windows.Forms.TextBox();
             this.buttonLimparOff = new System.Windows.Forms.Button();
             this.dataGridViewClientesDevedoresOff = new System.Windows.Forms.DataGridView();
             this.buttonDetalhesOff = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
-            this.textBoxPesquisaCpf = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.textBoxPesquisaDevedorCpf = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.textBoxPesquisaDevedorOffCpf = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPageConsultar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClientes)).BeginInit();
             this.tabPageCadastrar.SuspendLayout();
             this.tabControlClientes.SuspendLayout();
+            this.tabPageConsultarDesativados.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClientesDesativados)).BeginInit();
             this.tabPageConsultarDevedoresOn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClientesDevedores)).BeginInit();
             this.tabPageConsultarDevedoresOff.SuspendLayout();
@@ -147,7 +158,7 @@
             // 
             this.tabPageConsultar.Controls.Add(this.textBoxPesquisaCpf);
             this.tabPageConsultar.Controls.Add(this.label16);
-            this.tabPageConsultar.Controls.Add(this.button2);
+            this.tabPageConsultar.Controls.Add(this.buttonExibirCompras);
             this.tabPageConsultar.Controls.Add(this.buttonLimparPesquisa);
             this.tabPageConsultar.Controls.Add(this.buttonExcluir);
             this.tabPageConsultar.Controls.Add(this.buttonAlterar);
@@ -159,25 +170,44 @@
             this.tabPageConsultar.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageConsultar.Size = new System.Drawing.Size(1365, 570);
             this.tabPageConsultar.TabIndex = 2;
-            this.tabPageConsultar.Text = "Consultar Dados";
+            this.tabPageConsultar.Text = "Consultar Ativos";
             this.tabPageConsultar.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // textBoxPesquisaCpf
             // 
-            this.button2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F);
-            this.button2.Location = new System.Drawing.Point(1133, 27);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(196, 40);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Exibir Compras";
-            this.button2.UseVisualStyleBackColor = true;
+            this.textBoxPesquisaCpf.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F);
+            this.textBoxPesquisaCpf.Location = new System.Drawing.Point(173, 52);
+            this.textBoxPesquisaCpf.Name = "textBoxPesquisaCpf";
+            this.textBoxPesquisaCpf.Size = new System.Drawing.Size(301, 29);
+            this.textBoxPesquisaCpf.TabIndex = 1;
+            this.textBoxPesquisaCpf.TextChanged += new System.EventHandler(this.textBoxPesquisaCpf_TextChanged);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
+            this.label16.Location = new System.Drawing.Point(37, 58);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(130, 18);
+            this.label16.TabIndex = 8;
+            this.label16.Text = "CPF do Cliente:";
+            // 
+            // buttonExibirCompras
+            // 
+            this.buttonExibirCompras.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F);
+            this.buttonExibirCompras.Location = new System.Drawing.Point(1133, 27);
+            this.buttonExibirCompras.Name = "buttonExibirCompras";
+            this.buttonExibirCompras.Size = new System.Drawing.Size(196, 40);
+            this.buttonExibirCompras.TabIndex = 5;
+            this.buttonExibirCompras.Text = "Exibir Compras";
+            this.buttonExibirCompras.UseVisualStyleBackColor = true;
             // 
             // buttonLimparPesquisa
             // 
             this.buttonLimparPesquisa.Location = new System.Drawing.Point(497, 38);
             this.buttonLimparPesquisa.Name = "buttonLimparPesquisa";
             this.buttonLimparPesquisa.Size = new System.Drawing.Size(72, 29);
-            this.buttonLimparPesquisa.TabIndex = 4;
+            this.buttonLimparPesquisa.TabIndex = 2;
             this.buttonLimparPesquisa.Text = "Limpar";
             this.buttonLimparPesquisa.UseVisualStyleBackColor = true;
             this.buttonLimparPesquisa.Click += new System.EventHandler(this.buttonLimparPesquisa_Click);
@@ -188,8 +218,8 @@
             this.buttonExcluir.Location = new System.Drawing.Point(906, 27);
             this.buttonExcluir.Name = "buttonExcluir";
             this.buttonExcluir.Size = new System.Drawing.Size(196, 40);
-            this.buttonExcluir.TabIndex = 3;
-            this.buttonExcluir.Text = "Excluir";
+            this.buttonExcluir.TabIndex = 4;
+            this.buttonExcluir.Text = "Desativar";
             this.buttonExcluir.UseVisualStyleBackColor = true;
             this.buttonExcluir.Click += new System.EventHandler(this.buttonExcluir_Click);
             // 
@@ -199,7 +229,7 @@
             this.buttonAlterar.Location = new System.Drawing.Point(686, 27);
             this.buttonAlterar.Name = "buttonAlterar";
             this.buttonAlterar.Size = new System.Drawing.Size(196, 40);
-            this.buttonAlterar.TabIndex = 2;
+            this.buttonAlterar.TabIndex = 3;
             this.buttonAlterar.Text = "Alterar";
             this.buttonAlterar.UseVisualStyleBackColor = true;
             this.buttonAlterar.Click += new System.EventHandler(this.buttonAlterar_Click);
@@ -493,6 +523,7 @@
             // 
             this.tabControlClientes.Controls.Add(this.tabPageCadastrar);
             this.tabControlClientes.Controls.Add(this.tabPageConsultar);
+            this.tabControlClientes.Controls.Add(this.tabPageConsultarDesativados);
             this.tabControlClientes.Controls.Add(this.tabPageConsultarDevedoresOn);
             this.tabControlClientes.Controls.Add(this.tabPageConsultarDevedoresOff);
             this.tabControlClientes.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -501,6 +532,105 @@
             this.tabControlClientes.SelectedIndex = 0;
             this.tabControlClientes.Size = new System.Drawing.Size(1373, 598);
             this.tabControlClientes.TabIndex = 0;
+            // 
+            // tabPageConsultarDesativados
+            // 
+            this.tabPageConsultarDesativados.Controls.Add(this.textBoxPesquisaCpfDesativado);
+            this.tabPageConsultarDesativados.Controls.Add(this.label19);
+            this.tabPageConsultarDesativados.Controls.Add(this.buttonExibirComprasDesativado);
+            this.tabPageConsultarDesativados.Controls.Add(this.buttonLimparDesativados);
+            this.tabPageConsultarDesativados.Controls.Add(this.buttonAtivarCliente);
+            this.tabPageConsultarDesativados.Controls.Add(this.dataGridViewClientesDesativados);
+            this.tabPageConsultarDesativados.Controls.Add(this.textBoxPesquisaNomeDesativado);
+            this.tabPageConsultarDesativados.Controls.Add(this.label20);
+            this.tabPageConsultarDesativados.Location = new System.Drawing.Point(4, 24);
+            this.tabPageConsultarDesativados.Name = "tabPageConsultarDesativados";
+            this.tabPageConsultarDesativados.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageConsultarDesativados.Size = new System.Drawing.Size(1365, 570);
+            this.tabPageConsultarDesativados.TabIndex = 5;
+            this.tabPageConsultarDesativados.Text = "Consultar Desativados";
+            this.tabPageConsultarDesativados.UseVisualStyleBackColor = true;
+            // 
+            // textBoxPesquisaCpfDesativado
+            // 
+            this.textBoxPesquisaCpfDesativado.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F);
+            this.textBoxPesquisaCpfDesativado.Location = new System.Drawing.Point(173, 50);
+            this.textBoxPesquisaCpfDesativado.Name = "textBoxPesquisaCpfDesativado";
+            this.textBoxPesquisaCpfDesativado.Size = new System.Drawing.Size(301, 29);
+            this.textBoxPesquisaCpfDesativado.TabIndex = 1;
+            this.textBoxPesquisaCpfDesativado.TextChanged += new System.EventHandler(this.textBoxPesquisaCpfDesativado_TextChanged);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
+            this.label19.Location = new System.Drawing.Point(37, 56);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(130, 18);
+            this.label19.TabIndex = 17;
+            this.label19.Text = "CPF do Cliente:";
+            // 
+            // buttonExibirComprasDesativado
+            // 
+            this.buttonExibirComprasDesativado.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F);
+            this.buttonExibirComprasDesativado.Location = new System.Drawing.Point(1058, 25);
+            this.buttonExibirComprasDesativado.Name = "buttonExibirComprasDesativado";
+            this.buttonExibirComprasDesativado.Size = new System.Drawing.Size(196, 40);
+            this.buttonExibirComprasDesativado.TabIndex = 4;
+            this.buttonExibirComprasDesativado.Text = "Exibir Compras";
+            this.buttonExibirComprasDesativado.UseVisualStyleBackColor = true;
+            // 
+            // buttonLimparDesativados
+            // 
+            this.buttonLimparDesativados.Location = new System.Drawing.Point(497, 36);
+            this.buttonLimparDesativados.Name = "buttonLimparDesativados";
+            this.buttonLimparDesativados.Size = new System.Drawing.Size(72, 29);
+            this.buttonLimparDesativados.TabIndex = 2;
+            this.buttonLimparDesativados.Text = "Limpar";
+            this.buttonLimparDesativados.UseVisualStyleBackColor = true;
+            this.buttonLimparDesativados.Click += new System.EventHandler(this.buttonLimparDesativados_Click);
+            // 
+            // buttonAtivarCliente
+            // 
+            this.buttonAtivarCliente.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F);
+            this.buttonAtivarCliente.Location = new System.Drawing.Point(713, 25);
+            this.buttonAtivarCliente.Name = "buttonAtivarCliente";
+            this.buttonAtivarCliente.Size = new System.Drawing.Size(196, 40);
+            this.buttonAtivarCliente.TabIndex = 3;
+            this.buttonAtivarCliente.Text = "Ativar";
+            this.buttonAtivarCliente.UseVisualStyleBackColor = true;
+            this.buttonAtivarCliente.Click += new System.EventHandler(this.buttonAtivarCliente_Click);
+            // 
+            // dataGridViewClientesDesativados
+            // 
+            this.dataGridViewClientesDesativados.AllowUserToAddRows = false;
+            this.dataGridViewClientesDesativados.AllowUserToDeleteRows = false;
+            this.dataGridViewClientesDesativados.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridViewClientesDesativados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewClientesDesativados.Location = new System.Drawing.Point(0, 89);
+            this.dataGridViewClientesDesativados.Name = "dataGridViewClientesDesativados";
+            this.dataGridViewClientesDesativados.ReadOnly = true;
+            this.dataGridViewClientesDesativados.Size = new System.Drawing.Size(1365, 479);
+            this.dataGridViewClientesDesativados.TabIndex = 14;
+            // 
+            // textBoxPesquisaNomeDesativado
+            // 
+            this.textBoxPesquisaNomeDesativado.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F);
+            this.textBoxPesquisaNomeDesativado.Location = new System.Drawing.Point(173, 15);
+            this.textBoxPesquisaNomeDesativado.Name = "textBoxPesquisaNomeDesativado";
+            this.textBoxPesquisaNomeDesativado.Size = new System.Drawing.Size(301, 29);
+            this.textBoxPesquisaNomeDesativado.TabIndex = 0;
+            this.textBoxPesquisaNomeDesativado.TextChanged += new System.EventHandler(this.textBoxPesquisaNomeDesativado_TextChanged);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
+            this.label20.Location = new System.Drawing.Point(24, 21);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(143, 18);
+            this.label20.TabIndex = 11;
+            this.label20.Text = "Nome do Cliente:";
             // 
             // tabPageConsultarDevedoresOn
             // 
@@ -520,13 +650,33 @@
             this.tabPageConsultarDevedoresOn.Text = "Consultar Devedores";
             this.tabPageConsultarDevedoresOn.UseVisualStyleBackColor = true;
             // 
+            // textBoxPesquisaDevedorCpf
+            // 
+            this.textBoxPesquisaDevedorCpf.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F);
+            this.textBoxPesquisaDevedorCpf.Location = new System.Drawing.Point(170, 50);
+            this.textBoxPesquisaDevedorCpf.Name = "textBoxPesquisaDevedorCpf";
+            this.textBoxPesquisaDevedorCpf.Size = new System.Drawing.Size(231, 29);
+            this.textBoxPesquisaDevedorCpf.TabIndex = 1;
+            this.textBoxPesquisaDevedorCpf.TextChanged += new System.EventHandler(this.textBoxPesquisaDevedorCpf_TextChanged);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(45, 50);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(119, 34);
+            this.label17.TabIndex = 15;
+            this.label17.Text = "CPF do Cliente \r\nDevedor:";
+            this.label17.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // textBoxPesquisaDevedor
             // 
             this.textBoxPesquisaDevedor.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F);
             this.textBoxPesquisaDevedor.Location = new System.Drawing.Point(170, 15);
             this.textBoxPesquisaDevedor.Name = "textBoxPesquisaDevedor";
             this.textBoxPesquisaDevedor.Size = new System.Drawing.Size(231, 29);
-            this.textBoxPesquisaDevedor.TabIndex = 14;
+            this.textBoxPesquisaDevedor.TabIndex = 0;
             this.textBoxPesquisaDevedor.TextChanged += new System.EventHandler(this.textBoxPesquisaDevedor_TextChanged);
             this.textBoxPesquisaDevedor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxPesquisaDevedor_KeyPress);
             // 
@@ -535,7 +685,7 @@
             this.buttonLimparDevedor.Location = new System.Drawing.Point(420, 34);
             this.buttonLimparDevedor.Name = "buttonLimparDevedor";
             this.buttonLimparDevedor.Size = new System.Drawing.Size(72, 29);
-            this.buttonLimparDevedor.TabIndex = 11;
+            this.buttonLimparDevedor.TabIndex = 2;
             this.buttonLimparDevedor.Text = "Limpar";
             this.buttonLimparDevedor.UseVisualStyleBackColor = true;
             this.buttonLimparDevedor.Click += new System.EventHandler(this.buttonLimparDevedor_Click);
@@ -546,7 +696,7 @@
             this.buttonAtualizarDivida.Location = new System.Drawing.Point(961, 26);
             this.buttonAtualizarDivida.Name = "buttonAtualizarDivida";
             this.buttonAtualizarDivida.Size = new System.Drawing.Size(321, 40);
-            this.buttonAtualizarDivida.TabIndex = 8;
+            this.buttonAtualizarDivida.TabIndex = 4;
             this.buttonAtualizarDivida.Text = "Atualizar Dívida";
             this.buttonAtualizarDivida.UseVisualStyleBackColor = true;
             this.buttonAtualizarDivida.Click += new System.EventHandler(this.buttonAtualizarDivida_Click);
@@ -570,7 +720,7 @@
             this.buttonDetalhesVenda.Location = new System.Drawing.Point(556, 26);
             this.buttonDetalhesVenda.Name = "buttonDetalhesVenda";
             this.buttonDetalhesVenda.Size = new System.Drawing.Size(321, 40);
-            this.buttonDetalhesVenda.TabIndex = 7;
+            this.buttonDetalhesVenda.TabIndex = 3;
             this.buttonDetalhesVenda.Text = "Detalhes da Venda";
             this.buttonDetalhesVenda.UseVisualStyleBackColor = true;
             this.buttonDetalhesVenda.Click += new System.EventHandler(this.buttonDetalhesVenda_Click);
@@ -604,13 +754,33 @@
             this.tabPageConsultarDevedoresOff.Text = "Consultar Devedores Quitados";
             this.tabPageConsultarDevedoresOff.UseVisualStyleBackColor = true;
             // 
+            // textBoxPesquisaDevedorOffCpf
+            // 
+            this.textBoxPesquisaDevedorOffCpf.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F);
+            this.textBoxPesquisaDevedorOffCpf.Location = new System.Drawing.Point(170, 52);
+            this.textBoxPesquisaDevedorOffCpf.Name = "textBoxPesquisaDevedorOffCpf";
+            this.textBoxPesquisaDevedorOffCpf.Size = new System.Drawing.Size(231, 29);
+            this.textBoxPesquisaDevedorOffCpf.TabIndex = 1;
+            this.textBoxPesquisaDevedorOffCpf.TextChanged += new System.EventHandler(this.textBoxPesquisaDevedorOffCpf_TextChanged);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(23, 49);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(141, 34);
+            this.label18.TabIndex = 22;
+            this.label18.Text = "CPF do Cliente Ex \r\nDevedor:";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // textBoxPesquisaDevedorOff
             // 
             this.textBoxPesquisaDevedorOff.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F);
             this.textBoxPesquisaDevedorOff.Location = new System.Drawing.Point(170, 13);
             this.textBoxPesquisaDevedorOff.Name = "textBoxPesquisaDevedorOff";
             this.textBoxPesquisaDevedorOff.Size = new System.Drawing.Size(231, 29);
-            this.textBoxPesquisaDevedorOff.TabIndex = 21;
+            this.textBoxPesquisaDevedorOff.TabIndex = 0;
             this.textBoxPesquisaDevedorOff.TextChanged += new System.EventHandler(this.textBoxPesquisaDevedorOff_TextChanged);
             // 
             // buttonLimparOff
@@ -618,7 +788,7 @@
             this.buttonLimparOff.Location = new System.Drawing.Point(445, 32);
             this.buttonLimparOff.Name = "buttonLimparOff";
             this.buttonLimparOff.Size = new System.Drawing.Size(72, 29);
-            this.buttonLimparOff.TabIndex = 18;
+            this.buttonLimparOff.TabIndex = 2;
             this.buttonLimparOff.Text = "Limpar";
             this.buttonLimparOff.UseVisualStyleBackColor = true;
             this.buttonLimparOff.Click += new System.EventHandler(this.buttonLimparOff_Click);
@@ -641,7 +811,7 @@
             this.buttonDetalhesOff.Location = new System.Drawing.Point(724, 26);
             this.buttonDetalhesOff.Name = "buttonDetalhesOff";
             this.buttonDetalhesOff.Size = new System.Drawing.Size(430, 40);
-            this.buttonDetalhesOff.TabIndex = 15;
+            this.buttonDetalhesOff.TabIndex = 3;
             this.buttonDetalhesOff.Text = "Detalhes da Venda";
             this.buttonDetalhesOff.UseVisualStyleBackColor = true;
             this.buttonDetalhesOff.Click += new System.EventHandler(this.buttonDetalhesOff_Click);
@@ -649,72 +819,13 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
-            this.label15.Location = new System.Drawing.Point(14, 11);
+            this.label15.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(33, 8);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(142, 36);
+            this.label15.Size = new System.Drawing.Size(131, 34);
             this.label15.TabIndex = 17;
             this.label15.Text = "Nome do Cliente \r\nEx Devedor:";
             this.label15.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // textBoxPesquisaCpf
-            // 
-            this.textBoxPesquisaCpf.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F);
-            this.textBoxPesquisaCpf.Location = new System.Drawing.Point(173, 52);
-            this.textBoxPesquisaCpf.Name = "textBoxPesquisaCpf";
-            this.textBoxPesquisaCpf.Size = new System.Drawing.Size(301, 29);
-            this.textBoxPesquisaCpf.TabIndex = 7;
-            this.textBoxPesquisaCpf.TextChanged += new System.EventHandler(this.textBoxPesquisaCpf_TextChanged);
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
-            this.label16.Location = new System.Drawing.Point(37, 58);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(130, 18);
-            this.label16.TabIndex = 8;
-            this.label16.Text = "CPF do Cliente:";
-            // 
-            // textBoxPesquisaDevedorCpf
-            // 
-            this.textBoxPesquisaDevedorCpf.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F);
-            this.textBoxPesquisaDevedorCpf.Location = new System.Drawing.Point(170, 50);
-            this.textBoxPesquisaDevedorCpf.Name = "textBoxPesquisaDevedorCpf";
-            this.textBoxPesquisaDevedorCpf.Size = new System.Drawing.Size(231, 29);
-            this.textBoxPesquisaDevedorCpf.TabIndex = 16;
-            this.textBoxPesquisaDevedorCpf.TextChanged += new System.EventHandler(this.textBoxPesquisaDevedorCpf_TextChanged);
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(45, 50);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(119, 34);
-            this.label17.TabIndex = 15;
-            this.label17.Text = "CPF do Cliente \r\nDevedor:";
-            this.label17.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // textBoxPesquisaDevedorOffCpf
-            // 
-            this.textBoxPesquisaDevedorOffCpf.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F);
-            this.textBoxPesquisaDevedorOffCpf.Location = new System.Drawing.Point(170, 52);
-            this.textBoxPesquisaDevedorOffCpf.Name = "textBoxPesquisaDevedorOffCpf";
-            this.textBoxPesquisaDevedorOffCpf.Size = new System.Drawing.Size(231, 29);
-            this.textBoxPesquisaDevedorOffCpf.TabIndex = 23;
-            this.textBoxPesquisaDevedorOffCpf.TextChanged += new System.EventHandler(this.textBoxPesquisaDevedorOffCpf_TextChanged);
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
-            this.label18.Location = new System.Drawing.Point(4, 52);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(152, 36);
-            this.label18.TabIndex = 22;
-            this.label18.Text = "CPF do Cliente Ex \r\nDevedor:";
-            this.label18.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // FormClientes
             // 
@@ -738,6 +849,9 @@
             this.tabPageCadastrar.ResumeLayout(false);
             this.tabPageCadastrar.PerformLayout();
             this.tabControlClientes.ResumeLayout(false);
+            this.tabPageConsultarDesativados.ResumeLayout(false);
+            this.tabPageConsultarDesativados.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClientesDesativados)).EndInit();
             this.tabPageConsultarDevedoresOn.ResumeLayout(false);
             this.tabPageConsultarDevedoresOn.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClientesDevedores)).EndInit();
@@ -791,7 +905,7 @@
         private System.Windows.Forms.DataGridView dataGridViewClientesDevedores;
         private System.Windows.Forms.Button buttonDetalhesVenda;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonExibirCompras;
         private System.Windows.Forms.TextBox textBoxPesquisaDevedor;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TabPage tabPageConsultarDevedoresOff;
@@ -806,6 +920,15 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox textBoxPesquisaDevedorOffCpf;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TabPage tabPageConsultarDesativados;
+        private System.Windows.Forms.TextBox textBoxPesquisaCpfDesativado;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Button buttonExibirComprasDesativado;
+        private System.Windows.Forms.Button buttonLimparDesativados;
+        private System.Windows.Forms.Button buttonAtivarCliente;
+        private System.Windows.Forms.DataGridView dataGridViewClientesDesativados;
+        private System.Windows.Forms.TextBox textBoxPesquisaNomeDesativado;
+        private System.Windows.Forms.Label label20;
     }
 }
 
