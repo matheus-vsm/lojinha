@@ -396,7 +396,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                 DataTable tabelafornecedor = new DataTable();
 
                 // Se o nome for informado, adicionamos um filtro na consulta
-                string sql = @"SELECT * FROM tb_fornecedores";
+                string sql = @"SELECT * FROM tb_fornecedores WHERE Status = TRUE";
 
                 //Organizar o comando SQL e executar
                 MySqlCommand executacmd = new MySqlCommand(sql, connection);

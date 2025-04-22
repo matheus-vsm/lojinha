@@ -50,6 +50,12 @@
             this.dataGridViewCatProd = new System.Windows.Forms.DataGridView();
             this.textBoxPesquisaNomeProd = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.tabPageProdutosOff = new System.Windows.Forms.TabPage();
+            this.buttonLimparProdOff = new System.Windows.Forms.Button();
+            this.buttonAtivarProd = new System.Windows.Forms.Button();
+            this.dataGridViewCatProdOff = new System.Windows.Forms.DataGridView();
+            this.textBoxPesquisaNomeProdOff = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.tabPagePub = new System.Windows.Forms.TabPage();
             this.buttonLimparPesquisaPub = new System.Windows.Forms.Button();
             this.buttonExcluirPub = new System.Windows.Forms.Button();
@@ -57,12 +63,6 @@
             this.dataGridViewCatPub = new System.Windows.Forms.DataGridView();
             this.textBoxPesquisaNomePub = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.tabPageProdutosOff = new System.Windows.Forms.TabPage();
-            this.buttonLimparProdOff = new System.Windows.Forms.Button();
-            this.buttonAtivarProd = new System.Windows.Forms.Button();
-            this.dataGridViewCatProdOff = new System.Windows.Forms.DataGridView();
-            this.textBoxPesquisaNomeProdOff = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.tabPagePublicosOff = new System.Windows.Forms.TabPage();
             this.buttonLimparPubOff = new System.Windows.Forms.Button();
             this.buttonAtivarPub = new System.Windows.Forms.Button();
@@ -77,10 +77,10 @@
             this.tabPageCadastrar.SuspendLayout();
             this.tabPageConsultar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCatProd)).BeginInit();
-            this.tabPagePub.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCatPub)).BeginInit();
             this.tabPageProdutosOff.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCatProdOff)).BeginInit();
+            this.tabPagePub.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCatPub)).BeginInit();
             this.tabPagePublicosOff.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCatPubOff)).BeginInit();
             this.panel1.SuspendLayout();
@@ -91,8 +91,8 @@
             // 
             this.tabControlCategorias.Controls.Add(this.tabPageCadastrar);
             this.tabControlCategorias.Controls.Add(this.tabPageConsultar);
-            this.tabControlCategorias.Controls.Add(this.tabPagePub);
             this.tabControlCategorias.Controls.Add(this.tabPageProdutosOff);
+            this.tabControlCategorias.Controls.Add(this.tabPagePub);
             this.tabControlCategorias.Controls.Add(this.tabPagePublicosOff);
             this.tabControlCategorias.Location = new System.Drawing.Point(0, 149);
             this.tabControlCategorias.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -273,7 +273,7 @@
             this.buttonLimparPesquisaProd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonLimparPesquisaProd.Name = "buttonLimparPesquisaProd";
             this.buttonLimparPesquisaProd.Size = new System.Drawing.Size(96, 33);
-            this.buttonLimparPesquisaProd.TabIndex = 27;
+            this.buttonLimparPesquisaProd.TabIndex = 1;
             this.buttonLimparPesquisaProd.Text = "Limpar";
             this.buttonLimparPesquisaProd.UseVisualStyleBackColor = true;
             this.buttonLimparPesquisaProd.Click += new System.EventHandler(this.buttonLimparPesquisaProd_Click);
@@ -285,7 +285,7 @@
             this.buttonExcluirProd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonExcluirProd.Name = "buttonExcluirProd";
             this.buttonExcluirProd.Size = new System.Drawing.Size(348, 46);
-            this.buttonExcluirProd.TabIndex = 26;
+            this.buttonExcluirProd.TabIndex = 3;
             this.buttonExcluirProd.Text = "Desativar";
             this.buttonExcluirProd.UseVisualStyleBackColor = true;
             this.buttonExcluirProd.Click += new System.EventHandler(this.buttonExcluirProd_Click);
@@ -297,7 +297,7 @@
             this.buttonAlterarProd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonAlterarProd.Name = "buttonAlterarProd";
             this.buttonAlterarProd.Size = new System.Drawing.Size(348, 46);
-            this.buttonAlterarProd.TabIndex = 25;
+            this.buttonAlterarProd.TabIndex = 2;
             this.buttonAlterarProd.Text = "Alterar";
             this.buttonAlterarProd.UseVisualStyleBackColor = true;
             this.buttonAlterarProd.Click += new System.EventHandler(this.buttonAlterarProd_Click);
@@ -322,7 +322,7 @@
             this.textBoxPesquisaNomeProd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxPesquisaNomeProd.Name = "textBoxPesquisaNomeProd";
             this.textBoxPesquisaNomeProd.Size = new System.Drawing.Size(328, 29);
-            this.textBoxPesquisaNomeProd.TabIndex = 3;
+            this.textBoxPesquisaNomeProd.TabIndex = 0;
             this.textBoxPesquisaNomeProd.TextChanged += new System.EventHandler(this.textBoxPesquisaNomeProd_TextChanged);
             // 
             // label11
@@ -336,6 +336,78 @@
             this.label11.TabIndex = 2;
             this.label11.Text = "Nome da Categoria\r\nde Produtos:";
             this.label11.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // tabPageProdutosOff
+            // 
+            this.tabPageProdutosOff.Controls.Add(this.buttonLimparProdOff);
+            this.tabPageProdutosOff.Controls.Add(this.buttonAtivarProd);
+            this.tabPageProdutosOff.Controls.Add(this.dataGridViewCatProdOff);
+            this.tabPageProdutosOff.Controls.Add(this.textBoxPesquisaNomeProdOff);
+            this.tabPageProdutosOff.Controls.Add(this.label8);
+            this.tabPageProdutosOff.Location = new System.Drawing.Point(4, 24);
+            this.tabPageProdutosOff.Name = "tabPageProdutosOff";
+            this.tabPageProdutosOff.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageProdutosOff.Size = new System.Drawing.Size(1365, 570);
+            this.tabPageProdutosOff.TabIndex = 4;
+            this.tabPageProdutosOff.Text = "Consultar Produtos Desativados";
+            this.tabPageProdutosOff.UseVisualStyleBackColor = true;
+            // 
+            // buttonLimparProdOff
+            // 
+            this.buttonLimparProdOff.Location = new System.Drawing.Point(281, 75);
+            this.buttonLimparProdOff.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.buttonLimparProdOff.Name = "buttonLimparProdOff";
+            this.buttonLimparProdOff.Size = new System.Drawing.Size(96, 33);
+            this.buttonLimparProdOff.TabIndex = 1;
+            this.buttonLimparProdOff.Text = "Limpar";
+            this.buttonLimparProdOff.UseVisualStyleBackColor = true;
+            this.buttonLimparProdOff.Click += new System.EventHandler(this.buttonLimparProdOff_Click);
+            // 
+            // buttonAtivarProd
+            // 
+            this.buttonAtivarProd.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAtivarProd.Location = new System.Drawing.Point(749, 38);
+            this.buttonAtivarProd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.buttonAtivarProd.Name = "buttonAtivarProd";
+            this.buttonAtivarProd.Size = new System.Drawing.Size(348, 46);
+            this.buttonAtivarProd.TabIndex = 2;
+            this.buttonAtivarProd.Text = "Ativar";
+            this.buttonAtivarProd.UseVisualStyleBackColor = true;
+            this.buttonAtivarProd.Click += new System.EventHandler(this.buttonAtivarProd_Click);
+            // 
+            // dataGridViewCatProdOff
+            // 
+            this.dataGridViewCatProdOff.AllowUserToAddRows = false;
+            this.dataGridViewCatProdOff.AllowUserToDeleteRows = false;
+            this.dataGridViewCatProdOff.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridViewCatProdOff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewCatProdOff.Location = new System.Drawing.Point(0, 116);
+            this.dataGridViewCatProdOff.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.dataGridViewCatProdOff.Name = "dataGridViewCatProdOff";
+            this.dataGridViewCatProdOff.ReadOnly = true;
+            this.dataGridViewCatProdOff.Size = new System.Drawing.Size(1365, 452);
+            this.dataGridViewCatProdOff.TabIndex = 4;
+            // 
+            // textBoxPesquisaNomeProdOff
+            // 
+            this.textBoxPesquisaNomeProdOff.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPesquisaNomeProdOff.Location = new System.Drawing.Point(173, 37);
+            this.textBoxPesquisaNomeProdOff.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.textBoxPesquisaNomeProdOff.Name = "textBoxPesquisaNomeProdOff";
+            this.textBoxPesquisaNomeProdOff.Size = new System.Drawing.Size(328, 29);
+            this.textBoxPesquisaNomeProdOff.TabIndex = 0;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(9, 38);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(161, 36);
+            this.label8.TabIndex = 28;
+            this.label8.Text = "Nome da Categoria\r\nde Produtos:";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // tabPagePub
             // 
@@ -360,7 +432,7 @@
             this.buttonLimparPesquisaPub.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonLimparPesquisaPub.Name = "buttonLimparPesquisaPub";
             this.buttonLimparPesquisaPub.Size = new System.Drawing.Size(96, 33);
-            this.buttonLimparPesquisaPub.TabIndex = 4;
+            this.buttonLimparPesquisaPub.TabIndex = 1;
             this.buttonLimparPesquisaPub.Text = "Limpar";
             this.buttonLimparPesquisaPub.UseVisualStyleBackColor = true;
             this.buttonLimparPesquisaPub.Click += new System.EventHandler(this.buttonPub_Click);
@@ -424,77 +496,6 @@
             this.label6.Text = "Nome da Categoria\r\nde Públicos:";
             this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // tabPageProdutosOff
-            // 
-            this.tabPageProdutosOff.Controls.Add(this.buttonLimparProdOff);
-            this.tabPageProdutosOff.Controls.Add(this.buttonAtivarProd);
-            this.tabPageProdutosOff.Controls.Add(this.dataGridViewCatProdOff);
-            this.tabPageProdutosOff.Controls.Add(this.textBoxPesquisaNomeProdOff);
-            this.tabPageProdutosOff.Controls.Add(this.label8);
-            this.tabPageProdutosOff.Location = new System.Drawing.Point(4, 24);
-            this.tabPageProdutosOff.Name = "tabPageProdutosOff";
-            this.tabPageProdutosOff.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageProdutosOff.Size = new System.Drawing.Size(1365, 570);
-            this.tabPageProdutosOff.TabIndex = 4;
-            this.tabPageProdutosOff.Text = "Consultar Produtos Desativados";
-            this.tabPageProdutosOff.UseVisualStyleBackColor = true;
-            // 
-            // buttonLimparProdOff
-            // 
-            this.buttonLimparProdOff.Location = new System.Drawing.Point(281, 75);
-            this.buttonLimparProdOff.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.buttonLimparProdOff.Name = "buttonLimparProdOff";
-            this.buttonLimparProdOff.Size = new System.Drawing.Size(96, 33);
-            this.buttonLimparProdOff.TabIndex = 33;
-            this.buttonLimparProdOff.Text = "Limpar";
-            this.buttonLimparProdOff.UseVisualStyleBackColor = true;
-            this.buttonLimparProdOff.Click += new System.EventHandler(this.buttonLimparProdOff_Click);
-            // 
-            // buttonAtivarProd
-            // 
-            this.buttonAtivarProd.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAtivarProd.Location = new System.Drawing.Point(749, 38);
-            this.buttonAtivarProd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.buttonAtivarProd.Name = "buttonAtivarProd";
-            this.buttonAtivarProd.Size = new System.Drawing.Size(348, 46);
-            this.buttonAtivarProd.TabIndex = 32;
-            this.buttonAtivarProd.Text = "Ativar";
-            this.buttonAtivarProd.UseVisualStyleBackColor = true;
-            // 
-            // dataGridViewCatProdOff
-            // 
-            this.dataGridViewCatProdOff.AllowUserToAddRows = false;
-            this.dataGridViewCatProdOff.AllowUserToDeleteRows = false;
-            this.dataGridViewCatProdOff.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridViewCatProdOff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewCatProdOff.Location = new System.Drawing.Point(0, 116);
-            this.dataGridViewCatProdOff.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.dataGridViewCatProdOff.Name = "dataGridViewCatProdOff";
-            this.dataGridViewCatProdOff.ReadOnly = true;
-            this.dataGridViewCatProdOff.Size = new System.Drawing.Size(1365, 452);
-            this.dataGridViewCatProdOff.TabIndex = 30;
-            // 
-            // textBoxPesquisaNomeProdOff
-            // 
-            this.textBoxPesquisaNomeProdOff.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPesquisaNomeProdOff.Location = new System.Drawing.Point(173, 37);
-            this.textBoxPesquisaNomeProdOff.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textBoxPesquisaNomeProdOff.Name = "textBoxPesquisaNomeProdOff";
-            this.textBoxPesquisaNomeProdOff.Size = new System.Drawing.Size(328, 29);
-            this.textBoxPesquisaNomeProdOff.TabIndex = 29;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(9, 38);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(161, 36);
-            this.label8.TabIndex = 28;
-            this.label8.Text = "Nome da Categoria\r\nde Produtos:";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
             // tabPagePublicosOff
             // 
             this.tabPagePublicosOff.Controls.Add(this.buttonLimparPubOff);
@@ -516,7 +517,7 @@
             this.buttonLimparPubOff.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonLimparPubOff.Name = "buttonLimparPubOff";
             this.buttonLimparPubOff.Size = new System.Drawing.Size(96, 33);
-            this.buttonLimparPubOff.TabIndex = 33;
+            this.buttonLimparPubOff.TabIndex = 1;
             this.buttonLimparPubOff.Text = "Limpar";
             this.buttonLimparPubOff.UseVisualStyleBackColor = true;
             this.buttonLimparPubOff.Click += new System.EventHandler(this.buttonLimparPubOff_Click);
@@ -528,9 +529,10 @@
             this.buttonAtivarPub.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonAtivarPub.Name = "buttonAtivarPub";
             this.buttonAtivarPub.Size = new System.Drawing.Size(348, 46);
-            this.buttonAtivarPub.TabIndex = 32;
+            this.buttonAtivarPub.TabIndex = 2;
             this.buttonAtivarPub.Text = "Ativar";
             this.buttonAtivarPub.UseVisualStyleBackColor = true;
+            this.buttonAtivarPub.Click += new System.EventHandler(this.buttonAtivarPub_Click);
             // 
             // dataGridViewCatPubOff
             // 
@@ -552,7 +554,7 @@
             this.textBoxPesquisaNomePubOff.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxPesquisaNomePubOff.Name = "textBoxPesquisaNomePubOff";
             this.textBoxPesquisaNomePubOff.Size = new System.Drawing.Size(328, 29);
-            this.textBoxPesquisaNomePubOff.TabIndex = 29;
+            this.textBoxPesquisaNomePubOff.TabIndex = 0;
             // 
             // label9
             // 
@@ -635,12 +637,12 @@
             this.tabPageConsultar.ResumeLayout(false);
             this.tabPageConsultar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCatProd)).EndInit();
-            this.tabPagePub.ResumeLayout(false);
-            this.tabPagePub.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCatPub)).EndInit();
             this.tabPageProdutosOff.ResumeLayout(false);
             this.tabPageProdutosOff.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCatProdOff)).EndInit();
+            this.tabPagePub.ResumeLayout(false);
+            this.tabPagePub.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCatPub)).EndInit();
             this.tabPagePublicosOff.ResumeLayout(false);
             this.tabPagePublicosOff.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCatPubOff)).EndInit();

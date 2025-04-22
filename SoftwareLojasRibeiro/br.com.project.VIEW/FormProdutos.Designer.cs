@@ -33,7 +33,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.buttonMenu = new System.Windows.Forms.Button();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabPageProdutos = new System.Windows.Forms.TabPage();
             this.buttonLimparPesquisa = new System.Windows.Forms.Button();
             this.buttonExcluir = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
@@ -64,12 +64,20 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.tabControlProdutos = new System.Windows.Forms.TabControl();
+            this.tabPageProdutosOff = new System.Windows.Forms.TabPage();
+            this.buttonLimparPesquisaOff = new System.Windows.Forms.Button();
+            this.buttonAtivar = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.textBoxPesquisaProdOff = new System.Windows.Forms.TextBox();
+            this.dataGridViewProdutosOff = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.tabPage3.SuspendLayout();
+            this.tabPageProdutos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProdutos)).BeginInit();
             this.tabPageCadastrar.SuspendLayout();
             this.tabControlProdutos.SuspendLayout();
+            this.tabPageProdutosOff.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProdutosOff)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -120,22 +128,22 @@
             this.buttonMenu.UseVisualStyleBackColor = false;
             this.buttonMenu.Click += new System.EventHandler(this.buttonMenu_Click);
             // 
-            // tabPage3
+            // tabPageProdutos
             // 
-            this.tabPage3.Controls.Add(this.buttonLimparPesquisa);
-            this.tabPage3.Controls.Add(this.buttonExcluir);
-            this.tabPage3.Controls.Add(this.label11);
-            this.tabPage3.Controls.Add(this.buttonAlterar);
-            this.tabPage3.Controls.Add(this.textBoxPesquisaProd);
-            this.tabPage3.Controls.Add(this.dataGridViewProdutos);
-            this.tabPage3.Location = new System.Drawing.Point(4, 24);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tabPage3.Size = new System.Drawing.Size(1366, 572);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Consultar Produtos";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.tabPageProdutos.Controls.Add(this.buttonLimparPesquisa);
+            this.tabPageProdutos.Controls.Add(this.buttonExcluir);
+            this.tabPageProdutos.Controls.Add(this.label11);
+            this.tabPageProdutos.Controls.Add(this.buttonAlterar);
+            this.tabPageProdutos.Controls.Add(this.textBoxPesquisaProd);
+            this.tabPageProdutos.Controls.Add(this.dataGridViewProdutos);
+            this.tabPageProdutos.Location = new System.Drawing.Point(4, 24);
+            this.tabPageProdutos.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tabPageProdutos.Name = "tabPageProdutos";
+            this.tabPageProdutos.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tabPageProdutos.Size = new System.Drawing.Size(1366, 572);
+            this.tabPageProdutos.TabIndex = 2;
+            this.tabPageProdutos.Text = "Consultar Ativados";
+            this.tabPageProdutos.UseVisualStyleBackColor = true;
             // 
             // buttonLimparPesquisa
             // 
@@ -156,7 +164,7 @@
             this.buttonExcluir.Name = "buttonExcluir";
             this.buttonExcluir.Size = new System.Drawing.Size(311, 46);
             this.buttonExcluir.TabIndex = 3;
-            this.buttonExcluir.Text = "Excluir";
+            this.buttonExcluir.Text = "Desativar";
             this.buttonExcluir.UseVisualStyleBackColor = true;
             this.buttonExcluir.Click += new System.EventHandler(this.buttonExcluir_Click);
             // 
@@ -471,13 +479,84 @@
             // tabControlProdutos
             // 
             this.tabControlProdutos.Controls.Add(this.tabPageCadastrar);
-            this.tabControlProdutos.Controls.Add(this.tabPage3);
+            this.tabControlProdutos.Controls.Add(this.tabPageProdutos);
+            this.tabControlProdutos.Controls.Add(this.tabPageProdutosOff);
             this.tabControlProdutos.Location = new System.Drawing.Point(0, 149);
             this.tabControlProdutos.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabControlProdutos.Name = "tabControlProdutos";
             this.tabControlProdutos.SelectedIndex = 0;
             this.tabControlProdutos.Size = new System.Drawing.Size(1374, 600);
             this.tabControlProdutos.TabIndex = 0;
+            // 
+            // tabPageProdutosOff
+            // 
+            this.tabPageProdutosOff.Controls.Add(this.buttonLimparPesquisaOff);
+            this.tabPageProdutosOff.Controls.Add(this.buttonAtivar);
+            this.tabPageProdutosOff.Controls.Add(this.label13);
+            this.tabPageProdutosOff.Controls.Add(this.textBoxPesquisaProdOff);
+            this.tabPageProdutosOff.Controls.Add(this.dataGridViewProdutosOff);
+            this.tabPageProdutosOff.Location = new System.Drawing.Point(4, 24);
+            this.tabPageProdutosOff.Name = "tabPageProdutosOff";
+            this.tabPageProdutosOff.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageProdutosOff.Size = new System.Drawing.Size(1366, 572);
+            this.tabPageProdutosOff.TabIndex = 3;
+            this.tabPageProdutosOff.Text = "Consultar Desativados";
+            this.tabPageProdutosOff.UseVisualStyleBackColor = true;
+            // 
+            // buttonLimparPesquisaOff
+            // 
+            this.buttonLimparPesquisaOff.Location = new System.Drawing.Point(294, 58);
+            this.buttonLimparPesquisaOff.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.buttonLimparPesquisaOff.Name = "buttonLimparPesquisaOff";
+            this.buttonLimparPesquisaOff.Size = new System.Drawing.Size(72, 29);
+            this.buttonLimparPesquisaOff.TabIndex = 31;
+            this.buttonLimparPesquisaOff.Text = "Limpar";
+            this.buttonLimparPesquisaOff.UseVisualStyleBackColor = true;
+            // 
+            // buttonAtivar
+            // 
+            this.buttonAtivar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAtivar.Location = new System.Drawing.Point(723, 26);
+            this.buttonAtivar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.buttonAtivar.Name = "buttonAtivar";
+            this.buttonAtivar.Size = new System.Drawing.Size(311, 46);
+            this.buttonAtivar.TabIndex = 30;
+            this.buttonAtivar.Text = "Ativar";
+            this.buttonAtivar.UseVisualStyleBackColor = true;
+            this.buttonAtivar.Click += new System.EventHandler(this.buttonAtivar_Click);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(14, 29);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(151, 18);
+            this.label13.TabIndex = 33;
+            this.label13.Text = "Nome do Produto:";
+            // 
+            // textBoxPesquisaProdOff
+            // 
+            this.textBoxPesquisaProdOff.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPesquisaProdOff.Location = new System.Drawing.Point(173, 26);
+            this.textBoxPesquisaProdOff.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.textBoxPesquisaProdOff.Name = "textBoxPesquisaProdOff";
+            this.textBoxPesquisaProdOff.Size = new System.Drawing.Size(328, 26);
+            this.textBoxPesquisaProdOff.TabIndex = 29;
+            // 
+            // dataGridViewProdutosOff
+            // 
+            this.dataGridViewProdutosOff.AllowUserToAddRows = false;
+            this.dataGridViewProdutosOff.AllowUserToDeleteRows = false;
+            this.dataGridViewProdutosOff.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridViewProdutosOff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewProdutosOff.Location = new System.Drawing.Point(0, 93);
+            this.dataGridViewProdutosOff.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.dataGridViewProdutosOff.Name = "dataGridViewProdutosOff";
+            this.dataGridViewProdutosOff.ReadOnly = true;
+            this.dataGridViewProdutosOff.Size = new System.Drawing.Size(1366, 478);
+            this.dataGridViewProdutosOff.TabIndex = 32;
             // 
             // FormProdutos
             // 
@@ -497,12 +576,15 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
+            this.tabPageProdutos.ResumeLayout(false);
+            this.tabPageProdutos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProdutos)).EndInit();
             this.tabPageCadastrar.ResumeLayout(false);
             this.tabPageCadastrar.PerformLayout();
             this.tabControlProdutos.ResumeLayout(false);
+            this.tabPageProdutosOff.ResumeLayout(false);
+            this.tabPageProdutosOff.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProdutosOff)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -511,7 +593,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button buttonMenu;
-        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tabPageProdutos;
         private System.Windows.Forms.TabPage tabPageCadastrar;
         private System.Windows.Forms.ComboBox comboBoxCategProd;
         private System.Windows.Forms.Label label7;
@@ -543,5 +625,11 @@
         private System.Windows.Forms.TextBox textBoxPesquisaProd;
         private System.Windows.Forms.DataGridView dataGridViewProdutos;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TabPage tabPageProdutosOff;
+        private System.Windows.Forms.Button buttonLimparPesquisaOff;
+        private System.Windows.Forms.Button buttonAtivar;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox textBoxPesquisaProdOff;
+        private System.Windows.Forms.DataGridView dataGridViewProdutosOff;
     }
 }

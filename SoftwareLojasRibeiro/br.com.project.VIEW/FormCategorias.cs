@@ -37,8 +37,8 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             {
                 //Pegar os dados da linha selecionada
                 textBoxID.Text = dataGridViewCatProd.CurrentRow.Cells[0].Value.ToString() ?? "";
-                textBoxNome.Text = dataGridViewCatProd.CurrentRow.Cells[1].Value.ToString() ?? "";
-                textBoxDescricao.Text = dataGridViewCatProd.CurrentRow.Cells[2].Value.ToString() ?? "";
+                textBoxNome.Text = dataGridViewCatProd.CurrentRow.Cells[2].Value.ToString() ?? "";
+                textBoxDescricao.Text = dataGridViewCatProd.CurrentRow.Cells[3].Value.ToString() ?? "";
             }
             else
             {
@@ -52,8 +52,8 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             {
                 //Pegar os dados da linha selecionada
                 textBoxID.Text = dataGridViewCatPub.CurrentRow.Cells[0].Value.ToString() ?? "";
-                textBoxNome.Text = dataGridViewCatPub.CurrentRow.Cells[1].Value.ToString() ?? "";
-                textBoxDescricao.Text = dataGridViewCatPub.CurrentRow.Cells[2].Value.ToString() ?? "";
+                textBoxNome.Text = dataGridViewCatPub.CurrentRow.Cells[2].Value.ToString() ?? "";
+                textBoxDescricao.Text = dataGridViewCatPub.CurrentRow.Cells[3].Value.ToString() ?? "";
             }
             else
             {
@@ -68,6 +68,27 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             tabela.DataSource = dao.ListarCategorias(cat, "Produto");
             tabela.DataSource = dao.ListarCategoriasDesativadas(cat, "Produto");
         }
+
+        public bool VerificacaoAtivaDesativa(string opcao)
+        {
+            // Perguntar ao usuário antes de cadastrar
+            DialogResult resultado = MessageBox.Show($"Tem certeza que deseja {opcao} essa Categoria?",
+                                                     "Confirmação",
+                                                     MessageBoxButtons.YesNo,
+                                                     MessageBoxIcon.Question);
+
+            // Se o usuário clicar em "Não", a função retorna e não executa o cadastro
+            if (resultado == DialogResult.No)
+            {
+                MessageBox.Show("Operação cancelada!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
 
         private void buttonMenu_Click(object sender, EventArgs e)
         {
@@ -203,6 +224,11 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
         private void buttonExcluirProd_Click(object sender, EventArgs e)
         {
+            if (!VerificacaoAtivaDesativa("Excluir"))
+            {
+                return;
+            }
+
             Categoria cat = new Categoria();
             cat.Id = dataGridViewCatProd.CurrentRow.Cells[0].Value.ToString() ?? "";
 
@@ -215,12 +241,51 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
         private void buttonExcluirPub_Click(object sender, EventArgs e)
         {
+            if (!VerificacaoAtivaDesativa("Excluir"))
+            {
+                return;
+            }
+
             Categoria cat = new Categoria();
             cat.Id = dataGridViewCatPub.CurrentRow.Cells[0].Value.ToString() ?? "";
 
             CategoriaDAO dao = new CategoriaDAO();
             //dao.ExcluirCategoria(cat, "Publico");
             dao.DesativarCategoria(cat, "Publico");
+            dataGridViewCatPub.DataSource = dao.ListarCategorias(cat, "Publico"); //atualizar tabela
+            dataGridViewCatPubOff.DataSource = dao.ListarCategoriasDesativadas(cat, "Publico"); //atualizar tabela
+        }
+
+        private void buttonAtivarProd_Click(object sender, EventArgs e)
+        {
+            if (!VerificacaoAtivaDesativa("Ativar"))
+            {
+                return;
+            }
+
+            Categoria cat = new Categoria();
+            cat.Id = dataGridViewCatProdOff.CurrentRow.Cells[0].Value.ToString() ?? "";
+
+            CategoriaDAO dao = new CategoriaDAO();
+            //dao.ExcluirCategoria(cat, "Produto");
+            dao.AtivarCategoria(cat, "Produto");
+            dataGridViewCatProd.DataSource = dao.ListarCategorias(cat, "Produto"); //atualizar tabela
+            dataGridViewCatProdOff.DataSource = dao.ListarCategoriasDesativadas(cat, "Produto"); //atualizar tabela
+        }
+
+        private void buttonAtivarPub_Click(object sender, EventArgs e)
+        {
+            if (!VerificacaoAtivaDesativa("Ativar"))
+            {
+                return;
+            }
+
+            Categoria cat = new Categoria();
+            cat.Id = dataGridViewCatPubOff.CurrentRow.Cells[0].Value.ToString() ?? "";
+
+            CategoriaDAO dao = new CategoriaDAO();
+            //dao.ExcluirCategoria(cat, "Publico");
+            dao.AtivarCategoria(cat, "Publico");
             dataGridViewCatPub.DataSource = dao.ListarCategorias(cat, "Publico"); //atualizar tabela
             dataGridViewCatPubOff.DataSource = dao.ListarCategoriasDesativadas(cat, "Publico"); //atualizar tabela
         }
@@ -251,6 +316,6 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         private void buttonAlterar_Click(object sender, EventArgs e) { }
         private void dataGridViewClientes_CellClick(object sender, DataGridViewCellEventArgs e) { }
         private void buttonPesquisar_Click(object sender, EventArgs e) { }
-        #endregion       
+        #endregion
     }
 }

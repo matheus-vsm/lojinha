@@ -175,7 +175,8 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                 DataTable tabelacategoria = new DataTable();
 
                 // Se o nome for informado, adicionamos um filtro na consulta
-                string sql = @"SELECT * FROM tb_categoria_" + qual;
+                string sql = "SELECT * FROM tb_categoria_" + qual + @" 
+                                WHERE Status = TRUE";
 
                 //Organizar o comando SQL e executar
                 MySqlCommand executacmd = new MySqlCommand(sql, connection);
@@ -404,7 +405,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                 string qual2 = (qual == "Produto") ? "Prod" : "Pub";
 
                 //Definir comando SQL - INSERT INTO
-                string sql = @"UPDATE tb_categoria_" + qual + @"SET 
+                string sql = @"UPDATE tb_categoria_" + qual + @" SET 
                             Status = TRUE 
                             WHERE Id_Categoria_" + qual2 + @"=@id";
 
@@ -447,9 +448,9 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                 string qual2 = (qual == "Produto") ? "Prod" : "Pub";
 
                 //Definir comando SQL - INSERT INTO
-                string sql = @"UPDATE tb_categoria_" + qual + @"SET 
+                string sql = @"UPDATE tb_categoria_" + qual + @" SET 
                             Status = FALSE 
-                            WHERE Id_Categoria_" + qual2 + @"=@id";
+                            WHERE Id_Categoria_" + qual2 + "=@id";
 
                 //Organizar o comando SQL
                 MySqlCommand executacmd = new MySqlCommand(sql, connection);
