@@ -61,6 +61,14 @@
             this.dataGridViewFornecedores = new System.Windows.Forms.DataGridView();
             this.textBoxPesquisaNome = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.tabPageConsultarOff = new System.Windows.Forms.TabPage();
+            this.textBoxPesquisaCnpjOff = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.buttonLimparOff = new System.Windows.Forms.Button();
+            this.buttonAtivar = new System.Windows.Forms.Button();
+            this.dataGridViewFornecedoresOff = new System.Windows.Forms.DataGridView();
+            this.textBoxPesquisaNomeOff = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.buttonMenu = new System.Windows.Forms.Button();
@@ -69,6 +77,8 @@
             this.tabPageCadastrar.SuspendLayout();
             this.tabPageConsultar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFornecedores)).BeginInit();
+            this.tabPageConsultarOff.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFornecedoresOff)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -77,12 +87,13 @@
             // 
             this.tabControlFornecedores.Controls.Add(this.tabPageCadastrar);
             this.tabControlFornecedores.Controls.Add(this.tabPageConsultar);
+            this.tabControlFornecedores.Controls.Add(this.tabPageConsultarOff);
             this.tabControlFornecedores.Location = new System.Drawing.Point(0, 147);
             this.tabControlFornecedores.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabControlFornecedores.Name = "tabControlFornecedores";
             this.tabControlFornecedores.SelectedIndex = 0;
             this.tabControlFornecedores.Size = new System.Drawing.Size(1373, 600);
-            this.tabControlFornecedores.TabIndex = 3;
+            this.tabControlFornecedores.TabIndex = 0;
             // 
             // tabPageCadastrar
             // 
@@ -349,7 +360,7 @@
             this.tabPageConsultar.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabPageConsultar.Size = new System.Drawing.Size(1365, 572);
             this.tabPageConsultar.TabIndex = 2;
-            this.tabPageConsultar.Text = "Consultar Dados";
+            this.tabPageConsultar.Text = "Consultar Ativos";
             this.tabPageConsultar.UseVisualStyleBackColor = true;
             // 
             // textBoxPesquisaCnpj
@@ -359,7 +370,7 @@
             this.textBoxPesquisaCnpj.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxPesquisaCnpj.Name = "textBoxPesquisaCnpj";
             this.textBoxPesquisaCnpj.Size = new System.Drawing.Size(328, 29);
-            this.textBoxPesquisaCnpj.TabIndex = 29;
+            this.textBoxPesquisaCnpj.TabIndex = 1;
             this.textBoxPesquisaCnpj.TextChanged += new System.EventHandler(this.textBoxPesquisaCnpj_TextChanged);
             // 
             // label8
@@ -379,7 +390,7 @@
             this.buttonLimparPesquisa.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonLimparPesquisa.Name = "buttonLimparPesquisa";
             this.buttonLimparPesquisa.Size = new System.Drawing.Size(72, 29);
-            this.buttonLimparPesquisa.TabIndex = 27;
+            this.buttonLimparPesquisa.TabIndex = 2;
             this.buttonLimparPesquisa.Text = "Limpar";
             this.buttonLimparPesquisa.UseVisualStyleBackColor = true;
             this.buttonLimparPesquisa.Click += new System.EventHandler(this.buttonLimparPesquisa_Click);
@@ -391,8 +402,8 @@
             this.buttonExcluir.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonExcluir.Name = "buttonExcluir";
             this.buttonExcluir.Size = new System.Drawing.Size(271, 46);
-            this.buttonExcluir.TabIndex = 26;
-            this.buttonExcluir.Text = "Excluir";
+            this.buttonExcluir.TabIndex = 4;
+            this.buttonExcluir.Text = "Desativar";
             this.buttonExcluir.UseVisualStyleBackColor = true;
             this.buttonExcluir.Click += new System.EventHandler(this.buttonExcluir_Click);
             // 
@@ -403,7 +414,7 @@
             this.buttonAltera.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonAltera.Name = "buttonAltera";
             this.buttonAltera.Size = new System.Drawing.Size(271, 46);
-            this.buttonAltera.TabIndex = 25;
+            this.buttonAltera.TabIndex = 3;
             this.buttonAltera.Text = "Alterar";
             this.buttonAltera.UseVisualStyleBackColor = true;
             this.buttonAltera.Click += new System.EventHandler(this.buttonAltera_Click);
@@ -429,7 +440,7 @@
             this.textBoxPesquisaNome.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxPesquisaNome.Name = "textBoxPesquisaNome";
             this.textBoxPesquisaNome.Size = new System.Drawing.Size(328, 29);
-            this.textBoxPesquisaNome.TabIndex = 3;
+            this.textBoxPesquisaNome.TabIndex = 0;
             this.textBoxPesquisaNome.TextChanged += new System.EventHandler(this.textBoxPesquisaNome_TextChanged);
             // 
             // label11
@@ -443,6 +454,99 @@
             this.label11.TabIndex = 2;
             this.label11.Text = "Nome do Fornecedor:";
             // 
+            // tabPageConsultarOff
+            // 
+            this.tabPageConsultarOff.Controls.Add(this.textBoxPesquisaCnpjOff);
+            this.tabPageConsultarOff.Controls.Add(this.label14);
+            this.tabPageConsultarOff.Controls.Add(this.buttonLimparOff);
+            this.tabPageConsultarOff.Controls.Add(this.buttonAtivar);
+            this.tabPageConsultarOff.Controls.Add(this.dataGridViewFornecedoresOff);
+            this.tabPageConsultarOff.Controls.Add(this.textBoxPesquisaNomeOff);
+            this.tabPageConsultarOff.Controls.Add(this.label15);
+            this.tabPageConsultarOff.Location = new System.Drawing.Point(4, 24);
+            this.tabPageConsultarOff.Name = "tabPageConsultarOff";
+            this.tabPageConsultarOff.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageConsultarOff.Size = new System.Drawing.Size(1365, 572);
+            this.tabPageConsultarOff.TabIndex = 3;
+            this.tabPageConsultarOff.Text = "Consultar Desativados";
+            this.tabPageConsultarOff.UseVisualStyleBackColor = true;
+            // 
+            // textBoxPesquisaCnpjOff
+            // 
+            this.textBoxPesquisaCnpjOff.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPesquisaCnpjOff.Location = new System.Drawing.Point(220, 53);
+            this.textBoxPesquisaCnpjOff.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.textBoxPesquisaCnpjOff.Name = "textBoxPesquisaCnpjOff";
+            this.textBoxPesquisaCnpjOff.Size = new System.Drawing.Size(328, 29);
+            this.textBoxPesquisaCnpjOff.TabIndex = 1;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(21, 59);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(179, 18);
+            this.label14.TabIndex = 36;
+            this.label14.Text = "CNPJ do Fornecedor:";
+            // 
+            // buttonLimparOff
+            // 
+            this.buttonLimparOff.Location = new System.Drawing.Point(577, 37);
+            this.buttonLimparOff.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.buttonLimparOff.Name = "buttonLimparOff";
+            this.buttonLimparOff.Size = new System.Drawing.Size(72, 29);
+            this.buttonLimparOff.TabIndex = 2;
+            this.buttonLimparOff.Text = "Limpar";
+            this.buttonLimparOff.UseVisualStyleBackColor = true;
+            // 
+            // buttonAtivar
+            // 
+            this.buttonAtivar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAtivar.Location = new System.Drawing.Point(856, 23);
+            this.buttonAtivar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.buttonAtivar.Name = "buttonAtivar";
+            this.buttonAtivar.Size = new System.Drawing.Size(271, 46);
+            this.buttonAtivar.TabIndex = 3;
+            this.buttonAtivar.Text = "Ativar";
+            this.buttonAtivar.UseVisualStyleBackColor = true;
+            this.buttonAtivar.Click += new System.EventHandler(this.buttonAtivar_Click);
+            // 
+            // dataGridViewFornecedoresOff
+            // 
+            this.dataGridViewFornecedoresOff.AllowUserToAddRows = false;
+            this.dataGridViewFornecedoresOff.AllowUserToDeleteRows = false;
+            this.dataGridViewFornecedoresOff.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridViewFornecedoresOff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewFornecedoresOff.Location = new System.Drawing.Point(0, 96);
+            this.dataGridViewFornecedoresOff.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.dataGridViewFornecedoresOff.Name = "dataGridViewFornecedoresOff";
+            this.dataGridViewFornecedoresOff.ReadOnly = true;
+            this.dataGridViewFornecedoresOff.RowHeadersWidth = 51;
+            this.dataGridViewFornecedoresOff.Size = new System.Drawing.Size(1365, 475);
+            this.dataGridViewFornecedoresOff.TabIndex = 32;
+            // 
+            // textBoxPesquisaNomeOff
+            // 
+            this.textBoxPesquisaNomeOff.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPesquisaNomeOff.Location = new System.Drawing.Point(220, 15);
+            this.textBoxPesquisaNomeOff.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.textBoxPesquisaNomeOff.Name = "textBoxPesquisaNomeOff";
+            this.textBoxPesquisaNomeOff.Size = new System.Drawing.Size(328, 29);
+            this.textBoxPesquisaNomeOff.TabIndex = 0;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(21, 21);
+            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(181, 18);
+            this.label15.TabIndex = 30;
+            this.label15.Text = "Nome do Fornecedor:";
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.OrangeRed;
@@ -455,7 +559,7 @@
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1373, 143);
-            this.panel1.TabIndex = 4;
+            this.panel1.TabIndex = 1;
             // 
             // pictureBox1
             // 
@@ -512,6 +616,9 @@
             this.tabPageConsultar.ResumeLayout(false);
             this.tabPageConsultar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFornecedores)).EndInit();
+            this.tabPageConsultarOff.ResumeLayout(false);
+            this.tabPageConsultarOff.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFornecedoresOff)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -556,5 +663,13 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button buttonMenu;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TabPage tabPageConsultarOff;
+        private System.Windows.Forms.TextBox textBoxPesquisaCnpjOff;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button buttonLimparOff;
+        private System.Windows.Forms.Button buttonAtivar;
+        private System.Windows.Forms.DataGridView dataGridViewFornecedoresOff;
+        private System.Windows.Forms.TextBox textBoxPesquisaNomeOff;
+        private System.Windows.Forms.Label label15;
     }
 }

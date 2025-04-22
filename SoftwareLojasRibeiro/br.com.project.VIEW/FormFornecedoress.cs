@@ -47,17 +47,17 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             }
         }
 
-        public void Pesquisa()
+        public void Pesquisa(string nome, DataGridView tabela)
         {
             FornecedorDAO dao = new FornecedorDAO();
-            Fornecedor Forn = new Fornecedor { Nome = textBoxPesquisaNome.Text };
-            dataGridViewFornecedores.DataSource = dao.ListarFornecedores(Forn);
+            Fornecedor Forn = new Fornecedor { Nome = nome };
+            tabela.DataSource = dao.ListarFornecedores(Forn);
         }
-        public void PesquisaCnpj()
+        public void PesquisaCnpj(string cnpj, DataGridView tabela)
         {
             FornecedorDAO dao = new FornecedorDAO();
-            Fornecedor Forn = new Fornecedor { Cnpj = textBoxPesquisaCnpj.Text };
-            dataGridViewFornecedores.DataSource = dao.ListarFornecedoresCnpj(Forn);
+            Fornecedor Forn = new Fornecedor { Cnpj = cnpj };
+            tabela.DataSource = dao.ListarFornecedoresCnpj(Forn);
         }
 
 
@@ -142,14 +142,52 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
         private void buttonExcluir_Click(object sender, EventArgs e)
         {
+            // Perguntar ao usuário antes de cadastrar
+            DialogResult resultado = MessageBox.Show("Tem certeza que deseja Desativar esse Fornecedor?",
+                                                     "Confirmação",
+                                                     MessageBoxButtons.YesNo,
+                                                     MessageBoxIcon.Question);
+
+            // Se o usuário clicar em "Não", a função retorna e não executa o cadastro
+            if (resultado == DialogResult.No)
+            {
+                MessageBox.Show("Operação cancelada!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             Fornecedor Fonr = new Fornecedor();
-            textBoxID.Text = dataGridViewFornecedores.CurrentRow.Cells[0].Value.ToString() ?? " ";
-            Fonr.Id = textBoxID.Text;
+            Fonr.Id = dataGridViewFornecedores.CurrentRow.Cells[0].Value.ToString() ?? " ";
 
             FornecedorDAO dao = new FornecedorDAO();
-            dao.ExcluirFornecedor(Fonr);
+            //dao.ExcluirFornecedor(Fonr);
+            dao.DesativarFornecedor(Fonr);
             dataGridViewFornecedores.DataSource = dao.ListarFornecedores(Fonr);
-            textBoxID.Clear();
+            dataGridViewFornecedoresOff.DataSource = dao.ListarFornecedoresDesativados(Fonr);
+        }
+
+        private void buttonAtivar_Click(object sender, EventArgs e)
+        {
+            // Perguntar ao usuário antes de cadastrar
+            DialogResult resultado = MessageBox.Show("Tem certeza que deseja Ativar esse Fornecedor?",
+                                                     "Confirmação",
+                                                     MessageBoxButtons.YesNo,
+                                                     MessageBoxIcon.Question);
+
+            // Se o usuário clicar em "Não", a função retorna e não executa o cadastro
+            if (resultado == DialogResult.No)
+            {
+                MessageBox.Show("Operação cancelada!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            Fornecedor Fonr = new Fornecedor();
+            Fonr.Id = dataGridViewFornecedoresOff.CurrentRow.Cells[0].Value.ToString() ?? " ";
+
+            FornecedorDAO dao = new FornecedorDAO();
+            //dao.ExcluirFornecedor(Fonr);
+            dao.AtivarFornecedor(Fonr);
+            dataGridViewFornecedores.DataSource = dao.ListarFornecedores(Fonr);
+            dataGridViewFornecedoresOff.DataSource = dao.ListarFornecedoresDesativados(Fonr);
         }
 
         private void buttonMenu_Click(object sender, EventArgs e)
@@ -163,17 +201,27 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         {
             textBoxPesquisaNome.Clear();
             textBoxPesquisaCnpj.Clear();
-            Pesquisa();
+            Pesquisa(textBoxPesquisaNome.Text, dataGridViewFornecedores);
         }
 
         private void textBoxPesquisaNome_TextChanged(object sender, EventArgs e)
         {
-            Pesquisa();
+            Pesquisa(textBoxPesquisaNome.Text, dataGridViewFornecedores);
         }
 
         private void textBoxPesquisaCnpj_TextChanged(object sender, EventArgs e)
         {
-            PesquisaCnpj();
+            PesquisaCnpj(textBoxPesquisaCnpj.Text, dataGridViewFornecedores);
+        }
+
+        private void textBoxPesquisaNomeOff_TextChanged(object sender, EventArgs e)
+        {
+            Pesquisa(textBoxPesquisaNomeOff.Text, dataGridViewFornecedoresOff);
+        }
+
+        private void textBoxPesquisaCnpjOff_TextChanged(object sender, EventArgs e)
+        {
+            PesquisaCnpj(textBoxPesquisaCnpjOff.Text, dataGridViewFornecedoresOff);
         }
     }
 }

@@ -47,13 +47,13 @@ namespace SoftwareLojasRibeiro//.br.com.project.VIEW se n colocar isso aqui vai 
             {
                 //Pegar os dados da linha selecionada
                 textBoxID.Text = dataGridViewClientes.CurrentRow.Cells[0].Value.ToString() ?? "";
-                textBoxNome.Text = dataGridViewClientes.CurrentRow.Cells[1].Value.ToString() ?? "";
-                maskedTextBoxRg.Text = dataGridViewClientes.CurrentRow.Cells[2].Value.ToString() ?? "";
+                textBoxNome.Text = dataGridViewClientes.CurrentRow.Cells[2].Value.ToString() ?? "";
+                maskedTextBoxRg.Text = dataGridViewClientes.CurrentRow.Cells[4].Value.ToString() ?? "";
                 maskedTextBoxCpf.Text = dataGridViewClientes.CurrentRow.Cells[3].Value.ToString() ?? "";
-                maskedTextBoxNumero.Text = dataGridViewClientes.CurrentRow.Cells[5].Value.ToString() ?? "";
-                textBoxEmail.Text = dataGridViewClientes.CurrentRow.Cells[4].Value.ToString() ?? "";
-                maskedTextBoxData.Text = dataGridViewClientes.CurrentRow.Cells[6].Value.ToString() ?? "";
-                textBoxEndereco.Text = dataGridViewClientes.CurrentRow.Cells[7].Value.ToString() ?? "";
+                maskedTextBoxNumero.Text = dataGridViewClientes.CurrentRow.Cells[6].Value.ToString() ?? "";
+                textBoxEmail.Text = dataGridViewClientes.CurrentRow.Cells[5].Value.ToString() ?? "";
+                maskedTextBoxData.Text = dataGridViewClientes.CurrentRow.Cells[7].Value.ToString() ?? "";
+                textBoxEndereco.Text = dataGridViewClientes.CurrentRow.Cells[9].Value.ToString() ?? "";
                 maskedTextBoxCep.Text = dataGridViewClientes.CurrentRow.Cells[8].Value.ToString() ?? "";
             }
             else
@@ -224,8 +224,7 @@ namespace SoftwareLojasRibeiro//.br.com.project.VIEW se n colocar isso aqui vai 
             }
 
             Cliente cli = new Cliente();
-            textBoxID.Text = dataGridViewClientes.CurrentRow.Cells[0].Value.ToString() ?? "";
-            cli.Id = textBoxID.Text;
+            cli.Id = dataGridViewClientes.CurrentRow.Cells[0].Value.ToString() ?? "";
 
             ClienteDAO dao = new ClienteDAO();
             //dao.ExcluirCliente(cli);
@@ -233,7 +232,6 @@ namespace SoftwareLojasRibeiro//.br.com.project.VIEW se n colocar isso aqui vai 
             dataGridViewClientes.DataSource = dao.ListarClientes(cli); //atualizar tabela
             dataGridViewClientesDevedores.DataSource = dao.ListarClientesDevedores(cli);
             dataGridViewClientesDesativados.DataSource = dao.ListarClientesDesativados(cli);
-            textBoxID.Clear();
         }
 
         private void buttonAtivarCliente_Click(object sender, EventArgs e)

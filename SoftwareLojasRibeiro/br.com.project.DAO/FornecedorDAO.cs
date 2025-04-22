@@ -504,7 +504,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
         #endregion
 
         #region DesativarFornecedor
-        public bool DesativarFuncionario(Fornecedor forn)
+        public bool DesativarFornecedor(Fornecedor forn)
         {
             try
             {

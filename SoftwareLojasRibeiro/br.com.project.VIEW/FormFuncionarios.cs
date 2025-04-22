@@ -25,6 +25,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             FuncionarioDAO dao = new FuncionarioDAO();
             Funcionario func = new Funcionario { Nome = textBoxPesquisaNome.Text };
             dataGridViewFuncionarios.DataSource = dao.ListarFuncionarios(func);
+            dataGridViewFuncionariosOff.DataSource = dao.ListarFuncionariosDesativados(func);
         }
 
         public void SelecionarLinhaTabelaFuncionarios()
@@ -35,16 +36,16 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 FuncionarioDAO dao = new FuncionarioDAO();
                 //Pegar os dados da linha selecionada
                 textBoxID.Text = dataGridViewFuncionarios.CurrentRow.Cells[0].Value.ToString() ?? "";
-                textBoxNome.Text = dataGridViewFuncionarios.CurrentRow.Cells[1].Value.ToString() ?? "";
-                maskedTextBoxRg.Text = dataGridViewFuncionarios.CurrentRow.Cells[6].Value.ToString() ?? "";
-                maskedTextBoxCpf.Text = dataGridViewFuncionarios.CurrentRow.Cells[7].Value.ToString() ?? "";
-                maskedTextBoxNumero.Text = dataGridViewFuncionarios.CurrentRow.Cells[8].Value.ToString() ?? "";
-                textBoxEmail.Text = dataGridViewFuncionarios.CurrentRow.Cells[5].Value.ToString() ?? "";
-                maskedTextBoxData.Text = dataGridViewFuncionarios.CurrentRow.Cells[9].Value.ToString() ?? "";
-                textBoxEndereco.Text = dataGridViewFuncionarios.CurrentRow.Cells[10].Value.ToString() ?? "";
+                textBoxNome.Text = dataGridViewFuncionarios.CurrentRow.Cells[2].Value.ToString() ?? "";
+                maskedTextBoxRg.Text = dataGridViewFuncionarios.CurrentRow.Cells[8].Value.ToString() ?? "";
+                maskedTextBoxCpf.Text = dataGridViewFuncionarios.CurrentRow.Cells[6].Value.ToString() ?? "";
+                maskedTextBoxNumero.Text = dataGridViewFuncionarios.CurrentRow.Cells[9].Value.ToString() ?? "";
+                textBoxEmail.Text = dataGridViewFuncionarios.CurrentRow.Cells[7].Value.ToString() ?? "";
+                maskedTextBoxData.Text = dataGridViewFuncionarios.CurrentRow.Cells[10].Value.ToString() ?? "";
+                textBoxEndereco.Text = dataGridViewFuncionarios.CurrentRow.Cells[12].Value.ToString() ?? "";
                 maskedTextBoxCep.Text = dataGridViewFuncionarios.CurrentRow.Cells[11].Value.ToString() ?? "";
-                comboBoxTipoUsuario.Text = dataGridViewFuncionarios.CurrentRow.Cells[3].Value.ToString() ?? "";
-                textBoxLogin.Text = dataGridViewFuncionarios.CurrentRow.Cells[2].Value.ToString() ?? "";
+                comboBoxTipoUsuario.Text = dataGridViewFuncionarios.CurrentRow.Cells[4].Value.ToString() ?? "";
+                textBoxLogin.Text = dataGridViewFuncionarios.CurrentRow.Cells[3].Value.ToString() ?? "";
                 textBoxSenha.Text = dao.ObterSenhaFuncionario(textBoxID.Text);
             }
             else
@@ -53,17 +54,17 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             }
         }
 
-        public void Pesquisar()
+        public void Pesquisar(string nome, DataGridView tabela)
         {
             FuncionarioDAO dao = new FuncionarioDAO();
-            Funcionario func = new Funcionario { Nome = textBoxPesquisaNome.Text };
-            dataGridViewFuncionarios.DataSource = dao.ListarFuncionarios(func);
+            Funcionario func = new Funcionario { Nome = nome };
+            tabela.DataSource = dao.ListarFuncionarios(func);
         }
-        public void PesquisarCpf()
+        public void PesquisarCpf(string cpf, DataGridView tabela)
         {
             FuncionarioDAO dao = new FuncionarioDAO();
-            Funcionario func = new Funcionario { Cpf = textBoxPesquisaCpf.Text };
-            dataGridViewFuncionarios.DataSource = dao.ListarFuncionariosCpf(func);
+            Funcionario func = new Funcionario { Cpf = cpf };
+            tabela.DataSource = dao.ListarFuncionariosCpf(func);
         }
 
         private void buttonCadastrar_Click(object sender, EventArgs e)
@@ -113,7 +114,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
         private void buttonPesquisar_Click(object sender, EventArgs e)
         {
-            Pesquisar();
+            Pesquisar(textBoxPesquisaNome.Text, dataGridViewFuncionarios);
         }
 
         private void buttonLimpar_Click(object sender, EventArgs e)
@@ -133,13 +134,51 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
         private void buttonExcluir_Click(object sender, EventArgs e)
         {
+            // Perguntar ao usuário antes de cadastrar
+            DialogResult resultado = MessageBox.Show("Tem certeza que deseja Desativar esse Cliente?",
+                                                     "Confirmação",
+                                                     MessageBoxButtons.YesNo,
+                                                     MessageBoxIcon.Question);
+
+            // Se o usuário clicar em "Não", a função retorna e não executa o cadastro
+            if (resultado == DialogResult.No)
+            {
+                MessageBox.Show("Operação cancelada!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             Funcionario func = new Funcionario();
-            textBoxID.Text = dataGridViewFuncionarios.CurrentRow.Cells[0].Value.ToString() ?? "";
-            func.Id = textBoxID.Text;
+            func.Id = dataGridViewFuncionarios.CurrentRow.Cells[0].Value.ToString() ?? "";
 
             FuncionarioDAO dao = new FuncionarioDAO();
-            dao.ExcluirFuncionario(func);
+            //dao.ExcluirFuncionario(func);
+            dao.DesativarFuncionario(func);
             dataGridViewFuncionarios.DataSource = dao.ListarFuncionarios(func); //atualizar tabela
+            dataGridViewFuncionariosOff.DataSource = dao.ListarFuncionariosDesativados(func);
+        }
+
+        private void buttonAtivar_Click(object sender, EventArgs e)
+        {
+            // Perguntar ao usuário antes de cadastrar
+            DialogResult resultado = MessageBox.Show("Tem certeza que deseja Ativar esse Funcionário?",
+                                                     "Confirmação",
+                                                     MessageBoxButtons.YesNo,
+                                                     MessageBoxIcon.Question);
+
+            // Se o usuário clicar em "Não", a função retorna e não executa o cadastro
+            if (resultado == DialogResult.No)
+            {
+                MessageBox.Show("Operação cancelada!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            Funcionario func = new Funcionario();
+            func.Id = dataGridViewFuncionariosOff.CurrentRow.Cells[0].Value.ToString() ?? "";
+
+            FuncionarioDAO dao = new FuncionarioDAO();
+            dao.AtivarFuncionario(func);
+            dataGridViewFuncionarios.DataSource = dao.ListarFuncionarios(func); //atualizar tabela
+            dataGridViewFuncionariosOff.DataSource = dao.ListarFuncionariosDesativados(func);
             textBoxID.Clear();
         }
 
@@ -147,7 +186,14 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         {
             textBoxPesquisaNome.Clear();
             textBoxPesquisaCpf.Clear();
-            Pesquisar();
+            Pesquisar(textBoxPesquisaNome.Text, dataGridViewFuncionarios);
+        }
+
+        private void buttonLimparPesquisaOff_Click(object sender, EventArgs e)
+        {
+            textBoxPesquisaNomeOff.Clear();
+            textBoxPesquisaCpfOff.Clear();
+            Pesquisar(textBoxPesquisaNomeOff.Text, dataGridViewFuncionariosOff);
         }
 
         private void buttonBuscar_Click(object sender, EventArgs e)
@@ -183,12 +229,22 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
         private void textBoxPesquisaNome_TextChanged(object sender, EventArgs e)
         {
-            Pesquisar();
+            Pesquisar(textBoxPesquisaNome.Text, dataGridViewFuncionarios);
         }
-        
+
         private void textBoxPesquisaCpf_TextChanged(object sender, EventArgs e)
         {
-            PesquisarCpf();
+            PesquisarCpf(textBoxPesquisaCpf.Text, dataGridViewFuncionarios);
+        }
+
+        private void textBoxPesquisaNomeOff_TextChanged(object sender, EventArgs e)
+        {
+            Pesquisar(textBoxPesquisaNomeOff.Text, dataGridViewFuncionariosOff);
+        }
+
+        private void textBoxPesquisaCpfOff_TextChanged(object sender, EventArgs e)
+        {
+            PesquisarCpf(textBoxPesquisaCpfOff.Text, dataGridViewFuncionariosOff);
         }
 
         #region Lixos

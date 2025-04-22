@@ -63,20 +63,30 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPageConsultar = new System.Windows.Forms.TabPage();
+            this.textBoxPesquisaCpf = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.buttonLimparPesquisa = new System.Windows.Forms.Button();
             this.buttonExcluir = new System.Windows.Forms.Button();
             this.buttonAlterar = new System.Windows.Forms.Button();
             this.dataGridViewFuncionarios = new System.Windows.Forms.DataGridView();
             this.textBoxPesquisaNome = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBoxPesquisaCpf = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.textBoxPesquisaCpfOff = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.buttonLimparPesquisaOff = new System.Windows.Forms.Button();
+            this.buttonAtivar = new System.Windows.Forms.Button();
+            this.dataGridViewFuncionariosOff = new System.Windows.Forms.DataGridView();
+            this.textBoxPesquisaNomeOff = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControlFuncionarios.SuspendLayout();
             this.tabPageCadastrar.SuspendLayout();
             this.tabPageConsultar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFuncionarios)).BeginInit();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFuncionariosOff)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -131,12 +141,13 @@
             // 
             this.tabControlFuncionarios.Controls.Add(this.tabPageCadastrar);
             this.tabControlFuncionarios.Controls.Add(this.tabPageConsultar);
+            this.tabControlFuncionarios.Controls.Add(this.tabPage1);
             this.tabControlFuncionarios.Location = new System.Drawing.Point(0, 149);
             this.tabControlFuncionarios.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabControlFuncionarios.Name = "tabControlFuncionarios";
             this.tabControlFuncionarios.SelectedIndex = 0;
             this.tabControlFuncionarios.Size = new System.Drawing.Size(1373, 599);
-            this.tabControlFuncionarios.TabIndex = 1;
+            this.tabControlFuncionarios.TabIndex = 0;
             // 
             // tabPageCadastrar
             // 
@@ -481,8 +492,29 @@
             this.tabPageConsultar.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabPageConsultar.Size = new System.Drawing.Size(1365, 571);
             this.tabPageConsultar.TabIndex = 2;
-            this.tabPageConsultar.Text = "Consultar Dados";
+            this.tabPageConsultar.Text = "Consultar Ativos";
             this.tabPageConsultar.UseVisualStyleBackColor = true;
+            // 
+            // textBoxPesquisaCpf
+            // 
+            this.textBoxPesquisaCpf.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPesquisaCpf.Location = new System.Drawing.Point(200, 53);
+            this.textBoxPesquisaCpf.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.textBoxPesquisaCpf.Name = "textBoxPesquisaCpf";
+            this.textBoxPesquisaCpf.Size = new System.Drawing.Size(328, 29);
+            this.textBoxPesquisaCpf.TabIndex = 5;
+            this.textBoxPesquisaCpf.TextChanged += new System.EventHandler(this.textBoxPesquisaCpf_TextChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(23, 59);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(169, 18);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "CPF do Funcionário:";
             // 
             // buttonLimparPesquisa
             // 
@@ -490,7 +522,7 @@
             this.buttonLimparPesquisa.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonLimparPesquisa.Name = "buttonLimparPesquisa";
             this.buttonLimparPesquisa.Size = new System.Drawing.Size(72, 29);
-            this.buttonLimparPesquisa.TabIndex = 4;
+            this.buttonLimparPesquisa.TabIndex = 2;
             this.buttonLimparPesquisa.Text = "Limpar";
             this.buttonLimparPesquisa.UseVisualStyleBackColor = true;
             this.buttonLimparPesquisa.Click += new System.EventHandler(this.buttonLimparPesquisa_Click);
@@ -502,8 +534,8 @@
             this.buttonExcluir.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonExcluir.Name = "buttonExcluir";
             this.buttonExcluir.Size = new System.Drawing.Size(278, 46);
-            this.buttonExcluir.TabIndex = 3;
-            this.buttonExcluir.Text = "Excluir";
+            this.buttonExcluir.TabIndex = 4;
+            this.buttonExcluir.Text = "Desativar";
             this.buttonExcluir.UseVisualStyleBackColor = true;
             this.buttonExcluir.Click += new System.EventHandler(this.buttonExcluir_Click);
             // 
@@ -514,7 +546,7 @@
             this.buttonAlterar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonAlterar.Name = "buttonAlterar";
             this.buttonAlterar.Size = new System.Drawing.Size(278, 46);
-            this.buttonAlterar.TabIndex = 2;
+            this.buttonAlterar.TabIndex = 3;
             this.buttonAlterar.Text = "Alterar";
             this.buttonAlterar.UseVisualStyleBackColor = true;
             this.buttonAlterar.Click += new System.EventHandler(this.buttonAlterar_Click);
@@ -554,26 +586,98 @@
             this.label11.Text = "Nome do Funcionário:";
             this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
-            // textBoxPesquisaCpf
+            // tabPage1
             // 
-            this.textBoxPesquisaCpf.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPesquisaCpf.Location = new System.Drawing.Point(200, 53);
-            this.textBoxPesquisaCpf.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textBoxPesquisaCpf.Name = "textBoxPesquisaCpf";
-            this.textBoxPesquisaCpf.Size = new System.Drawing.Size(328, 29);
-            this.textBoxPesquisaCpf.TabIndex = 6;
-            this.textBoxPesquisaCpf.TextChanged += new System.EventHandler(this.textBoxPesquisaCpf_TextChanged);
+            this.tabPage1.Controls.Add(this.textBoxPesquisaCpfOff);
+            this.tabPage1.Controls.Add(this.label7);
+            this.tabPage1.Controls.Add(this.buttonLimparPesquisaOff);
+            this.tabPage1.Controls.Add(this.buttonAtivar);
+            this.tabPage1.Controls.Add(this.dataGridViewFuncionariosOff);
+            this.tabPage1.Controls.Add(this.textBoxPesquisaNomeOff);
+            this.tabPage1.Controls.Add(this.label17);
+            this.tabPage1.Location = new System.Drawing.Point(4, 24);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1365, 571);
+            this.tabPage1.TabIndex = 3;
+            this.tabPage1.Text = "Consultar Desativados";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // textBoxPesquisaCpfOff
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(23, 59);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(169, 18);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "CPF do Funcionário:";
+            this.textBoxPesquisaCpfOff.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPesquisaCpfOff.Location = new System.Drawing.Point(200, 51);
+            this.textBoxPesquisaCpfOff.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.textBoxPesquisaCpfOff.Name = "textBoxPesquisaCpfOff";
+            this.textBoxPesquisaCpfOff.Size = new System.Drawing.Size(328, 29);
+            this.textBoxPesquisaCpfOff.TabIndex = 1;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(23, 57);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(169, 18);
+            this.label7.TabIndex = 15;
+            this.label7.Text = "CPF do Funcionário:";
+            // 
+            // buttonLimparPesquisaOff
+            // 
+            this.buttonLimparPesquisaOff.Location = new System.Drawing.Point(549, 31);
+            this.buttonLimparPesquisaOff.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.buttonLimparPesquisaOff.Name = "buttonLimparPesquisaOff";
+            this.buttonLimparPesquisaOff.Size = new System.Drawing.Size(72, 29);
+            this.buttonLimparPesquisaOff.TabIndex = 2;
+            this.buttonLimparPesquisaOff.Text = "Limpar";
+            this.buttonLimparPesquisaOff.UseVisualStyleBackColor = true;
+            this.buttonLimparPesquisaOff.Click += new System.EventHandler(this.buttonLimparPesquisaOff_Click);
+            // 
+            // buttonAtivar
+            // 
+            this.buttonAtivar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAtivar.Location = new System.Drawing.Point(870, 23);
+            this.buttonAtivar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.buttonAtivar.Name = "buttonAtivar";
+            this.buttonAtivar.Size = new System.Drawing.Size(278, 46);
+            this.buttonAtivar.TabIndex = 3;
+            this.buttonAtivar.Text = "Ativar";
+            this.buttonAtivar.UseVisualStyleBackColor = true;
+            this.buttonAtivar.Click += new System.EventHandler(this.buttonAtivar_Click);
+            // 
+            // dataGridViewFuncionariosOff
+            // 
+            this.dataGridViewFuncionariosOff.AllowUserToAddRows = false;
+            this.dataGridViewFuncionariosOff.AllowUserToDeleteRows = false;
+            this.dataGridViewFuncionariosOff.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridViewFuncionariosOff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewFuncionariosOff.Location = new System.Drawing.Point(0, 98);
+            this.dataGridViewFuncionariosOff.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.dataGridViewFuncionariosOff.Name = "dataGridViewFuncionariosOff";
+            this.dataGridViewFuncionariosOff.ReadOnly = true;
+            this.dataGridViewFuncionariosOff.Size = new System.Drawing.Size(1365, 471);
+            this.dataGridViewFuncionariosOff.TabIndex = 13;
+            // 
+            // textBoxPesquisaNomeOff
+            // 
+            this.textBoxPesquisaNomeOff.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPesquisaNomeOff.Location = new System.Drawing.Point(200, 15);
+            this.textBoxPesquisaNomeOff.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.textBoxPesquisaNomeOff.Name = "textBoxPesquisaNomeOff";
+            this.textBoxPesquisaNomeOff.Size = new System.Drawing.Size(328, 29);
+            this.textBoxPesquisaNomeOff.TabIndex = 0;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(10, 21);
+            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(182, 18);
+            this.label17.TabIndex = 10;
+            this.label17.Text = "Nome do Funcionário:";
             // 
             // FormFuncionarios
             // 
@@ -599,6 +703,9 @@
             this.tabPageConsultar.ResumeLayout(false);
             this.tabPageConsultar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFuncionarios)).EndInit();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFuncionariosOff)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -647,5 +754,13 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox textBoxPesquisaCpf;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TextBox textBoxPesquisaCpfOff;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button buttonLimparPesquisaOff;
+        private System.Windows.Forms.Button buttonAtivar;
+        private System.Windows.Forms.DataGridView dataGridViewFuncionariosOff;
+        private System.Windows.Forms.TextBox textBoxPesquisaNomeOff;
+        private System.Windows.Forms.Label label17;
     }
 }

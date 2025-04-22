@@ -20,6 +20,16 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             textBoxID.ReadOnly = true;
         }
 
+        private void FormCategorias_Load(object sender, EventArgs e)
+        {
+            CategoriaDAO dao = new CategoriaDAO();
+            Categoria cat = new Categoria { Nome = textBoxPesquisaNomeProd.Text };
+            dataGridViewCatProd.DataSource = dao.ListarCategorias(cat, "Produto");
+            dataGridViewCatPub.DataSource = dao.ListarCategorias(cat, "Publico");
+            dataGridViewCatProdOff.DataSource = dao.ListarCategoriasDesativadas(cat, "Produto");
+            dataGridViewCatPubOff.DataSource = dao.ListarCategoriasDesativadas(cat, "Publico");
+        }
+
         public void SelecionarLinhaTabelaCategoriasProdutos()
         {
             //Garantir que a linha esteja realmente selecionada antes de tentar acessa-la
@@ -51,17 +61,12 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             }
         }
 
-        public void PesquisarProd()
+        public void Pesquisar(string nome, DataGridView tabela)
         {
             CategoriaDAO dao = new CategoriaDAO();
-            Categoria cat = new Categoria { Nome = textBoxPesquisaNomeProd.Text };
-            dataGridViewCatProd.DataSource = dao.ListarCategorias(cat, "Produto");
-        }
-        public void PesquisarPub()
-        {
-            CategoriaDAO dao = new CategoriaDAO();
-            Categoria cat = new Categoria { Nome = textBoxPesquisaNomePub.Text };
-            dataGridViewCatPub.DataSource = dao.ListarCategorias(cat, "Publico");
+            Categoria cat = new Categoria { Nome = nome };
+            tabela.DataSource = dao.ListarCategorias(cat, "Produto");
+            tabela.DataSource = dao.ListarCategoriasDesativadas(cat, "Produto");
         }
 
         private void buttonMenu_Click(object sender, EventArgs e)
@@ -69,14 +74,6 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             FormMenu telamenu = new FormMenu();
             telamenu.Show();
             this.Hide();
-        }
-
-        private void FormCategorias_Load(object sender, EventArgs e)
-        {
-            CategoriaDAO dao = new CategoriaDAO();
-            Categoria cat = new Categoria { Nome = textBoxPesquisaNomeProd.Text };
-            dataGridViewCatProd.DataSource = dao.ListarCategorias(cat, "Produto");
-            dataGridViewCatPub.DataSource = dao.ListarCategorias(cat, "Publico");
         }
 
         private void buttonCadastrar_Click(object sender, EventArgs e)
@@ -134,12 +131,22 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
         private void buttonPesquisarProd_Click(object sender, EventArgs e)
         {
-            PesquisarProd();
+            Pesquisar(textBoxPesquisaNomeProd.Text, dataGridViewCatProd);
         }
 
         private void buttonPesquisarPub_Click(object sender, EventArgs e)
         {
-            PesquisarPub();
+            Pesquisar(textBoxPesquisaNomePub.Text, dataGridViewCatPub);
+        }
+
+        private void buttonPesquisarProdOff_Click(object sender, EventArgs e)
+        {
+            Pesquisar(textBoxPesquisaNomeProdOff.Text, dataGridViewCatProdOff);
+        }
+
+        private void buttonPesquisarPubOff_Click(object sender, EventArgs e)
+        {
+            Pesquisar(textBoxPesquisaNomePubOff.Text, dataGridViewCatPubOff);
         }
 
         private void buttonLimpar_Click(object sender, EventArgs e)
@@ -153,13 +160,25 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         private void buttonLimparPesquisaProd_Click(object sender, EventArgs e)
         {
             textBoxPesquisaNomeProd.Clear();
-            PesquisarProd();
+            Pesquisar(textBoxPesquisaNomeProd.Text, dataGridViewCatProd);
         }
 
         private void buttonPub_Click(object sender, EventArgs e)
         {
             textBoxPesquisaNomePub.Clear();
-            PesquisarPub();
+            Pesquisar(textBoxPesquisaNomePub.Text, dataGridViewCatPub);
+        }
+
+        private void buttonLimparProdOff_Click(object sender, EventArgs e)
+        {
+            textBoxPesquisaNomeProdOff.Clear();
+            Pesquisar(textBoxPesquisaNomeProdOff.Text, dataGridViewCatProdOff);
+        }
+
+        private void buttonLimparPubOff_Click(object sender, EventArgs e)
+        {
+            textBoxPesquisaNomePubOff.Clear();
+            Pesquisar(textBoxPesquisaNomePubOff.Text, dataGridViewCatPubOff);
         }
 
         private void buttonAlterarProd_Click(object sender, EventArgs e)
@@ -185,35 +204,45 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         private void buttonExcluirProd_Click(object sender, EventArgs e)
         {
             Categoria cat = new Categoria();
-            textBoxID.Text = dataGridViewCatProd.CurrentRow.Cells[0].Value.ToString() ?? "";
-            cat.Id = textBoxID.Text;
+            cat.Id = dataGridViewCatProd.CurrentRow.Cells[0].Value.ToString() ?? "";
 
             CategoriaDAO dao = new CategoriaDAO();
-            dao.ExcluirCategoria(cat, "Produto");
+            //dao.ExcluirCategoria(cat, "Produto");
+            dao.DesativarCategoria(cat, "Produto");
             dataGridViewCatProd.DataSource = dao.ListarCategorias(cat, "Produto"); //atualizar tabela
-            textBoxID.Clear();
+            dataGridViewCatProdOff.DataSource = dao.ListarCategoriasDesativadas(cat, "Produto"); //atualizar tabela
         }
 
         private void buttonExcluirPub_Click(object sender, EventArgs e)
         {
             Categoria cat = new Categoria();
-            textBoxID.Text = dataGridViewCatPub.CurrentRow.Cells[0].Value.ToString() ?? "";
-            cat.Id = textBoxID.Text;
+            cat.Id = dataGridViewCatPub.CurrentRow.Cells[0].Value.ToString() ?? "";
 
             CategoriaDAO dao = new CategoriaDAO();
-            dao.ExcluirCategoria(cat, "Publico");
+            //dao.ExcluirCategoria(cat, "Publico");
+            dao.DesativarCategoria(cat, "Publico");
             dataGridViewCatPub.DataSource = dao.ListarCategorias(cat, "Publico"); //atualizar tabela
-            textBoxID.Clear();
+            dataGridViewCatPubOff.DataSource = dao.ListarCategoriasDesativadas(cat, "Publico"); //atualizar tabela
         }
 
         private void textBoxPesquisaNomeProd_TextChanged(object sender, EventArgs e)
         {
-            PesquisarProd();
+            Pesquisar(textBoxPesquisaNomeProd.Text, dataGridViewCatProd);
         }
 
         private void textBoxPesquisaNomePub_TextChanged(object sender, EventArgs e)
         {
-            PesquisarPub();
+            Pesquisar(textBoxPesquisaNomePub.Text, dataGridViewCatPub);
+        }
+
+        private void textBoxPesquisaNomeProdOff_TextChanged(object sender, EventArgs e)
+        {
+            Pesquisar(textBoxPesquisaNomeProdOff.Text, dataGridViewCatProdOff);
+        }
+
+        private void textBoxPesquisaNomePubOff_TextChanged(object sender, EventArgs e)
+        {
+            Pesquisar(textBoxPesquisaNomePubOff.Text, dataGridViewCatPubOff);
         }
 
         #region Lixos
@@ -222,6 +251,6 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         private void buttonAlterar_Click(object sender, EventArgs e) { }
         private void dataGridViewClientes_CellClick(object sender, DataGridViewCellEventArgs e) { }
         private void buttonPesquisar_Click(object sender, EventArgs e) { }
-        #endregion
+        #endregion       
     }
 }

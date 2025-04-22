@@ -332,7 +332,9 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
         {
             try
             {
-                string sql = "SELECT Senha FROM tb_funcionarios WHERE Id_Funcionario = @id";
+                string sql = @"SELECT Senha 
+                                FROM tb_funcionarios 
+                                WHERE Id_Funcionario = @id";
                 MySqlCommand executacmd = new MySqlCommand(sql, connection);
                 executacmd.Parameters.AddWithValue("@id", idFuncionario);
 
@@ -343,7 +345,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             }
             catch (Exception error)
             {
-                MessageBox.Show($"Erro ao obter a senha do funcionário: {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Erro ao obter a senha do Funcionário: {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return string.Empty;
             }
             finally
