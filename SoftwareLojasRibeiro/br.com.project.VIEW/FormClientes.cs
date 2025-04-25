@@ -374,6 +374,22 @@ namespace SoftwareLojasRibeiro//.br.com.project.VIEW se n colocar isso aqui vai 
             SelecionarLinhaTabelaClientesDevedores(dataGridViewClientesDevedoresOff);
         }
 
+        private void buttonExibirCompras_Click(object sender, EventArgs e)
+        {
+            string id = dataGridViewClientes.CurrentRow.Cells[0].Value.ToString() ?? "";
+            string nome = dataGridViewClientes.CurrentRow.Cells[2].Value.ToString() ?? "";
+            FormExibirComprasCliente tela = new FormExibirComprasCliente(id, nome);
+            tela.ShowDialog();
+        }
+
+        private void buttonExibirComprasDesativado_Click(object sender, EventArgs e)
+        {
+            string id = dataGridViewClientesDesativados.CurrentRow.Cells[0].Value.ToString() ?? "";
+            string nome = dataGridViewClientesDesativados.CurrentRow.Cells[2].Value.ToString() ?? "";
+            FormExibirComprasCliente tela = new FormExibirComprasCliente(id, nome);
+            tela.ShowDialog();
+        }
+
         private void buttonAtualizarDivida_Click(object sender, EventArgs e)
         {
             string idcliente = dataGridViewClientesDevedores.CurrentRow.Cells[1].Value.ToString() ?? "";

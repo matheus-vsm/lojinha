@@ -368,6 +368,52 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
         }
         #endregion
 
+        #region ListarCompras
+        public DataTable ListarCompras(DateTime inicio, DateTime fim, Cliente cli)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+
+                string sql = @"SELECT 
+                                v.Id_Venda AS 'ID', 
+                                v.Data_Venda AS 'Data da Venda', 
+                                v.Total_Venda AS 'Total (R$)', 
+                                v.Desconto, 
+                                v.Valor_Pago, 
+                                v.Status, 
+                                v.Observacoes 
+                            FROM tb_vendas AS v 
+                            INNER JOIN tb_clientes AS c ON (v.Cliente_Id=c.Id_Cliente) 
+                            WHERE c.Id_Cliente = @id 
+                            AND v.Data_Venda BETWEEN @inicio AND @fim";
+                //adicioar o PAGAMENTO fazendo JOIN com a tabela de pagamentos
+                MySqlCommand executacmd = new MySqlCommand(sql, connection);
+
+                executacmd.Parameters.AddWithValue("@inicio", inicio);
+                executacmd.Parameters.AddWithValue("@fim", fim);
+                executacmd.Parameters.AddWithValue("@id", cli.Id);
+
+                connection.Open();
+                executacmd.ExecuteNonQuery();
+
+                MySqlDataAdapter da = new MySqlDataAdapter(executacmd);
+                da.Fill(dt);
+
+                return dt;
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Erro ao listar as compras: " + error.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        #endregion
+
         #region AlterarCliente
         public bool AlterarCliente(Cliente cli)
         {
@@ -594,6 +640,86 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             finally
             {
                 connection.Close(); // Sempre fechar a conexão
+            }
+        }
+        #endregion
+
+        #region RetornarTotalGasto
+        public string RetornarTotalGasto(Cliente cli)
+        {
+            try
+            {
+                string total;
+                string sql = @"SELECT 
+                                SUM(Total_Venda) AS 'Total Gasto' 
+                                FROM tb_vendas 
+                                WHERE Cliente_Id = @id;";
+
+                MySqlCommand executacmd = new MySqlCommand(sql, connection);
+                executacmd.Parameters.AddWithValue("@id", cli.Id);
+
+                connection.Open();
+                MySqlDataReader rs = executacmd.ExecuteReader();
+
+                if (rs.Read())
+                {
+                    total = rs.GetDecimal("Total Gasto").ToString();
+                    return total;
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao retornar o Total Gasto.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return "0.00";
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Erro ao retornar o Total Gasto." + error.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return "0.00";
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        #endregion
+
+        #region RetornarTotalCompras
+        public string RetornarTotalCompras(Cliente cli)
+        {
+            try
+            {
+                string total;
+                string sql = @"SELECT 
+                                COUNT(Id_Venda) AS 'Total de Compras' 
+                                FROM tb_vendas 
+                                WHERE Cliente_Id = @id;";
+
+                MySqlCommand executacmd = new MySqlCommand(sql, connection);
+                executacmd.Parameters.AddWithValue("@id", cli.Id);
+
+                connection.Open();
+                MySqlDataReader rs = executacmd.ExecuteReader();
+
+                if (rs.Read())
+                {
+                    total = rs.GetInt32("Total de Compras").ToString();
+                    return total;
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao retornar o Total de Compras.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return "0";
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Erro ao retornar o Total de Compras." + error.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return "0";
+            }
+            finally
+            {
+                connection.Close();
             }
         }
         #endregion

@@ -226,6 +226,12 @@
     <Compile Include="br.com.project.VIEW\FormDetalhesVendas.Designer.cs">
       <DependentUpon>FormDetalhesVendas.cs</DependentUpon>
     </Compile>
+    <Compile Include="br.com.project.VIEW\FormExibirComprasCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.com.project.VIEW\FormExibirComprasCliente.Designer.cs">
+      <DependentUpon>FormExibirComprasCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="br.com.project.VIEW\FormExibirProdutos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -291,6 +297,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="br.com.project.VIEW\FormDetalhesVendas.resx">
       <DependentUpon>FormDetalhesVendas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="br.com.project.VIEW\FormExibirComprasCliente.resx">
+      <DependentUpon>FormExibirComprasCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="br.com.project.VIEW\FormExibirProdutos.resx">
       <DependentUpon>FormExibirProdutos.cs</DependentUpon>

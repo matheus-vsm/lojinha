@@ -42,12 +42,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dataGridViewDetalhes = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.dataGridViewDetalhes = new System.Windows.Forms.DataGridView();
             this.groupBox4.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDetalhes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDetalhes)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox4
@@ -205,22 +205,6 @@
             this.panel1.Size = new System.Drawing.Size(1111, 143);
             this.panel1.TabIndex = 17;
             // 
-            // dataGridViewDetalhes
-            // 
-            this.dataGridViewDetalhes.AllowUserToAddRows = false;
-            this.dataGridViewDetalhes.AllowUserToDeleteRows = false;
-            this.dataGridViewDetalhes.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridViewDetalhes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewDetalhes.Location = new System.Drawing.Point(0, 353);
-            this.dataGridViewDetalhes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridViewDetalhes.Name = "dataGridViewDetalhes";
-            this.dataGridViewDetalhes.ReadOnly = true;
-            this.dataGridViewDetalhes.RowHeadersWidth = 62;
-            this.dataGridViewDetalhes.RowTemplate.Height = 28;
-            this.dataGridViewDetalhes.Size = new System.Drawing.Size(1111, 297);
-            this.dataGridViewDetalhes.TabIndex = 18;
-            this.dataGridViewDetalhes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDetalhes_CellContentClick);
-            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
@@ -230,6 +214,22 @@
             this.pictureBox1.Size = new System.Drawing.Size(163, 127);
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
+            // 
+            // dataGridViewDetalhes
+            // 
+            this.dataGridViewDetalhes.AllowUserToAddRows = false;
+            this.dataGridViewDetalhes.AllowUserToDeleteRows = false;
+            this.dataGridViewDetalhes.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridViewDetalhes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewDetalhes.Location = new System.Drawing.Point(0, 364);
+            this.dataGridViewDetalhes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridViewDetalhes.Name = "dataGridViewDetalhes";
+            this.dataGridViewDetalhes.ReadOnly = true;
+            this.dataGridViewDetalhes.RowHeadersWidth = 62;
+            this.dataGridViewDetalhes.RowTemplate.Height = 28;
+            this.dataGridViewDetalhes.Size = new System.Drawing.Size(1111, 286);
+            this.dataGridViewDetalhes.TabIndex = 18;
+            this.dataGridViewDetalhes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDetalhes_CellContentClick);
             // 
             // FormDetalhesVendas
             // 
@@ -251,8 +251,8 @@
             this.groupBox4.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDetalhes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDetalhes)).EndInit();
             this.ResumeLayout(false);
 
         }

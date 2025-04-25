@@ -195,12 +195,13 @@
             // buttonExibirCompras
             // 
             this.buttonExibirCompras.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F);
-            this.buttonExibirCompras.Location = new System.Drawing.Point(1133, 27);
+            this.buttonExibirCompras.Location = new System.Drawing.Point(1060, 27);
             this.buttonExibirCompras.Name = "buttonExibirCompras";
-            this.buttonExibirCompras.Size = new System.Drawing.Size(196, 40);
+            this.buttonExibirCompras.Size = new System.Drawing.Size(274, 40);
             this.buttonExibirCompras.TabIndex = 5;
             this.buttonExibirCompras.Text = "Exibir Compras";
             this.buttonExibirCompras.UseVisualStyleBackColor = true;
+            this.buttonExibirCompras.Click += new System.EventHandler(this.buttonExibirCompras_Click);
             // 
             // buttonLimparPesquisa
             // 
@@ -215,7 +216,7 @@
             // buttonExcluir
             // 
             this.buttonExcluir.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F);
-            this.buttonExcluir.Location = new System.Drawing.Point(906, 27);
+            this.buttonExcluir.Location = new System.Drawing.Point(833, 27);
             this.buttonExcluir.Name = "buttonExcluir";
             this.buttonExcluir.Size = new System.Drawing.Size(196, 40);
             this.buttonExcluir.TabIndex = 4;
@@ -226,7 +227,7 @@
             // buttonAlterar
             // 
             this.buttonAlterar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F);
-            this.buttonAlterar.Location = new System.Drawing.Point(686, 27);
+            this.buttonAlterar.Location = new System.Drawing.Point(613, 27);
             this.buttonAlterar.Name = "buttonAlterar";
             this.buttonAlterar.Size = new System.Drawing.Size(196, 40);
             this.buttonAlterar.TabIndex = 3;
@@ -573,12 +574,13 @@
             // buttonExibirComprasDesativado
             // 
             this.buttonExibirComprasDesativado.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F);
-            this.buttonExibirComprasDesativado.Location = new System.Drawing.Point(1058, 25);
+            this.buttonExibirComprasDesativado.Location = new System.Drawing.Point(1035, 25);
             this.buttonExibirComprasDesativado.Name = "buttonExibirComprasDesativado";
-            this.buttonExibirComprasDesativado.Size = new System.Drawing.Size(196, 40);
+            this.buttonExibirComprasDesativado.Size = new System.Drawing.Size(259, 40);
             this.buttonExibirComprasDesativado.TabIndex = 4;
             this.buttonExibirComprasDesativado.Text = "Exibir Compras";
             this.buttonExibirComprasDesativado.UseVisualStyleBackColor = true;
+            this.buttonExibirComprasDesativado.Click += new System.EventHandler(this.buttonExibirComprasDesativado_Click);
             // 
             // buttonLimparDesativados
             // 

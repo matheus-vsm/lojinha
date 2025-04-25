@@ -173,6 +173,5 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             }
         }
         #endregion
-
     }
 }

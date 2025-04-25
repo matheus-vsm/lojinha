@@ -215,13 +215,13 @@
             this.dataGridViewDetalhes.AllowUserToDeleteRows = false;
             this.dataGridViewDetalhes.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridViewDetalhes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewDetalhes.Location = new System.Drawing.Point(0, 334);
+            this.dataGridViewDetalhes.Location = new System.Drawing.Point(0, 345);
             this.dataGridViewDetalhes.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.dataGridViewDetalhes.Name = "dataGridViewDetalhes";
             this.dataGridViewDetalhes.ReadOnly = true;
             this.dataGridViewDetalhes.RowHeadersWidth = 62;
             this.dataGridViewDetalhes.RowTemplate.Height = 28;
-            this.dataGridViewDetalhes.Size = new System.Drawing.Size(1111, 316);
+            this.dataGridViewDetalhes.Size = new System.Drawing.Size(1111, 305);
             this.dataGridViewDetalhes.TabIndex = 20;
             // 
             // FormDetalhesCompras
