@@ -35,6 +35,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabControlCompras = new System.Windows.Forms.TabControl();
             this.tabPageCadastrar = new System.Windows.Forms.TabPage();
+            this.buttonExibirProds = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.textBoxTotalCompra = new System.Windows.Forms.TextBox();
             this.buttonRemover = new System.Windows.Forms.Button();
@@ -74,6 +75,7 @@
             this.label15 = new System.Windows.Forms.Label();
             this.buttonExibirDetalhes = new System.Windows.Forms.Button();
             this.dataGridViewCompras = new System.Windows.Forms.DataGridView();
+            this.buttonLimparPesquisa = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControlCompras.SuspendLayout();
@@ -144,6 +146,7 @@
             // 
             // tabPageCadastrar
             // 
+            this.tabPageCadastrar.Controls.Add(this.buttonExibirProds);
             this.tabPageCadastrar.Controls.Add(this.label16);
             this.tabPageCadastrar.Controls.Add(this.textBoxTotalCompra);
             this.tabPageCadastrar.Controls.Add(this.buttonRemover);
@@ -183,6 +186,18 @@
             this.tabPageCadastrar.TabIndex = 0;
             this.tabPageCadastrar.Text = "Cadastrar";
             this.tabPageCadastrar.UseVisualStyleBackColor = true;
+            // 
+            // buttonExibirProds
+            // 
+            this.buttonExibirProds.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F);
+            this.buttonExibirProds.Location = new System.Drawing.Point(466, 14);
+            this.buttonExibirProds.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.buttonExibirProds.Name = "buttonExibirProds";
+            this.buttonExibirProds.Size = new System.Drawing.Size(429, 45);
+            this.buttonExibirProds.TabIndex = 63;
+            this.buttonExibirProds.Text = "Exibir Produtos Já Existentes";
+            this.buttonExibirProds.UseVisualStyleBackColor = true;
+            this.buttonExibirProds.Click += new System.EventHandler(this.buttonExibirProds_Click);
             // 
             // label16
             // 
@@ -366,7 +381,7 @@
             // textBoxID
             // 
             this.textBoxID.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxID.Location = new System.Drawing.Point(654, 45);
+            this.textBoxID.Location = new System.Drawing.Point(77, 21);
             this.textBoxID.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxID.Name = "textBoxID";
             this.textBoxID.ReadOnly = true;
@@ -438,7 +453,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(661, 14);
+            this.label12.Location = new System.Drawing.Point(23, 24);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(46, 28);
@@ -515,6 +530,7 @@
             // 
             // tabPageConsultar
             // 
+            this.tabPageConsultar.Controls.Add(this.buttonLimparPesquisa);
             this.tabPageConsultar.Controls.Add(this.buttonPesquisar);
             this.tabPageConsultar.Controls.Add(this.dateTimePickerDataFim);
             this.tabPageConsultar.Controls.Add(this.dateTimePickerDataInicio);
@@ -547,7 +563,7 @@
             // 
             this.dateTimePickerDataFim.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerDataFim.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerDataFim.Location = new System.Drawing.Point(145, 54);
+            this.dateTimePickerDataFim.Location = new System.Drawing.Point(145, 60);
             this.dateTimePickerDataFim.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePickerDataFim.Name = "dateTimePickerDataFim";
             this.dateTimePickerDataFim.Size = new System.Drawing.Size(161, 32);
@@ -558,7 +574,7 @@
             // 
             this.dateTimePickerDataInicio.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerDataInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerDataInicio.Location = new System.Drawing.Point(145, 18);
+            this.dateTimePickerDataInicio.Location = new System.Drawing.Point(145, 24);
             this.dateTimePickerDataInicio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePickerDataInicio.Name = "dateTimePickerDataInicio";
             this.dateTimePickerDataInicio.Size = new System.Drawing.Size(161, 32);
@@ -569,7 +585,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(39, 59);
+            this.label11.Location = new System.Drawing.Point(39, 65);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(97, 22);
@@ -580,7 +596,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(23, 23);
+            this.label15.Location = new System.Drawing.Point(23, 29);
             this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(113, 22);
@@ -590,7 +606,7 @@
             // buttonExibirDetalhes
             // 
             this.buttonExibirDetalhes.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonExibirDetalhes.Location = new System.Drawing.Point(873, 34);
+            this.buttonExibirDetalhes.Location = new System.Drawing.Point(721, 35);
             this.buttonExibirDetalhes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonExibirDetalhes.Name = "buttonExibirDetalhes";
             this.buttonExibirDetalhes.Size = new System.Drawing.Size(252, 46);
@@ -611,6 +627,18 @@
             this.dataGridViewCompras.ReadOnly = true;
             this.dataGridViewCompras.Size = new System.Drawing.Size(1366, 454);
             this.dataGridViewCompras.TabIndex = 5;
+            // 
+            // buttonLimparPesquisa
+            // 
+            this.buttonLimparPesquisa.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLimparPesquisa.Location = new System.Drawing.Point(1062, 35);
+            this.buttonLimparPesquisa.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.buttonLimparPesquisa.Name = "buttonLimparPesquisa";
+            this.buttonLimparPesquisa.Size = new System.Drawing.Size(252, 46);
+            this.buttonLimparPesquisa.TabIndex = 37;
+            this.buttonLimparPesquisa.Text = "Limpar Pesquisa";
+            this.buttonLimparPesquisa.UseVisualStyleBackColor = true;
+            this.buttonLimparPesquisa.Click += new System.EventHandler(this.buttonLimparPesquisa_Click);
             // 
             // FormCompras
             // 
@@ -688,5 +716,7 @@
         public System.Windows.Forms.TabPage tabPageConsultar;
         public System.Windows.Forms.TextBox textBoxID;
         public System.Windows.Forms.TextBox textBoxTotalCompra;
+        private System.Windows.Forms.Button buttonExibirProds;
+        private System.Windows.Forms.Button buttonLimparPesquisa;
     }
 }

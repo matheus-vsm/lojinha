@@ -34,6 +34,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.labelTeste = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProds)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -76,6 +77,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.OrangeRed;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.labelTeste);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -94,6 +96,16 @@
             this.pictureBox1.Size = new System.Drawing.Size(163, 127);
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
+            // 
+            // labelTeste
+            // 
+            this.labelTeste.AutoSize = true;
+            this.labelTeste.Font = new System.Drawing.Font("Arial Rounded MT Bold", 21.75F);
+            this.labelTeste.Location = new System.Drawing.Point(563, 52);
+            this.labelTeste.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelTeste.Name = "labelTeste";
+            this.labelTeste.Size = new System.Drawing.Size(0, 33);
+            this.labelTeste.TabIndex = 3;
             // 
             // FormExibirProdutos
             // 
@@ -127,5 +139,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label labelTeste;
     }
 }

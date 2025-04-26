@@ -34,16 +34,17 @@
             this.labelNomeCliente = new System.Windows.Forms.Label();
             this.dataGridViewHistorico = new System.Windows.Forms.DataGridView();
             this.groupBoxConsulta = new System.Windows.Forms.GroupBox();
+            this.textBoxTotalGasto = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxTotal = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.buttonDetalhes = new System.Windows.Forms.Button();
             this.buttonPesquisar = new System.Windows.Forms.Button();
             this.dateTimePickerDataFim = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerDataInicio = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBoxTotal = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBoxTotalGasto = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHistorico)).BeginInit();
@@ -104,6 +105,7 @@
             // groupBoxConsulta
             // 
             this.groupBoxConsulta.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.groupBoxConsulta.Controls.Add(this.button1);
             this.groupBoxConsulta.Controls.Add(this.textBoxTotalGasto);
             this.groupBoxConsulta.Controls.Add(this.label1);
             this.groupBoxConsulta.Controls.Add(this.textBoxTotal);
@@ -123,10 +125,56 @@
             this.groupBoxConsulta.TabStop = false;
             this.groupBoxConsulta.Text = "Consulta";
             // 
+            // textBoxTotalGasto
+            // 
+            this.textBoxTotalGasto.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTotalGasto.Location = new System.Drawing.Point(838, 114);
+            this.textBoxTotalGasto.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.textBoxTotalGasto.Name = "textBoxTotalGasto";
+            this.textBoxTotalGasto.ReadOnly = true;
+            this.textBoxTotalGasto.Size = new System.Drawing.Size(241, 32);
+            this.textBoxTotalGasto.TabIndex = 21;
+            this.textBoxTotalGasto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxTotalGasto.TextChanged += new System.EventHandler(this.textBoxTotalGasto_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(872, 81);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(179, 24);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "Total Gasto (R$):";
+            // 
+            // textBoxTotal
+            // 
+            this.textBoxTotal.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTotal.Location = new System.Drawing.Point(838, 44);
+            this.textBoxTotal.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.textBoxTotal.Name = "textBoxTotal";
+            this.textBoxTotal.ReadOnly = true;
+            this.textBoxTotal.Size = new System.Drawing.Size(241, 32);
+            this.textBoxTotal.TabIndex = 19;
+            this.textBoxTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxTotal.TextChanged += new System.EventHandler(this.textBoxTotal_TextChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(862, 14);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(189, 24);
+            this.label3.TabIndex = 20;
+            this.label3.Text = "Total de Compras";
+            // 
             // buttonDetalhes
             // 
             this.buttonDetalhes.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDetalhes.Location = new System.Drawing.Point(582, 48);
+            this.buttonDetalhes.Location = new System.Drawing.Point(462, 91);
             this.buttonDetalhes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonDetalhes.Name = "buttonDetalhes";
             this.buttonDetalhes.Size = new System.Drawing.Size(227, 49);
@@ -138,7 +186,7 @@
             // buttonPesquisar
             // 
             this.buttonPesquisar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPesquisar.Location = new System.Drawing.Point(331, 48);
+            this.buttonPesquisar.Location = new System.Drawing.Point(331, 33);
             this.buttonPesquisar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonPesquisar.Name = "buttonPesquisar";
             this.buttonPesquisar.Size = new System.Drawing.Size(227, 49);
@@ -191,51 +239,16 @@
             this.label7.TabIndex = 12;
             this.label7.Text = "Data Início:";
             // 
-            // textBoxTotal
+            // button1
             // 
-            this.textBoxTotal.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTotal.Location = new System.Drawing.Point(838, 44);
-            this.textBoxTotal.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textBoxTotal.Name = "textBoxTotal";
-            this.textBoxTotal.ReadOnly = true;
-            this.textBoxTotal.Size = new System.Drawing.Size(241, 32);
-            this.textBoxTotal.TabIndex = 19;
-            this.textBoxTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxTotal.TextChanged += new System.EventHandler(this.textBoxTotal_TextChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(862, 14);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(189, 24);
-            this.label3.TabIndex = 20;
-            this.label3.Text = "Total de Compras";
-            // 
-            // textBoxTotalGasto
-            // 
-            this.textBoxTotalGasto.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTotalGasto.Location = new System.Drawing.Point(838, 114);
-            this.textBoxTotalGasto.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textBoxTotalGasto.Name = "textBoxTotalGasto";
-            this.textBoxTotalGasto.ReadOnly = true;
-            this.textBoxTotalGasto.Size = new System.Drawing.Size(241, 32);
-            this.textBoxTotalGasto.TabIndex = 21;
-            this.textBoxTotalGasto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxTotalGasto.TextChanged += new System.EventHandler(this.textBoxTotalGasto_TextChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(872, 81);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(179, 24);
-            this.label1.TabIndex = 22;
-            this.label1.Text = "Total Gasto (R$):";
+            this.button1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(588, 33);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(227, 49);
+            this.button1.TabIndex = 23;
+            this.button1.Text = "Exibir Detalhes";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // FormExibirComprasCliente
             // 
@@ -280,5 +293,6 @@
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.TextBox textBoxTotal;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button1;
     }
 }

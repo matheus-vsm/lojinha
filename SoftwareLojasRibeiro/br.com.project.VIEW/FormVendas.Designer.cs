@@ -74,6 +74,7 @@
             this.dateTimePickerDataInicio = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.buttonLimparPesquisa = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBoxCliente.SuspendLayout();
@@ -345,6 +346,7 @@
             this.textBoxQuantidade.Location = new System.Drawing.Point(287, 183);
             this.textBoxQuantidade.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxQuantidade.Name = "textBoxQuantidade";
+            this.textBoxQuantidade.ReadOnly = true;
             this.textBoxQuantidade.Size = new System.Drawing.Size(131, 29);
             this.textBoxQuantidade.TabIndex = 3;
             this.textBoxQuantidade.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -399,6 +401,7 @@
             this.textBoxPreco.Location = new System.Drawing.Point(117, 140);
             this.textBoxPreco.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxPreco.Name = "textBoxPreco";
+            this.textBoxPreco.ReadOnly = true;
             this.textBoxPreco.Size = new System.Drawing.Size(131, 29);
             this.textBoxPreco.TabIndex = 2;
             // 
@@ -558,6 +561,7 @@
             // 
             // groupBoxConsulta
             // 
+            this.groupBoxConsulta.Controls.Add(this.buttonLimparPesquisa);
             this.groupBoxConsulta.Controls.Add(this.buttonDetalhes);
             this.groupBoxConsulta.Controls.Add(this.buttonPesquisar);
             this.groupBoxConsulta.Controls.Add(this.dateTimePickerDataFim);
@@ -568,7 +572,7 @@
             this.groupBoxConsulta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBoxConsulta.Name = "groupBoxConsulta";
             this.groupBoxConsulta.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxConsulta.Size = new System.Drawing.Size(840, 140);
+            this.groupBoxConsulta.Size = new System.Drawing.Size(1157, 140);
             this.groupBoxConsulta.TabIndex = 0;
             this.groupBoxConsulta.TabStop = false;
             this.groupBoxConsulta.Text = "Consulta";
@@ -640,6 +644,18 @@
             this.label7.Size = new System.Drawing.Size(113, 22);
             this.label7.TabIndex = 12;
             this.label7.Text = "Data Início:";
+            // 
+            // buttonLimparPesquisa
+            // 
+            this.buttonLimparPesquisa.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLimparPesquisa.Location = new System.Drawing.Point(831, 46);
+            this.buttonLimparPesquisa.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.buttonLimparPesquisa.Name = "buttonLimparPesquisa";
+            this.buttonLimparPesquisa.Size = new System.Drawing.Size(250, 49);
+            this.buttonLimparPesquisa.TabIndex = 17;
+            this.buttonLimparPesquisa.Text = "Limpar Pesquisa";
+            this.buttonLimparPesquisa.UseVisualStyleBackColor = true;
+            this.buttonLimparPesquisa.Click += new System.EventHandler(this.buttonLimparPesquisa_Click);
             // 
             // FormVendas
             // 
@@ -723,5 +739,6 @@
         public System.Windows.Forms.MaskedTextBox maskedTextBoxCpf;
         public System.Windows.Forms.TextBox textBoxNome;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button buttonLimparPesquisa;
     }
 }

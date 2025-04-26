@@ -152,6 +152,9 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 textBoxQuantidade.Clear();
                 textBoxEstoque.Clear();
                 textBoxID.ReadOnly = false;
+                textBoxQuantidade.ReadOnly = true;
+                textBoxPreco.ReadOnly = true;
+                textBoxEstoque.ReadOnly = true;
                 textBoxID.Focus();
             }
             catch (Exception)
@@ -243,7 +246,9 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             maskedTextBoxCpf.ReadOnly = false;
             textBoxNome.ReadOnly = false;
             textBoxID.ReadOnly = false;
-            textBoxEstoque.ReadOnly = false;
+            textBoxEstoque.ReadOnly = true;
+            textBoxQuantidade.ReadOnly = true;
+            textBoxPreco.ReadOnly = true;
             total = 0;
             //limpar dados do carrinho, n so linhas
         }
@@ -262,6 +267,9 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             textBoxEstoque.Clear();
             textBoxQuantidade.Clear();
             textBoxID.ReadOnly = false;
+            textBoxEstoque.ReadOnly = true;
+            textBoxQuantidade.ReadOnly = true;
+            textBoxPreco.ReadOnly = true;
             textBoxID.Focus();
         }
 
@@ -272,6 +280,15 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             maskedTextBoxCpf.ReadOnly = false;
             textBoxNome.ReadOnly = false;
             maskedTextBoxCpf.Focus();
+        }
+
+        private void buttonLimparPesquisa_Click(object sender, EventArgs e)
+        {
+            dateTimePickerDataInicio.Value = DateTime.Now;
+            dateTimePickerDataFim.Value = DateTime.Now.AddDays(1);
+
+            VendaDAO vdao = new VendaDAO();
+            dataGridViewHistorico.DataSource = vdao.ListarVendas(iniciozada, fimzada);
         }
 
         private void buttonCancelar_Click(object sender, EventArgs e)
@@ -330,7 +347,11 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                     textBoxPreco.Text = produto.Preco_Venda.ToString();
                     textBoxEstoque.Text = produto.Estoque.ToString();
                     textBoxQuantidade.Focus();
+                    textBoxQuantidade.ReadOnly = false;
+                    textBoxPreco.ReadOnly = false;
+                    textBoxEstoque.ReadOnly = false;
                     textBoxID.ReadOnly = true;
+
                 }
                 else
                 {

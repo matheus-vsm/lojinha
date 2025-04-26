@@ -33,7 +33,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.buttonAdicionarNova = new System.Windows.Forms.Button();
             this.textBoxIdCompra = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxObs = new System.Windows.Forms.TextBox();
@@ -87,7 +86,6 @@
             // groupBox4
             // 
             this.groupBox4.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.groupBox4.Controls.Add(this.buttonAdicionarNova);
             this.groupBox4.Controls.Add(this.textBoxIdCompra);
             this.groupBox4.Controls.Add(this.label2);
             this.groupBox4.Controls.Add(this.textBoxObs);
@@ -105,22 +103,10 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Consulta";
             // 
-            // buttonAdicionarNova
-            // 
-            this.buttonAdicionarNova.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAdicionarNova.Location = new System.Drawing.Point(200, 94);
-            this.buttonAdicionarNova.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.buttonAdicionarNova.Name = "buttonAdicionarNova";
-            this.buttonAdicionarNova.Size = new System.Drawing.Size(194, 69);
-            this.buttonAdicionarNova.TabIndex = 21;
-            this.buttonAdicionarNova.Text = "Add Nova Compra desse Produto";
-            this.buttonAdicionarNova.UseVisualStyleBackColor = true;
-            this.buttonAdicionarNova.Click += new System.EventHandler(this.buttonAdicionarNova_Click);
-            // 
             // textBoxIdCompra
             // 
             this.textBoxIdCompra.Font = new System.Drawing.Font("Arial Rounded MT Bold", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxIdCompra.Location = new System.Drawing.Point(39, 121);
+            this.textBoxIdCompra.Location = new System.Drawing.Point(152, 123);
             this.textBoxIdCompra.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.textBoxIdCompra.Name = "textBoxIdCompra";
             this.textBoxIdCompra.ReadOnly = true;
@@ -133,7 +119,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(29, 88);
+            this.label2.Location = new System.Drawing.Point(142, 90);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(145, 28);
@@ -264,7 +250,6 @@
         private System.Windows.Forms.Label label8;
         public System.Windows.Forms.TextBox textBoxIdCompra;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button buttonAdicionarNova;
         public System.Windows.Forms.DataGridView dataGridViewDetalhes;
     }
 }

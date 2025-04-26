@@ -293,6 +293,22 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             dataGridViewCompras.DefaultCellStyle.ForeColor = Color.Black;
         }
 
+        private void buttonExibirProds_Click(object sender, EventArgs e)
+        {
+            FormExibirProdutos tela = new FormExibirProdutos(this);
+            tela.ShowDialog();
+        }
+
+        private void buttonLimparPesquisa_Click(object sender, EventArgs e)
+        {
+            dateTimePickerDataInicio.Value = DateTime.Now;
+            dateTimePickerDataFim.Value = DateTime.Now.AddDays(1);
+
+            CompraProdutosDAO compradao = new CompraProdutosDAO();
+            CompraProdutos compra = new CompraProdutos();
+            dataGridViewCompras.DataSource = compradao.ListarCompras(compra);
+        }
+
         private void buttonAddNovaIgual_Click(object sender, EventArgs e)
         {
             SelecionarLinhaTabelaCompras();
