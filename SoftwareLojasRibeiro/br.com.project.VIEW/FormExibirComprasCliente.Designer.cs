@@ -34,6 +34,7 @@
             this.labelNomeCliente = new System.Windows.Forms.Label();
             this.dataGridViewHistorico = new System.Windows.Forms.DataGridView();
             this.groupBoxConsulta = new System.Windows.Forms.GroupBox();
+            this.buttonLimparPesquisa = new System.Windows.Forms.Button();
             this.textBoxTotalGasto = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxTotal = new System.Windows.Forms.TextBox();
@@ -44,7 +45,6 @@
             this.dateTimePickerDataInicio = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHistorico)).BeginInit();
@@ -105,7 +105,7 @@
             // groupBoxConsulta
             // 
             this.groupBoxConsulta.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.groupBoxConsulta.Controls.Add(this.button1);
+            this.groupBoxConsulta.Controls.Add(this.buttonLimparPesquisa);
             this.groupBoxConsulta.Controls.Add(this.textBoxTotalGasto);
             this.groupBoxConsulta.Controls.Add(this.label1);
             this.groupBoxConsulta.Controls.Add(this.textBoxTotal);
@@ -124,6 +124,18 @@
             this.groupBoxConsulta.TabIndex = 20;
             this.groupBoxConsulta.TabStop = false;
             this.groupBoxConsulta.Text = "Consulta";
+            // 
+            // buttonLimparPesquisa
+            // 
+            this.buttonLimparPesquisa.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLimparPesquisa.Location = new System.Drawing.Point(451, 92);
+            this.buttonLimparPesquisa.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.buttonLimparPesquisa.Name = "buttonLimparPesquisa";
+            this.buttonLimparPesquisa.Size = new System.Drawing.Size(247, 49);
+            this.buttonLimparPesquisa.TabIndex = 23;
+            this.buttonLimparPesquisa.Text = "Limpar Pesquisa";
+            this.buttonLimparPesquisa.UseVisualStyleBackColor = true;
+            this.buttonLimparPesquisa.Click += new System.EventHandler(this.buttonLimparPesquisa_Click);
             // 
             // textBoxTotalGasto
             // 
@@ -174,7 +186,7 @@
             // buttonDetalhes
             // 
             this.buttonDetalhes.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDetalhes.Location = new System.Drawing.Point(462, 91);
+            this.buttonDetalhes.Location = new System.Drawing.Point(583, 33);
             this.buttonDetalhes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonDetalhes.Name = "buttonDetalhes";
             this.buttonDetalhes.Size = new System.Drawing.Size(227, 49);
@@ -239,17 +251,6 @@
             this.label7.TabIndex = 12;
             this.label7.Text = "Data Início:";
             // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(588, 33);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(227, 49);
-            this.button1.TabIndex = 23;
-            this.button1.Text = "Exibir Detalhes";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // FormExibirComprasCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -293,6 +294,6 @@
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.TextBox textBoxTotal;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonLimparPesquisa;
     }
 }

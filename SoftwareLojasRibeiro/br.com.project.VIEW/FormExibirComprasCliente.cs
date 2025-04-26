@@ -1,4 +1,5 @@
-﻿using SoftwareLojasRibeiro.br.com.project.DAO;
+﻿using MySqlX.XDevAPI;
+using SoftwareLojasRibeiro.br.com.project.DAO;
 using SoftwareLojasRibeiro.br.com.project.MODEL;
 using System;
 using System.Collections.Generic;
@@ -50,6 +51,16 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             ClienteDAO clidao = new ClienteDAO();
             dataGridViewHistorico.DataSource = clidao.ListarCompras(inicio, fim, cliente);
             dataGridViewHistorico.DefaultCellStyle.ForeColor = Color.Black;
+        }
+
+        private void buttonLimparPesquisa_Click(object sender, EventArgs e)
+        {
+            dateTimePickerDataInicio.Value = DateTime.Now;
+            dateTimePickerDataFim.Value = DateTime.Now.AddDays(1);
+
+            Cliente cliente = new Cliente { Id = clienteid };
+            ClienteDAO cliDAO = new ClienteDAO();
+            dataGridViewHistorico.DataSource = cliDAO.ListarCompras(iniciozada, fimzada, cliente);
         }
 
         private void buttonDetalhes_Click(object sender, EventArgs e)
