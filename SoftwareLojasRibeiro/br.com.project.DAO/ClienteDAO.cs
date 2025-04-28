@@ -90,12 +90,22 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                 DataTable tabelacliente = new DataTable();
 
                 // Se o nome for informado, adicionamos um filtro na consulta
-                string sql = @"SELECT Id_Cliente as ID, Nome, 
-                                Rg, Cpf, Email, Numero, Datanasc as 
-                                'Data de Nascimento', Endereco, Cep FROM tb_clientes";
+                string sql = @"SELECT 
+                                Id_Cliente as ID, 
+                                'Ativado' AS Status, 
+                                Nome, 
+                                Cpf, 
+                                Rg, 
+                                Email, 
+                                Numero, 
+                                Datanasc as 'Data de Nascimento', 
+                                Cep, 
+                                Endereco 
+                                FROM tb_clientes
+                                WHERE Status = TRUE";
                 if (!string.IsNullOrEmpty(cli.Nome))
                 {
-                    sql += " WHERE Nome LIKE @nome";
+                    sql += " AND Nome LIKE @nome";
                 }
 
                 //Organizar o comando SQL e executar
@@ -124,6 +134,282 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             finally
             {
                 connection.Close(); // Sempre fechar a conexão
+            }
+        }
+        #endregion
+
+        #region ListarClientesCpf
+        public DataTable ListarClientesCpf(Cliente cli)
+        {
+            try
+            {
+                //Criar o DataTable e o comando SQL
+                DataTable tabelacliente = new DataTable();
+
+                // Se o nome for informado, adicionamos um filtro na consulta
+                string sql = @"SELECT 
+                                Id_Cliente AS ID, 
+                                'Ativado' AS Status, 
+                                Nome, 
+                                Cpf, 
+                                Rg, 
+                                Email, 
+                                Numero, 
+                                Datanasc AS 'Data de Nascimento', 
+                                Cep, 
+                                Endereco 
+                                FROM tb_clientes
+                                WHERE Status = TRUE";
+                if (!string.IsNullOrEmpty(cli.Cpf))
+                {
+                    sql += " AND Cpf LIKE @cpf";
+                }
+
+                //Organizar o comando SQL e executar
+                MySqlCommand executacmd = new MySqlCommand(sql, connection);
+
+                // Se houver um cpf para buscar, adicionamos o parâmetro
+                if (!string.IsNullOrEmpty(cli.Cpf))
+                {
+                    executacmd.Parameters.AddWithValue("@cpf", "%" + cli.Cpf + "%");
+                }
+
+                connection.Open();
+                executacmd.ExecuteNonQuery();
+
+                //Criar o MySQLDataAdapter para preencher os dados do DataTable
+                MySqlDataAdapter da = new MySqlDataAdapter(executacmd);
+                da.Fill(tabelacliente); //preenche o datatable
+
+                return tabelacliente;
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show($"Erro ao executar o Comando SQL! (ListarClientesCpf) {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                connection.Close(); // Sempre fechar a conexão
+            }
+        }
+        #endregion
+
+        #region ListarClientesDesativados
+        public DataTable ListarClientesDesativados(Cliente cli)
+        {
+            try
+            {
+                //Criar o DataTable e o comando SQL
+                DataTable tabelacliente = new DataTable();
+
+                // Se o nome for informado, adicionamos um filtro na consulta
+                string sql = @"SELECT 
+                                Id_Cliente as ID, 
+                                'Desativado' AS Status, 
+                                Nome, 
+                                Cpf, 
+                                Rg, 
+                                Email, 
+                                Numero, 
+                                Datanasc as 'Data de Nascimento', 
+                                Cep, 
+                                Endereco 
+                                FROM tb_clientes
+                                WHERE Status = FALSE";
+                if (!string.IsNullOrEmpty(cli.Nome))
+                {
+                    sql += " AND Nome LIKE @nome";
+                }
+
+                //Organizar o comando SQL e executar
+                MySqlCommand executacmd = new MySqlCommand(sql, connection);
+
+                // Se houver um nome para buscar, adicionamos o parâmetro
+                if (!string.IsNullOrEmpty(cli.Nome))
+                {
+                    executacmd.Parameters.AddWithValue("@nome", "%" + cli.Nome + "%");
+                }
+
+                connection.Open();
+                executacmd.ExecuteNonQuery();
+
+                //Criar o MySQLDataAdapter para preencher os dados do DataTable
+                MySqlDataAdapter da = new MySqlDataAdapter(executacmd);
+                da.Fill(tabelacliente); //preenche o datatable
+
+                return tabelacliente;
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show($"Erro ao executar o Comando SQL! (ListarClientesDesativados) {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                connection.Close(); // Sempre fechar a conexão
+            }
+        }
+        #endregion
+
+        #region ListarClientesDesativadosCpf
+        public DataTable ListarClientesDesativadosCpf(Cliente cli)
+        {
+            try
+            {
+                //Criar o DataTable e o comando SQL
+                DataTable tabelacliente = new DataTable();
+
+                // Se o nome for informado, adicionamos um filtro na consulta
+                string sql = @"SELECT 
+                                Id_Cliente AS ID, 
+                                'Desativado' AS Status, 
+                                Nome, 
+                                Cpf, 
+                                Rg, 
+                                Email, 
+                                Numero, 
+                                Datanasc AS 'Data de Nascimento', 
+                                Cep, 
+                                Endereco 
+                                FROM tb_clientes
+                                WHERE Status = FALSE";
+                if (!string.IsNullOrEmpty(cli.Cpf))
+                {
+                    sql += " AND Cpf LIKE @cpf";
+                }
+
+                //Organizar o comando SQL e executar
+                MySqlCommand executacmd = new MySqlCommand(sql, connection);
+
+                // Se houver um cpf para buscar, adicionamos o parâmetro
+                if (!string.IsNullOrEmpty(cli.Cpf))
+                {
+                    executacmd.Parameters.AddWithValue("@cpf", "%" + cli.Cpf + "%");
+                }
+
+                connection.Open();
+                executacmd.ExecuteNonQuery();
+
+                //Criar o MySQLDataAdapter para preencher os dados do DataTable
+                MySqlDataAdapter da = new MySqlDataAdapter(executacmd);
+                da.Fill(tabelacliente); //preenche o datatable
+
+                return tabelacliente;
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show($"Erro ao executar o Comando SQL! (ListarClientesDesativadosCpf) {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                connection.Close(); // Sempre fechar a conexão
+            }
+        }
+        #endregion
+
+        #region ListarClientesDevedores
+        public DataTable ListarClientesDevedores(Cliente cli)
+        {
+            try
+            {
+                //Criar o DataTable e o comando SQL
+                DataTable tabelaclientesdevedores = new DataTable();
+
+                // Se o nome for informado, adicionamos um filtro na consulta
+                string sql = @"SELECT 
+                                v.Id_Venda AS 'ID da Venda', 
+                                c.Id_Cliente AS 'ID do Cliente', 
+                                c.Nome, 
+                                c.Cpf, 
+	                            v.Total_Venda AS 'Total da Venda', 
+                                v.Valor_Pago AS 'Valor Pago', 
+                                (v.Total_Venda - v.Valor_Pago) AS 'Dívida', 
+                                v.Data_Venda AS 'Data da Venda', 
+                                v.Observacoes AS 'Observações', 
+                                c.Email, 
+                                c.Numero AS 'Telefone' 
+                            FROM tb_clientes c 
+                            JOIN tb_vendas v ON c.Id_Cliente = v.Cliente_Id 
+                            WHERE v.Status = 'Pendente'";
+                if (!string.IsNullOrEmpty(cli.Nome))
+                {
+                    sql += " AND c.Nome LIKE @nome";
+                }
+
+                //Organizar o comando SQL e executar
+                MySqlCommand executacmd = new MySqlCommand(sql, connection);
+
+                // Se houver um nome para buscar, adicionamos o parâmetro
+                if (!string.IsNullOrEmpty(cli.Nome))
+                {
+                    executacmd.Parameters.AddWithValue("@nome", "%" + cli.Nome + "%");
+                }
+
+                connection.Open();
+                executacmd.ExecuteNonQuery();
+
+                //Criar o MySQLDataAdapter para preencher os dados do DataTable
+                MySqlDataAdapter da = new MySqlDataAdapter(executacmd);
+                da.Fill(tabelaclientesdevedores); //preenche o datatable
+
+                return tabelaclientesdevedores;
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show($"Erro ao executar o Comando SQL! (ListarClientesDevedores) {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                connection.Close(); // Sempre fechar a conexão
+            }
+        }
+        #endregion
+
+        #region ListarCompras
+        public DataTable ListarCompras(DateTime inicio, DateTime fim, Cliente cli)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+
+                string sql = @"SELECT 
+                                v.Id_Venda AS 'ID', 
+                                v.Data_Venda AS 'Data da Venda', 
+                                v.Total_Venda AS 'Total (R$)', 
+                                v.Desconto, 
+                                v.Valor_Pago, 
+                                v.Status, 
+                                v.Observacoes 
+                            FROM tb_vendas AS v 
+                            INNER JOIN tb_clientes AS c ON (v.Cliente_Id=c.Id_Cliente) 
+                            WHERE c.Id_Cliente = @id 
+                            AND v.Data_Venda BETWEEN @inicio AND @fim";
+                //adicioar o PAGAMENTO fazendo JOIN com a tabela de pagamentos
+                MySqlCommand executacmd = new MySqlCommand(sql, connection);
+
+                executacmd.Parameters.AddWithValue("@inicio", inicio);
+                executacmd.Parameters.AddWithValue("@fim", fim);
+                executacmd.Parameters.AddWithValue("@id", cli.Id);
+
+                connection.Open();
+                executacmd.ExecuteNonQuery();
+
+                MySqlDataAdapter da = new MySqlDataAdapter(executacmd);
+                da.Fill(dt);
+
+                return dt;
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Erro ao listar as compras: " + error.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
         #endregion
@@ -178,7 +464,6 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                     MessageBox.Show("Erro ao alterar cliente! Nenhuma linha foi modificada.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
-
             }
             catch (Exception error)
             {
@@ -277,57 +562,39 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
         }
         #endregion
 
-        #region ListarClientesDevedores
-        public DataTable ListarClientesDevedores(Cliente cli)
+        #region AtivarCliente
+        public bool AtivarCliente(Cliente cli)
         {
             try
             {
-                //Criar o DataTable e o comando SQL
-                DataTable tabelaclientesdevedores = new DataTable();
+                //Definir comando SQL - INSERT INTO
+                string sql = @"UPDATE tb_clientes SET 
+                            Status = TRUE 
+                            WHERE Id_Cliente=@id";
 
-                // Se o nome for informado, adicionamos um filtro na consulta
-                string sql = @"SELECT 
-                                v.Id_Venda AS 'ID da Venda', 
-                                c.Id_Cliente AS 'ID do Cliente', 
-                                c.Nome, 
-                                c.Cpf, 
-	                            v.Total_Venda AS 'Total da Venda', 
-                                v.Valor_Pago AS 'Valor Pago', 
-                                (v.Total_Venda - v.Valor_Pago) AS 'Dívida', 
-                                v.Data_Venda AS 'Data da Venda', 
-                                v.Observacoes AS 'Observações', 
-                                c.Email, 
-                                c.Numero AS 'Telefone' 
-                            FROM tb_clientes c 
-                            JOIN tb_vendas v ON c.Id_Cliente = v.Cliente_Id 
-                            WHERE v.Status = 'Pendente'";
-                if (!string.IsNullOrEmpty(cli.Nome))
-                {
-                    sql += " AND c.Nome LIKE @nome";
-                }
-
-                //Organizar o comando SQL e executar
+                //Organizar o comando SQL
                 MySqlCommand executacmd = new MySqlCommand(sql, connection);
+                executacmd.Parameters.AddWithValue("@id", cli.Id);
 
-                // Se houver um nome para buscar, adicionamos o parâmetro
-                if (!string.IsNullOrEmpty(cli.Nome))
-                {
-                    executacmd.Parameters.AddWithValue("@nome", "%" + cli.Nome + "%");
-                }
-
+                //Abrir conexão e executar o comando SQL
                 connection.Open();
-                executacmd.ExecuteNonQuery();
+                int linhasAfetadas = executacmd.ExecuteNonQuery();
 
-                //Criar o MySQLDataAdapter para preencher os dados do DataTable
-                MySqlDataAdapter da = new MySqlDataAdapter(executacmd);
-                da.Fill(tabelaclientesdevedores); //preenche o datatable
-
-                return tabelaclientesdevedores;
+                if (linhasAfetadas > 0)
+                {
+                    MessageBox.Show("Cliente Ativado com Sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao Ativar o Cliente! Nenhuma linha foi modificada.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
             }
             catch (Exception error)
             {
-                MessageBox.Show($"Erro ao executar o Comando SQL! (ListarClientesDevedores) {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return null;
+                MessageBox.Show($"Ocorreu um erro ao Ativar o Cliente: {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
             finally
             {
@@ -336,5 +603,125 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
         }
         #endregion
 
+        #region DesativarCliente
+        public bool DesativarCliente(Cliente cli)
+        {
+            try
+            {
+                //Definir comando SQL - INSERT INTO
+                string sql = @"UPDATE tb_clientes SET 
+                            Status = FALSE 
+                            WHERE Id_Cliente=@id";
+
+                //Organizar o comando SQL
+                MySqlCommand executacmd = new MySqlCommand(sql, connection);
+                executacmd.Parameters.AddWithValue("@id", cli.Id);
+
+                //Abrir conexão e executar o comando SQL
+                connection.Open();
+                int linhasAfetadas = executacmd.ExecuteNonQuery();
+
+                if (linhasAfetadas > 0)
+                {
+                    MessageBox.Show("Cliente Desativado com Sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao Desativar o cliente! Nenhuma linha foi modificada.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show($"Ocorreu um erro ao Desativar o Cliente: {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            finally
+            {
+                connection.Close(); // Sempre fechar a conexão
+            }
+        }
+        #endregion
+
+        #region RetornarTotalGasto
+        public string RetornarTotalGasto(Cliente cli)
+        {
+            try
+            {
+                string total;
+                string sql = @"SELECT 
+                                SUM(Total_Venda) AS 'Total Gasto' 
+                                FROM tb_vendas 
+                                WHERE Cliente_Id = @id;";
+
+                MySqlCommand executacmd = new MySqlCommand(sql, connection);
+                executacmd.Parameters.AddWithValue("@id", cli.Id);
+
+                connection.Open();
+                MySqlDataReader rs = executacmd.ExecuteReader();
+
+                if (rs.Read())
+                {
+                    total = rs.GetDecimal("Total Gasto").ToString();
+                    return total;
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao retornar o Total Gasto.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return "0.00";
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Erro ao retornar o Total Gasto." + error.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return "0.00";
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        #endregion
+
+        #region RetornarTotalCompras
+        public string RetornarTotalCompras(Cliente cli)
+        {
+            try
+            {
+                string total;
+                string sql = @"SELECT 
+                                COUNT(Id_Venda) AS 'Total de Compras' 
+                                FROM tb_vendas 
+                                WHERE Cliente_Id = @id;";
+
+                MySqlCommand executacmd = new MySqlCommand(sql, connection);
+                executacmd.Parameters.AddWithValue("@id", cli.Id);
+
+                connection.Open();
+                MySqlDataReader rs = executacmd.ExecuteReader();
+
+                if (rs.Read())
+                {
+                    total = rs.GetInt32("Total de Compras").ToString();
+                    return total;
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao retornar o Total de Compras.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return "0";
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Erro ao retornar o Total de Compras." + error.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return "0";
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        #endregion
     }
 }

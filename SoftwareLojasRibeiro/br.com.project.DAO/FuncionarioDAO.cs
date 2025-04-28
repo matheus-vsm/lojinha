@@ -96,15 +96,26 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                 DataTable tabelafuncionario = new DataTable();
 
                 // Se o nome for informado, adicionamos um filtro na consulta
-                string sql = @"SELECT Id_Funcionario as ID, Nome, Login, Tipo_Usuario as 
-                                'Tipo de Usuário', Data_Cadastro as 'Data Cadastro', Email, 
-                                Rg, Cpf, Numero, Datanasc as 'Data de Nascimento', 
-                                Endereco, Cep
-                                FROM tb_funcionarios";
-                //string sql = "SELECT * FROM tb_funcionarios";
+                string sql = @"SELECT 
+                                Id_Funcionario as ID, 
+                                'Ativado' AS Status, 
+                                Nome, 
+                                Login, 
+                                Tipo_Usuario as 'Tipo de Usuário', 
+                                Data_Cadastro as 'Data de Cadastro', 
+                                Cpf, 
+                                Email, 
+                                Rg, 
+                                Numero, 
+                                Datanasc as 'Data de Nascimento', 
+                                Cep, 
+                                Endereco 
+                                FROM tb_funcionarios
+                                WHERE Status = TRUE";
+
                 if (!string.IsNullOrEmpty(func.Nome))
                 {
-                    sql += " WHERE Nome LIKE @nome";
+                    sql += " AND Nome LIKE @nome";
                 }
 
                 //Organizar o comando SQL e executar
@@ -136,12 +147,194 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
         }
         #endregion
 
+        #region ListarFuncionariosCpf
+        public DataTable ListarFuncionariosCpf(Funcionario func)
+        {
+            try
+            {
+                //Criar o DataTable e o comando SQL
+                DataTable tabelafuncionario = new DataTable();
+
+                // Se o nome for informado, adicionamos um filtro na consulta
+                string sql = @"SELECT 
+                                Id_Funcionario as ID, 
+                                'Ativado' AS Status, 
+                                Nome, 
+                                Login, 
+                                Tipo_Usuario as 'Tipo de Usuário', 
+                                Data_Cadastro as 'Data de Cadastro', 
+                                Cpf, 
+                                Email, 
+                                Rg, 
+                                Numero, 
+                                Datanasc as 'Data de Nascimento', 
+                                Cep, 
+                                Endereco 
+                                FROM tb_funcionarios
+                                WHERE Status = TRUE";
+
+                if (!string.IsNullOrEmpty(func.Cpf))
+                {
+                    sql += " AND Cpf LIKE @Cpf";
+                }
+
+                //Organizar o comando SQL e executar
+                MySqlCommand executacmd = new MySqlCommand(sql, connection);
+
+                // Se houver um Cpf para buscar, adicionamos o parâmetro
+                if (!string.IsNullOrEmpty(func.Cpf))
+                {
+                    executacmd.Parameters.AddWithValue("@Cpf", "%" + func.Cpf + "%");
+                }
+
+                connection.Open();
+
+                //Criar o MySQLDataAdapter para preencher os dados do DataTable
+                MySqlDataAdapter da = new MySqlDataAdapter(executacmd);
+                da.Fill(tabelafuncionario); //preenche o datatable
+
+                return tabelafuncionario;
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show($"Erro ao executar o Comando SQL! (ListarFuncionariosCpf) {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                connection.Close(); // Sempre fechar a conexão
+            }
+        }
+        #endregion
+
+        #region ListarFuncionariosDesativados
+        public DataTable ListarFuncionariosDesativados(Funcionario func)
+        {
+            try
+            {
+                //Criar o DataTable e o comando SQL
+                DataTable tabelafuncionario = new DataTable();
+
+                // Se o nome for informado, adicionamos um filtro na consulta
+                string sql = @"SELECT 
+                                Id_Funcionario as ID, 
+                                'Desativado' AS Status, 
+                                Nome, 
+                                Login, 
+                                Tipo_Usuario as 'Tipo de Usuário', 
+                                Data_Cadastro as 'Data de Cadastro', 
+                                Cpf, 
+                                Email, 
+                                Rg, 
+                                Numero, 
+                                Datanasc as 'Data de Nascimento', 
+                                Cep, 
+                                Endereco 
+                                FROM tb_funcionarios
+                                WHERE Status = FALSE";
+
+                if (!string.IsNullOrEmpty(func.Nome))
+                {
+                    sql += " AND Nome LIKE @nome";
+                }
+
+                //Organizar o comando SQL e executar
+                MySqlCommand executacmd = new MySqlCommand(sql, connection);
+
+                // Se houver um nome para buscar, adicionamos o parâmetro
+                if (!string.IsNullOrEmpty(func.Nome))
+                {
+                    executacmd.Parameters.AddWithValue("@nome", "%" + func.Nome + "%");
+                }
+
+                connection.Open();
+
+                //Criar o MySQLDataAdapter para preencher os dados do DataTable
+                MySqlDataAdapter da = new MySqlDataAdapter(executacmd);
+                da.Fill(tabelafuncionario); //preenche o datatable
+
+                return tabelafuncionario;
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show($"Erro ao executar o Comando SQL! (ListarFuncionariosDesativados) {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                connection.Close(); // Sempre fechar a conexão
+            }
+        }
+        #endregion
+
+        #region ListarFuncionariosDesativadosCpf
+        public DataTable ListarFuncionariosDesativadosCpf(Funcionario func)
+        {
+            try
+            {
+                //Criar o DataTable e o comando SQL
+                DataTable tabelafuncionario = new DataTable();
+
+                // Se o nome for informado, adicionamos um filtro na consulta
+                string sql = @"SELECT 
+                                Id_Funcionario as ID, 
+                                'Desativado' AS Status, 
+                                Nome, 
+                                Login, 
+                                Tipo_Usuario as 'Tipo de Usuário', 
+                                Data_Cadastro as 'Data de Cadastro', 
+                                Cpf, 
+                                Email, 
+                                Rg, 
+                                Numero, 
+                                Datanasc as 'Data de Nascimento', 
+                                Cep, 
+                                Endereco 
+                                FROM tb_funcionarios
+                                WHERE Status = FALSE";
+
+                if (!string.IsNullOrEmpty(func.Cpf))
+                {
+                    sql += " AND Cpf LIKE @Cpf";
+                }
+
+                //Organizar o comando SQL e executar
+                MySqlCommand executacmd = new MySqlCommand(sql, connection);
+
+                // Se houver um Cpf para buscar, adicionamos o parâmetro
+                if (!string.IsNullOrEmpty(func.Cpf))
+                {
+                    executacmd.Parameters.AddWithValue("@Cpf", "%" + func.Cpf + "%");
+                }
+
+                connection.Open();
+
+                //Criar o MySQLDataAdapter para preencher os dados do DataTable
+                MySqlDataAdapter da = new MySqlDataAdapter(executacmd);
+                da.Fill(tabelafuncionario); //preenche o datatable
+
+                return tabelafuncionario;
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show($"Erro ao executar o Comando SQL! (ListarFuncionariosDesativadosCpf) {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                connection.Close(); // Sempre fechar a conexão
+            }
+        }
+        #endregion
+
         #region ObterSenhaFuncionario
         public string ObterSenhaFuncionario(string idFuncionario)
         {
             try
             {
-                string sql = "SELECT Senha FROM tb_funcionarios WHERE Id_Funcionario = @id";
+                string sql = @"SELECT Senha 
+                                FROM tb_funcionarios 
+                                WHERE Id_Funcionario = @id";
                 MySqlCommand executacmd = new MySqlCommand(sql, connection);
                 executacmd.Parameters.AddWithValue("@id", idFuncionario);
 
@@ -152,7 +345,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             }
             catch (Exception error)
             {
-                MessageBox.Show($"Erro ao obter a senha do funcionário: {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Erro ao obter a senha do Funcionário: {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return string.Empty;
             }
             finally
@@ -276,6 +469,88 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             {
                 MessageBox.Show($"Ocorreu um erro ao excluir o funcionário: {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw;
+            }
+            finally
+            {
+                connection.Close(); // Sempre fechar a conexão
+            }
+        }
+        #endregion
+
+        #region AtivarFuncionario
+        public bool AtivarFuncionario(Funcionario func)
+        {
+            try
+            {
+                //Definir comando SQL - INSERT INTO
+                string sql = @"UPDATE tb_funcionarios SET 
+                            Status = TRUE 
+                            WHERE Id_Funcionario=@id";
+
+                //Organizar o comando SQL
+                MySqlCommand executacmd = new MySqlCommand(sql, connection);
+                executacmd.Parameters.AddWithValue("@id", func.Id);
+
+                //Abrir conexão e executar o comando SQL
+                connection.Open();
+                int linhasAfetadas = executacmd.ExecuteNonQuery();
+
+                if (linhasAfetadas > 0)
+                {
+                    MessageBox.Show("Funcionário Ativado com Sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao Ativar o Funcionário! Nenhuma linha foi modificada.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show($"Ocorreu um erro ao Ativar o Funcionário: {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            finally
+            {
+                connection.Close(); // Sempre fechar a conexão
+            }
+        }
+        #endregion
+
+        #region DesativarFuncionario
+        public bool DesativarFuncionario(Funcionario func)
+        {
+            try
+            {
+                //Definir comando SQL - INSERT INTO
+                string sql = @"UPDATE tb_funcionarios SET 
+                            Status = FALSE 
+                            WHERE Id_Funcionario=@id";
+
+                //Organizar o comando SQL
+                MySqlCommand executacmd = new MySqlCommand(sql, connection);
+                executacmd.Parameters.AddWithValue("@id", func.Id);
+
+                //Abrir conexão e executar o comando SQL
+                connection.Open();
+                int linhasAfetadas = executacmd.ExecuteNonQuery();
+
+                if (linhasAfetadas > 0)
+                {
+                    MessageBox.Show("Funcionário Desativado com Sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao Desativar o Funcionário! Nenhuma linha foi modificada.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show($"Ocorreu um erro ao Desativar o Funcionário: {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
             finally
             {

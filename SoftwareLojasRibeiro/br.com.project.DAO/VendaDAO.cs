@@ -79,7 +79,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             }
             catch (Exception error)
             {
-                MessageBox.Show("Erro ao retornar o ID da Venda.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Erro ao retornar o ID da Venda." + error.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return "0";
             }
             finally
@@ -142,10 +142,12 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
 
                 string sql = @"SELECT 
                                 v.Id_Venda AS 'ID', 
-                                c.Nome AS 'Cliente', v.Data_Venda AS 'Data da Venda', 
+                                c.Nome AS 'Cliente', 
+                                v.Data_Venda AS 'Data da Venda', 
                                 v.Total_Venda AS 'Total (R$)', 
                                 v.Desconto, 
-                                v.Valor_Pago, Status, 
+                                v.Valor_Pago, 
+                                v.Status, 
                                 v.Observacoes 
                             FROM tb_vendas AS v 
                             JOIN tb_clientes AS c ON (v.Cliente_Id=c.Id_Cliente)";
@@ -172,5 +174,47 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
         }
         #endregion
 
+        #region AtualizarStatusVenda
+        public bool AtualizarStatusVenda(Devedores devedor)
+        {
+            try
+            {
+                //Definir comando SQL - INSERT INTO
+                string sql = @"UPDATE tb_vendas 
+                            SET Status='Concluída' 
+                            WHERE Cliente_Id=@idcli AND Id_Venda=@idven";
+
+                //Organizar o comando SQL
+                MySqlCommand executacmd = new MySqlCommand(sql, connection);
+                executacmd.Parameters.AddWithValue("@idcli", devedor.Id_Cliente);
+                executacmd.Parameters.AddWithValue("@idven", devedor.Id_Venda);
+
+                //Abrir conexão e executar o comando SQL
+                connection.Open();
+                int linhasAfetadas = executacmd.ExecuteNonQuery();
+
+                if (linhasAfetadas > 0)
+                {
+                    MessageBox.Show("Dívida quitada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao alterar Status da Venda! Nenhuma linha foi modificada.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show($"Ocorreu um erro ao Alterar o Status da Venda: {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            finally
+            {
+                connection.Close(); // Sempre fechar a conexão
+            }
+        }
+        #endregion
     }
 }

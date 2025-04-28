@@ -46,6 +46,11 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             textBoxPix.Text = "0";
             textBoxDesconto.Text = "0";
             dataGridViewProdutosCarrinhoPagamento.DataSource = carrin;
+
+            dataGridViewProdutosCarrinhoPagamento.DefaultCellStyle.Font = new Font("Arial Rounded MT", 16);
+            dataGridViewProdutosCarrinhoPagamento.ColumnHeadersDefaultCellStyle.Font = new Font("Arial Rounded MT Bold", 18, FontStyle.Bold);
+            dataGridViewProdutosCarrinhoPagamento.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridViewProdutosCarrinhoPagamento.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
         }
 
         private void buttonFinalizar_Click(object sender, EventArgs e)
@@ -121,6 +126,21 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             vdao.CadastrarVenda(ven);
 
             string idVenda = vdao.RetornarIdLastVenda();
+
+            if (status == "Pendente")
+            {
+                Devedores devedor = new Devedores
+                {
+                    Id_Cliente = cliente.Id,
+                    Id_Venda = idVenda,
+                    Divida_Inicial = v_total - v_pago,
+                    Divida_Atual = v_total - v_pago,
+                    Data_Inicio = dataatual
+                };
+
+                DevedoresDAO devedoresDAO = new DevedoresDAO();
+                devedoresDAO.CadastrarClienteDevedor(devedor);
+            }
 
             Dictionary<string, double> pagamentos = new Dictionary<string, double>
                 {
@@ -227,6 +247,8 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             this.Close();
         }
 
+        #region Lixos
         private void textBoxTotal_TextChanged(object sender, EventArgs e) { }
+        #endregion
     }
 }

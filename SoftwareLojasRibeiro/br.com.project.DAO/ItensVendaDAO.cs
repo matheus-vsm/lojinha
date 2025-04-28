@@ -64,19 +64,12 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                                 it.Id_Item_Venda AS 'ID Item Venda', 
 		                        p.Nome_Produto as 'Produto', 
                                 it.Qtd AS 'Quantidade', 
-                                p.Preco AS 'Preço Unitário', 
+                                p.Preco_Venda AS 'Preço Unitário', 
                                 it.Subtotal AS 'SubTotal' 
                             FROM tb_itensvendas AS it 
                             JOIN tb_produtos AS p ON (it.Produto_Id = p.Id_Produto) 
                             JOIN tb_vendas AS v ON (it.Venda_Id = v.Id_Venda)
                             WHERE it.Venda_Id = @id";
-                            //SELECT 
-                            //    GROUP_CONCAT(p.Forma_Pagamento 
-                            //        ORDER BY p.Forma_Pagamento SEPARATOR ', ') AS 'Formas de Pagamento',
-                            //    SUM(p.Valor_Pago) AS Valor_Pago
-                            //FROM tb_pagamentos as p
-                            //JOIN tb_vendas as v ON (p.Vendaa_Id = v.Id_Venda)
-                            //WHERE Venda_Id = @id;";
 
                 MySqlCommand executacmd = new MySqlCommand(sql, connection);
                 executacmd.Parameters.AddWithValue("@id", idvenda);
@@ -100,5 +93,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             }
         }
         #endregion
+
+
     }
 }

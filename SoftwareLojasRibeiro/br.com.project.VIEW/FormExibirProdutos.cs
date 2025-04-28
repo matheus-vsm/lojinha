@@ -14,20 +14,41 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 {
     public partial class FormExibirProdutos: Form
     {
-        private FormVendas telavendas; //para passar os dados da tabela para a tela de vendas
-        public FormExibirProdutos(FormVendas telavendas)
+        private Form telinha; //para passar os dados da tabela para a tela de vendas
+        public FormExibirProdutos(Form tela)
         {
             InitializeComponent();
-            this.telavendas = telavendas;
-            this.FormClosed += FormExibirProdutos_FormClosed;
+            telinha = tela;
+            FormClosed += FormExibirProdutos_FormClosed;
+            labelTeste.Text += telinha.Text;
         }
 
         private void FormExibirProdutos_FormClosed(object sender, FormClosedEventArgs e)
         {
-            telavendas.BeginInvoke((Action)(() =>
+            // Verificar se o formulário de destino possui o controle "textBoxQuantidade"
+            var textBoxQuantidade = telinha.Controls.Find("textBoxQuantidade", true).FirstOrDefault() as TextBox;
+            var textBoxPrecoCusto = telinha.Controls.Find("textBoxPrecoCusto", true).FirstOrDefault() as TextBox;
+            
+            if(telinha.Text == "Lojas Ribeiro - Vendas")
             {
-                telavendas.textBoxQuantidade.Focus();
-            }));
+                if (textBoxQuantidade != null)
+                {
+                    telinha.BeginInvoke((Action)(() =>
+                    {
+                        textBoxQuantidade.Focus();
+                    }));
+                }
+            }
+            else
+            {
+                if (textBoxPrecoCusto != null)
+                {
+                    telinha.BeginInvoke((Action)(() =>
+                    {
+                        textBoxPrecoCusto.Focus();
+                    }));
+                }
+            }
         }
 
         private void FormExibirProdutos_Load(object sender, EventArgs e)
@@ -53,17 +74,73 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
         private void dataGridViewProds_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            telavendas.textBoxID.Text = dataGridViewProds.CurrentRow.Cells[0].Value.ToString();
-            telavendas.textBoxDescrição.Text = dataGridViewProds.CurrentRow.Cells[1].Value.ToString();
-            telavendas.textBoxPreco.Text = dataGridViewProds.CurrentRow.Cells[5].Value.ToString();
-            telavendas.textBoxEstoque.Text = dataGridViewProds.CurrentRow.Cells[6].Value.ToString();
-            telavendas.textBoxID.ReadOnly = true;
+            // Verificar se uma linha está selecionada
+            if (dataGridViewProds.CurrentRow == null || dataGridViewProds.CurrentRow.Index < 0)
+            {
+                MessageBox.Show("Nenhuma linha selecionada.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Verificar se o formulário de destino é "Lojas Ribeiro - Vendas"
+            if (telinha.Text == "Lojas Ribeiro - Vendas")
+            {
+                // Localizar os controles dinamicamente no formulário "telinha"
+                var textBoxID = telinha.Controls.Find("textBoxID", true).FirstOrDefault() as TextBox;
+                var textBoxDescricao = telinha.Controls.Find("textBoxDescricao", true).FirstOrDefault() as TextBox;
+                var textBoxPreco = telinha.Controls.Find("textBoxPreco", true).FirstOrDefault() as TextBox;
+                var textBoxEstoque = telinha.Controls.Find("textBoxEstoque", true).FirstOrDefault() as TextBox;
+                var textBoxQuantidade = telinha.Controls.Find("textBoxQuantidade", true).FirstOrDefault() as TextBox;
+
+                if (textBoxID != null)
+                    textBoxID.Text = dataGridViewProds.CurrentRow.Cells[0].Value.ToString();
+                if (textBoxDescricao != null)
+                    textBoxDescricao.Text = dataGridViewProds.CurrentRow.Cells[2].Value.ToString();
+                if (textBoxPreco != null)
+                    textBoxPreco.Text = dataGridViewProds.CurrentRow.Cells[6].Value.ToString();
+                if (textBoxEstoque != null)
+                    textBoxEstoque.Text = dataGridViewProds.CurrentRow.Cells[7].Value.ToString();
+
+                if (textBoxID != null)
+                    textBoxID.ReadOnly = true;
+                textBoxPreco.ReadOnly = false;
+                textBoxEstoque.ReadOnly = false;
+                textBoxQuantidade.ReadOnly = false;
+            }
+            else
+            {
+                // Localizar os controles dinamicamente no formulário "telinha"
+                var comboBoxCategProd = telinha.Controls.Find("comboBoxCategProd", true).FirstOrDefault() as ComboBox;
+                var comboBoxCategPub = telinha.Controls.Find("comboBoxCategPub", true).FirstOrDefault() as ComboBox;
+                var textBoxNomeProd = telinha.Controls.Find("textBoxNomeProd", true).FirstOrDefault() as TextBox;
+                var textBoxMarca = telinha.Controls.Find("textBoxMarca", true).FirstOrDefault() as TextBox;
+                var textBoxTamanho = telinha.Controls.Find("textBoxTamanho", true).FirstOrDefault() as TextBox;
+                var textBoxCor = telinha.Controls.Find("textBoxCor", true).FirstOrDefault() as TextBox;
+                var textBoxDescricao = telinha.Controls.Find("textBoxDescricao", true).FirstOrDefault() as TextBox;
+                var textBoxPrecoVenda = telinha.Controls.Find("textBoxPrecoVenda", true).FirstOrDefault() as TextBox;
+
+                if (comboBoxCategProd != null)
+                    comboBoxCategProd.Text = dataGridViewProds.CurrentRow.Cells[9].Value.ToString();
+                if (comboBoxCategPub != null)
+                    comboBoxCategPub.Text = dataGridViewProds.CurrentRow.Cells[11].Value.ToString();
+                if (textBoxNomeProd != null)
+                    textBoxNomeProd.Text = dataGridViewProds.CurrentRow.Cells[2].Value.ToString();
+                if (textBoxMarca != null)
+                    textBoxMarca.Text = dataGridViewProds.CurrentRow.Cells[3].Value.ToString();
+                if (textBoxTamanho != null)
+                    textBoxTamanho.Text = dataGridViewProds.CurrentRow.Cells[5].Value.ToString();
+                if (textBoxCor != null)
+                    textBoxCor.Text = dataGridViewProds.CurrentRow.Cells[4].Value.ToString();
+                if (textBoxDescricao != null)
+                    textBoxDescricao.Text = dataGridViewProds.CurrentRow.Cells[12].Value.ToString();
+                if (textBoxPrecoVenda != null)
+                    textBoxPrecoVenda.Text = dataGridViewProds.CurrentRow.Cells[6].Value.ToString();
+            }
+
             this.Close();
         }
 
-        private void dataGridViewProds_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+        #region Lixos
+        private void dataGridViewProds_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
+        #endregion
     }
 }

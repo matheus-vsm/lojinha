@@ -24,6 +24,15 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         {
             ItensVendaDAO ivdao = new ItensVendaDAO();
             dataGridViewDetalhes.DataSource = ivdao.ListarItensVenda(idvenda);
+
+            dataGridViewDetalhes.DefaultCellStyle.Font = new Font("Arial Rounded MT", 16);
+            dataGridViewDetalhes.ColumnHeadersDefaultCellStyle.Font = new Font("Arial Rounded MT Bold", 18, FontStyle.Bold);
+            dataGridViewDetalhes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridViewDetalhes.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
         }
+
+        #region Lixos
+        private void dataGridViewDetalhes_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
+        #endregion
     }
 }

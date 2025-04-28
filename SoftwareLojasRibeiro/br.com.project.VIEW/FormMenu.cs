@@ -60,11 +60,30 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             this.Hide();
         }
 
-        private void FormMenu_KeyPress(object sender, KeyPressEventArgs e){ }
+        private void buttonFornecedores_Click(object sender, EventArgs e)
+        {
+            FormFornecedoress telaforne = new FormFornecedoress();
+            telaforne.Show();
+            this.Hide();
+        }
+
+        private void buttonCompras_Click(object sender, EventArgs e)
+        {
+            FormCompras tela = new FormCompras();
+            tela.Show();
+            this.Hide();
+        }
+
+        private void buttonVoltar_Click(object sender, EventArgs e)
+        {
+            FormLogin tela = new FormLogin();
+            tela.Show();
+            this.Hide();
+        }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            if (keyData == Keys.D0 || keyData == Keys.NumPad0) // tecla 1
+            if (keyData == Keys.D0 || keyData == Keys.NumPad0) // tecla 0
             {
                 this.Close();
                 return true;
@@ -81,7 +100,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             }
             else if (keyData == Keys.D3 || keyData == Keys.NumPad3) // tecla 3
             {
-                // Adicione a ação desejada para a tecla '3'
+                buttonFornecedores_Click(this, EventArgs.Empty);
                 return true;
             }
             else if (keyData == Keys.D4 || keyData == Keys.NumPad4) // tecla 4
@@ -91,15 +110,24 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             }
             else if (keyData == Keys.D5 || keyData == Keys.NumPad5) // tecla 5
             {
-                buttonProdutos_Click(this, EventArgs.Empty);
+                buttonCompras_Click(this, EventArgs.Empty);
                 return true;
             }
             else if (keyData == Keys.D6 || keyData == Keys.NumPad6) // tecla 6
+            {
+                buttonProdutos_Click(this, EventArgs.Empty);
+                return true;
+            }
+            else if (keyData == Keys.D7 || keyData == Keys.NumPad7) // tecla 7
             {
                 buttonVendas_Click(this, EventArgs.Empty);
                 return true;
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
+
+        #region Lixos
+        private void FormMenu_KeyPress(object sender, KeyPressEventArgs e) { }
+        #endregion
     }
 }

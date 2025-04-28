@@ -35,7 +35,6 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         public FormVendas()
         {
             InitializeComponent(); 
-            this.Size = new Size(1567, 1051); // Define o tamanho do formulário
             this.WindowState = FormWindowState.Normal; // Abre o formulário no estado normal
 
             maskedTextBoxData.ReadOnly = true;
@@ -58,6 +57,13 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             VendaDAO vdao = new VendaDAO();
             dataGridViewHistorico.DataSource = vdao.ListarVendas(iniciozada, fimzada);
             dataGridViewHistorico.DefaultCellStyle.ForeColor = Color.Black;
+
+            dataGridViewProdutosCarrinho.DefaultCellStyle.Font = new Font("Arial Rounded MT", 16);
+            dataGridViewProdutosCarrinho.ColumnHeadersDefaultCellStyle.Font = new Font("Arial Rounded MT Bold", 18, FontStyle.Bold);
+            dataGridViewProdutosCarrinho.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridViewProdutosCarrinho.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+
+            maskedTextBoxCpf.Focus();
         }
 
 
@@ -137,32 +143,52 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 total += subtotal;
 
                 //adicionando produto no carrinho
-                carrinho.Rows.Add(int.Parse(textBoxID.Text), textBoxDescrição.Text, qntd, preco, subtotal);
+                carrinho.Rows.Add(int.Parse(textBoxID.Text), textBoxDescricao.Text, qntd, preco, subtotal);
                 textBoxTotall.Text = total.ToString();
 
                 textBoxID.Clear();
-                textBoxDescrição.Clear();
+                textBoxDescricao.Clear();
                 textBoxPreco.Clear();
                 textBoxQuantidade.Clear();
                 textBoxEstoque.Clear();
                 textBoxID.ReadOnly = false;
+                textBoxQuantidade.ReadOnly = true;
+                textBoxPreco.ReadOnly = true;
+                textBoxEstoque.ReadOnly = true;
                 textBoxID.Focus();
             }
-            catch (Exception error)
+            catch (Exception)
             {
-                if (qntd == 0)
+                string nomeprod = textBoxDescricao.Text;
+                string id = textBoxID.Text;
+
+                if (nomeprod == "")
+                {
+                    MessageBox.Show("Escolha um produto para ser Adicionado ao Carrinho!");
+                    textBoxID.Focus();
+                }
+                else if (qntd == 0 || qntd == null)
                 {
                     MessageBox.Show("Digite a Quantidade do Produto!");
+                    textBoxQuantidade.Focus();
                 }
-                else
+                else if (id == "")
                 {
                     MessageBox.Show("Digite o Código do Produto!");
+                    textBoxID.Focus();
                 }
             }
         }
 
         private void buttonRemover_Click(object sender, EventArgs e)
         {
+            if (carrinho.Rows.Count == 0)
+            {
+                MessageBox.Show("Não há Produtos no Carrinho para serem removidos.");
+                textBoxID.Focus();
+                return;
+            }
+
             // Perguntar ao usuário antes de excluir
             DialogResult resultado = MessageBox.Show("Tem certeza que deseja excluir esse Produto do Carrinho?",
                                                      "Confirmação",
@@ -215,11 +241,6 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             tela.ShowDialog();
         }
 
-        private void maskedTextBoxData_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
-        }
-
         private void buttonPesquisar_Click(object sender, EventArgs e)
         {
             DateTime inicio = Convert.ToDateTime(dateTimePickerDataInicio.Value.ToString("yyyy-MM-dd"));
@@ -242,19 +263,11 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             maskedTextBoxCpf.ReadOnly = false;
             textBoxNome.ReadOnly = false;
             textBoxID.ReadOnly = false;
-            textBoxEstoque.ReadOnly = false;
+            textBoxEstoque.ReadOnly = true;
+            textBoxQuantidade.ReadOnly = true;
+            textBoxPreco.ReadOnly = true;
             total = 0;
             //limpar dados do carrinho, n so linhas
-        }
-
-        private void textBoxID_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridViewProdutosCarrinho_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void buttonExibirProds_Click(object sender, EventArgs e)
@@ -266,10 +279,14 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         private void buttonLimparId_Click(object sender, EventArgs e)
         {
             textBoxID.Clear();
-            textBoxDescrição.Clear();
+            textBoxDescricao.Clear();
             textBoxPreco.Clear();
             textBoxEstoque.Clear();
+            textBoxQuantidade.Clear();
             textBoxID.ReadOnly = false;
+            textBoxEstoque.ReadOnly = true;
+            textBoxQuantidade.ReadOnly = true;
+            textBoxPreco.ReadOnly = true;
             textBoxID.Focus();
         }
 
@@ -280,6 +297,15 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             maskedTextBoxCpf.ReadOnly = false;
             textBoxNome.ReadOnly = false;
             maskedTextBoxCpf.Focus();
+        }
+
+        private void buttonLimparPesquisa_Click(object sender, EventArgs e)
+        {
+            dateTimePickerDataInicio.Value = DateTime.Now;
+            dateTimePickerDataFim.Value = DateTime.Now.AddDays(1);
+
+            VendaDAO vdao = new VendaDAO();
+            dataGridViewHistorico.DataSource = vdao.ListarVendas(iniciozada, fimzada);
         }
 
         private void buttonCancelar_Click(object sender, EventArgs e)
@@ -303,13 +329,6 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             textBoxID.ReadOnly = false;
             textBoxEstoque.ReadOnly = false;
             total = 0;
-        }
-
-        private void FormVendas_KeyPress(object sender, KeyPressEventArgs e) { }
-
-        private void maskedTextBoxCpf_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
         }
 
         private void maskedTextBoxCpf_KeyPress(object sender, KeyPressEventArgs e)
@@ -341,11 +360,15 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 
                 if (produto != null)
                 {
-                    textBoxDescrição.Text = produto.Descricao;
-                    textBoxPreco.Text = produto.Preco.ToString();
+                    textBoxDescricao.Text = produto.Descricao;
+                    textBoxPreco.Text = produto.Preco_Venda.ToString();
                     textBoxEstoque.Text = produto.Estoque.ToString();
                     textBoxQuantidade.Focus();
+                    textBoxQuantidade.ReadOnly = false;
+                    textBoxPreco.ReadOnly = false;
+                    textBoxEstoque.ReadOnly = false;
                     textBoxID.ReadOnly = true;
+
                 }
                 else
                 {
@@ -354,5 +377,13 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 }
             }
         }
+
+        #region Lixos
+        private void textBoxID_TextChanged(object sender, EventArgs e) { }
+        private void maskedTextBoxData_MaskInputRejected(object sender, MaskInputRejectedEventArgs e) { }
+        private void dataGridViewProdutosCarrinho_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
+        private void FormVendas_KeyPress(object sender, KeyPressEventArgs e) { }
+        private void maskedTextBoxCpf_MaskInputRejected(object sender, MaskInputRejectedEventArgs e) { }
+        #endregion
     }
 }

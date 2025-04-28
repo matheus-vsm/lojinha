@@ -24,43 +24,6 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             textBoxID.ReadOnly = true;
         }
 
-        public void SelecionarLinhaTabelaProdutos()
-        {
-            //Garantir que a linha esteja realmente selecionada antes de tentar acessa-la
-            if (dataGridViewProdutos.CurrentRow != null)
-            {
-                //Pegar os dados da linha selecionada
-                textBoxID.Text = dataGridViewProdutos.CurrentRow.Cells[0].Value.ToString() ?? "";
-                textBoxNomeProd.Text = dataGridViewProdutos.CurrentRow.Cells[1].Value.ToString() ?? "";
-                textBoxMarca.Text = dataGridViewProdutos.CurrentRow.Cells[2].Value.ToString() ?? "";
-                textBoxCor.Text = dataGridViewProdutos.CurrentRow.Cells[3].Value.ToString() ?? "";
-                textBoxTamanho.Text = dataGridViewProdutos.CurrentRow.Cells[4].Value.ToString() ?? "";
-                textBoxPreco.Text = dataGridViewProdutos.CurrentRow.Cells[5].Value.ToString() ?? "";
-                textBoxEstoque.Text = dataGridViewProdutos.CurrentRow.Cells[6].Value.ToString() ?? "";
-                comboBoxCategProd.Text = dataGridViewProdutos.CurrentRow.Cells[7].Value.ToString() ?? "";
-                comboBoxCategPub.Text = dataGridViewProdutos.CurrentRow.Cells[8].Value.ToString() ?? "";
-                textBoxDescrição.Text = dataGridViewProdutos.CurrentRow.Cells[9].Value.ToString() ?? "";
-            }
-            else
-            {
-                MessageBox.Show("Nenhuma linha selecionada.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-        public void Pesquisar()
-        {
-            ProdutoDAO dao = new ProdutoDAO();
-            Produto prod = new Produto { Nome = textBoxPesquisaProd.Text };
-            dataGridViewProdutos.DataSource = dao.ListarProdutos(prod);
-        }
-
-        private void buttonMenu_Click(object sender, EventArgs e)
-        {
-            FormMenu telamenu = new FormMenu();
-            telamenu.Show();
-            this.Hide();
-        }
-
         private void FormProdutos_Load(object sender, EventArgs e)
         {
             CategoriaDAO catdao = new CategoriaDAO();
@@ -75,10 +38,56 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             ProdutoDAO prodao = new ProdutoDAO();
             Produto prod = new Produto();
             dataGridViewProdutos.DataSource = prodao.ListarProdutos(prod);
+            dataGridViewProdutosOff.DataSource = prodao.ListarProdutosDesativados(prod);
+
+            new Helpers().LimparTela(this);
+        }
+
+        public void SelecionarLinhaTabelaProdutos()
+        {
+            //Garantir que a linha esteja realmente selecionada antes de tentar acessa-la
+            if (dataGridViewProdutos.CurrentRow != null)
+            {
+                //Pegar os dados da linha selecionada
+                textBoxID.Text = dataGridViewProdutos.CurrentRow.Cells[0].Value.ToString() ?? "";
+                textBoxNomeProd.Text = dataGridViewProdutos.CurrentRow.Cells[2].Value.ToString() ?? "";
+                textBoxMarca.Text = dataGridViewProdutos.CurrentRow.Cells[3].Value.ToString() ?? "";
+                textBoxCor.Text = dataGridViewProdutos.CurrentRow.Cells[4].Value.ToString() ?? "";
+                textBoxTamanho.Text = dataGridViewProdutos.CurrentRow.Cells[5].Value.ToString() ?? "";
+                textBoxPreco.Text = dataGridViewProdutos.CurrentRow.Cells[6].Value.ToString() ?? "";
+                textBoxEstoque.Text = dataGridViewProdutos.CurrentRow.Cells[7].Value.ToString() ?? "";
+                comboBoxCategProd.Text = dataGridViewProdutos.CurrentRow.Cells[9].Value.ToString() ?? "";
+                comboBoxCategPub.Text = dataGridViewProdutos.CurrentRow.Cells[11].Value.ToString() ?? "";
+                textBoxDescrição.Text = dataGridViewProdutos.CurrentRow.Cells[12].Value.ToString() ?? "";
+            }
+            else
+            {
+                MessageBox.Show("Nenhuma linha selecionada.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        public void Pesquisar(string nome, DataGridView tabela)
+        {
+            ProdutoDAO dao = new ProdutoDAO();
+            Produto prod = new Produto { Nome = nome };
+            tabela.DataSource = dao.ListarProdutos(prod);
+        }
+
+        private void buttonMenu_Click(object sender, EventArgs e)
+        {
+            FormMenu telamenu = new FormMenu();
+            telamenu.Show();
+            this.Hide();
         }
 
         private void buttonCadastrar_Click(object sender, EventArgs e)
         {
+            if (!Helpers.VerificarCamposPreenchidos(this, new List<string> { "textBoxID" }, "tabPageCadastrar"))
+            {
+                MessageBox.Show("Por favor, preencha todos os campos obrigatórios.", "Campos Obrigatórios", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            
             Produto prod = new Produto
             {
                 Nome = textBoxNomeProd.Text,
@@ -86,8 +95,8 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 Cor = textBoxCor.Text,
                 Tamanho = textBoxTamanho.Text,
                 Descricao = textBoxDescrição.Text,
-                Imagem = "não",
-                Preco = decimal.Parse(textBoxPreco.Text),
+                Preco_Venda = decimal.Parse(textBoxPreco.Text),
+                Preco_Medio = 0.00m,
                 Estoque = int.Parse(textBoxEstoque.Text),
                 Id_Cat_Prod = int.Parse(comboBoxCategProd.SelectedValue.ToString()),
                 Id_Cat_Pub = int.Parse(comboBoxCategPub.SelectedValue.ToString()),
@@ -134,25 +143,67 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
         private void buttonExcluir_Click(object sender, EventArgs e)
         {
-            Produto prod = new Produto();
-            textBoxID.Text = dataGridViewProdutos.CurrentRow.Cells[0].Value.ToString() ?? "";
-            prod.Id = textBoxID.Text;
+            // Perguntar ao usuário antes de cadastrar
+            DialogResult resultado = MessageBox.Show("Tem certeza que deseja Desativar esse Produto?",
+                                                     "Confirmação",
+                                                     MessageBoxButtons.YesNo,
+                                                     MessageBoxIcon.Question);
+
+            // Se o usuário clicar em "Não", a função retorna e não executa o cadastro
+            if (resultado == DialogResult.No)
+            {
+                MessageBox.Show("Operação cancelada!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            Produto prod = new Produto { Id = dataGridViewProdutos.CurrentRow.Cells[0].Value.ToString() ?? "" };
 
             ProdutoDAO dao = new ProdutoDAO();
-            dao.ExcluirProduto(prod);
+            //dao.ExcluirProduto(prod);
+            dao.DesativarProduto(prod);
             dataGridViewProdutos.DataSource = dao.ListarProdutos(prod); //atualizar tabela
-            textBoxID.Clear();
+            dataGridViewProdutosOff.DataSource = dao.ListarProdutosDesativados(prod); //atualizar tabela
+        }
+
+        private void buttonAtivar_Click(object sender, EventArgs e)
+        {
+            // Perguntar ao usuário antes de cadastrar
+            DialogResult resultado = MessageBox.Show("Tem certeza que deseja Ativar esse Produto?",
+                                                     "Confirmação",
+                                                     MessageBoxButtons.YesNo,
+                                                     MessageBoxIcon.Question);
+
+            // Se o usuário clicar em "Não", a função retorna e não executa o cadastro
+            if (resultado == DialogResult.No)
+            {
+                MessageBox.Show("Operação cancelada!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            Produto prod = new Produto { Id = dataGridViewProdutosOff.CurrentRow.Cells[0].Value.ToString() ?? "" };
+
+            ProdutoDAO dao = new ProdutoDAO();
+            //dao.ExcluirProduto(prod);
+            dao.AtivarProduto(prod);
+            dataGridViewProdutos.DataSource = dao.ListarProdutos(prod); //atualizar tabela
+            dataGridViewProdutosOff.DataSource = dao.ListarProdutosDesativados(prod); //atualizar tabela
         }
 
         private void buttonPesquisar_Click(object sender, EventArgs e)
         {
-            Pesquisar();
+            Pesquisar(textBoxPesquisaProd.Text, dataGridViewProdutos);
         }
 
         private void buttonLimparPesquisa_Click(object sender, EventArgs e)
         {
             textBoxPesquisaProd.Clear();
-            Pesquisar();
+            Pesquisar(textBoxPesquisaProd.Text, dataGridViewProdutos);
+        }
+
+        private void buttonLimparPesquisaOff_Click(object sender, EventArgs e)
+        {
+            textBoxPesquisaProdOff.Clear();
+            Pesquisar(textBoxPesquisaProdOff.Text, dataGridViewProdutosOff);
         }
 
         private void textBoxPesquisaProd_TextChanged(object sender, EventArgs e)
@@ -161,5 +212,16 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             ProdutoDAO dao = new ProdutoDAO();
             dataGridViewProdutos.DataSource = dao.ListarProdutos(prod);
         }
+
+        private void textBoxPesquisaProdOff_TextChanged(object sender, EventArgs e)
+        {
+            Produto prod = new Produto { Nome = textBoxPesquisaProdOff.Text };
+            ProdutoDAO dao = new ProdutoDAO();
+            dataGridViewProdutosOff.DataSource = dao.ListarProdutosDesativados(prod);
+        }
+
+        #region Lixos
+        private void comboBoxCategProd_SelectedIndexChanged(object sender, EventArgs e) { }
+        #endregion
     }
 }

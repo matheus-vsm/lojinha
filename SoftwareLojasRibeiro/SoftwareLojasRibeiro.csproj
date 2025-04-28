@@ -132,6 +132,7 @@
     <Reference Include="System.Configuration.ConfigurationManager, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Configuration.ConfigurationManager.8.0.0\lib\net462\System.Configuration.ConfigurationManager.dll</HintPath>
     </Reference>
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=8.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.8.0.1\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
@@ -172,14 +173,22 @@
     <Compile Include="br.com.project.CONNECTION\ConnectionFactory.cs" />
     <Compile Include="br.com.project.DAO\CategoriaDAO.cs" />
     <Compile Include="br.com.project.DAO\ClienteDAO.cs" />
+    <Compile Include="br.com.project.DAO\CompraProdutosDAO.cs" />
+    <Compile Include="br.com.project.DAO\DevedoresDAO.cs" />
+    <Compile Include="br.com.project.DAO\FornecedorDAO.cs" />
     <Compile Include="br.com.project.DAO\FuncionarioDAO.cs" />
+    <Compile Include="br.com.project.DAO\ItensCompraProdutosDAO.cs" />
     <Compile Include="br.com.project.DAO\ItensVendaDAO.cs" />
     <Compile Include="br.com.project.DAO\PagamentoDAO.cs" />
     <Compile Include="br.com.project.DAO\ProdutoDAO.cs" />
     <Compile Include="br.com.project.DAO\VendaDAO.cs" />
     <Compile Include="br.com.project.MODEL\Categoria.cs" />
+    <Compile Include="br.com.project.MODEL\CompraProdutos.cs" />
+    <Compile Include="br.com.project.MODEL\Devedores.cs" />
+    <Compile Include="br.com.project.MODEL\Fornecedor.cs" />
     <Compile Include="br.com.project.MODEL\Funcionario.cs" />
     <Compile Include="br.com.project.MODEL\Helpers.cs" />
+    <Compile Include="br.com.project.MODEL\ItensCompraProdutos.cs" />
     <Compile Include="br.com.project.MODEL\ItensVenda.cs" />
     <Compile Include="br.com.project.MODEL\Pagamento.cs" />
     <Compile Include="br.com.project.MODEL\Produto.cs" />
@@ -199,17 +208,41 @@
     <Compile Include="br.com.project.VIEW\FormClientes.Designer.cs">
       <DependentUpon>FormClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="br.com.project.VIEW\FormCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.com.project.VIEW\FormCompras.Designer.cs">
+      <DependentUpon>FormCompras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="br.com.project.VIEW\FormDetalhesCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.com.project.VIEW\FormDetalhesCompras.Designer.cs">
+      <DependentUpon>FormDetalhesCompras.cs</DependentUpon>
+    </Compile>
     <Compile Include="br.com.project.VIEW\FormDetalhesVendas.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="br.com.project.VIEW\FormDetalhesVendas.Designer.cs">
       <DependentUpon>FormDetalhesVendas.cs</DependentUpon>
     </Compile>
+    <Compile Include="br.com.project.VIEW\FormExibirComprasCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.com.project.VIEW\FormExibirComprasCliente.Designer.cs">
+      <DependentUpon>FormExibirComprasCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="br.com.project.VIEW\FormExibirProdutos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="br.com.project.VIEW\FormExibirProdutos.Designer.cs">
       <DependentUpon>FormExibirProdutos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="br.com.project.VIEW\FormFornecedoress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.com.project.VIEW\FormFornecedoress.Designer.cs">
+      <DependentUpon>FormFornecedoress.cs</DependentUpon>
     </Compile>
     <Compile Include="br.com.project.VIEW\FormFuncionarios.cs">
       <SubType>Form</SubType>
@@ -256,11 +289,23 @@
     <EmbeddedResource Include="br.com.project.VIEW\FormClientes.resx">
       <DependentUpon>FormClientes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="br.com.project.VIEW\FormCompras.resx">
+      <DependentUpon>FormCompras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="br.com.project.VIEW\FormDetalhesCompras.resx">
+      <DependentUpon>FormDetalhesCompras.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="br.com.project.VIEW\FormDetalhesVendas.resx">
       <DependentUpon>FormDetalhesVendas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="br.com.project.VIEW\FormExibirComprasCliente.resx">
+      <DependentUpon>FormExibirComprasCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="br.com.project.VIEW\FormExibirProdutos.resx">
       <DependentUpon>FormExibirProdutos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="br.com.project.VIEW\FormFornecedoress.resx">
+      <DependentUpon>FormFornecedoress.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="br.com.project.VIEW\FormFuncionarios.resx">
       <DependentUpon>FormFuncionarios.cs</DependentUpon>
@@ -288,6 +333,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\SoftwareLojasRibeiro.br.com.project.VIEW.FormVendas.datasource" />
@@ -307,6 +353,7 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="br.com.project.VIEW\Logo Lojas Ribeiro Transparente Icone.ico" />
+    <None Include="br.com.project.VIEW\Logo Lojas Ribeiro Transparente menor.png" />
     <Content Include="br.com.project.VIEW\Logo Lojas Ribeiro Transparente.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
