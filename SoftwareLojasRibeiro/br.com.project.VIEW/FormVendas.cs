@@ -143,11 +143,11 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 total += subtotal;
 
                 //adicionando produto no carrinho
-                carrinho.Rows.Add(int.Parse(textBoxID.Text), textBoxDescrição.Text, qntd, preco, subtotal);
+                carrinho.Rows.Add(int.Parse(textBoxID.Text), textBoxDescricao.Text, qntd, preco, subtotal);
                 textBoxTotall.Text = total.ToString();
 
                 textBoxID.Clear();
-                textBoxDescrição.Clear();
+                textBoxDescricao.Clear();
                 textBoxPreco.Clear();
                 textBoxQuantidade.Clear();
                 textBoxEstoque.Clear();
@@ -159,19 +159,36 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             }
             catch (Exception)
             {
-                if (qntd == 0)
+                string nomeprod = textBoxDescricao.Text;
+                string id = textBoxID.Text;
+
+                if (nomeprod == "")
+                {
+                    MessageBox.Show("Escolha um produto para ser Adicionado ao Carrinho!");
+                    textBoxID.Focus();
+                }
+                else if (qntd == 0 || qntd == null)
                 {
                     MessageBox.Show("Digite a Quantidade do Produto!");
+                    textBoxQuantidade.Focus();
                 }
-                else
+                else if (id == "")
                 {
                     MessageBox.Show("Digite o Código do Produto!");
+                    textBoxID.Focus();
                 }
             }
         }
 
         private void buttonRemover_Click(object sender, EventArgs e)
         {
+            if (carrinho.Rows.Count == 0)
+            {
+                MessageBox.Show("Não há Produtos no Carrinho para serem removidos.");
+                textBoxID.Focus();
+                return;
+            }
+
             // Perguntar ao usuário antes de excluir
             DialogResult resultado = MessageBox.Show("Tem certeza que deseja excluir esse Produto do Carrinho?",
                                                      "Confirmação",
@@ -262,7 +279,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         private void buttonLimparId_Click(object sender, EventArgs e)
         {
             textBoxID.Clear();
-            textBoxDescrição.Clear();
+            textBoxDescricao.Clear();
             textBoxPreco.Clear();
             textBoxEstoque.Clear();
             textBoxQuantidade.Clear();
@@ -343,7 +360,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 
                 if (produto != null)
                 {
-                    textBoxDescrição.Text = produto.Descricao;
+                    textBoxDescricao.Text = produto.Descricao;
                     textBoxPreco.Text = produto.Preco_Venda.ToString();
                     textBoxEstoque.Text = produto.Estoque.ToString();
                     textBoxQuantidade.Focus();

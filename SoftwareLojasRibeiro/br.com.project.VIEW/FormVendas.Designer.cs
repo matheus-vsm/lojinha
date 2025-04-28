@@ -52,7 +52,7 @@
             this.textBoxQuantidade = new System.Windows.Forms.TextBox();
             this.textBoxID = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBoxDescrição = new System.Windows.Forms.TextBox();
+            this.textBoxDescricao = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.textBoxPreco = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -68,13 +68,13 @@
             this.tabPageHistorico = new System.Windows.Forms.TabPage();
             this.dataGridViewHistorico = new System.Windows.Forms.DataGridView();
             this.groupBoxConsulta = new System.Windows.Forms.GroupBox();
+            this.buttonLimparPesquisa = new System.Windows.Forms.Button();
             this.buttonDetalhes = new System.Windows.Forms.Button();
             this.buttonPesquisar = new System.Windows.Forms.Button();
             this.dateTimePickerDataFim = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerDataInicio = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.buttonLimparPesquisa = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBoxCliente.SuspendLayout();
@@ -246,7 +246,7 @@
             this.groupBoxProduto.Controls.Add(this.textBoxQuantidade);
             this.groupBoxProduto.Controls.Add(this.textBoxID);
             this.groupBoxProduto.Controls.Add(this.label12);
-            this.groupBoxProduto.Controls.Add(this.textBoxDescrição);
+            this.groupBoxProduto.Controls.Add(this.textBoxDescricao);
             this.groupBoxProduto.Controls.Add(this.label9);
             this.groupBoxProduto.Controls.Add(this.textBoxPreco);
             this.groupBoxProduto.Controls.Add(this.label8);
@@ -374,15 +374,15 @@
             this.label12.TabIndex = 48;
             this.label12.Text = "ID:";
             // 
-            // textBoxDescrição
+            // textBoxDescricao
             // 
-            this.textBoxDescrição.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDescrição.Location = new System.Drawing.Point(117, 76);
-            this.textBoxDescrição.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textBoxDescrição.Name = "textBoxDescrição";
-            this.textBoxDescrição.ReadOnly = true;
-            this.textBoxDescrição.Size = new System.Drawing.Size(313, 29);
-            this.textBoxDescrição.TabIndex = 7;
+            this.textBoxDescricao.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxDescricao.Location = new System.Drawing.Point(117, 76);
+            this.textBoxDescricao.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.textBoxDescricao.Name = "textBoxDescricao";
+            this.textBoxDescricao.ReadOnly = true;
+            this.textBoxDescricao.Size = new System.Drawing.Size(313, 29);
+            this.textBoxDescricao.TabIndex = 7;
             // 
             // label9
             // 
@@ -577,6 +577,18 @@
             this.groupBoxConsulta.TabStop = false;
             this.groupBoxConsulta.Text = "Consulta";
             // 
+            // buttonLimparPesquisa
+            // 
+            this.buttonLimparPesquisa.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLimparPesquisa.Location = new System.Drawing.Point(831, 46);
+            this.buttonLimparPesquisa.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.buttonLimparPesquisa.Name = "buttonLimparPesquisa";
+            this.buttonLimparPesquisa.Size = new System.Drawing.Size(250, 49);
+            this.buttonLimparPesquisa.TabIndex = 17;
+            this.buttonLimparPesquisa.Text = "Limpar Pesquisa";
+            this.buttonLimparPesquisa.UseVisualStyleBackColor = true;
+            this.buttonLimparPesquisa.Click += new System.EventHandler(this.buttonLimparPesquisa_Click);
+            // 
             // buttonDetalhes
             // 
             this.buttonDetalhes.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -644,18 +656,6 @@
             this.label7.Size = new System.Drawing.Size(113, 22);
             this.label7.TabIndex = 12;
             this.label7.Text = "Data Início:";
-            // 
-            // buttonLimparPesquisa
-            // 
-            this.buttonLimparPesquisa.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonLimparPesquisa.Location = new System.Drawing.Point(831, 46);
-            this.buttonLimparPesquisa.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.buttonLimparPesquisa.Name = "buttonLimparPesquisa";
-            this.buttonLimparPesquisa.Size = new System.Drawing.Size(250, 49);
-            this.buttonLimparPesquisa.TabIndex = 17;
-            this.buttonLimparPesquisa.Text = "Limpar Pesquisa";
-            this.buttonLimparPesquisa.UseVisualStyleBackColor = true;
-            this.buttonLimparPesquisa.Click += new System.EventHandler(this.buttonLimparPesquisa_Click);
             // 
             // FormVendas
             // 
@@ -726,7 +726,7 @@
         public System.Windows.Forms.TextBox textBoxTotall;
         public System.Windows.Forms.DataGridView dataGridViewProdutosCarrinho;
         public System.Windows.Forms.TextBox textBoxID;
-        public System.Windows.Forms.TextBox textBoxDescrição;
+        public System.Windows.Forms.TextBox textBoxDescricao;
         public System.Windows.Forms.TextBox textBoxPreco;
         private System.Windows.Forms.Button buttonExibirProds;
         public System.Windows.Forms.DataGridView dataGridViewHistorico;

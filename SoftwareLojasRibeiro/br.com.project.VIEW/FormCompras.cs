@@ -127,6 +127,12 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
         private void buttonAdicionar_Click(object sender, EventArgs e)
         {
+            if (!Helpers.VerificarCamposPreenchidos(this, new List<string> { "textBoxID", "textBoxDescricao", "textBoxTotalCompra" }, "tabPageCadastrar"))
+            {
+                MessageBox.Show("Por favor, preencha todos os campos obrigatórios.", "Campos Obrigatórios", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             subtotal = decimal.Parse(textBoxPrecoCusto.Text) * int.Parse(textBoxQuantidade.Text);
             
             carrinhoCompras.Rows.Add(comboBoxFornecedor.Text, textBoxNomeProd.Text, textBoxMarca.Text, 
@@ -183,6 +189,11 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
         private void buttonCadastrar_Click(object sender, EventArgs e)
         {
+            if (dataGridViewComprasCarrinho.Rows.Count == 0)
+            {
+                MessageBox.Show("Nenhum Produto foi adicionado ao Carrinho!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             bool confimacao = new Helpers().Confirmacao();
             if (confimacao == false)
             {

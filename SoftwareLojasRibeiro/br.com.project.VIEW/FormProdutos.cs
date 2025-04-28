@@ -82,6 +82,12 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
         private void buttonCadastrar_Click(object sender, EventArgs e)
         {
+            if (!Helpers.VerificarCamposPreenchidos(this, new List<string> { "textBoxID" }, "tabPageCadastrar"))
+            {
+                MessageBox.Show("Por favor, preencha todos os campos obrigatórios.", "Campos Obrigatórios", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            
             Produto prod = new Produto
             {
                 Nome = textBoxNomeProd.Text,

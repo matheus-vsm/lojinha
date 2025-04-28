@@ -86,7 +86,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             {
                 // Localizar os controles dinamicamente no formulário "telinha"
                 var textBoxID = telinha.Controls.Find("textBoxID", true).FirstOrDefault() as TextBox;
-                var textBoxDescricao = telinha.Controls.Find("textBoxDescrição", true).FirstOrDefault() as TextBox;
+                var textBoxDescricao = telinha.Controls.Find("textBoxDescricao", true).FirstOrDefault() as TextBox;
                 var textBoxPreco = telinha.Controls.Find("textBoxPreco", true).FirstOrDefault() as TextBox;
                 var textBoxEstoque = telinha.Controls.Find("textBoxEstoque", true).FirstOrDefault() as TextBox;
                 var textBoxQuantidade = telinha.Controls.Find("textBoxQuantidade", true).FirstOrDefault() as TextBox;

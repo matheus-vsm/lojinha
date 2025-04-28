@@ -69,6 +69,12 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
         private void buttonCadastrar_Click(object sender, EventArgs e)
         {
+            if (!Helpers.VerificarCamposPreenchidos(this, new List<string> { "textBoxID" }, "tabPageCadastrar"))
+            {
+                MessageBox.Show("Por favor, preencha todos os campos obrigatórios.", "Campos Obrigatórios", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             Funcionario func = new Funcionario
             {
                 Nome = textBoxNome.Text,
@@ -198,26 +204,8 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
         private void buttonBuscar_Click(object sender, EventArgs e)
         {
-            try
-            {
-                string cep = maskedTextBoxCep.Text;
-                string xml = $"https://viacep.com.br/ws/{cep}/xml/";
-
-                DataSet dados = new DataSet(); //objeto capaz de receber e fazer uma requisição para a API
-
-                dados.ReadXml(xml);
-                textBoxEndereco.Text = $"{dados.Tables[0].Rows[0]["logradouro"]}, " +
-                                   $"{dados.Tables[0].Rows[0]["bairro"]}, " +
-                                   $"{dados.Tables[0].Rows[0]["complemento"]}, " +
-                                   $"{dados.Tables[0].Rows[0]["localidade"]} - " +
-                                   $"{dados.Tables[0].Rows[0]["uf"]}.";
-
-            }
-            catch (Exception error)
-            {
-                MessageBox.Show($"Endereço não encontrado. Digite manualmente. {error.Message}", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                throw;
-            }
+            string end = new Helpers().BuscarCep(maskedTextBoxCep.Text);
+            textBoxEndereco.Text = end;
         }
 
         private void buttonMenu_Click(object sender, EventArgs e)
