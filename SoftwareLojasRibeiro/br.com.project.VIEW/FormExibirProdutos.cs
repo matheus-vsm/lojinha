@@ -103,7 +103,6 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 if (textBoxID != null)
                     textBoxID.ReadOnly = true;
                 textBoxPreco.ReadOnly = false;
-                textBoxEstoque.ReadOnly = false;
                 textBoxQuantidade.ReadOnly = false;
             }
             else

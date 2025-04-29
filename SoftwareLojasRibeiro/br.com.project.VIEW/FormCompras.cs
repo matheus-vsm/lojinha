@@ -127,7 +127,13 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
         private void buttonAdicionar_Click(object sender, EventArgs e)
         {
-            if (!Helpers.VerificarCamposPreenchidos(this, new List<string> { "textBoxID", "textBoxDescricao", "textBoxTotalCompra" }, "tabPageCadastrar"))
+            List<string> campos = new List<string>
+            {
+                "textBoxID",
+                "textBoxDescricao",
+                "textBoxTotalCompra"
+            };
+            if (!Helpers.VerificarCamposPreenchidos(this, campos, "tabPageCadastrar"))
             {
                 MessageBox.Show("Por favor, preencha todos os campos obrigatórios.", "Campos Obrigatórios", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -290,8 +296,9 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
         private void buttonLimpar_Click(object sender, EventArgs e)
         {
-            new Helpers().LimparTelaVendas(this);
-            totalcompra = 0;
+            string totalzinho = textBoxTotalCompra.Text;
+            new Helpers().LimparTelaCompras(this);
+            textBoxTotalCompra.Text = totalzinho;
         }
 
         private void buttonPesquisar_Click(object sender, EventArgs e)

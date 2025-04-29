@@ -43,8 +43,8 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             carrinho.Columns.Add("ID", typeof(int));
             carrinho.Columns.Add("Produto", typeof(string));
             carrinho.Columns.Add("Quantidade", typeof(int));
-            carrinho.Columns.Add("Preço", typeof(decimal));
-            carrinho.Columns.Add("Subtotal", typeof(decimal));
+            carrinho.Columns.Add("Preço (R$)", typeof(decimal));
+            carrinho.Columns.Add("Subtotal (R$)", typeof(decimal));
 
             dataGridViewProdutosCarrinho.DataSource = carrinho;
         }
@@ -366,9 +366,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                     textBoxQuantidade.Focus();
                     textBoxQuantidade.ReadOnly = false;
                     textBoxPreco.ReadOnly = false;
-                    textBoxEstoque.ReadOnly = false;
                     textBoxID.ReadOnly = true;
-
                 }
                 else
                 {
@@ -381,6 +379,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         #region Lixos
         private void textBoxID_TextChanged(object sender, EventArgs e) { }
         private void maskedTextBoxData_MaskInputRejected(object sender, MaskInputRejectedEventArgs e) { }
+        private void dataGridViewHistorico_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
         private void dataGridViewProdutosCarrinho_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
         private void FormVendas_KeyPress(object sender, KeyPressEventArgs e) { }
         private void maskedTextBoxCpf_MaskInputRejected(object sender, MaskInputRejectedEventArgs e) { }

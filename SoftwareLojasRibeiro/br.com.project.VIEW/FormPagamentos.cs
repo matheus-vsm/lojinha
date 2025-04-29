@@ -78,13 +78,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             v_dinheiro = double.Parse(textBoxDinheiro.Text);
             v_pix = double.Parse(textBoxPix.Text);
             v_desconto = double.Parse(textBoxDesconto.Text);
-            v_total = double.Parse(textBoxTotal.Text) - v_desconto;
-
-            if (v_desconto > v_total)
-            {
-                MessageBox.Show("Desconto maior que o total da compra!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            v_total = double.Parse(textBoxTotal.Text);
 
             v_pago = v_dinheiro + v_credito + v_debito + v_pix;
 
@@ -93,7 +87,8 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             if (v_total > v_pago)
             {
                 // Perguntar ao usuário antes de seguir com a finalização da compra
-                DialogResult resultadoo = MessageBox.Show("Valor pago menor que o total da compra!\nDeseja ADICIONAR esse Cliente a LISTA de DEVEDORES?",
+                DialogResult resultadoo = MessageBox.Show("Valor pago menor que o total da compra!\nDeseja ADICIONAR esse Cliente a LISTA de DEVEDORES?\n" + 
+                                                        $"Dívida = R${v_total - v_pago}",
                                                          "Confirmação",
                                                          MessageBoxButtons.YesNo,
                                                          MessageBoxIcon.Question);
@@ -105,7 +100,8 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 }
             }
 
-            v_troco = v_pago - v_total;
+            //v_troco = v_pago - v_total;
+            //textBoxTroco.Text = v_troco.ToString();
 
             ven = new Venda
             {
@@ -117,8 +113,6 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 Status = status,
                 Observacoes = textBoxObservacoes.Text
             };
-
-            textBoxTroco.Text = v_troco.ToString();
 
             VendaDAO vdao = new VendaDAO();
             PagamentoDAO pagaDAO = new PagamentoDAO();
@@ -171,8 +165,8 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                     Id_Venda = vdao.RetornarIdLastVenda(),
                     Id_Produto = linha["ID"].ToString(),
                     Quantidade = int.Parse(linha["Quantidade"].ToString()),
-                    Preco_Unitario = double.Parse(linha["Preço"].ToString()),
-                    Subtotal = double.Parse(linha["Subtotal"].ToString()),
+                    Preco_Unitario = double.Parse(linha["Preço (R$)"].ToString()),
+                    Subtotal = double.Parse(linha["Subtotal (R$)"].ToString()),
                 };
 
                 //remove a quantidade de produtos do estoque
@@ -202,42 +196,118 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             this.Close();
         }
 
+        #region troco antes
+        //private void textBoxDinheiro_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    if (e.KeyChar == 13)
+        //    {
+        //        double totaltudo = double.Parse(telavendas.textBoxTotall.Text);
+        //        double dinheiro = double.Parse(textBoxDinheiro.Text);
+        //        double desconto = double.Parse(textBoxDesconto.Text);
+        //        double total = double.Parse(textBoxTotal.Text);
+
+        //        if (textBoxDesconto.Text != "0")
+        //        {
+        //            textBoxTroco.Text = (dinheiro - total - desconto).ToString();
+        //        }
+        //        else
+        //        {
+        //            textBoxTroco.Text = (dinheiro - totaltudo).ToString();
+        //        }
+        //    }
+        //}
+
+        //private void textBoxDesconto_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    if (e.KeyChar == 13)
+        //    {
+        //        double totaltudo = double.Parse(telavendas.textBoxTotall.Text);
+        //        double desconto = double.Parse(textBoxDesconto.Text);
+        //        double dinheiro = double.Parse(textBoxDinheiro.Text);
+        //        if (textBoxDinheiro.Text != "0")
+        //        {
+        //            textBoxTotal.Text = (totaltudo - desconto).ToString();
+        //            textBoxTroco.Text = (dinheiro - double.Parse(textBoxTotal.Text)).ToString();
+        //        }
+        //        else
+        //        {
+        //            textBoxTotal.Text = (totaltudo - desconto).ToString();
+        //        }
+        //    }
+        //}
+        #endregion
+
         private void textBoxDinheiro_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13)
+            if (e.KeyChar == 13) // Verifica se a tecla Enter foi pressionada
             {
-                double totaltudo = double.Parse(telavendas.textBoxTotall.Text);
-                double dinheiro = double.Parse(textBoxDinheiro.Text);
-                double desconto = double.Parse(textBoxDesconto.Text);
-                double total = double.Parse(textBoxTotal.Text);
-
-                if (textBoxDesconto.Text != "0")
+                // Validações e conversões seguras
+                if (!double.TryParse(telavendas.textBoxTotall.Text, out double totaltudo))
                 {
-                    textBoxTroco.Text = (dinheiro - total - desconto).ToString();
+                    MessageBox.Show("Valor Total Inválido!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
-                else
+
+                if (!double.TryParse(textBoxDinheiro.Text, out double dinheiro))
                 {
-                    textBoxTroco.Text = (dinheiro - totaltudo).ToString();
+                    MessageBox.Show("Valor em Dinheiro Inválido!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (!double.TryParse(textBoxDesconto.Text, out double desconto))
+                {
+                    desconto = 0; // Assume desconto como 0 se não for válido
+                }
+
+                // Cálculo do troco
+                double total = totaltudo - desconto;
+                double troco = dinheiro - total;
+
+                // Atualiza o campo de troco
+                textBoxTroco.Text = troco >= 0 ? troco.ToString("F2") : "0.00";
+
+                // Exibe mensagem se o troco for negativo
+                if (troco < 0)
+                {
+                    MessageBox.Show("O Valor em Dinheiro é Insuficiente para Calcular o Troco!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
 
         private void textBoxDesconto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13)
+            if (e.KeyChar == 13) // Verifica se a tecla Enter foi pressionada
             {
-                double totaltudo = double.Parse(telavendas.textBoxTotall.Text);
-                double desconto = double.Parse(textBoxDesconto.Text);
-                double dinheiro = double.Parse(textBoxDinheiro.Text);
-                if (textBoxDinheiro.Text != "0")
+                double v_descontin = double.Parse(textBoxDesconto.Text);
+                double v_totalzin = double.Parse(telavendas.textBoxTotall.Text);
+
+                // Validações e conversões seguras
+                if (!double.TryParse(telavendas.textBoxTotall.Text, out double totaltudo))
                 {
-                    textBoxTotal.Text = (totaltudo - desconto).ToString();
-                    textBoxTroco.Text = (dinheiro - double.Parse(textBoxTotal.Text)).ToString();
+                    MessageBox.Show("Valor total inválido!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
-                else
+                if (!double.TryParse(textBoxDesconto.Text, out double desconto))
                 {
-                    textBoxTotal.Text = (totaltudo - desconto).ToString();
+                    desconto = 0; // Assume desconto como 0 se não for válido
                 }
+                if (!double.TryParse(textBoxDinheiro.Text, out double dinheiro))
+                {
+                    dinheiro = 0; // Assume dinheiro como 0 se não for válido
+                }
+                if (v_descontin > v_totalzin)
+                {
+                    MessageBox.Show("Desconto maior que o total da compra!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Cálculo do total com desconto
+                double total = v_totalzin - desconto;
+                textBoxTotal.Text = total.ToString("F2");
+
+                // Cálculo do troco
+                double troco = dinheiro - total;
+                textBoxTroco.Text = troco >= 0 ? troco.ToString("F2") : "0.00";
             }
         }
 

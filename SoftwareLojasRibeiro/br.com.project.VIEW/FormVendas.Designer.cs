@@ -527,7 +527,7 @@
             this.buttonLimparCampos.Name = "buttonLimparCampos";
             this.buttonLimparCampos.Size = new System.Drawing.Size(228, 46);
             this.buttonLimparCampos.TabIndex = 10;
-            this.buttonLimparCampos.Text = "Limpar Campos";
+            this.buttonLimparCampos.Text = "Limpar Tela";
             this.buttonLimparCampos.UseVisualStyleBackColor = true;
             this.buttonLimparCampos.Click += new System.EventHandler(this.buttonLimparCampos_Click);
             // 
@@ -558,6 +558,7 @@
             this.dataGridViewHistorico.RowTemplate.Height = 28;
             this.dataGridViewHistorico.Size = new System.Drawing.Size(1362, 460);
             this.dataGridViewHistorico.TabIndex = 1;
+            this.dataGridViewHistorico.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewHistorico_CellContentClick);
             // 
             // groupBoxConsulta
             // 

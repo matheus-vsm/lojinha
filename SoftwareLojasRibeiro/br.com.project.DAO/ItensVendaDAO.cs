@@ -64,8 +64,8 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                                 it.Id_Item_Venda AS 'ID Item Venda', 
 		                        p.Nome_Produto as 'Produto', 
                                 it.Qtd AS 'Quantidade', 
-                                p.Preco_Venda AS 'Preço Unitário', 
-                                it.Subtotal AS 'SubTotal' 
+                                p.Preco_Venda AS 'Preço Unitário (R$)', 
+                                it.Subtotal AS 'SubTotal (R$)' 
                             FROM tb_itensvendas AS it 
                             JOIN tb_produtos AS p ON (it.Produto_Id = p.Id_Produto) 
                             JOIN tb_vendas AS v ON (it.Venda_Id = v.Id_Venda)
@@ -93,7 +93,5 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             }
         }
         #endregion
-
-
     }
 }

@@ -664,6 +664,11 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                 if (rs.Read())
                 {
                     total = rs.GetDecimal("Total Gasto").ToString();
+                    if (total == null || total == "0.00")
+                    {
+                        MessageBox.Show("Esse Cliente ainda Não Gastou Nada.");
+                        return total;
+                    }
                     return total;
                 }
                 else
@@ -704,6 +709,11 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                 if (rs.Read())
                 {
                     total = rs.GetInt32("Total de Compras").ToString();
+                    if (total == "0")
+                    {
+                        MessageBox.Show("Esse Cliente ainda Não Possui Nenhuma Compra.");
+                        return total;
+                    }
                     return total;
                 }
                 else

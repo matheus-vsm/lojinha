@@ -96,7 +96,55 @@ namespace SoftwareLojasRibeiro.br.com.project.MODEL
                 LimparControle(ctrPai);
             }
         }
+        #endregion
 
+        #region LimparTelaCompras
+        public void LimparTelaCompras(Control tela)
+        {
+            foreach (Control ctrPai in tela.Controls)
+            {
+                if (ctrPai is DataGridView)
+                {
+                    // Ignorar DataGridView, não limpar seus dados
+                    continue;
+                }
+                LimparControleMenosTabela(ctrPai);
+            }
+        }
+        #endregion
+
+        #region LimparControleMenosTabela
+        private void LimparControleMenosTabela(Control controle)
+        {
+            if (controle is DataGridView)
+            {
+                // Ignorar DataGridView completamente
+                return;
+            }
+            else if (controle is TextBox)
+            {
+                (controle as TextBox).Clear();
+            }
+            else if (controle is MaskedTextBox)
+            {
+                (controle as MaskedTextBox).Clear();
+            }
+            else if (controle is ComboBox)
+            {
+                (controle as ComboBox).SelectedIndex = -1;
+                (controle as ComboBox).Text = string.Empty;
+            }
+            else if (controle.HasChildren)
+            {
+                foreach (Control child in controle.Controls)
+                {
+                    LimparControleMenosTabela(child);
+                }
+            }
+        }
+        #endregion
+
+        #region LimparControle
         private void LimparControle(Control controle)
         {
             if (controle is TextBox)
@@ -235,19 +283,25 @@ namespace SoftwareLojasRibeiro.br.com.project.MODEL
                 else return false; // TabControl não encontrado
             }
 
-            foreach (Control controle in parent.Controls)
+            // Usar uma pilha para evitar recursão infinita
+            Stack<Control> controles = new Stack<Control>();
+            controles.Push(parent);
+
+            while (controles.Count > 0)
             {
+                Control controleAtual = controles.Pop();
+
                 // Verificar se o controle deve ser ignorado
-                if (camposIgnorados != null && camposIgnorados.Contains(controle.Name))
+                if (camposIgnorados != null && camposIgnorados.Contains(controleAtual.Name))
                 {
                     continue; // Pula esse campo
                 }
 
-                if (controle is TextBox textBox && string.IsNullOrWhiteSpace(textBox.Text))
+                if (controleAtual is TextBox textBox && string.IsNullOrWhiteSpace(textBox.Text))
                 {
                     return false; // Campo vazio encontrado
                 }
-                else if (controle is MaskedTextBox maskedTextBox)
+                else if (controleAtual is MaskedTextBox maskedTextBox)
                 {
                     // Verifica se o texto "limpo" (sem espaços e símbolos) está vazio
                     string textoSemMascara = maskedTextBox.Text.Replace("(", "")
@@ -263,14 +317,15 @@ namespace SoftwareLojasRibeiro.br.com.project.MODEL
                         return false; // Campo MaskedTextBox vazio mesmo que visualmente tenha máscara
                     }
                 }
-                else if (controle is ComboBox comboBox && (comboBox.SelectedItem == null || string.IsNullOrWhiteSpace(comboBox.Text)))
+                else if (controleAtual is ComboBox comboBox && (comboBox.SelectedItem == null || string.IsNullOrWhiteSpace(comboBox.Text)))
                 {
                     return false; // Campo vazio encontrado
                 }
-                else if (controle.HasChildren)
+
+                // Adicionar controles filhos à pilha
+                foreach (Control child in controleAtual.Controls)
                 {
-                    // Verificar recursivamente os controles filhos
-                    if (!VerificarCamposPreenchidos(controle, camposIgnorados, tabPageName)) return false;
+                    controles.Push(child);
                 }
             }
             return true; // Todos os campos estão preenchidos
