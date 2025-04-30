@@ -204,6 +204,7 @@ namespace SoftwareLojasRibeiro//.br.com.project.VIEW se n colocar isso aqui vai 
                 cli = new Cliente();
                 dataGridViewClientes.DataSource = dao.ListarClientes(cli); //atualizar tabela
             }
+            textBoxNome.Focus();
         }
  
         private void buttonAlterar_Click(object sender, EventArgs e)
@@ -273,6 +274,7 @@ namespace SoftwareLojasRibeiro//.br.com.project.VIEW se n colocar isso aqui vai 
             new Helpers().LimparTela(this);
             buttonCadastrar.Text = "Cadastrar";
             tabPageCadastrar.Text = "Cadastrar";
+            textBoxNome.Focus();
         }
 
         private void buttonLimparPesquisa_Click(object sender, EventArgs e)
@@ -344,6 +346,7 @@ namespace SoftwareLojasRibeiro//.br.com.project.VIEW se n colocar isso aqui vai 
         {
             string end = new Helpers().BuscarCep(maskedTextBoxCep.Text);
             textBoxEndereco.Text = end;
+            textBoxEndereco.Focus();
         }
 
         private void buttonMenu_Click(object sender, EventArgs e)

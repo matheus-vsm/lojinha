@@ -163,6 +163,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             comboBoxCategPub.Text = string.Empty;
             comboBoxFornecedor.SelectedItem = -1;
             comboBoxFornecedor.Text = string.Empty;
+            comboBoxCategProd.Focus();
         }
 
         private void buttonRemover_Click(object sender, EventArgs e)
@@ -285,7 +286,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 CompraProdutos compras = new CompraProdutos();
                 dataGridViewCompras.DataSource = compradao.ListarCompras(compras);
             }
-
+            comboBoxCategProd.Focus();
             //MessageBox.Show("Compra registrada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -299,6 +300,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             string totalzinho = textBoxTotalCompra.Text;
             new Helpers().LimparTelaCompras(this);
             textBoxTotalCompra.Text = totalzinho;
+            comboBoxCategProd.Focus();
         }
 
         private void buttonPesquisar_Click(object sender, EventArgs e)

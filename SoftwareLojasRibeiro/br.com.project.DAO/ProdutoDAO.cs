@@ -210,6 +210,18 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
         #region AlterarProduto
         public bool AlterarProduto(Produto prod)
         {
+            // Perguntar ao usuário antes de alterar
+            DialogResult resultado = MessageBox.Show("Tem certeza que deseja alterar os Dados deste Produto?",
+                                                     "Confirmação",
+                                                     MessageBoxButtons.YesNo,
+                                                     MessageBoxIcon.Question);
+
+            // Se o usuário clicar em "Não", cancelar a operação
+            if (resultado == DialogResult.No)
+            {
+                MessageBox.Show("Operação cancelada!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
             try
             {
                 //Definir comando SQL - INSERT INTO

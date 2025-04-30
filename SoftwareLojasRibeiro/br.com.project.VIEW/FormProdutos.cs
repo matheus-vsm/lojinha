@@ -124,6 +124,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 prod= new Produto();
                 dataGridViewProdutos.DataSource = dao.ListarProdutos(prod);
             }
+            comboBoxCategProd.Focus();
         }
 
         private void buttonLimpar_Click(object sender, EventArgs e)
@@ -131,6 +132,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             new Helpers().LimparTela(this);
             buttonCadastrar.Text = "Cadastrar";
             tabPageCadastrar.Text = "Cadastrar";
+            comboBoxCategProd.Focus();
         }
 
         private void buttonAlterar_Click(object sender, EventArgs e)

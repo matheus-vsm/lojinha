@@ -154,6 +154,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 dataGridViewCatProd.DataSource = dao.ListarCategorias(cat, "Produto"); //atualizar tabela
                 dataGridViewCatPub.DataSource = dao.ListarCategorias(cat, "Publico"); //atualizar tabela
             }
+            comboBoxTipoCat.Focus();
         }
 
         private void buttonPesquisarProd_Click(object sender, EventArgs e)
@@ -182,6 +183,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             comboBoxTipoCat.Enabled = true;
             buttonCadastrar.Text = "Cadastrar";
             tabPageCadastrar.Text = "Cadastrar";
+            comboBoxTipoCat.Focus();
         }
 
         private void buttonLimparPesquisaProd_Click(object sender, EventArgs e)

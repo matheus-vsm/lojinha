@@ -116,6 +116,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
                 dataGridViewFuncionarios.DataSource = dao.ListarFuncionarios(func); //atualizar tabela
             }
+            textBoxNome.Focus();
         }
 
         private void buttonPesquisar_Click(object sender, EventArgs e)
@@ -128,6 +129,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             new Helpers().LimparTela(this);
             buttonCadastrar.Text = "Cadastrar";
             tabPageCadastrar.Text = "Cadastrar";
+            textBoxNome.Focus();
         }
 
         private void buttonAlterar_Click(object sender, EventArgs e)
@@ -206,6 +208,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         {
             string end = new Helpers().BuscarCep(maskedTextBoxCep.Text);
             textBoxEndereco.Text = end;
+            textBoxEndereco.Focus();
         }
 
         private void buttonMenu_Click(object sender, EventArgs e)

@@ -20,7 +20,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             InitializeComponent();
             telinha = tela;
             FormClosed += FormExibirProdutos_FormClosed;
-            labelTeste.Text += telinha.Text;
+            //labelTeste.Text += telinha.Text;
         }
 
         private void FormExibirProdutos_FormClosed(object sender, FormClosedEventArgs e)
