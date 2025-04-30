@@ -39,6 +39,8 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             dataGridViewHistorico.DataSource = cliDAO.ListarCompras(iniciozada, fimzada, cliente);
             textBoxTotal.Text = cliDAO.RetornarTotalCompras(cliente);
             textBoxTotalGasto.Text = cliDAO.RetornarTotalGasto(cliente);
+
+            new Helpers().AjustarControles(this); // Salva os tamanhos originais dos controles
         }
 
 

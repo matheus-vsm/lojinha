@@ -558,5 +558,82 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             }
         }
         #endregion
+
+        #region RetornarIdLoginUsuario
+        public string RetornarIdLoginUsuario(Funcionario func)
+        {
+            try
+            {
+                Funcionario funci = new Funcionario();
+                string id;
+
+                string sql = @"SELECT * FROM tb_funcionarios WHERE Login = @login";
+
+                MySqlCommand executacmd = new MySqlCommand(sql, connection);
+                executacmd.Parameters.AddWithValue("@Login", func.Login);
+
+                connection.Open();
+
+                MySqlDataReader rs = executacmd.ExecuteReader();
+
+                if (rs.Read()) //encontrou algo
+                {
+                    id = rs.GetInt32("Id_Funcionario").ToString(); //resgata o valor da coluna ID como int e converte para string
+                    return id;
+                }
+                else
+                {
+                    MessageBox.Show("Funcionario Não Encontrado!");
+                    return null;
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Ocorreu um erro: " + error);
+                return null;
+            }
+            finally
+            {
+                connection.Close(); // Sempre fechar a conexão
+            }
+        }
+        #endregion
+
+        #region Login
+        public bool Login(Funcionario func)
+        {
+            try
+            {
+                string sql = @"SELECT * 
+                                FROM tb_funcionarios 
+                                WHERE Login=@login AND Senha=@senha";
+
+                //Organizar o comando SQL
+                MySqlCommand executacmd = new MySqlCommand(sql, connection);
+                executacmd.Parameters.AddWithValue("@login", func.Login);
+                executacmd.Parameters.AddWithValue("@senha", func.Senha);
+
+                //Abrir conexão e executar o comando SQL
+                connection.Open();
+                MySqlDataReader reader = executacmd.ExecuteReader();
+
+                if (reader.Read()) return true;
+                else
+                {
+                    MessageBox.Show("Login ou Senha Inválidos!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show($"Erro ao executar o Comando SQL! (Login) {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            finally
+            {
+                connection.Close(); // Sempre fechar a conexão
+            }
+        }
+        #endregion
     }
 }

@@ -56,6 +56,8 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             ProdutoDAO prodao = new ProdutoDAO();
             Produto prod = new Produto();
             dataGridViewProds.DataSource = prodao.ListarProdutos(prod);
+
+            new Helpers().AjustarControles(this); // Salva os tamanhos originais dos controles
         }
 
         public void Pesquisar()

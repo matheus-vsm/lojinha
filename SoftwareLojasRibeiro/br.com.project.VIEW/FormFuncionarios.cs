@@ -26,6 +26,8 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             Funcionario func = new Funcionario { Nome = textBoxPesquisaNome.Text };
             dataGridViewFuncionarios.DataSource = dao.ListarFuncionarios(func);
             dataGridViewFuncionariosOff.DataSource = dao.ListarFuncionariosDesativados(func);
+
+            new Helpers().AjustarControles(this); // Salva os tamanhos originais dos controles
         }
 
         public void SelecionarLinhaTabelaFuncionarios()

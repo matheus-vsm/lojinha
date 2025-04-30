@@ -28,6 +28,8 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             dataGridViewCatPub.DataSource = dao.ListarCategorias(cat, "Publico");
             dataGridViewCatProdOff.DataSource = dao.ListarCategoriasDesativadas(cat, "Produto");
             dataGridViewCatPubOff.DataSource = dao.ListarCategoriasDesativadas(cat, "Publico");
+
+            new Helpers().AjustarControles(this); // Salva os tamanhos originais dos controles
         }
 
         public void SelecionarLinhaTabelaCategoriasProdutos()

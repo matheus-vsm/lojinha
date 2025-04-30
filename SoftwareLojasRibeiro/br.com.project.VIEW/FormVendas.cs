@@ -64,6 +64,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             dataGridViewProdutosCarrinho.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
 
             maskedTextBoxCpf.Focus();
+            new Helpers().AjustarControles(this); // Salva os tamanhos originais dos controles
         }
 
 

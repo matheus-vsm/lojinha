@@ -51,6 +51,8 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             dataGridViewProdutosCarrinhoPagamento.ColumnHeadersDefaultCellStyle.Font = new Font("Arial Rounded MT Bold", 18, FontStyle.Bold);
             dataGridViewProdutosCarrinhoPagamento.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridViewProdutosCarrinhoPagamento.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+
+            new Helpers().AjustarControles(this); // Salva os tamanhos originais dos controles
         }
 
         private void buttonFinalizar_Click(object sender, EventArgs e)

@@ -25,6 +25,8 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             Fornecedor Forn = new Fornecedor { Nome = textBoxPesquisaNome.Text };
             dataGridViewFornecedores.DataSource = dao.ListarFornecedores(Forn);
             dataGridViewFornecedoresOff.DataSource = dao.ListarFornecedoresDesativados(Forn);
+
+            new Helpers().AjustarControles(this); // Salva os tamanhos originais dos controles
         }
 
         public void SelecionarLinhaTabelaFornecedores()

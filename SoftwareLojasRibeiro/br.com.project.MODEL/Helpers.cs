@@ -9,6 +9,8 @@ using Org.BouncyCastle.Crypto.Generators;
 using BCrypt.Net;
 using System.Data;
 using SoftwareLojasRibeiro.br.com.project.VIEW;
+using System.Drawing;
+using System.ComponentModel;
 
 namespace SoftwareLojasRibeiro.br.com.project.MODEL
 {
@@ -329,6 +331,114 @@ namespace SoftwareLojasRibeiro.br.com.project.MODEL
                 }
             }
             return true; // Todos os campos estão preenchidos
+        }
+        #endregion
+
+        #region AjustarControles
+        public void AjustarControles(Control container)
+        {
+            foreach (Control ctrl in container.Controls)
+            {
+                // Calcula os limites relativos do controle ao contêiner
+                bool anchorLeft = ctrl.Left <= container.Width / 3;
+                bool anchorRight = (ctrl.Right >= container.Width * 2 / 3);
+                bool anchorTop = ctrl.Top <= container.Height / 3;
+                bool anchorBottom = (ctrl.Bottom >= container.Height * 2 / 3);
+
+                AnchorStyles anchor = AnchorStyles.None;
+                if (anchorLeft) anchor |= AnchorStyles.Left;
+                if (anchorRight) anchor |= AnchorStyles.Right;
+                if (anchorTop) anchor |= AnchorStyles.Top;
+                if (anchorBottom) anchor |= AnchorStyles.Bottom;
+
+                ctrl.Anchor = anchor;
+
+                // Chamada recursiva para controles filhos (ex: painéis)
+                if (ctrl.HasChildren)
+                    AjustarControles(ctrl);
+            }
+        }
+        #endregion
+
+        #region AjustarControlesRecursivo
+        /// <summary>
+        /// Ajusta os controles recursivamente com base nos tamanhos originais.
+        /// </summary>
+        /// <param name="controle">O controle a ser ajustado.</param>
+        /// <param name="originalSizes">Dicionário contendo os tamanhos e posições originais dos controles.</param>
+        private void AjustarControlesRecursivo(Control controle, Dictionary<Control, Rectangle> originalSizes)
+        {
+            foreach (Control child in controle.Controls)
+            {
+                if (originalSizes.ContainsKey(child))
+                {
+                    Rectangle original = originalSizes[child];
+
+                    // Calcula a proporção de redimensionamento
+                    float xRatio = (float)controle.ClientSize.Width / originalSizes[controle].Width;
+                    float yRatio = (float)controle.ClientSize.Height / originalSizes[controle].Height;
+
+                    // Ajusta a posição e o tamanho do controle
+                    child.Location = new Point((int)(original.X * xRatio), (int)(original.Y * yRatio));
+                    child.Size = new Size((int)(original.Width * xRatio), (int)(original.Height * yRatio));
+                }
+
+                // Ajusta os controles filhos recursivamente
+                if (child.HasChildren)
+                {
+                    AjustarControlesRecursivo(child, originalSizes);
+                }
+            }
+        }
+        #endregion
+
+        #region SaveOriginalSizes
+        /// <summary>
+        /// Salva os tamanhos e posições originais dos controles de um formulário.
+        /// </summary>
+        /// <param name="tela">O formulário cujos tamanhos e posições dos controles serão salvos.</param>
+        public void SaveOriginalSizes(Form tela)
+        {
+            // Cria um dicionário para armazenar os tamanhos e posições originais
+            Dictionary<Control, Rectangle> originalSizes = new Dictionary<Control, Rectangle>();
+
+            // Percorre todos os controles do formulário
+            foreach (Control controle in tela.Controls)
+            {
+                // Salva o tamanho e a posição original do controle
+                originalSizes[controle] = new Rectangle(controle.Location, controle.Size);
+
+                // Se o controle tiver filhos, salva os tamanhos e posições originais recursivamente
+                if (controle.HasChildren)
+                {
+                    SaveOriginalSizesRecursivo(controle, originalSizes);
+                }
+            }
+
+            // Armazena o dicionário no Tag do formulário para uso posterior
+            tela.Tag = originalSizes;
+        }
+        #endregion
+
+        #region SaveOriginalSizesRecursivo
+        /// <summary>
+        /// Salva os tamanhos e posições originais dos controles filhos recursivamente.
+        /// </summary>
+        /// <param name="controle">O controle pai cujos filhos serão processados.</param>
+        /// <param name="originalSizes">O dicionário onde os tamanhos e posições serão armazenados.</param>
+        private void SaveOriginalSizesRecursivo(Control controle, Dictionary<Control, Rectangle> originalSizes)
+        {
+            foreach (Control child in controle.Controls)
+            {
+                // Salva o tamanho e a posição original do controle filho
+                originalSizes[child] = new Rectangle(child.Location, child.Size);
+
+                // Se o controle filho também tiver filhos, chama recursivamente
+                if (child.HasChildren)
+                {
+                    SaveOriginalSizesRecursivo(child, originalSizes);
+                }
+            }
         }
         #endregion
     }

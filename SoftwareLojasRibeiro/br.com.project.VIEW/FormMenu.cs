@@ -23,6 +23,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         {
             this.Focus();
             this.ActiveControl = null;
+            new Helpers().AjustarControles(this); // Salva os tamanhos originais dos controles
         }
 
         private void buttonClientes_Click(object sender, EventArgs e)

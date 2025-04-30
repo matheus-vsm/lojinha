@@ -34,6 +34,8 @@ namespace SoftwareLojasRibeiro//.br.com.project.VIEW se n colocar isso aqui vai 
             dataGridViewClientesDesativados.DataSource = cliDAO.ListarClientesDesativados(cli);
             dataGridViewClientesDevedores.DataSource = devDAO.ListarDevedores(cli);
             dataGridViewClientesDevedoresOff.DataSource = devDAO.ListarDevedoresQuitados(cli);
+
+            new Helpers().AjustarControles(this); // Salva os tamanhos originais dos controles
         }
         private void FormClientes_FormClosing(object sender, FormClosingEventArgs e)
         {

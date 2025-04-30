@@ -66,6 +66,8 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             dataGridViewCompras.ColumnHeadersDefaultCellStyle.Font = new Font("Arial Rounded MT Bold", 22, FontStyle.Bold);
             dataGridViewCompras.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridViewCompras.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+
+            new Helpers().AjustarControles(this); // Salva os tamanhos originais dos controles
         }
 
         public void SelecionarLinhaTabelaComprasDetalhes()

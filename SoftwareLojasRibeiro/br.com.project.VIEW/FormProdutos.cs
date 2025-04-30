@@ -41,6 +41,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             dataGridViewProdutosOff.DataSource = prodao.ListarProdutosDesativados(prod);
 
             new Helpers().LimparTela(this);
+            new Helpers().AjustarControles(this); // Salva os tamanhos originais dos controles
         }
 
         public void SelecionarLinhaTabelaProdutos()
