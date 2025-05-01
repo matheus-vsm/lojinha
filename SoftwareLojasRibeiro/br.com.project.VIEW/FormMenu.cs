@@ -14,6 +14,11 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 {
     public partial class FormMenu : BaseForm
     {
+        Helpers help = new Helpers();
+
+        public static string nomeusuariologado;
+        public static string tipousuariologado;
+
         public FormMenu()
         {
             InitializeComponent();
@@ -23,7 +28,13 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         {
             this.Focus();
             this.ActiveControl = null;
-            new Helpers().AjustarControles(this); // Salva os tamanhos originais dos controles
+            nomeusuariologado = toolStripStatusLabelUsuario.Text;
+            tipousuariologado = toolStripStatusLabelTipoUsuario.Text;
+
+            help.ConfigurarLinkToolStrip(toolStripStatusLabelDevMath, "https://www.linkedin.com/in/matheus-v-275924208/");
+            help.ConfigurarLinkToolStrip(toolStripStatusLabelDevLeandro, "https://www.linkedin.com/in/matheus-v-275924208/");
+
+            help.AjustarControles(this); // Salva os tamanhos originais dos controles
         }
 
         private void buttonClientes_Click(object sender, EventArgs e)
@@ -126,6 +137,8 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
+
+        private void timerMenu_Tick(object sender, EventArgs e) { }
 
         #region Lixos
         private void FormMenu_KeyPress(object sender, KeyPressEventArgs e) { }

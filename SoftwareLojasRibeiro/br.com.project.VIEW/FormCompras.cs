@@ -14,6 +14,8 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 {
     public partial class FormCompras : BaseForm
     {
+        Helpers help = new Helpers();
+
         DataTable carrinhoCompras = new DataTable();
         decimal totalcompra, subtotal;
 
@@ -42,7 +44,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             CompraProdutos compra = new CompraProdutos();
             dataGridViewCompras.DataSource = compradao.ListarCompras(compra);
 
-            new Helpers().LimparTela(this);
+            help.LimparTela(this);
 
             carrinhoCompras.Columns.Add("Fornecedor", typeof(string));
             carrinhoCompras.Columns.Add("Produto", typeof(string));
@@ -67,7 +69,13 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             dataGridViewCompras.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridViewCompras.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
 
-            new Helpers().AjustarControles(this); // Salva os tamanhos originais dos controles
+            toolStripStatusLabelUsuario.Text = FormMenu.nomeusuariologado;
+            toolStripStatusLabelTipoUsuario.Text = FormMenu.tipousuariologado;
+
+            help.ConfigurarLinkToolStrip(toolStripStatusLabelDevMath, "https://www.linkedin.com/in/matheus-v-275924208/");
+            help.ConfigurarLinkToolStrip(toolStripStatusLabelDevLeandro, "https://www.linkedin.com/in/matheus-v-275924208/");
+
+            help.AjustarControles(this); // Salva os tamanhos originais dos controles
         }
 
         public void SelecionarLinhaTabelaComprasDetalhes()
@@ -203,7 +211,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 MessageBox.Show("Nenhum Produto foi adicionado ao Carrinho!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            bool confimacao = new Helpers().Confirmacao();
+            bool confimacao = help.Confirmacao();
             if (confimacao == false)
             {
                 return;
@@ -283,7 +291,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
             if (sucessocompra && sucessoprod)
             {
-                new Helpers().LimparTelaVendas(this);
+                help.LimparTelaVendas(this);
                 CompraProdutosDAO compradao = new CompraProdutosDAO();
                 CompraProdutos compras = new CompraProdutos();
                 dataGridViewCompras.DataSource = compradao.ListarCompras(compras);
@@ -300,7 +308,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         private void buttonLimpar_Click(object sender, EventArgs e)
         {
             string totalzinho = textBoxTotalCompra.Text;
-            new Helpers().LimparTelaCompras(this);
+            help.LimparTelaCompras(this);
             textBoxTotalCompra.Text = totalzinho;
             comboBoxCategProd.Focus();
         }

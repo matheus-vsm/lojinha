@@ -104,7 +104,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                                 v.Desconto AS 'Desconto (R$)', 
                                 v.Valor_Pago AS 'Valor Pago (R$)', 
                                 v.Status, 
-                                v.Observacoes 
+                                v.Observacoes AS 'Observações' 
                             FROM tb_vendas AS v 
                             INNER JOIN tb_clientes AS c ON (v.Cliente_Id=c.Id_Cliente) 
                             WHERE v.Data_Venda BETWEEN @inicio AND @fim";

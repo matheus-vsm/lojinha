@@ -101,6 +101,7 @@
             this.dataGridViewHistorico.RowTemplate.Height = 28;
             this.dataGridViewHistorico.Size = new System.Drawing.Size(1111, 341);
             this.dataGridViewHistorico.TabIndex = 21;
+            this.dataGridViewHistorico.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewHistorico_CellContentClick);
             // 
             // groupBoxConsulta
             // 

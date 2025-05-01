@@ -69,6 +69,14 @@ namespace SoftwareLojasRibeiro.br.com.project.MODEL
         }
         #endregion
 
+        #region HashSenhaVerificacao
+        // Método para criptografar a senha antes de salvar no banco
+        public string HashSenhaVerificacao(string senha)
+        {
+            return BCrypt.Net.BCrypt.HashPassword(senha);
+        }
+        #endregion
+
         #region VerificarSenha
         // Método para verificar se a senha digitada corresponde ao hash armazenado
         public static bool VerificarSenha(string senhaDigitada, string senhaArmazenada)
@@ -439,6 +447,32 @@ namespace SoftwareLojasRibeiro.br.com.project.MODEL
                     SaveOriginalSizesRecursivo(child, originalSizes);
                 }
             }
+        }
+        #endregion
+
+        #region ConfigurarLinkToolStrip
+        public void ConfigurarLinkToolStrip(ToolStripStatusLabel toolStripLabel, string url)
+        {
+            if (toolStripLabel == null || string.IsNullOrEmpty(url))
+                throw new ArgumentNullException("O ToolStripStatusLabel ou a URL não podem ser nulos.");
+
+            // Configura o cursor para indicar que é clicável
+            toolStripLabel.IsLink = true;
+            toolStripLabel.LinkBehavior = LinkBehavior.HoverUnderline;
+            toolStripLabel.LinkColor = Color.Blue;
+
+            // Adiciona o evento de clique
+            toolStripLabel.Click += (sender, e) =>
+            {
+                try
+                {
+                    System.Diagnostics.Process.Start(url);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Não foi possível abrir o link: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            };
         }
         #endregion
     }

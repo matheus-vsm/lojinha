@@ -97,7 +97,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                                 catprod.Nome AS 'Categoria Produto', 
                                 'Ativado' AS 'Status Categoria Público',                                 
                                 catpub.Nome AS 'Categoria Publico', 
-                                prod.Descricao, 
+                                prod.Descricao AS 'Descrição', 
                                 prod.DataCadastro AS 'Data de Cadastro' 
                                 
                                 FROM tb_produtos AS prod
@@ -163,7 +163,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                                 catprod.Nome AS 'Categoria Produto', 
                                 'Desativado' AS 'Status Produtos',                                 
                                 catpub.Nome AS 'Categoria Publico', 
-                                prod.Descricao, 
+                                prod.Descricao AS 'Descrição', 
                                 prod.DataCadastro AS 'Data de Cadastro' 
                                 
                                 FROM tb_produtos AS prod

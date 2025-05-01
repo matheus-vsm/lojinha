@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using SoftwareLojasRibeiro.br.com.project.CONNECTION;
 using SoftwareLojasRibeiro.br.com.project.MODEL;
+using SoftwareLojasRibeiro.br.com.project.VIEW;
 
 namespace SoftwareLojasRibeiro.br.com.project.DAO
 {
@@ -19,6 +20,21 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
         {
             this.connection = new ConnectionFactory().GetConnection();
         }
+
+        #region ValidarSenha
+        public bool ValidarSenha(Funcionario func)
+        {
+            if (string.IsNullOrEmpty(func.Senha) || func.Senha.Length < 12)
+                return false;
+
+            bool temMaiuscula = func.Senha.Any(char.IsUpper);
+            bool temMinuscula = func.Senha.Any(char.IsLower);
+            bool temNumero = func.Senha.Any(char.IsDigit);
+            bool temEspecial = func.Senha.Any(ch => !char.IsLetterOrDigit(ch));
+
+            return temMaiuscula && temMinuscula && temNumero && temEspecial;
+        }
+        #endregion
 
         #region CadastrarFuncionario
         public bool CadastrarFuncionario(Funcionario func)
@@ -109,7 +125,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                                 Numero, 
                                 Datanasc as 'Data de Nascimento', 
                                 Cep, 
-                                Endereco 
+                                Endereco AS 'Endereço' 
                                 FROM tb_funcionarios
                                 WHERE Status = TRUE";
 
@@ -169,7 +185,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                                 Numero, 
                                 Datanasc as 'Data de Nascimento', 
                                 Cep, 
-                                Endereco 
+                                Endereco AS 'Endereço' 
                                 FROM tb_funcionarios
                                 WHERE Status = TRUE";
 
@@ -229,7 +245,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                                 Numero, 
                                 Datanasc as 'Data de Nascimento', 
                                 Cep, 
-                                Endereco 
+                                Endereco AS 'Endereço' 
                                 FROM tb_funcionarios
                                 WHERE Status = FALSE";
 
@@ -289,7 +305,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                                 Numero, 
                                 Datanasc as 'Data de Nascimento', 
                                 Cep, 
-                                Endereco 
+                                Endereco AS 'Endereço' 
                                 FROM tb_funcionarios
                                 WHERE Status = FALSE";
 
@@ -600,10 +616,72 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
         #endregion
 
         #region Login
-        public bool Login(Funcionario func)
+        public bool Login(Funcionario func, string senha)
         {
             try
             {
+                string sql = @"SELECT * 
+                                FROM tb_funcionarios 
+                                WHERE Login=@login AND Senha=@senha";
+
+                //Organizar o comando SQL
+                MySqlCommand executacmd = new MySqlCommand(sql, connection);
+                executacmd.Parameters.AddWithValue("@login", func.Login);
+                executacmd.Parameters.AddWithValue("@senha", senha);
+
+                //Abrir conexão e executar o comando SQL
+                connection.Open();
+                MySqlDataReader reader = executacmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    string nivel = reader.GetString("Tipo_Usuario").ToString();
+                    string nome = reader.GetString("Nome").ToString();
+                    string user = reader.GetString("Login").ToString();
+
+                    MessageBox.Show($"Login Realizado!\nNome: {nome}\nUsuário: {func.Login}\n" +
+                        $"Tipo de Usuário: {nivel}");
+
+                    FormMenu telamenu = new FormMenu();
+                    telamenu.toolStripStatusLabelUsuario.Text = user;
+                    telamenu.toolStripStatusLabelTipoUsuario.Text = nivel;
+
+                    if (nivel.Equals("ADMIN"))
+                    {
+                        telamenu.Show();
+                    }
+                    else if (nivel.Equals("NORMAL"))
+                    {
+                        telamenu.Show();
+                    }
+
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Login ou Senha Inválidos!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show($"Erro ao executar o Comando SQL! (Login) {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            finally
+            {
+                connection.Close(); // Sempre fechar a conexão
+            }
+        }
+        #endregion
+
+        #region RetorndarDadosUsuarioLogado
+        public Funcionario RetorndarDadosUsuarioLogado(Funcionario func)
+        {
+            try
+            {
+                Funcionario funcionariozin = new Funcionario();
+
                 string sql = @"SELECT * 
                                 FROM tb_funcionarios 
                                 WHERE Login=@login AND Senha=@senha";
@@ -617,17 +695,25 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                 connection.Open();
                 MySqlDataReader reader = executacmd.ExecuteReader();
 
-                if (reader.Read()) return true;
+                if (reader.Read())
+                {
+                    funcionariozin.Tipo = reader.GetString("Tipo_Usuario").ToString();
+                    funcionariozin.Login = reader.GetString("Login").ToString();
+
+                    FormMenu tela = new FormMenu();
+
+                    return funcionariozin;
+                }
                 else
                 {
-                    MessageBox.Show("Login ou Senha Inválidos!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
+                    MessageBox.Show("Dados do Usuário Logado Indisponíveis!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return null;
                 }
             }
             catch (Exception error)
             {
-                MessageBox.Show($"Erro ao executar o Comando SQL! (Login) {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+                MessageBox.Show($"Erro ao executar o Comando SQL! (RetorndarDadosUsuarioLogado) {error.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
             }
             finally
             {

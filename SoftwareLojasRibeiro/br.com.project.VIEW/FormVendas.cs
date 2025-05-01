@@ -32,6 +32,8 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
         DataTable carrinho = new DataTable();
 
+        Helpers help = new Helpers();
+
         public FormVendas()
         {
             InitializeComponent(); 
@@ -63,8 +65,18 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             dataGridViewProdutosCarrinho.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridViewProdutosCarrinho.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
 
+            dataGridViewHistorico.DefaultCellStyle.Font = new Font("Arial Rounded MT", 16);
+            dataGridViewHistorico.ColumnHeadersDefaultCellStyle.Font = new Font("Arial Rounded MT Bold", 18, FontStyle.Bold);
+            dataGridViewHistorico.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridViewHistorico.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+
+            toolStripStatusLabelUsuario.Text = FormMenu.nomeusuariologado;
+            toolStripStatusLabelTipoUsuario.Text = FormMenu.tipousuariologado;
+
             maskedTextBoxCpf.Focus();
-            new Helpers().AjustarControles(this); // Salva os tamanhos originais dos controles
+            help.ConfigurarLinkToolStrip(toolStripStatusLabelDevMath, "https://www.linkedin.com/in/matheus-v-275924208/");
+            help.ConfigurarLinkToolStrip(toolStripStatusLabelDevLeandro, "https://www.linkedin.com/in/matheus-v-275924208/");
+            help.AjustarControles(this); // Salva os tamanhos originais dos controles
         }
 
 
@@ -259,7 +271,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
         private void buttonLimparCampos_Click(object sender, EventArgs e)
         {
-            new Helpers().LimparTelaVendas(this);
+            help.LimparTelaVendas(this);
             maskedTextBoxData.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
             maskedTextBoxCpf.ReadOnly = false;
             textBoxNome.ReadOnly = false;
@@ -323,7 +335,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 MessageBox.Show("Operação cancelada!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            new Helpers().LimparTelaVendas(this);
+            help.LimparTelaVendas(this);
             maskedTextBoxData.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
             maskedTextBoxCpf.ReadOnly = false;
             textBoxNome.ReadOnly = false;

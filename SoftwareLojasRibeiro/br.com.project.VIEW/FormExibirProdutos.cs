@@ -57,6 +57,11 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             Produto prod = new Produto();
             dataGridViewProds.DataSource = prodao.ListarProdutos(prod);
 
+            dataGridViewProds.DefaultCellStyle.Font = new Font("Arial Rounded MT", 12);
+            dataGridViewProds.ColumnHeadersDefaultCellStyle.Font = new Font("Arial Rounded MT Bold", 14, FontStyle.Bold);
+            dataGridViewProds.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridViewProds.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+
             new Helpers().AjustarControles(this); // Salva os tamanhos originais dos controles
         }
 

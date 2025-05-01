@@ -14,6 +14,8 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 {
     public partial class FormCategorias : BaseForm
     {
+        Helpers help = new Helpers();
+
         public FormCategorias()
         {
             InitializeComponent();
@@ -29,7 +31,29 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             dataGridViewCatProdOff.DataSource = dao.ListarCategoriasDesativadas(cat, "Produto");
             dataGridViewCatPubOff.DataSource = dao.ListarCategoriasDesativadas(cat, "Publico");
 
-            new Helpers().AjustarControles(this); // Salva os tamanhos originais dos controles
+            List<DataGridView> tabelas = new List<DataGridView>
+            {
+                dataGridViewCatProd,
+                dataGridViewCatPub,
+                dataGridViewCatProdOff,
+                dataGridViewCatPubOff
+            };
+
+            foreach (DataGridView t in tabelas)
+            {
+                t.DefaultCellStyle.Font = new Font("Arial Rounded MT", 16);
+                t.ColumnHeadersDefaultCellStyle.Font = new Font("Arial Rounded MT Bold", 18, FontStyle.Bold);
+                t.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                t.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            }
+
+            toolStripStatusLabelUsuario.Text = FormMenu.nomeusuariologado;
+            toolStripStatusLabelTipoUsuario.Text = FormMenu.tipousuariologado;
+
+            help.ConfigurarLinkToolStrip(toolStripStatusLabelDevMath, "https://www.linkedin.com/in/matheus-v-275924208/");
+            help.ConfigurarLinkToolStrip(toolStripStatusLabelDevLeandro, "https://www.linkedin.com/in/matheus-v-275924208/");
+
+            help.AjustarControles(this); // Salva os tamanhos originais dos controles
         }
 
         public void SelecionarLinhaTabelaCategoriasProdutos()
@@ -146,7 +170,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             if (sucesso)
             {
                 //LimparCampos();
-                new Helpers().LimparTela(this);
+                help.LimparTela(this);
                 buttonCadastrar.Text = "Cadastrar";
                 tabPageCadastrar.Text = "Cadastrar";
 
@@ -181,7 +205,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
         private void buttonLimpar_Click(object sender, EventArgs e)
         {
-            new Helpers().LimparTela(this);
+            help.LimparTela(this);
             comboBoxTipoCat.Enabled = true;
             buttonCadastrar.Text = "Cadastrar";
             tabPageCadastrar.Text = "Cadastrar";
