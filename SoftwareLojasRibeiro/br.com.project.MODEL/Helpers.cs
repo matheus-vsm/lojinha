@@ -69,9 +69,9 @@ namespace SoftwareLojasRibeiro.br.com.project.MODEL
         }
         #endregion
 
-        #region HashSenhaVerificacao
+        #region HashSenha2
         // Método para criptografar a senha antes de salvar no banco
-        public string HashSenhaVerificacao(string senha)
+        public string HashSenha2(string senha)
         {
             return BCrypt.Net.BCrypt.HashPassword(senha);
         }
@@ -79,7 +79,7 @@ namespace SoftwareLojasRibeiro.br.com.project.MODEL
 
         #region VerificarSenha
         // Método para verificar se a senha digitada corresponde ao hash armazenado
-        public static bool VerificarSenha(string senhaDigitada, string senhaArmazenada)
+        public bool VerificarSenha(string senhaDigitada, string senhaArmazenada)
         {
             return BCrypt.Net.BCrypt.Verify(senhaDigitada, senhaArmazenada);
         }

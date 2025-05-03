@@ -119,7 +119,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             
             if (!dao.ValidarSenha(func))
             {
-                MessageBox.Show("Senha Inválida!\nA senha deve conter:\n- 12 caracteres no total;\n- pelo menos 1 letra maiúscula;\n- pelo menos 1 letra minúscula:\n- pelo menos 1 caracter especial (ex: @, _, !, ...);\n- pelo menos 1 número.", "Senha Inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Senha Inválida!\nA senha deve conter:\n- 12 caracteres no total;\n- pelo menos 1 letra maiúscula;\n- pelo menos 1 letra minúscula:\n- pelo menos 1 caracter especial (ex: @, _, !, ...);\n- pelo menos 1 número.\nE a senha NÃO deve conter ESPAÇOS!", "Senha Inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 

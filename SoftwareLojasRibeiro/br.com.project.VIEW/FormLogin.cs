@@ -38,10 +38,9 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         private void buttonEntrar_Click(object sender, EventArgs e)
         {
             string login = textBoxUsuario.Text;
-            string senha = textBoxSenha.Text;
-            string senhahash = help.HashSenhaVerificacao(senha);
+            string senhadigitada = textBoxSenha.Text;
 
-            if (string.IsNullOrEmpty(login) || string.IsNullOrEmpty(senha))
+            if (string.IsNullOrEmpty(login) || string.IsNullOrEmpty(senhadigitada))
             {
                 MessageBox.Show("Preencha Todos os Campos!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -57,12 +56,28 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
             Usuario usuariologado;
 
-            if (funcDAO.Login(funcionario, senha))
+            if (help.VerificarSenha(senhadigitada, funcionario.Senha.ToString()))
             {
-                usuariologado = new Usuario(funcDAO.RetorndarDadosUsuarioLogado(funcionario));
-                nomeusuario = usuariologado.ToString();
-                tipousuario = usuariologado.ToString();
-                this.Hide();
+                if (funcDAO.Login(funcionario))
+                {
+                    usuariologado = new Usuario(funcDAO.RetorndarDadosUsuarioLogado(funcionario));
+                    nomeusuario = usuariologado.ToString();
+                    tipousuario = usuariologado.ToString();
+                    this.Hide();
+                }
+                else
+                {
+                    textBoxSenha.Clear();
+                    textBoxSenha.Focus();
+                    return;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Login ou Senha Incorretos!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textBoxSenha.Clear();
+                textBoxSenha.Focus();
+                return;
             }
         }
 

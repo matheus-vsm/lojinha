@@ -24,8 +24,13 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
         #region ValidarSenha
         public bool ValidarSenha(Funcionario func)
         {
-            if (string.IsNullOrEmpty(func.Senha) || func.Senha.Length < 12)
-                return false;
+            if (string.IsNullOrEmpty(func.Senha)) return false;
+
+            // Remove todos os espaços em branco da senha
+            string senhaSemEspacos = func.Senha.Replace(" ", "");
+
+            // Verifica se a senha tem pelo menos 12 caracteres (sem espaços)
+            if (senhaSemEspacos.Length < 12) return false;
 
             bool temMaiuscula = func.Senha.Any(char.IsUpper);
             bool temMinuscula = func.Senha.Any(char.IsLower);
@@ -616,7 +621,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
         #endregion
 
         #region Login
-        public bool Login(Funcionario func, string senha)
+        public bool Login(Funcionario func)
         {
             try
             {
@@ -627,7 +632,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                 //Organizar o comando SQL
                 MySqlCommand executacmd = new MySqlCommand(sql, connection);
                 executacmd.Parameters.AddWithValue("@login", func.Login);
-                executacmd.Parameters.AddWithValue("@senha", senha);
+                executacmd.Parameters.AddWithValue("@senha", func.Senha);
 
                 //Abrir conexão e executar o comando SQL
                 connection.Open();
