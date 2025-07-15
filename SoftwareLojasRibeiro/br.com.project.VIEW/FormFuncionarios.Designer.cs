@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormFuncionarios));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -35,6 +36,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabControlFuncionarios = new System.Windows.Forms.TabControl();
             this.tabPageCadastrar = new System.Windows.Forms.TabPage();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelUsuario = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelTipoUsuario = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelDevMath = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelDevLeandro = new System.Windows.Forms.ToolStripStatusLabel();
+            this.label18 = new System.Windows.Forms.Label();
             this.textBoxLogin = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.textBoxSenha = new System.Windows.Forms.TextBox();
@@ -79,10 +90,12 @@
             this.dataGridViewFuncionariosOff = new System.Windows.Forms.DataGridView();
             this.textBoxPesquisaNomeOff = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControlFuncionarios.SuspendLayout();
             this.tabPageCadastrar.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.tabPageConsultar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFuncionarios)).BeginInit();
             this.tabPage1.SuspendLayout();
@@ -151,6 +164,8 @@
             // 
             // tabPageCadastrar
             // 
+            this.tabPageCadastrar.Controls.Add(this.statusStrip1);
+            this.tabPageCadastrar.Controls.Add(this.label18);
             this.tabPageCadastrar.Controls.Add(this.textBoxLogin);
             this.tabPageCadastrar.Controls.Add(this.label16);
             this.tabPageCadastrar.Controls.Add(this.textBoxSenha);
@@ -186,6 +201,94 @@
             this.tabPageCadastrar.TabIndex = 0;
             this.tabPageCadastrar.Text = "Cadastrar";
             this.tabPageCadastrar.UseVisualStyleBackColor = true;
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel3,
+            this.toolStripStatusLabelUsuario,
+            this.toolStripStatusLabel2,
+            this.toolStripStatusLabelTipoUsuario,
+            this.toolStripStatusLabel1,
+            this.toolStripStatusLabelDevMath,
+            this.toolStripStatusLabel4,
+            this.toolStripStatusLabelDevLeandro});
+            this.statusStrip1.Location = new System.Drawing.Point(4, 546);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1357, 22);
+            this.statusStrip1.TabIndex = 35;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel3
+            // 
+            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(93, 17);
+            this.toolStripStatusLabel3.Text = "Usuário Logado:";
+            // 
+            // toolStripStatusLabelUsuario
+            // 
+            this.toolStripStatusLabelUsuario.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabelUsuario.Name = "toolStripStatusLabelUsuario";
+            this.toolStripStatusLabelUsuario.Size = new System.Drawing.Size(47, 17);
+            this.toolStripStatusLabelUsuario.Text = "usuario";
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(77, 17);
+            this.toolStripStatusLabel2.Text = "Tipo Usuário:";
+            // 
+            // toolStripStatusLabelTipoUsuario
+            // 
+            this.toolStripStatusLabelTipoUsuario.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabelTipoUsuario.Name = "toolStripStatusLabelTipoUsuario";
+            this.toolStripStatusLabelTipoUsuario.Size = new System.Drawing.Size(29, 17);
+            this.toolStripStatusLabelTipoUsuario.Text = "tipo";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(151, 17);
+            this.toolStripStatusLabel1.Text = "Software Desenvolvido por:";
+            // 
+            // toolStripStatusLabelDevMath
+            // 
+            this.toolStripStatusLabelDevMath.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.toolStripStatusLabelDevMath.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabelDevMath.ForeColor = System.Drawing.Color.Blue;
+            this.toolStripStatusLabelDevMath.IsLink = true;
+            this.toolStripStatusLabelDevMath.Name = "toolStripStatusLabelDevMath";
+            this.toolStripStatusLabelDevMath.Size = new System.Drawing.Size(174, 17);
+            this.toolStripStatusLabelDevMath.Text = "Matheus Venâncio Scomparim";
+            // 
+            // toolStripStatusLabel4
+            // 
+            this.toolStripStatusLabel4.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
+            this.toolStripStatusLabel4.Size = new System.Drawing.Size(13, 17);
+            this.toolStripStatusLabel4.Text = "e";
+            // 
+            // toolStripStatusLabelDevLeandro
+            // 
+            this.toolStripStatusLabelDevLeandro.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.toolStripStatusLabelDevLeandro.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabelDevLeandro.ForeColor = System.Drawing.Color.Blue;
+            this.toolStripStatusLabelDevLeandro.IsLink = true;
+            this.toolStripStatusLabelDevLeandro.Name = "toolStripStatusLabelDevLeandro";
+            this.toolStripStatusLabelDevLeandro.Size = new System.Drawing.Size(87, 17);
+            this.toolStripStatusLabelDevLeandro.Text = "Leandro Lopes";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(999, 377);
+            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(361, 119);
+            this.label18.TabIndex = 34;
+            this.label18.Text = resources.GetString("label18.Text");
             // 
             // textBoxLogin
             // 
@@ -288,7 +391,7 @@
             // textBoxID
             // 
             this.textBoxID.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxID.Location = new System.Drawing.Point(632, 31);
+            this.textBoxID.Location = new System.Drawing.Point(632, 40);
             this.textBoxID.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxID.Name = "textBoxID";
             this.textBoxID.ReadOnly = true;
@@ -327,7 +430,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(647, 6);
+            this.label12.Location = new System.Drawing.Point(647, 15);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(36, 22);
@@ -679,6 +782,11 @@
             this.label17.TabIndex = 10;
             this.label17.Text = "Nome do Funcionário:";
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // FormFuncionarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -700,6 +808,8 @@
             this.tabControlFuncionarios.ResumeLayout(false);
             this.tabPageCadastrar.ResumeLayout(false);
             this.tabPageCadastrar.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.tabPageConsultar.ResumeLayout(false);
             this.tabPageConsultar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFuncionarios)).EndInit();
@@ -762,5 +872,16 @@
         private System.Windows.Forms.DataGridView dataGridViewFuncionariosOff;
         private System.Windows.Forms.TextBox textBoxPesquisaNomeOff;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
+        public System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelUsuario;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        public System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelTipoUsuario;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelDevMath;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelDevLeandro;
     }
 }

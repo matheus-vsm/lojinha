@@ -14,6 +14,8 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 {
     public partial class FormFuncionarios : BaseForm
     {
+        Helpers help = new Helpers();
+
         public FormFuncionarios()
         {
             InitializeComponent();
@@ -26,6 +28,28 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             Funcionario func = new Funcionario { Nome = textBoxPesquisaNome.Text };
             dataGridViewFuncionarios.DataSource = dao.ListarFuncionarios(func);
             dataGridViewFuncionariosOff.DataSource = dao.ListarFuncionariosDesativados(func);
+
+            List<DataGridView> tabelas = new List<DataGridView>
+            {
+                dataGridViewFuncionarios,
+                dataGridViewFuncionariosOff
+            };
+
+            foreach (DataGridView t in tabelas)
+            {
+                t.DefaultCellStyle.Font = new Font("Arial Rounded MT", 16);
+                t.ColumnHeadersDefaultCellStyle.Font = new Font("Arial Rounded MT Bold", 18, FontStyle.Bold);
+                t.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                t.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            }
+
+            toolStripStatusLabelUsuario.Text = FormMenu.nomeusuariologado;
+            toolStripStatusLabelTipoUsuario.Text = FormMenu.tipousuariologado;
+
+            help.ConfigurarLinkToolStrip(toolStripStatusLabelDevMath, "https://www.linkedin.com/in/matheus-v-275924208/");
+            help.ConfigurarLinkToolStrip(toolStripStatusLabelDevLeandro, "https://www.linkedin.com/in/matheus-v-275924208/");
+
+            help.AjustarControles(this); // Salva os tamanhos originais dos controles
         }
 
         public void SelecionarLinhaTabelaFuncionarios()
@@ -92,6 +116,12 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
             FuncionarioDAO dao = new FuncionarioDAO();
             bool sucesso = false; // Variável para verificar sucesso da operação
+            
+            if (!dao.ValidarSenha(func))
+            {
+                MessageBox.Show("Senha Inválida!\nA senha deve conter:\n- 12 caracteres no total;\n- pelo menos 1 letra maiúscula;\n- pelo menos 1 letra minúscula:\n- pelo menos 1 caracter especial (ex: @, _, !, ...);\n- pelo menos 1 número.\nE a senha NÃO deve conter ESPAÇOS!", "Senha Inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             if (buttonCadastrar.Text == "Cadastrar")
             {
@@ -107,7 +137,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             if (sucesso)
             {
                 //LimparCampos();
-                new Helpers().LimparTela(this);
+                help.LimparTela(this);
                 buttonCadastrar.Text = "Cadastrar";
                 tabPageCadastrar.Text = "Cadastrar";
 
@@ -116,6 +146,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
                 dataGridViewFuncionarios.DataSource = dao.ListarFuncionarios(func); //atualizar tabela
             }
+            textBoxNome.Focus();
         }
 
         private void buttonPesquisar_Click(object sender, EventArgs e)
@@ -125,9 +156,10 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
         private void buttonLimpar_Click(object sender, EventArgs e)
         {
-            new Helpers().LimparTela(this);
+            help.LimparTela(this);
             buttonCadastrar.Text = "Cadastrar";
             tabPageCadastrar.Text = "Cadastrar";
+            textBoxNome.Focus();
         }
 
         private void buttonAlterar_Click(object sender, EventArgs e)
@@ -204,8 +236,9 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
         private void buttonBuscar_Click(object sender, EventArgs e)
         {
-            string end = new Helpers().BuscarCep(maskedTextBoxCep.Text);
+            string end = help.BuscarCep(maskedTextBoxCep.Text);
             textBoxEndereco.Text = end;
+            textBoxEndereco.Focus();
         }
 
         private void buttonMenu_Click(object sender, EventArgs e)
@@ -233,6 +266,11 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         private void textBoxPesquisaCpfOff_TextChanged(object sender, EventArgs e)
         {
             PesquisarCpf(textBoxPesquisaCpfOff.Text, dataGridViewFuncionariosOff);
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            //toolStripStatusLabelData.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
         }
 
         #region Lixos

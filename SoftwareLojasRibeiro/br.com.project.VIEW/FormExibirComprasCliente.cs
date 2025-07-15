@@ -39,6 +39,13 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             dataGridViewHistorico.DataSource = cliDAO.ListarCompras(iniciozada, fimzada, cliente);
             textBoxTotal.Text = cliDAO.RetornarTotalCompras(cliente);
             textBoxTotalGasto.Text = cliDAO.RetornarTotalGasto(cliente);
+
+            dataGridViewHistorico.DefaultCellStyle.Font = new Font("Arial Rounded MT", 16);
+            dataGridViewHistorico.ColumnHeadersDefaultCellStyle.Font = new Font("Arial Rounded MT Bold", 18, FontStyle.Bold);
+            dataGridViewHistorico.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridViewHistorico.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+
+            new Helpers().AjustarControles(this); // Salva os tamanhos originais dos controles
         }
 
 
@@ -114,6 +121,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         #region Lixos
         private void labelNomeCliente_Click(object sender, EventArgs e) { }
         private void textBoxTotal_TextChanged(object sender, EventArgs e) { }
+        private void dataGridViewHistorico_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
         private void textBoxTotalGasto_TextChanged(object sender, EventArgs e) { }
         #endregion
     }

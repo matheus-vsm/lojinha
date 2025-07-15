@@ -29,6 +29,15 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCategorias));
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelUsuario = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelTipoUsuario = new System.Windows.Forms.ToolStripStatusLabel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.buttonMenu = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.tabControlCategorias = new System.Windows.Forms.TabControl();
             this.tabPageCadastrar = new System.Windows.Forms.TabPage();
             this.comboBoxTipoCat = new System.Windows.Forms.ComboBox();
@@ -69,10 +78,13 @@
             this.dataGridViewCatPubOff = new System.Windows.Forms.DataGridView();
             this.textBoxPesquisaNomePubOff = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.buttonMenu = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelDevMath = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelDevLeandro = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusStrip1.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControlCategorias.SuspendLayout();
             this.tabPageCadastrar.SuspendLayout();
             this.tabPageConsultar.SuspendLayout();
@@ -83,9 +95,102 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCatPub)).BeginInit();
             this.tabPagePublicosOff.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCatPubOff)).BeginInit();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1,
+            this.toolStripStatusLabelUsuario,
+            this.toolStripStatusLabel2,
+            this.toolStripStatusLabelTipoUsuario,
+            this.toolStripStatusLabel3,
+            this.toolStripStatusLabelDevMath,
+            this.toolStripStatusLabel4,
+            this.toolStripStatusLabelDevLeandro});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 725);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1373, 22);
+            this.statusStrip1.TabIndex = 28;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(93, 17);
+            this.toolStripStatusLabel1.Text = "Usuário Logado:";
+            // 
+            // toolStripStatusLabelUsuario
+            // 
+            this.toolStripStatusLabelUsuario.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.toolStripStatusLabelUsuario.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabelUsuario.Name = "toolStripStatusLabelUsuario";
+            this.toolStripStatusLabelUsuario.Size = new System.Drawing.Size(31, 17);
+            this.toolStripStatusLabelUsuario.Text = "user";
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(93, 17);
+            this.toolStripStatusLabel2.Text = "Tipo de Usuário:";
+            // 
+            // toolStripStatusLabelTipoUsuario
+            // 
+            this.toolStripStatusLabelTipoUsuario.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.toolStripStatusLabelTipoUsuario.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabelTipoUsuario.Name = "toolStripStatusLabelTipoUsuario";
+            this.toolStripStatusLabelTipoUsuario.Size = new System.Drawing.Size(29, 17);
+            this.toolStripStatusLabelTipoUsuario.Text = "tipo";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.OrangeRed;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.buttonMenu);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1373, 143);
+            this.panel1.TabIndex = 4;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::SoftwareLojasRibeiro.Properties.Resources.Logo_Lojas_Ribeiro_Transparente_menor;
+            this.pictureBox1.Location = new System.Drawing.Point(1200, 6);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(163, 127);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
+            // buttonMenu
+            // 
+            this.buttonMenu.BackColor = System.Drawing.Color.Red;
+            this.buttonMenu.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonMenu.Location = new System.Drawing.Point(-1, -1);
+            this.buttonMenu.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.buttonMenu.Name = "buttonMenu";
+            this.buttonMenu.Size = new System.Drawing.Size(125, 39);
+            this.buttonMenu.TabIndex = 0;
+            this.buttonMenu.Text = "Menu";
+            this.buttonMenu.UseVisualStyleBackColor = false;
+            this.buttonMenu.Click += new System.EventHandler(this.buttonMenu_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 21.75F);
+            this.label1.Location = new System.Drawing.Point(89, 57);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(245, 33);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Área Categorias";
             // 
             // tabControlCategorias
             // 
@@ -568,53 +673,40 @@
             this.label9.Text = "Nome da Categoria\r\nde Públicos:";
             this.label9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // panel1
+            // toolStripStatusLabel3
             // 
-            this.panel1.BackColor = System.Drawing.Color.OrangeRed;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.buttonMenu);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1373, 143);
-            this.panel1.TabIndex = 4;
+            this.toolStripStatusLabel3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.toolStripStatusLabel3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(151, 17);
+            this.toolStripStatusLabel3.Text = "Software Desenvolvido por:";
             // 
-            // pictureBox1
+            // toolStripStatusLabelDevMath
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImage = global::SoftwareLojasRibeiro.Properties.Resources.Logo_Lojas_Ribeiro_Transparente_menor;
-            this.pictureBox1.Location = new System.Drawing.Point(1200, 6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(163, 127);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.toolStripStatusLabelDevMath.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.toolStripStatusLabelDevMath.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabelDevMath.ForeColor = System.Drawing.Color.Blue;
+            this.toolStripStatusLabelDevMath.IsLink = true;
+            this.toolStripStatusLabelDevMath.Name = "toolStripStatusLabelDevMath";
+            this.toolStripStatusLabelDevMath.Size = new System.Drawing.Size(174, 17);
+            this.toolStripStatusLabelDevMath.Text = "Matheus Venâncio Scomparim";
             // 
-            // buttonMenu
+            // toolStripStatusLabel4
             // 
-            this.buttonMenu.BackColor = System.Drawing.Color.Red;
-            this.buttonMenu.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonMenu.Location = new System.Drawing.Point(-1, -1);
-            this.buttonMenu.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.buttonMenu.Name = "buttonMenu";
-            this.buttonMenu.Size = new System.Drawing.Size(125, 39);
-            this.buttonMenu.TabIndex = 0;
-            this.buttonMenu.Text = "Menu";
-            this.buttonMenu.UseVisualStyleBackColor = false;
-            this.buttonMenu.Click += new System.EventHandler(this.buttonMenu_Click);
+            this.toolStripStatusLabel4.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
+            this.toolStripStatusLabel4.Size = new System.Drawing.Size(13, 17);
+            this.toolStripStatusLabel4.Text = "e";
             // 
-            // label1
+            // toolStripStatusLabelDevLeandro
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 21.75F);
-            this.label1.Location = new System.Drawing.Point(89, 57);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(245, 33);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Área Categorias";
+            this.toolStripStatusLabelDevLeandro.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.toolStripStatusLabelDevLeandro.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabelDevLeandro.ForeColor = System.Drawing.Color.Blue;
+            this.toolStripStatusLabelDevLeandro.IsLink = true;
+            this.toolStripStatusLabelDevLeandro.Name = "toolStripStatusLabelDevLeandro";
+            this.toolStripStatusLabelDevLeandro.Size = new System.Drawing.Size(87, 17);
+            this.toolStripStatusLabelDevLeandro.Text = "Leandro Lopes";
             // 
             // FormCategorias
             // 
@@ -622,6 +714,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Goldenrod;
             this.ClientSize = new System.Drawing.Size(1373, 747);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tabControlCategorias);
             this.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F);
@@ -631,6 +724,11 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lojas Ribeiro - Categorias";
             this.Load += new System.EventHandler(this.FormCategorias_Load);
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabControlCategorias.ResumeLayout(false);
             this.tabPageCadastrar.ResumeLayout(false);
             this.tabPageCadastrar.PerformLayout();
@@ -646,10 +744,8 @@
             this.tabPagePublicosOff.ResumeLayout(false);
             this.tabPagePublicosOff.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCatPubOff)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -699,5 +795,14 @@
         private System.Windows.Forms.DataGridView dataGridViewCatPubOff;
         private System.Windows.Forms.TextBox textBoxPesquisaNomePubOff;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        public System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelUsuario;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        public System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelTipoUsuario;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelDevMath;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelDevLeandro;
     }
 }

@@ -32,6 +32,8 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
         DataTable carrinho = new DataTable();
 
+        Helpers help = new Helpers();
+
         public FormVendas()
         {
             InitializeComponent(); 
@@ -43,8 +45,8 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             carrinho.Columns.Add("ID", typeof(int));
             carrinho.Columns.Add("Produto", typeof(string));
             carrinho.Columns.Add("Quantidade", typeof(int));
-            carrinho.Columns.Add("Preço", typeof(decimal));
-            carrinho.Columns.Add("Subtotal", typeof(decimal));
+            carrinho.Columns.Add("Preço (R$)", typeof(decimal));
+            carrinho.Columns.Add("Subtotal (R$)", typeof(decimal));
 
             dataGridViewProdutosCarrinho.DataSource = carrinho;
         }
@@ -63,7 +65,18 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             dataGridViewProdutosCarrinho.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridViewProdutosCarrinho.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
 
+            dataGridViewHistorico.DefaultCellStyle.Font = new Font("Arial Rounded MT", 16);
+            dataGridViewHistorico.ColumnHeadersDefaultCellStyle.Font = new Font("Arial Rounded MT Bold", 18, FontStyle.Bold);
+            dataGridViewHistorico.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridViewHistorico.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+
+            toolStripStatusLabelUsuario.Text = FormMenu.nomeusuariologado;
+            toolStripStatusLabelTipoUsuario.Text = FormMenu.tipousuariologado;
+
             maskedTextBoxCpf.Focus();
+            help.ConfigurarLinkToolStrip(toolStripStatusLabelDevMath, "https://www.linkedin.com/in/matheus-v-275924208/");
+            help.ConfigurarLinkToolStrip(toolStripStatusLabelDevLeandro, "https://www.linkedin.com/in/matheus-v-275924208/");
+            help.AjustarControles(this); // Salva os tamanhos originais dos controles
         }
 
 
@@ -258,7 +271,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
         private void buttonLimparCampos_Click(object sender, EventArgs e)
         {
-            new Helpers().LimparTelaVendas(this);
+            help.LimparTelaVendas(this);
             maskedTextBoxData.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
             maskedTextBoxCpf.ReadOnly = false;
             textBoxNome.ReadOnly = false;
@@ -322,7 +335,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 MessageBox.Show("Operação cancelada!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            new Helpers().LimparTelaVendas(this);
+            help.LimparTelaVendas(this);
             maskedTextBoxData.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
             maskedTextBoxCpf.ReadOnly = false;
             textBoxNome.ReadOnly = false;
@@ -366,9 +379,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                     textBoxQuantidade.Focus();
                     textBoxQuantidade.ReadOnly = false;
                     textBoxPreco.ReadOnly = false;
-                    textBoxEstoque.ReadOnly = false;
                     textBoxID.ReadOnly = true;
-
                 }
                 else
                 {
@@ -381,6 +392,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         #region Lixos
         private void textBoxID_TextChanged(object sender, EventArgs e) { }
         private void maskedTextBoxData_MaskInputRejected(object sender, MaskInputRejectedEventArgs e) { }
+        private void dataGridViewHistorico_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
         private void dataGridViewProdutosCarrinho_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
         private void FormVendas_KeyPress(object sender, KeyPressEventArgs e) { }
         private void maskedTextBoxCpf_MaskInputRejected(object sender, MaskInputRejectedEventArgs e) { }

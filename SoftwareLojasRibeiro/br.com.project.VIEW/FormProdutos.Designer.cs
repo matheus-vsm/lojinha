@@ -29,17 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProdutos));
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.buttonMenu = new System.Windows.Forms.Button();
-            this.tabPageProdutos = new System.Windows.Forms.TabPage();
-            this.buttonLimparPesquisa = new System.Windows.Forms.Button();
-            this.buttonExcluir = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
-            this.buttonAlterar = new System.Windows.Forms.Button();
-            this.textBoxPesquisaProd = new System.Windows.Forms.TextBox();
-            this.dataGridViewProdutos = new System.Windows.Forms.DataGridView();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelUsuario = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelTipoUsuario = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tabControlProdutos = new System.Windows.Forms.TabControl();
             this.tabPageCadastrar = new System.Windows.Forms.TabPage();
             this.comboBoxCategProd = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -63,156 +58,96 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.tabControlProdutos = new System.Windows.Forms.TabControl();
+            this.tabPageProdutos = new System.Windows.Forms.TabPage();
+            this.buttonLimparPesquisa = new System.Windows.Forms.Button();
+            this.buttonExcluir = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.buttonAlterar = new System.Windows.Forms.Button();
+            this.textBoxPesquisaProd = new System.Windows.Forms.TextBox();
+            this.dataGridViewProdutos = new System.Windows.Forms.DataGridView();
             this.tabPageProdutosOff = new System.Windows.Forms.TabPage();
             this.buttonLimparPesquisaOff = new System.Windows.Forms.Button();
             this.buttonAtivar = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.textBoxPesquisaProdOff = new System.Windows.Forms.TextBox();
             this.dataGridViewProdutosOff = new System.Windows.Forms.DataGridView();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.buttonMenu = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelDevMath = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelDevLeandro = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusStrip1.SuspendLayout();
+            this.tabControlProdutos.SuspendLayout();
+            this.tabPageCadastrar.SuspendLayout();
             this.tabPageProdutos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProdutos)).BeginInit();
-            this.tabPageCadastrar.SuspendLayout();
-            this.tabControlProdutos.SuspendLayout();
             this.tabPageProdutosOff.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProdutosOff)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // statusStrip1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 21.75F);
-            this.label1.Location = new System.Drawing.Point(89, 57);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(220, 33);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Área Produtos";
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1,
+            this.toolStripStatusLabelUsuario,
+            this.toolStripStatusLabel2,
+            this.toolStripStatusLabelTipoUsuario,
+            this.toolStripStatusLabel3,
+            this.toolStripStatusLabelDevMath,
+            this.toolStripStatusLabel4,
+            this.toolStripStatusLabelDevLeandro});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 725);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1373, 22);
+            this.statusStrip1.TabIndex = 28;
+            this.statusStrip1.Text = "statusStrip1";
             // 
-            // panel1
+            // toolStripStatusLabel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.OrangeRed;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.buttonMenu);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1373, 143);
-            this.panel1.TabIndex = 3;
+            this.toolStripStatusLabel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(93, 17);
+            this.toolStripStatusLabel1.Text = "Usuário Logado:";
             // 
-            // pictureBox1
+            // toolStripStatusLabelUsuario
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImage = global::SoftwareLojasRibeiro.Properties.Resources.Logo_Lojas_Ribeiro_Transparente_menor;
-            this.pictureBox1.Location = new System.Drawing.Point(1200, 6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(163, 127);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.toolStripStatusLabelUsuario.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.toolStripStatusLabelUsuario.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabelUsuario.Name = "toolStripStatusLabelUsuario";
+            this.toolStripStatusLabelUsuario.Size = new System.Drawing.Size(31, 17);
+            this.toolStripStatusLabelUsuario.Text = "user";
             // 
-            // buttonMenu
+            // toolStripStatusLabel2
             // 
-            this.buttonMenu.BackColor = System.Drawing.Color.Red;
-            this.buttonMenu.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F);
-            this.buttonMenu.Location = new System.Drawing.Point(-1, -1);
-            this.buttonMenu.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.buttonMenu.Name = "buttonMenu";
-            this.buttonMenu.Size = new System.Drawing.Size(125, 39);
-            this.buttonMenu.TabIndex = 0;
-            this.buttonMenu.Text = "Menu";
-            this.buttonMenu.UseVisualStyleBackColor = false;
-            this.buttonMenu.Click += new System.EventHandler(this.buttonMenu_Click);
+            this.toolStripStatusLabel2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(93, 17);
+            this.toolStripStatusLabel2.Text = "Tipo de Usuário:";
             // 
-            // tabPageProdutos
+            // toolStripStatusLabelTipoUsuario
             // 
-            this.tabPageProdutos.Controls.Add(this.buttonLimparPesquisa);
-            this.tabPageProdutos.Controls.Add(this.buttonExcluir);
-            this.tabPageProdutos.Controls.Add(this.label11);
-            this.tabPageProdutos.Controls.Add(this.buttonAlterar);
-            this.tabPageProdutos.Controls.Add(this.textBoxPesquisaProd);
-            this.tabPageProdutos.Controls.Add(this.dataGridViewProdutos);
-            this.tabPageProdutos.Location = new System.Drawing.Point(4, 24);
-            this.tabPageProdutos.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tabPageProdutos.Name = "tabPageProdutos";
-            this.tabPageProdutos.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tabPageProdutos.Size = new System.Drawing.Size(1366, 572);
-            this.tabPageProdutos.TabIndex = 2;
-            this.tabPageProdutos.Text = "Consultar Ativados";
-            this.tabPageProdutos.UseVisualStyleBackColor = true;
+            this.toolStripStatusLabelTipoUsuario.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.toolStripStatusLabelTipoUsuario.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabelTipoUsuario.Name = "toolStripStatusLabelTipoUsuario";
+            this.toolStripStatusLabelTipoUsuario.Size = new System.Drawing.Size(29, 17);
+            this.toolStripStatusLabelTipoUsuario.Text = "tipo";
             // 
-            // buttonLimparPesquisa
+            // tabControlProdutos
             // 
-            this.buttonLimparPesquisa.Location = new System.Drawing.Point(294, 59);
-            this.buttonLimparPesquisa.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.buttonLimparPesquisa.Name = "buttonLimparPesquisa";
-            this.buttonLimparPesquisa.Size = new System.Drawing.Size(72, 29);
-            this.buttonLimparPesquisa.TabIndex = 4;
-            this.buttonLimparPesquisa.Text = "Limpar";
-            this.buttonLimparPesquisa.UseVisualStyleBackColor = true;
-            this.buttonLimparPesquisa.Click += new System.EventHandler(this.buttonLimparPesquisa_Click);
-            // 
-            // buttonExcluir
-            // 
-            this.buttonExcluir.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonExcluir.Location = new System.Drawing.Point(975, 23);
-            this.buttonExcluir.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.buttonExcluir.Name = "buttonExcluir";
-            this.buttonExcluir.Size = new System.Drawing.Size(311, 46);
-            this.buttonExcluir.TabIndex = 3;
-            this.buttonExcluir.Text = "Desativar";
-            this.buttonExcluir.UseVisualStyleBackColor = true;
-            this.buttonExcluir.Click += new System.EventHandler(this.buttonExcluir_Click);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(14, 30);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(151, 18);
-            this.label11.TabIndex = 28;
-            this.label11.Text = "Nome do Produto:";
-            // 
-            // buttonAlterar
-            // 
-            this.buttonAlterar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAlterar.Location = new System.Drawing.Point(546, 23);
-            this.buttonAlterar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.buttonAlterar.Name = "buttonAlterar";
-            this.buttonAlterar.Size = new System.Drawing.Size(311, 46);
-            this.buttonAlterar.TabIndex = 2;
-            this.buttonAlterar.Text = "Alterar";
-            this.buttonAlterar.UseVisualStyleBackColor = true;
-            this.buttonAlterar.Click += new System.EventHandler(this.buttonAlterar_Click);
-            // 
-            // textBoxPesquisaProd
-            // 
-            this.textBoxPesquisaProd.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPesquisaProd.Location = new System.Drawing.Point(173, 27);
-            this.textBoxPesquisaProd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textBoxPesquisaProd.Name = "textBoxPesquisaProd";
-            this.textBoxPesquisaProd.Size = new System.Drawing.Size(328, 26);
-            this.textBoxPesquisaProd.TabIndex = 0;
-            this.textBoxPesquisaProd.TextChanged += new System.EventHandler(this.textBoxPesquisaProd_TextChanged);
-            // 
-            // dataGridViewProdutos
-            // 
-            this.dataGridViewProdutos.AllowUserToAddRows = false;
-            this.dataGridViewProdutos.AllowUserToDeleteRows = false;
-            this.dataGridViewProdutos.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridViewProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewProdutos.Location = new System.Drawing.Point(0, 94);
-            this.dataGridViewProdutos.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.dataGridViewProdutos.Name = "dataGridViewProdutos";
-            this.dataGridViewProdutos.ReadOnly = true;
-            this.dataGridViewProdutos.Size = new System.Drawing.Size(1366, 478);
-            this.dataGridViewProdutos.TabIndex = 5;
+            this.tabControlProdutos.Controls.Add(this.tabPageCadastrar);
+            this.tabControlProdutos.Controls.Add(this.tabPageProdutos);
+            this.tabControlProdutos.Controls.Add(this.tabPageProdutosOff);
+            this.tabControlProdutos.Location = new System.Drawing.Point(0, 149);
+            this.tabControlProdutos.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tabControlProdutos.Name = "tabControlProdutos";
+            this.tabControlProdutos.SelectedIndex = 0;
+            this.tabControlProdutos.Size = new System.Drawing.Size(1374, 600);
+            this.tabControlProdutos.TabIndex = 0;
             // 
             // tabPageCadastrar
             // 
@@ -476,17 +411,91 @@
             this.label10.TabIndex = 41;
             this.label10.Text = "Estoque:";
             // 
-            // tabControlProdutos
+            // tabPageProdutos
             // 
-            this.tabControlProdutos.Controls.Add(this.tabPageCadastrar);
-            this.tabControlProdutos.Controls.Add(this.tabPageProdutos);
-            this.tabControlProdutos.Controls.Add(this.tabPageProdutosOff);
-            this.tabControlProdutos.Location = new System.Drawing.Point(0, 149);
-            this.tabControlProdutos.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tabControlProdutos.Name = "tabControlProdutos";
-            this.tabControlProdutos.SelectedIndex = 0;
-            this.tabControlProdutos.Size = new System.Drawing.Size(1374, 600);
-            this.tabControlProdutos.TabIndex = 0;
+            this.tabPageProdutos.Controls.Add(this.buttonLimparPesquisa);
+            this.tabPageProdutos.Controls.Add(this.buttonExcluir);
+            this.tabPageProdutos.Controls.Add(this.label11);
+            this.tabPageProdutos.Controls.Add(this.buttonAlterar);
+            this.tabPageProdutos.Controls.Add(this.textBoxPesquisaProd);
+            this.tabPageProdutos.Controls.Add(this.dataGridViewProdutos);
+            this.tabPageProdutos.Location = new System.Drawing.Point(4, 24);
+            this.tabPageProdutos.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tabPageProdutos.Name = "tabPageProdutos";
+            this.tabPageProdutos.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tabPageProdutos.Size = new System.Drawing.Size(1366, 572);
+            this.tabPageProdutos.TabIndex = 2;
+            this.tabPageProdutos.Text = "Consultar Ativados";
+            this.tabPageProdutos.UseVisualStyleBackColor = true;
+            // 
+            // buttonLimparPesquisa
+            // 
+            this.buttonLimparPesquisa.Location = new System.Drawing.Point(294, 59);
+            this.buttonLimparPesquisa.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.buttonLimparPesquisa.Name = "buttonLimparPesquisa";
+            this.buttonLimparPesquisa.Size = new System.Drawing.Size(72, 29);
+            this.buttonLimparPesquisa.TabIndex = 4;
+            this.buttonLimparPesquisa.Text = "Limpar";
+            this.buttonLimparPesquisa.UseVisualStyleBackColor = true;
+            this.buttonLimparPesquisa.Click += new System.EventHandler(this.buttonLimparPesquisa_Click);
+            // 
+            // buttonExcluir
+            // 
+            this.buttonExcluir.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonExcluir.Location = new System.Drawing.Point(975, 23);
+            this.buttonExcluir.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.buttonExcluir.Name = "buttonExcluir";
+            this.buttonExcluir.Size = new System.Drawing.Size(311, 46);
+            this.buttonExcluir.TabIndex = 3;
+            this.buttonExcluir.Text = "Desativar";
+            this.buttonExcluir.UseVisualStyleBackColor = true;
+            this.buttonExcluir.Click += new System.EventHandler(this.buttonExcluir_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(14, 30);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(151, 18);
+            this.label11.TabIndex = 28;
+            this.label11.Text = "Nome do Produto:";
+            // 
+            // buttonAlterar
+            // 
+            this.buttonAlterar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAlterar.Location = new System.Drawing.Point(546, 23);
+            this.buttonAlterar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.buttonAlterar.Name = "buttonAlterar";
+            this.buttonAlterar.Size = new System.Drawing.Size(311, 46);
+            this.buttonAlterar.TabIndex = 2;
+            this.buttonAlterar.Text = "Alterar";
+            this.buttonAlterar.UseVisualStyleBackColor = true;
+            this.buttonAlterar.Click += new System.EventHandler(this.buttonAlterar_Click);
+            // 
+            // textBoxPesquisaProd
+            // 
+            this.textBoxPesquisaProd.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPesquisaProd.Location = new System.Drawing.Point(173, 27);
+            this.textBoxPesquisaProd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.textBoxPesquisaProd.Name = "textBoxPesquisaProd";
+            this.textBoxPesquisaProd.Size = new System.Drawing.Size(328, 26);
+            this.textBoxPesquisaProd.TabIndex = 0;
+            this.textBoxPesquisaProd.TextChanged += new System.EventHandler(this.textBoxPesquisaProd_TextChanged);
+            // 
+            // dataGridViewProdutos
+            // 
+            this.dataGridViewProdutos.AllowUserToAddRows = false;
+            this.dataGridViewProdutos.AllowUserToDeleteRows = false;
+            this.dataGridViewProdutos.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridViewProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewProdutos.Location = new System.Drawing.Point(0, 94);
+            this.dataGridViewProdutos.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.dataGridViewProdutos.Name = "dataGridViewProdutos";
+            this.dataGridViewProdutos.ReadOnly = true;
+            this.dataGridViewProdutos.Size = new System.Drawing.Size(1366, 478);
+            this.dataGridViewProdutos.TabIndex = 5;
             // 
             // tabPageProdutosOff
             // 
@@ -558,12 +567,95 @@
             this.dataGridViewProdutosOff.Size = new System.Drawing.Size(1366, 478);
             this.dataGridViewProdutosOff.TabIndex = 32;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.OrangeRed;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.buttonMenu);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1373, 143);
+            this.panel1.TabIndex = 3;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::SoftwareLojasRibeiro.Properties.Resources.Logo_Lojas_Ribeiro_Transparente_menor;
+            this.pictureBox1.Location = new System.Drawing.Point(1200, 6);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(163, 127);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
+            // buttonMenu
+            // 
+            this.buttonMenu.BackColor = System.Drawing.Color.Red;
+            this.buttonMenu.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F);
+            this.buttonMenu.Location = new System.Drawing.Point(-1, -1);
+            this.buttonMenu.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.buttonMenu.Name = "buttonMenu";
+            this.buttonMenu.Size = new System.Drawing.Size(125, 39);
+            this.buttonMenu.TabIndex = 0;
+            this.buttonMenu.Text = "Menu";
+            this.buttonMenu.UseVisualStyleBackColor = false;
+            this.buttonMenu.Click += new System.EventHandler(this.buttonMenu_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 21.75F);
+            this.label1.Location = new System.Drawing.Point(89, 57);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(220, 33);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Área Produtos";
+            // 
+            // toolStripStatusLabel3
+            // 
+            this.toolStripStatusLabel3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(151, 17);
+            this.toolStripStatusLabel3.Text = "Software Desenvolvido por:";
+            // 
+            // toolStripStatusLabelDevMath
+            // 
+            this.toolStripStatusLabelDevMath.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.toolStripStatusLabelDevMath.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabelDevMath.ForeColor = System.Drawing.Color.Blue;
+            this.toolStripStatusLabelDevMath.IsLink = true;
+            this.toolStripStatusLabelDevMath.Name = "toolStripStatusLabelDevMath";
+            this.toolStripStatusLabelDevMath.Size = new System.Drawing.Size(174, 17);
+            this.toolStripStatusLabelDevMath.Text = "Matheus Venâncio Scomparim";
+            // 
+            // toolStripStatusLabel4
+            // 
+            this.toolStripStatusLabel4.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
+            this.toolStripStatusLabel4.Size = new System.Drawing.Size(13, 17);
+            this.toolStripStatusLabel4.Text = "e";
+            // 
+            // toolStripStatusLabelDevLeandro
+            // 
+            this.toolStripStatusLabelDevLeandro.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.toolStripStatusLabelDevLeandro.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabelDevLeandro.ForeColor = System.Drawing.Color.Blue;
+            this.toolStripStatusLabelDevLeandro.IsLink = true;
+            this.toolStripStatusLabelDevLeandro.Name = "toolStripStatusLabelDevLeandro";
+            this.toolStripStatusLabelDevLeandro.Size = new System.Drawing.Size(87, 17);
+            this.toolStripStatusLabelDevLeandro.Text = "Leandro Lopes";
+            // 
             // FormProdutos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Goldenrod;
             this.ClientSize = new System.Drawing.Size(1373, 747);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.tabControlProdutos);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F);
@@ -573,19 +665,22 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lojas Ribeiro - Produtos";
             this.Load += new System.EventHandler(this.FormProdutos_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
+            this.tabControlProdutos.ResumeLayout(false);
+            this.tabPageCadastrar.ResumeLayout(false);
+            this.tabPageCadastrar.PerformLayout();
             this.tabPageProdutos.ResumeLayout(false);
             this.tabPageProdutos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProdutos)).EndInit();
-            this.tabPageCadastrar.ResumeLayout(false);
-            this.tabPageCadastrar.PerformLayout();
-            this.tabControlProdutos.ResumeLayout(false);
             this.tabPageProdutosOff.ResumeLayout(false);
             this.tabPageProdutosOff.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProdutosOff)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -631,5 +726,14 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox textBoxPesquisaProdOff;
         private System.Windows.Forms.DataGridView dataGridViewProdutosOff;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        public System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelUsuario;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        public System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelTipoUsuario;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelDevMath;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelDevLeandro;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using SoftwareLojasRibeiro.br.com.project.DAO;
+using SoftwareLojasRibeiro.br.com.project.MODEL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,6 +30,8 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             dataGridViewDetalhes.ColumnHeadersDefaultCellStyle.Font = new Font("Arial Rounded MT Bold", 18, FontStyle.Bold);
             dataGridViewDetalhes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridViewDetalhes.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+
+            new Helpers().AjustarControles(this); // Salva os tamanhos originais dos controles
         }
 
         #region Lixos

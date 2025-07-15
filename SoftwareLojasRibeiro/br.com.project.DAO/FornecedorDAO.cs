@@ -85,7 +85,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                                 Telefone, 
                                 Celular, 
                                 Cep, 
-                                Endereco 
+                                Endereco AS 'Endereço' 
                                 FROM tb_fornecedores
                                 WHERE Status = TRUE";
 
@@ -142,7 +142,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                                 Telefone, 
                                 Celular, 
                                 Cep, 
-                                Endereco 
+                                Endereco AS 'Endereço' 
                                 FROM tb_fornecedores
                                 WHERE Status = TRUE";
 
@@ -199,7 +199,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                                 Telefone, 
                                 Celular, 
                                 Cep, 
-                                Endereco 
+                                Endereco AS 'Endereço' 
                                 FROM tb_fornecedores
                                 WHERE Status = FALSE";
 
@@ -256,7 +256,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                                 Telefone, 
                                 Celular, 
                                 Cep, 
-                                Endereco 
+                                Endereco AS 'Endereço' 
                                 FROM tb_fornecedores
                                 WHERE Status = FALSE";
 

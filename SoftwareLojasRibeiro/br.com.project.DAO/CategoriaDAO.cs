@@ -77,7 +77,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                                 Id_Categoria_" + qual2 + @" as 'ID', 
                                 'Ativado' AS Status, 
                                 Nome, 
-                                Descricao, 
+                                Descricao AS 'Descrição', 
                                 Data_Cadastro as 'Data de Cadastro' 
                                 FROM tb_categoria_" + qual + " WHERE Status = TRUE";
                 if (!string.IsNullOrEmpty(cat.Nome))
@@ -128,7 +128,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                                 Id_Categoria_" + qual2 + @" as 'ID', 
                                 'Desativado' AS Status, 
                                 Nome, 
-                                Descricao, 
+                                Descricao AS 'Descrição', 
                                 Data_Cadastro as 'Data de Cadastro' 
                                 FROM tb_categoria_" + qual + " WHERE Status = FALSE";
                 if (!string.IsNullOrEmpty(cat.Nome))

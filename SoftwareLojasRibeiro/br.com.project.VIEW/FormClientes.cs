@@ -18,6 +18,8 @@ namespace SoftwareLojasRibeiro//.br.com.project.VIEW se n colocar isso aqui vai 
     public partial class FormClientes : BaseForm
     {
         PagamentoDAO pagaDAO = new PagamentoDAO();
+        Helpers help = new Helpers();
+
         public FormClientes()
         {
             InitializeComponent();
@@ -34,6 +36,30 @@ namespace SoftwareLojasRibeiro//.br.com.project.VIEW se n colocar isso aqui vai 
             dataGridViewClientesDesativados.DataSource = cliDAO.ListarClientesDesativados(cli);
             dataGridViewClientesDevedores.DataSource = devDAO.ListarDevedores(cli);
             dataGridViewClientesDevedoresOff.DataSource = devDAO.ListarDevedoresQuitados(cli);
+
+            List<DataGridView> tabelas = new List<DataGridView>
+            {
+                dataGridViewClientes,
+                dataGridViewClientesDesativados,
+                dataGridViewClientesDevedores,
+                dataGridViewClientesDevedoresOff
+            };
+
+            foreach (DataGridView t in tabelas)
+            {
+                t.DefaultCellStyle.Font = new Font("Arial Rounded MT", 16);
+                t.ColumnHeadersDefaultCellStyle.Font = new Font("Arial Rounded MT Bold", 18, FontStyle.Bold);
+                t.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                t.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            }
+
+            toolStripStatusLabelUsuario.Text = FormMenu.nomeusuariologado;
+            toolStripStatusLabelTipoUsuario.Text = FormMenu.tipousuariologado;
+
+            help.ConfigurarLinkToolStrip(toolStripStatusLabelDevMath, "https://www.linkedin.com/in/matheus-v-275924208/");
+            help.ConfigurarLinkToolStrip(toolStripStatusLabelDevLeandro, "https://www.linkedin.com/in/matheus-v-275924208/");
+
+            help.AjustarControles(this); // Salva os tamanhos originais dos controles
         }
         private void FormClientes_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -196,7 +222,7 @@ namespace SoftwareLojasRibeiro//.br.com.project.VIEW se n colocar isso aqui vai 
             if (sucesso)
             {
                 //LimparCampos();
-                new Helpers().LimparTela(this);
+                help.LimparTela(this);
                 buttonCadastrar.Text = "Cadastrar";
                 tabPageCadastrar.Text = "Cadastrar";
 
@@ -204,6 +230,7 @@ namespace SoftwareLojasRibeiro//.br.com.project.VIEW se n colocar isso aqui vai 
                 cli = new Cliente();
                 dataGridViewClientes.DataSource = dao.ListarClientes(cli); //atualizar tabela
             }
+            textBoxNome.Focus();
         }
  
         private void buttonAlterar_Click(object sender, EventArgs e)
@@ -270,9 +297,10 @@ namespace SoftwareLojasRibeiro//.br.com.project.VIEW se n colocar isso aqui vai 
         #region Botões Limpar
         private void buttonLimpar_Click(object sender, EventArgs e)
         {
-            new Helpers().LimparTela(this);
+            help.LimparTela(this);
             buttonCadastrar.Text = "Cadastrar";
             tabPageCadastrar.Text = "Cadastrar";
+            textBoxNome.Focus();
         }
 
         private void buttonLimparPesquisa_Click(object sender, EventArgs e)
@@ -342,8 +370,9 @@ namespace SoftwareLojasRibeiro//.br.com.project.VIEW se n colocar isso aqui vai 
 
         private void buttonBuscar_Click(object sender, EventArgs e)
         {
-            string end = new Helpers().BuscarCep(maskedTextBoxCep.Text);
+            string end = help.BuscarCep(maskedTextBoxCep.Text);
             textBoxEndereco.Text = end;
+            textBoxEndereco.Focus();
         }
 
         private void buttonMenu_Click(object sender, EventArgs e)
@@ -448,6 +477,11 @@ namespace SoftwareLojasRibeiro//.br.com.project.VIEW se n colocar isso aqui vai 
             }
         }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            //toolStripStatusLabelData.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+        }
+
         #region Lixos
         private void label14_Click(object sender, EventArgs e) { }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
@@ -456,6 +490,7 @@ namespace SoftwareLojasRibeiro//.br.com.project.VIEW se n colocar isso aqui vai 
         private void buttonPesquisar_Click(object sender, EventArgs e) { }
         private void dataGridViewClientes_CellClick(object sender, DataGridViewCellEventArgs e) { }
         private void textBoxPesquisaDevedor_KeyPress(object sender, EventArgs e) { }
-        #endregion
+        private void tabPageCadastrar_Click(object sender, EventArgs e) { }
+        #endregion        
     }
 }

@@ -191,7 +191,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
 
                 // Se o nome for informado, adicionamos um filtro na consulta
                 string sql = @"SELECT 
-                                v.Id_Venda, 
+                                v.Id_Venda 'ID Venda', 
                                 c.Id_Cliente AS 'ID Cliente', 
                                 c.Nome AS 'Nome Cliente', 
                                 c.Cpf, 

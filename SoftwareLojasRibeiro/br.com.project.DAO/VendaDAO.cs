@@ -96,14 +96,15 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
             {
                 DataTable dt = new DataTable();
 
-                string sql = @"SELECT v.Id_Venda AS 'ID', 
+                string sql = @"SELECT 
+                                v.Id_Venda AS 'ID', 
                                 c.Nome AS 'Cliente', 
                                 v.Data_Venda AS 'Data da Venda', 
                                 v.Total_Venda AS 'Total (R$)', 
-                                v.Desconto, 
-                                v.Valor_Pago, 
+                                v.Desconto AS 'Desconto (R$)', 
+                                v.Valor_Pago AS 'Valor Pago (R$)', 
                                 v.Status, 
-                                v.Observacoes 
+                                v.Observacoes AS 'Observações' 
                             FROM tb_vendas AS v 
                             INNER JOIN tb_clientes AS c ON (v.Cliente_Id=c.Id_Cliente) 
                             WHERE v.Data_Venda BETWEEN @inicio AND @fim";
@@ -145,8 +146,8 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                                 c.Nome AS 'Cliente', 
                                 v.Data_Venda AS 'Data da Venda', 
                                 v.Total_Venda AS 'Total (R$)', 
-                                v.Desconto, 
-                                v.Valor_Pago, 
+                                v.Desconto AS 'Desconto (R$)', 
+                                v.Valor_Pago AS 'Valor Pago (R$)', 
                                 v.Status, 
                                 v.Observacoes 
                             FROM tb_vendas AS v 

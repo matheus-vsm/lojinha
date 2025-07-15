@@ -14,6 +14,8 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 {
     public partial class FormCompras : BaseForm
     {
+        Helpers help = new Helpers();
+
         DataTable carrinhoCompras = new DataTable();
         decimal totalcompra, subtotal;
 
@@ -42,7 +44,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             CompraProdutos compra = new CompraProdutos();
             dataGridViewCompras.DataSource = compradao.ListarCompras(compra);
 
-            new Helpers().LimparTela(this);
+            help.LimparTela(this);
 
             carrinhoCompras.Columns.Add("Fornecedor", typeof(string));
             carrinhoCompras.Columns.Add("Produto", typeof(string));
@@ -66,6 +68,14 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             dataGridViewCompras.ColumnHeadersDefaultCellStyle.Font = new Font("Arial Rounded MT Bold", 22, FontStyle.Bold);
             dataGridViewCompras.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridViewCompras.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+
+            toolStripStatusLabelUsuario.Text = FormMenu.nomeusuariologado;
+            toolStripStatusLabelTipoUsuario.Text = FormMenu.tipousuariologado;
+
+            help.ConfigurarLinkToolStrip(toolStripStatusLabelDevMath, "https://www.linkedin.com/in/matheus-v-275924208/");
+            help.ConfigurarLinkToolStrip(toolStripStatusLabelDevLeandro, "https://www.linkedin.com/in/matheus-v-275924208/");
+
+            help.AjustarControles(this); // Salva os tamanhos originais dos controles
         }
 
         public void SelecionarLinhaTabelaComprasDetalhes()
@@ -127,7 +137,13 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
         private void buttonAdicionar_Click(object sender, EventArgs e)
         {
-            if (!Helpers.VerificarCamposPreenchidos(this, new List<string> { "textBoxID", "textBoxDescricao", "textBoxTotalCompra" }, "tabPageCadastrar"))
+            List<string> campos = new List<string>
+            {
+                "textBoxID",
+                "textBoxDescricao",
+                "textBoxTotalCompra"
+            };
+            if (!Helpers.VerificarCamposPreenchidos(this, campos, "tabPageCadastrar"))
             {
                 MessageBox.Show("Por favor, preencha todos os campos obrigatórios.", "Campos Obrigatórios", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -157,6 +173,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             comboBoxCategPub.Text = string.Empty;
             comboBoxFornecedor.SelectedItem = -1;
             comboBoxFornecedor.Text = string.Empty;
+            comboBoxCategProd.Focus();
         }
 
         private void buttonRemover_Click(object sender, EventArgs e)
@@ -194,7 +211,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 MessageBox.Show("Nenhum Produto foi adicionado ao Carrinho!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            bool confimacao = new Helpers().Confirmacao();
+            bool confimacao = help.Confirmacao();
             if (confimacao == false)
             {
                 return;
@@ -274,12 +291,12 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
             if (sucessocompra && sucessoprod)
             {
-                new Helpers().LimparTelaVendas(this);
+                help.LimparTelaVendas(this);
                 CompraProdutosDAO compradao = new CompraProdutosDAO();
                 CompraProdutos compras = new CompraProdutos();
                 dataGridViewCompras.DataSource = compradao.ListarCompras(compras);
             }
-
+            comboBoxCategProd.Focus();
             //MessageBox.Show("Compra registrada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -290,8 +307,10 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
         private void buttonLimpar_Click(object sender, EventArgs e)
         {
-            new Helpers().LimparTelaVendas(this);
-            totalcompra = 0;
+            string totalzinho = textBoxTotalCompra.Text;
+            help.LimparTelaCompras(this);
+            textBoxTotalCompra.Text = totalzinho;
+            comboBoxCategProd.Focus();
         }
 
         private void buttonPesquisar_Click(object sender, EventArgs e)

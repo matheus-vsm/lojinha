@@ -192,6 +192,7 @@
     <Compile Include="br.com.project.MODEL\ItensVenda.cs" />
     <Compile Include="br.com.project.MODEL\Pagamento.cs" />
     <Compile Include="br.com.project.MODEL\Produto.cs" />
+    <Compile Include="br.com.project.MODEL\Usuario.cs" />
     <Compile Include="br.com.project.MODEL\Venda.cs" />
     <Compile Include="br.com.project.VIEW\BaseForm.cs">
       <SubType>Form</SubType>

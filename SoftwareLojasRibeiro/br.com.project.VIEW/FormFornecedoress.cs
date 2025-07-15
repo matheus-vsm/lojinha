@@ -14,6 +14,8 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 {
     public partial class FormFornecedoress : BaseForm
     {
+        Helpers help = new Helpers();
+
         public FormFornecedoress()
         {
             InitializeComponent();
@@ -25,6 +27,28 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             Fornecedor Forn = new Fornecedor { Nome = textBoxPesquisaNome.Text };
             dataGridViewFornecedores.DataSource = dao.ListarFornecedores(Forn);
             dataGridViewFornecedoresOff.DataSource = dao.ListarFornecedoresDesativados(Forn);
+
+            List<DataGridView> tabelas = new List<DataGridView>
+            {
+                dataGridViewFornecedores,
+                dataGridViewFornecedoresOff
+            };
+
+            foreach (DataGridView t in tabelas)
+            {
+                t.DefaultCellStyle.Font = new Font("Arial Rounded MT", 16);
+                t.ColumnHeadersDefaultCellStyle.Font = new Font("Arial Rounded MT Bold", 18, FontStyle.Bold);
+                t.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                t.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            }
+
+            toolStripStatusLabelUsuario.Text = FormMenu.nomeusuariologado;
+            toolStripStatusLabelTipoUsuario.Text = FormMenu.tipousuariologado;
+
+            help.ConfigurarLinkToolStrip(toolStripStatusLabelDevMath, "https://www.linkedin.com/in/matheus-v-275924208/");
+            help.ConfigurarLinkToolStrip(toolStripStatusLabelDevLeandro, "https://www.linkedin.com/in/matheus-v-275924208/");
+
+            help.AjustarControles(this); // Salva os tamanhos originais dos controles
         }
 
         public void SelecionarLinhaTabelaFornecedores()
@@ -34,13 +58,13 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 FornecedorDAO dao = new FornecedorDAO();
 
                 textBoxID.Text = dataGridViewFornecedores.CurrentRow.Cells[0].Value?.ToString() ?? "";
-                textBoxNome.Text = dataGridViewFornecedores.CurrentRow.Cells[1].Value?.ToString() ?? "";
-                maskedTextBoxCnpj.Text = dataGridViewFornecedores.CurrentRow.Cells[2].Value?.ToString() ?? "";
-                textBoxEmail.Text = dataGridViewFornecedores.CurrentRow.Cells[3].Value?.ToString() ?? "";
-                maskedTextBoxTelefone.Text = dataGridViewFornecedores.CurrentRow.Cells[4].Value?.ToString() ?? "";
-                maskedTextBoxCelular.Text = dataGridViewFornecedores.CurrentRow.Cells[5].Value?.ToString() ?? "";
-                maskedTextBoxCep.Text = dataGridViewFornecedores.CurrentRow.Cells[6].Value?.ToString() ?? "";
-                textBoxEndereco.Text = dataGridViewFornecedores.CurrentRow.Cells[7].Value?.ToString() ?? "";
+                textBoxNome.Text = dataGridViewFornecedores.CurrentRow.Cells[2].Value?.ToString() ?? "";
+                maskedTextBoxCnpj.Text = dataGridViewFornecedores.CurrentRow.Cells[3].Value?.ToString() ?? "";
+                textBoxEmail.Text = dataGridViewFornecedores.CurrentRow.Cells[4].Value?.ToString() ?? "";
+                maskedTextBoxTelefone.Text = dataGridViewFornecedores.CurrentRow.Cells[5].Value?.ToString() ?? "";
+                maskedTextBoxCelular.Text = dataGridViewFornecedores.CurrentRow.Cells[6].Value?.ToString() ?? "";
+                maskedTextBoxCep.Text = dataGridViewFornecedores.CurrentRow.Cells[7].Value?.ToString() ?? "";
+                textBoxEndereco.Text = dataGridViewFornecedores.CurrentRow.Cells[8].Value?.ToString() ?? "";
             }
             else
             {
@@ -97,7 +121,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             if (sucesso)
             {
                 // Limpar os Campos
-                new Helpers().LimparTela(this);
+                help.LimparTela(this);
                 buttonCadastrar.Text = "Cadastrar";
                 tabPageCadastrar.Text = "Cadastrar";
 
@@ -106,19 +130,22 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
                 dataGridViewFornecedores.DataSource = dao.ListarFornecedores(Forn);
             }
+            textBoxNome.Focus();
         }
 
         private void buttonBuscar_Click(object sender, EventArgs e)
         {
-            string end = new Helpers().BuscarCep(maskedTextBoxCep.Text);
+            string end = help.BuscarCep(maskedTextBoxCep.Text);
             textBoxEndereco.Text = end;
+            textBoxEndereco.Focus();
         }
 
         private void buttonLimpar_Click(object sender, EventArgs e)
         {
-            new Helpers().LimparTela(this);
+            help.LimparTela(this);
             buttonCadastrar.Text = "Cadastrar";
             tabPageCadastrar.Text = "Cadastrar";
+            textBoxNome.Focus();
         }
 
         private void buttonAltera_Click(object sender, EventArgs e)

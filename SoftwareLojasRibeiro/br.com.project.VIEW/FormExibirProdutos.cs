@@ -20,7 +20,7 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             InitializeComponent();
             telinha = tela;
             FormClosed += FormExibirProdutos_FormClosed;
-            labelTeste.Text += telinha.Text;
+            //labelTeste.Text += telinha.Text;
         }
 
         private void FormExibirProdutos_FormClosed(object sender, FormClosedEventArgs e)
@@ -56,6 +56,13 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             ProdutoDAO prodao = new ProdutoDAO();
             Produto prod = new Produto();
             dataGridViewProds.DataSource = prodao.ListarProdutos(prod);
+
+            dataGridViewProds.DefaultCellStyle.Font = new Font("Arial Rounded MT", 12);
+            dataGridViewProds.ColumnHeadersDefaultCellStyle.Font = new Font("Arial Rounded MT Bold", 14, FontStyle.Bold);
+            dataGridViewProds.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridViewProds.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+
+            new Helpers().AjustarControles(this); // Salva os tamanhos originais dos controles
         }
 
         public void Pesquisar()
@@ -103,7 +110,6 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
                 if (textBoxID != null)
                     textBoxID.ReadOnly = true;
                 textBoxPreco.ReadOnly = false;
-                textBoxEstoque.ReadOnly = false;
                 textBoxQuantidade.ReadOnly = false;
             }
             else

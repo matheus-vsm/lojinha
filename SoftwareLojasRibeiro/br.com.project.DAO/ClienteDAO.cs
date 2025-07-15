@@ -100,7 +100,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                                 Numero, 
                                 Datanasc as 'Data de Nascimento', 
                                 Cep, 
-                                Endereco 
+                                Endereco AS 'Endereço' 
                                 FROM tb_clientes
                                 WHERE Status = TRUE";
                 if (!string.IsNullOrEmpty(cli.Nome))
@@ -157,7 +157,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                                 Numero, 
                                 Datanasc AS 'Data de Nascimento', 
                                 Cep, 
-                                Endereco 
+                                Endereco AS 'Endereço' 
                                 FROM tb_clientes
                                 WHERE Status = TRUE";
                 if (!string.IsNullOrEmpty(cli.Cpf))
@@ -214,7 +214,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                                 Numero, 
                                 Datanasc as 'Data de Nascimento', 
                                 Cep, 
-                                Endereco 
+                                Endereco AS 'Endereço' 
                                 FROM tb_clientes
                                 WHERE Status = FALSE";
                 if (!string.IsNullOrEmpty(cli.Nome))
@@ -271,7 +271,7 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                                 Numero, 
                                 Datanasc AS 'Data de Nascimento', 
                                 Cep, 
-                                Endereco 
+                                Endereco AS 'Endereço' 
                                 FROM tb_clientes
                                 WHERE Status = FALSE";
                 if (!string.IsNullOrEmpty(cli.Cpf))
@@ -323,9 +323,9 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                                 c.Id_Cliente AS 'ID do Cliente', 
                                 c.Nome, 
                                 c.Cpf, 
-	                            v.Total_Venda AS 'Total da Venda', 
-                                v.Valor_Pago AS 'Valor Pago', 
-                                (v.Total_Venda - v.Valor_Pago) AS 'Dívida', 
+	                            v.Total_Venda AS 'Total da Venda (R$)', 
+                                v.Valor_Pago AS 'Valor Pago (R$)', 
+                                (v.Total_Venda - v.Valor_Pago) AS 'Dívida (R$)', 
                                 v.Data_Venda AS 'Data da Venda', 
                                 v.Observacoes AS 'Observações', 
                                 c.Email, 
@@ -380,9 +380,9 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                                 v.Data_Venda AS 'Data da Venda', 
                                 v.Total_Venda AS 'Total (R$)', 
                                 v.Desconto, 
-                                v.Valor_Pago, 
+                                v.Valor_Pago 'Valor Pago (R$)', 
                                 v.Status, 
-                                v.Observacoes 
+                                v.Observacoes AS 'Observações' 
                             FROM tb_vendas AS v 
                             INNER JOIN tb_clientes AS c ON (v.Cliente_Id=c.Id_Cliente) 
                             WHERE c.Id_Cliente = @id 
@@ -664,6 +664,11 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                 if (rs.Read())
                 {
                     total = rs.GetDecimal("Total Gasto").ToString();
+                    if (total == null || total == "0.00")
+                    {
+                        MessageBox.Show("Esse Cliente ainda Não Gastou Nada.");
+                        return total;
+                    }
                     return total;
                 }
                 else
@@ -704,6 +709,11 @@ namespace SoftwareLojasRibeiro.br.com.project.DAO
                 if (rs.Read())
                 {
                     total = rs.GetInt32("Total de Compras").ToString();
+                    if (total == "0")
+                    {
+                        MessageBox.Show("Esse Cliente ainda Não Possui Nenhuma Compra.");
+                        return total;
+                    }
                     return total;
                 }
                 else

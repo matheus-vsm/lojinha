@@ -9,6 +9,8 @@ using Org.BouncyCastle.Crypto.Generators;
 using BCrypt.Net;
 using System.Data;
 using SoftwareLojasRibeiro.br.com.project.VIEW;
+using System.Drawing;
+using System.ComponentModel;
 
 namespace SoftwareLojasRibeiro.br.com.project.MODEL
 {
@@ -67,9 +69,17 @@ namespace SoftwareLojasRibeiro.br.com.project.MODEL
         }
         #endregion
 
+        #region HashSenha2
+        // Método para criptografar a senha antes de salvar no banco
+        public string HashSenha2(string senha)
+        {
+            return BCrypt.Net.BCrypt.HashPassword(senha);
+        }
+        #endregion
+
         #region VerificarSenha
         // Método para verificar se a senha digitada corresponde ao hash armazenado
-        public static bool VerificarSenha(string senhaDigitada, string senhaArmazenada)
+        public bool VerificarSenha(string senhaDigitada, string senhaArmazenada)
         {
             return BCrypt.Net.BCrypt.Verify(senhaDigitada, senhaArmazenada);
         }
@@ -96,7 +106,55 @@ namespace SoftwareLojasRibeiro.br.com.project.MODEL
                 LimparControle(ctrPai);
             }
         }
+        #endregion
 
+        #region LimparTelaCompras
+        public void LimparTelaCompras(Control tela)
+        {
+            foreach (Control ctrPai in tela.Controls)
+            {
+                if (ctrPai is DataGridView)
+                {
+                    // Ignorar DataGridView, não limpar seus dados
+                    continue;
+                }
+                LimparControleMenosTabela(ctrPai);
+            }
+        }
+        #endregion
+
+        #region LimparControleMenosTabela
+        private void LimparControleMenosTabela(Control controle)
+        {
+            if (controle is DataGridView)
+            {
+                // Ignorar DataGridView completamente
+                return;
+            }
+            else if (controle is TextBox)
+            {
+                (controle as TextBox).Clear();
+            }
+            else if (controle is MaskedTextBox)
+            {
+                (controle as MaskedTextBox).Clear();
+            }
+            else if (controle is ComboBox)
+            {
+                (controle as ComboBox).SelectedIndex = -1;
+                (controle as ComboBox).Text = string.Empty;
+            }
+            else if (controle.HasChildren)
+            {
+                foreach (Control child in controle.Controls)
+                {
+                    LimparControleMenosTabela(child);
+                }
+            }
+        }
+        #endregion
+
+        #region LimparControle
         private void LimparControle(Control controle)
         {
             if (controle is TextBox)
@@ -235,19 +293,25 @@ namespace SoftwareLojasRibeiro.br.com.project.MODEL
                 else return false; // TabControl não encontrado
             }
 
-            foreach (Control controle in parent.Controls)
+            // Usar uma pilha para evitar recursão infinita
+            Stack<Control> controles = new Stack<Control>();
+            controles.Push(parent);
+
+            while (controles.Count > 0)
             {
+                Control controleAtual = controles.Pop();
+
                 // Verificar se o controle deve ser ignorado
-                if (camposIgnorados != null && camposIgnorados.Contains(controle.Name))
+                if (camposIgnorados != null && camposIgnorados.Contains(controleAtual.Name))
                 {
                     continue; // Pula esse campo
                 }
 
-                if (controle is TextBox textBox && string.IsNullOrWhiteSpace(textBox.Text))
+                if (controleAtual is TextBox textBox && string.IsNullOrWhiteSpace(textBox.Text))
                 {
                     return false; // Campo vazio encontrado
                 }
-                else if (controle is MaskedTextBox maskedTextBox)
+                else if (controleAtual is MaskedTextBox maskedTextBox)
                 {
                     // Verifica se o texto "limpo" (sem espaços e símbolos) está vazio
                     string textoSemMascara = maskedTextBox.Text.Replace("(", "")
@@ -263,17 +327,152 @@ namespace SoftwareLojasRibeiro.br.com.project.MODEL
                         return false; // Campo MaskedTextBox vazio mesmo que visualmente tenha máscara
                     }
                 }
-                else if (controle is ComboBox comboBox && (comboBox.SelectedItem == null || string.IsNullOrWhiteSpace(comboBox.Text)))
+                else if (controleAtual is ComboBox comboBox && (comboBox.SelectedItem == null || string.IsNullOrWhiteSpace(comboBox.Text)))
                 {
                     return false; // Campo vazio encontrado
                 }
-                else if (controle.HasChildren)
+
+                // Adicionar controles filhos à pilha
+                foreach (Control child in controleAtual.Controls)
                 {
-                    // Verificar recursivamente os controles filhos
-                    if (!VerificarCamposPreenchidos(controle, camposIgnorados, tabPageName)) return false;
+                    controles.Push(child);
                 }
             }
             return true; // Todos os campos estão preenchidos
+        }
+        #endregion
+
+        #region AjustarControles
+        public void AjustarControles(Control container)
+        {
+            foreach (Control ctrl in container.Controls)
+            {
+                // Calcula os limites relativos do controle ao contêiner
+                bool anchorLeft = ctrl.Left <= container.Width / 3;
+                bool anchorRight = (ctrl.Right >= container.Width * 2 / 3);
+                bool anchorTop = ctrl.Top <= container.Height / 3;
+                bool anchorBottom = (ctrl.Bottom >= container.Height * 2 / 3);
+
+                AnchorStyles anchor = AnchorStyles.None;
+                if (anchorLeft) anchor |= AnchorStyles.Left;
+                if (anchorRight) anchor |= AnchorStyles.Right;
+                if (anchorTop) anchor |= AnchorStyles.Top;
+                if (anchorBottom) anchor |= AnchorStyles.Bottom;
+
+                ctrl.Anchor = anchor;
+
+                // Chamada recursiva para controles filhos (ex: painéis)
+                if (ctrl.HasChildren)
+                    AjustarControles(ctrl);
+            }
+        }
+        #endregion
+
+        #region AjustarControlesRecursivo
+        /// <summary>
+        /// Ajusta os controles recursivamente com base nos tamanhos originais.
+        /// </summary>
+        /// <param name="controle">O controle a ser ajustado.</param>
+        /// <param name="originalSizes">Dicionário contendo os tamanhos e posições originais dos controles.</param>
+        private void AjustarControlesRecursivo(Control controle, Dictionary<Control, Rectangle> originalSizes)
+        {
+            foreach (Control child in controle.Controls)
+            {
+                if (originalSizes.ContainsKey(child))
+                {
+                    Rectangle original = originalSizes[child];
+
+                    // Calcula a proporção de redimensionamento
+                    float xRatio = (float)controle.ClientSize.Width / originalSizes[controle].Width;
+                    float yRatio = (float)controle.ClientSize.Height / originalSizes[controle].Height;
+
+                    // Ajusta a posição e o tamanho do controle
+                    child.Location = new Point((int)(original.X * xRatio), (int)(original.Y * yRatio));
+                    child.Size = new Size((int)(original.Width * xRatio), (int)(original.Height * yRatio));
+                }
+
+                // Ajusta os controles filhos recursivamente
+                if (child.HasChildren)
+                {
+                    AjustarControlesRecursivo(child, originalSizes);
+                }
+            }
+        }
+        #endregion
+
+        #region SaveOriginalSizes
+        /// <summary>
+        /// Salva os tamanhos e posições originais dos controles de um formulário.
+        /// </summary>
+        /// <param name="tela">O formulário cujos tamanhos e posições dos controles serão salvos.</param>
+        public void SaveOriginalSizes(Form tela)
+        {
+            // Cria um dicionário para armazenar os tamanhos e posições originais
+            Dictionary<Control, Rectangle> originalSizes = new Dictionary<Control, Rectangle>();
+
+            // Percorre todos os controles do formulário
+            foreach (Control controle in tela.Controls)
+            {
+                // Salva o tamanho e a posição original do controle
+                originalSizes[controle] = new Rectangle(controle.Location, controle.Size);
+
+                // Se o controle tiver filhos, salva os tamanhos e posições originais recursivamente
+                if (controle.HasChildren)
+                {
+                    SaveOriginalSizesRecursivo(controle, originalSizes);
+                }
+            }
+
+            // Armazena o dicionário no Tag do formulário para uso posterior
+            tela.Tag = originalSizes;
+        }
+        #endregion
+
+        #region SaveOriginalSizesRecursivo
+        /// <summary>
+        /// Salva os tamanhos e posições originais dos controles filhos recursivamente.
+        /// </summary>
+        /// <param name="controle">O controle pai cujos filhos serão processados.</param>
+        /// <param name="originalSizes">O dicionário onde os tamanhos e posições serão armazenados.</param>
+        private void SaveOriginalSizesRecursivo(Control controle, Dictionary<Control, Rectangle> originalSizes)
+        {
+            foreach (Control child in controle.Controls)
+            {
+                // Salva o tamanho e a posição original do controle filho
+                originalSizes[child] = new Rectangle(child.Location, child.Size);
+
+                // Se o controle filho também tiver filhos, chama recursivamente
+                if (child.HasChildren)
+                {
+                    SaveOriginalSizesRecursivo(child, originalSizes);
+                }
+            }
+        }
+        #endregion
+
+        #region ConfigurarLinkToolStrip
+        public void ConfigurarLinkToolStrip(ToolStripStatusLabel toolStripLabel, string url)
+        {
+            if (toolStripLabel == null || string.IsNullOrEmpty(url))
+                throw new ArgumentNullException("O ToolStripStatusLabel ou a URL não podem ser nulos.");
+
+            // Configura o cursor para indicar que é clicável
+            toolStripLabel.IsLink = true;
+            toolStripLabel.LinkBehavior = LinkBehavior.HoverUnderline;
+            toolStripLabel.LinkColor = Color.Blue;
+
+            // Adiciona o evento de clique
+            toolStripLabel.Click += (sender, e) =>
+            {
+                try
+                {
+                    System.Diagnostics.Process.Start(url);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Não foi possível abrir o link: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            };
         }
         #endregion
     }
