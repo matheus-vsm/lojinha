@@ -43,8 +43,6 @@
             this.toolStripStatusLabelTipoUsuario = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelDevMath = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabelDevLeandro = new System.Windows.Forms.ToolStripStatusLabel();
             this.label18 = new System.Windows.Forms.Label();
             this.textBoxLogin = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -210,9 +208,7 @@
             this.toolStripStatusLabel2,
             this.toolStripStatusLabelTipoUsuario,
             this.toolStripStatusLabel1,
-            this.toolStripStatusLabelDevMath,
-            this.toolStripStatusLabel4,
-            this.toolStripStatusLabelDevLeandro});
+            this.toolStripStatusLabelDevMath});
             this.statusStrip1.Location = new System.Drawing.Point(4, 546);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1357, 22);
@@ -261,23 +257,6 @@
             this.toolStripStatusLabelDevMath.Name = "toolStripStatusLabelDevMath";
             this.toolStripStatusLabelDevMath.Size = new System.Drawing.Size(174, 17);
             this.toolStripStatusLabelDevMath.Text = "Matheus Venâncio Scomparim";
-            // 
-            // toolStripStatusLabel4
-            // 
-            this.toolStripStatusLabel4.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
-            this.toolStripStatusLabel4.Size = new System.Drawing.Size(13, 17);
-            this.toolStripStatusLabel4.Text = "e";
-            // 
-            // toolStripStatusLabelDevLeandro
-            // 
-            this.toolStripStatusLabelDevLeandro.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.toolStripStatusLabelDevLeandro.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripStatusLabelDevLeandro.ForeColor = System.Drawing.Color.Blue;
-            this.toolStripStatusLabelDevLeandro.IsLink = true;
-            this.toolStripStatusLabelDevLeandro.Name = "toolStripStatusLabelDevLeandro";
-            this.toolStripStatusLabelDevLeandro.Size = new System.Drawing.Size(87, 17);
-            this.toolStripStatusLabelDevLeandro.Text = "Leandro Lopes";
             // 
             // label18
             // 
@@ -881,7 +860,5 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelDevMath;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelDevLeandro;
     }
 }
