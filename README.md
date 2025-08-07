@@ -9,3 +9,5 @@
 ### A primeira etapa do projeto, se encontra na [Main](https://github.com/matheus-vsm/lojinha) e nessa [Branch](https://github.com/matheus-vsm/lojinha/tree/novonovo).
 ### A Implementação do EF Core está sendo desenvolvido nessa [Branch](https://github.com/matheus-vsm/lojinha/tree/2%C2%B0-Etapa---Adi%C3%A7%C3%A3o-do-Entity-Framework).
 ### A criação da Minimal API Rest, documentação Swagger e criação da aplicação Blazor serão implementados e publicados em breve.
+
+### Software Desenvolvido por [Matheus Venâncio Scomparim](https://www.linkedin.com/in/matheus-v-275924208/).
