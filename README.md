@@ -1,5 +1,5 @@
 # Software Gestão Logística
-## Para fins de estudos, foi desenvolvido um software para auxiliar na gestão de uma loja (de roupas, por exemplo), onde há funcionalidades para gerir clientes, funcionários, fornecedores e a entrada e saída de produtos.
+## Para fins de estudos, foi desenvolvido um software para auxiliar na gestão de uma loja (nesse caso, foi pensado em uma loja de roupas), onde há funcionalidades para gerir clientes, funcionários, fornecedores e a entrada e saída de produtos.
 Inicialmente, foi utilizado o Visual Studio, C# para a criação dos códigos, WindowsForms para a Interface Gráfica e o MySQL para o Banco de Dados. Os próximos passos são: 
 - Implementar Entity Framework para otimização e interação,
 - Criar uma Minimal API Rest com suporte a operações HTTP (GET, POST, PUT, DELETE) para validação de entrada e integração com BD via EF Core,
