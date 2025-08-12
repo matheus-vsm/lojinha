@@ -1,0 +1,3 @@
+- Criei os Modelos do meu negócio, que são as classes que representam os dados da minha aplicação.
+- Criei o Contexto, que é a classe responsável por gerenciar a conexão com o banco de dados e as operações de CRUD.
+- Criei a Migration, que é a classe responsável por criar o banco de dados e as tabelas necessárias, criando também o histórico de alterações.
