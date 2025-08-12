@@ -9,13 +9,13 @@ namespace Lojinha.Modelos
     public class Venda
     {
         public int Id { get; set; }
-        public string IdCliente { get; set; }
-        public Cliente Cliente { get; set; }
-        public DateTime DataVenda { get; set; }
-        public double TotalVenda { get; set; }
-        public double Desconto { get; set; }
-        public double ValorPago { get; set; }
-        public StatusVenda Status { get; set; }
+        public required string IdCliente { get; set; }
+        public required Cliente Cliente { get; set; }
+        public required DateTime DataVenda { get; set; }
+        public required double TotalVenda { get; set; }
+        public double? Desconto { get; set; }
+        public required double ValorPago { get; set; }
+        public required StatusVenda Status { get; set; }
         public string? Observacoes { get; set; }
 
         public Venda() { }

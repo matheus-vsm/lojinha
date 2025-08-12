@@ -27,9 +27,9 @@ namespace Lojinha.Banco
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            // Configura o EF Core para usar o SQL Server como provedor de banco de dados e passa a string de conexão definida na variável 'connectionString'
             optionsBuilder
-           .UseSqlServer(connectionString)
-           .UseLazyLoadingProxies();
+           .UseSqlServer(connectionString);
         }
     }
 }

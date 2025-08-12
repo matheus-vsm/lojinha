@@ -9,13 +9,13 @@ namespace Lojinha.Modelos
     public class Fornecedor
     {
         public int Id { get; set; }
-        public string Nome { get; set; }
-        public string Cnpj { get; set; }
-        public string Email { get; set; }
-        public string Telefone { get; set; }
-        public string Celular { get; set; }
-        public string Cep { get; set; }
-        public string Endereco { get; set; }
+        public required string Nome { get; set; }
+        public required string Cnpj { get; set; }
+        public required string Email { get; set; }
+        public required string Telefone { get; set; }
+        public required string Celular { get; set; }
+        public required string Cep { get; set; }
+        public required string Endereco { get; set; }
         public bool Status { get; set; }
 
         public Fornecedor() { }

@@ -9,8 +9,8 @@ namespace Lojinha.Modelos
     public class CategoriaProduto
     {
         public int Id { get; set; }
-        public string Nome { get; set; }
-        public string Descricao { get; set; }
+        public required string Nome { get; set; }
+        public required string Descricao { get; set; }
         public DateTime DataCadastro { get; set; }
         public bool Status { get; set; }
 

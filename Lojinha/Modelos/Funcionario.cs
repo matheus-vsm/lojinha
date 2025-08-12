@@ -9,19 +9,19 @@ namespace Lojinha.Modelos
     public class Funcionario
     {
         public int Id { get; set; }
-        public string Nome { get; set; }
-        public string Cpf { get; set; }
-        public string Rg { get; set; }
-        public string Email { get; set; }
-        public string Telefone { get; set; }
-        public DateTime DataNascimento { get; set; }
-        public string Endereco { get; set; }
-        public string Cep { get; set; }
+        public required string Nome { get; set; }
+        public required string Cpf { get; set; }
+        public required string Rg { get; set; }
+        public required string Email { get; set; }
+        public required string Telefone { get; set; }
+        public DateTime? DataNascimento { get; set; }
+        public required string Endereco { get; set; }
+        public required string Cep { get; set; }
         public bool Status { get; set; }
 
         public Funcionario() { }
 
-        public Funcionario(string nome, string cpf, string rg, string email, string telefone, DateTime dataNascimento, string endereco, string cep, bool status)
+        public Funcionario(string nome, string cpf, string rg, string email, string telefone, DateTime? dataNascimento, string endereco, string cep, bool status)
         {
             Nome = nome;
             Cpf = cpf;
@@ -36,7 +36,7 @@ namespace Lojinha.Modelos
 
         public override string ToString()
         {
-            return $"Id: {Id}, Nome: {Nome}, CPF: {Cpf}, RG: {Rg}, Email: {Email}, Telefone: {Telefone}, Data de Nascimento: {DataNascimento.ToShortDateString()}, Endereço: {Endereco}, CEP: {Cep}, Status: {(Status ? "Ativo" : "Inativo")}";
+            return $"Id: {Id}, Nome: {Nome}, CPF: {Cpf}, RG: {Rg}, Email: {Email}, Telefone: {Telefone}, Data de Nascimento: {DataNascimento?.ToShortDateString()}, Endereço: {Endereco}, CEP: {Cep}, Status: {(Status ? "Ativo" : "Inativo")}";
         }
     }
 }
