@@ -14,7 +14,7 @@ namespace Lojinha.Banco
 
         public ClienteDAL(LojinhaContext context)
         {
-            this.context = new LojinhaContext(); //inicializa o contexto do banco de dados
+            this.context = new LojinhaContext(); // inicializa o contexto do banco de dados
         }
 
         public IEnumerable<Cliente> Listar()
