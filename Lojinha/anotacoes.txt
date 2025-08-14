@@ -1,3 +1,11 @@
+- Microsoft.Data.SqlClient: é um pacote oficial da Microsoft que permite que aplicações .NET se conectem e interajam com bancos SQL Server e Azure SQL, executando consultas, procedures, transações e manipulando dados de forma segura e eficiente. É a versão moderna e cross-platform do antigo System.Data.SqlClient.
+
+- Microsoft.EntityFrameworkCore.SqlServer: é um pacote que permite que o Entity Framework Core, um ORM (Object-Relational Mapper) para .NET, se conecte a bancos de dados SQL Server. Ele facilita a interação com o banco de dados usando LINQ e mapeamento de objetos, tornando o desenvolvimento mais produtivo e menos propenso a erros.
+
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+
 - Criei os Modelos do meu negócio, que são as classes que representam os dados da minha aplicação.
 - Criei o Contexto, que é a classe responsável por gerenciar a conexão com o banco de dados e as operações de CRUD.
 - Criei a Migration, que é a classe responsável por criar o banco de dados e as tabelas necessárias, criando também o histórico de alterações.
+- Criar as classes DAL de cada modelo, que são as classes responsáveis por realizar as operações de CRUD no banco de dados.
+- Criar a classe DAL genérica, que é uma classe que pode ser utilizada para realizar operações de CRUD em qualquer modelo, evitando a repetição de código.
