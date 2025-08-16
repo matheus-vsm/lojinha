@@ -111,9 +111,7 @@ namespace Lojinha.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    IdCategoriaProduto = table.Column<int>(type: "int", nullable: false),
                     CategoriaProdutoId = table.Column<int>(type: "int", nullable: false),
-                    IdCategoriaPublico = table.Column<int>(type: "int", nullable: false),
                     CategoriaPublicoId = table.Column<int>(type: "int", nullable: false),
                     Nome = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Marca = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -147,7 +145,6 @@ namespace Lojinha.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    IdCliente = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ClienteId = table.Column<int>(type: "int", nullable: false),
                     DataVenda = table.Column<DateTime>(type: "datetime2", nullable: false),
                     TotalVenda = table.Column<double>(type: "float", nullable: false),

@@ -46,7 +46,7 @@ namespace Lojinha.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CategoriaProdutos", (string)null);
+                    b.ToTable("CategoriaProdutos");
                 });
 
             modelBuilder.Entity("Lojinha.Modelos.CategoriaPublico", b =>
@@ -73,7 +73,7 @@ namespace Lojinha.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CategoriaPublicos", (string)null);
+                    b.ToTable("CategoriaPublicos");
                 });
 
             modelBuilder.Entity("Lojinha.Modelos.Cliente", b =>
@@ -120,7 +120,7 @@ namespace Lojinha.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Clientes", (string)null);
+                    b.ToTable("Clientes");
                 });
 
             modelBuilder.Entity("Lojinha.Modelos.Fornecedor", b =>
@@ -164,7 +164,7 @@ namespace Lojinha.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Fornecedores", (string)null);
+                    b.ToTable("Fornecedores");
                 });
 
             modelBuilder.Entity("Lojinha.Modelos.Funcionario", b =>
@@ -211,7 +211,7 @@ namespace Lojinha.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Funcionarios", (string)null);
+                    b.ToTable("Funcionarios");
                 });
 
             modelBuilder.Entity("Lojinha.Modelos.Produto", b =>
@@ -238,12 +238,6 @@ namespace Lojinha.Migrations
                     b.Property<int>("Estoque")
                         .HasColumnType("int");
 
-                    b.Property<int>("IdCategoriaProduto")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IdCategoriaPublico")
-                        .HasColumnType("int");
-
                     b.Property<string>("Marca")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -268,7 +262,7 @@ namespace Lojinha.Migrations
 
                     b.HasIndex("CategoriaPublicoId");
 
-                    b.ToTable("Produtos", (string)null);
+                    b.ToTable("Produtos");
                 });
 
             modelBuilder.Entity("Lojinha.Modelos.Venda", b =>
@@ -288,10 +282,6 @@ namespace Lojinha.Migrations
                     b.Property<double?>("Desconto")
                         .HasColumnType("float");
 
-                    b.Property<string>("IdCliente")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Observacoes")
                         .HasColumnType("nvarchar(max)");
 
@@ -308,7 +298,7 @@ namespace Lojinha.Migrations
 
                     b.HasIndex("ClienteId");
 
-                    b.ToTable("Vendas", (string)null);
+                    b.ToTable("Vendas");
                 });
 
             modelBuilder.Entity("Lojinha.Modelos.Produto", b =>

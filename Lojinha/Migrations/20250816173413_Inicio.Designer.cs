@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Lojinha.Migrations
 {
     [DbContext(typeof(LojinhaContext))]
-    [Migration("20250812121850_Inicio")]
+    [Migration("20250816173413_Inicio")]
     partial class Inicio
     {
         /// <inheritdoc />
@@ -241,12 +241,6 @@ namespace Lojinha.Migrations
                     b.Property<int>("Estoque")
                         .HasColumnType("int");
 
-                    b.Property<int>("IdCategoriaProduto")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IdCategoriaPublico")
-                        .HasColumnType("int");
-
                     b.Property<string>("Marca")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -290,10 +284,6 @@ namespace Lojinha.Migrations
 
                     b.Property<double?>("Desconto")
                         .HasColumnType("float");
-
-                    b.Property<string>("IdCliente")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Observacoes")
                         .HasColumnType("nvarchar(max)");

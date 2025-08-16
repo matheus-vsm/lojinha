@@ -9,7 +9,7 @@ namespace Lojinha.Modelos
     public class Venda
     {
         public int Id { get; set; }
-        public Cliente Cliente { get; set; }
+        public virtual Cliente Cliente { get; set; }
         public DateTime DataVenda { get; set; }
         public double TotalVenda { get; set; }
         public double? Desconto { get; set; }

@@ -9,8 +9,8 @@ namespace Lojinha.Modelos
     public class Produto
     {
         public int Id { get; set; }
-        public CategoriaProduto CategoriaProduto { get; set; }
-        public CategoriaPublico CategoriaPublico { get; set; }
+        public virtual CategoriaProduto CategoriaProduto { get; set; }
+        public virtual CategoriaPublico CategoriaPublico { get; set; }
         public string Nome { get; set; }
         public string Marca { get; set; }
         public string Cor { get; set; }
