@@ -8,4 +8,4 @@
 - Criei o Contexto, que é a classe responsável por gerenciar a conexão com o banco de dados e as operações de CRUD.
 - Criei a Migration, que é a classe responsável por criar o banco de dados e as tabelas necessárias, criando também o histórico de alterações.
 - Criar as classes DAL de cada modelo, que são as classes responsáveis por realizar as operações de CRUD no banco de dados.
-- Criar a classe DAL genérica, que é uma classe que pode ser utilizada para realizar operações de CRUD em qualquer modelo, evitando a repetição de código.
+- Criar a classe DAL genérica, que é uma classe que pode ser utilizada para realizar operações de CRUD em qualquer modelo, evitando a repetição de código. E é uma classe ABSTRACT, ou seja, não pode ser instanciada diretamente, mas pode ser herdada por outras classes, pois seu papel é apenas realizar as operações.
