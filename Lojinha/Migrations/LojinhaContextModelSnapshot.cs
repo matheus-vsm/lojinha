@@ -46,7 +46,7 @@ namespace Lojinha.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CategoriaProdutos");
+                    b.ToTable("CategoriaProdutos", (string)null);
                 });
 
             modelBuilder.Entity("Lojinha.Modelos.CategoriaPublico", b =>
@@ -73,7 +73,7 @@ namespace Lojinha.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CategoriaPublicos");
+                    b.ToTable("CategoriaPublicos", (string)null);
                 });
 
             modelBuilder.Entity("Lojinha.Modelos.Cliente", b =>
@@ -120,7 +120,7 @@ namespace Lojinha.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Clientes");
+                    b.ToTable("Clientes", (string)null);
                 });
 
             modelBuilder.Entity("Lojinha.Modelos.Fornecedor", b =>
@@ -164,7 +164,7 @@ namespace Lojinha.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Fornecedores");
+                    b.ToTable("Fornecedores", (string)null);
                 });
 
             modelBuilder.Entity("Lojinha.Modelos.Funcionario", b =>
@@ -211,7 +211,7 @@ namespace Lojinha.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Funcionarios");
+                    b.ToTable("Funcionarios", (string)null);
                 });
 
             modelBuilder.Entity("Lojinha.Modelos.Produto", b =>
@@ -268,7 +268,7 @@ namespace Lojinha.Migrations
 
                     b.HasIndex("CategoriaPublicoId");
 
-                    b.ToTable("Produtos");
+                    b.ToTable("Produtos", (string)null);
                 });
 
             modelBuilder.Entity("Lojinha.Modelos.Venda", b =>
@@ -308,7 +308,7 @@ namespace Lojinha.Migrations
 
                     b.HasIndex("ClienteId");
 
-                    b.ToTable("Vendas");
+                    b.ToTable("Vendas", (string)null);
                 });
 
             modelBuilder.Entity("Lojinha.Modelos.Produto", b =>

@@ -9,14 +9,14 @@ namespace Lojinha.Modelos
     public class Funcionario
     {
         public int Id { get; set; }
-        public required string Nome { get; set; }
-        public required string Cpf { get; set; }
-        public required string Rg { get; set; }
-        public required string Email { get; set; }
-        public required string Telefone { get; set; }
+        public string Nome { get; set; }
+        public string Cpf { get; set; }
+        public string Rg { get; set; }
+        public string Email { get; set; }
+        public string Telefone { get; set; }
         public DateTime? DataNascimento { get; set; }
-        public required string Endereco { get; set; }
-        public required string Cep { get; set; }
+        public string Endereco { get; set; }
+        public string Cep { get; set; }
         public bool Status { get; set; }
 
         public Funcionario() { }

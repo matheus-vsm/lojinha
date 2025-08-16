@@ -9,25 +9,23 @@ namespace Lojinha.Modelos
     public class Produto
     {
         public int Id { get; set; }
-        public required int IdCategoriaProduto { get; set; }
-        public required CategoriaProduto CategoriaProduto { get; set; }
-        public required int IdCategoriaPublico { get; set; }
-        public required CategoriaPublico CategoriaPublico { get; set; }
-        public required string Nome { get; set; }
-        public required string Marca { get; set; }
-        public required string Cor { get; set; }
-        public required string Tamanho { get; set; }
+        public CategoriaProduto CategoriaProduto { get; set; }
+        public CategoriaPublico CategoriaPublico { get; set; }
+        public string Nome { get; set; }
+        public string Marca { get; set; }
+        public string Cor { get; set; }
+        public string Tamanho { get; set; }
         public string? Descricao { get; set; }
-        public required decimal Preco { get; set; }
-        public required int Estoque { get; set; }
+        public decimal Preco { get; set; }
+        public int Estoque { get; set; }
         public bool Status { get; set; }
 
         public Produto() { }
 
-        public Produto(int idCategoriaProduto, int idCategoriaPublico, string nome, string marca, string cor, string tamanho, string? descricao, decimal preco, int estoque, bool status)
+        public Produto(CategoriaProduto categoriaProduto, CategoriaPublico categoriaPublico, string nome, string marca, string cor, string tamanho, string? descricao, decimal preco, int estoque, bool status)
         {
-            IdCategoriaProduto = idCategoriaProduto;
-            IdCategoriaPublico = idCategoriaPublico;
+            CategoriaProduto = categoriaProduto;
+            CategoriaPublico = categoriaPublico;
             Nome = nome;
             Marca = marca;
             Cor = cor;

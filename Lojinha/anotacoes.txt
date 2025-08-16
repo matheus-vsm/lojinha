@@ -2,6 +2,10 @@
 
 - Microsoft.EntityFrameworkCore.SqlServer: é um pacote que permite que o Entity Framework Core, um ORM (Object-Relational Mapper) para .NET, se conecte a bancos de dados SQL Server. Ele facilita a interação com o banco de dados usando LINQ e mapeamento de objetos, tornando o desenvolvimento mais produtivo e menos propenso a erros.
 
+- Microsoft.EntityFrameworkCore.Tools: é um pacote que fornece ferramentas de linha de comando para o Entity Framework Core, permitindo a criação e gerenciamento de migrações, geração de código e outras tarefas relacionadas ao banco de dados diretamente do terminal ou do Visual Studio.
+
+- Microsoft.EntityFrameworkCore.Design: é um pacote que fornece APIs de design para o Entity Framework Core, permitindo a criação de migrações, geração de código e outras operações de design-time. Ele é usado principalmente em conjunto com ferramentas de linha de comando e IDEs para facilitar o desenvolvimento e a manutenção do banco de dados.
+
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
 - Criei os Modelos do meu negócio, que são as classes que representam os dados da minha aplicação.

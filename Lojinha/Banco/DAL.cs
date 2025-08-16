@@ -7,7 +7,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Lojinha.Banco
 {
-    public abstract class DAL<T> where T : class
+    public class DAL<T> where T : class
     {
         protected readonly LojinhaContext context;
 
@@ -40,9 +40,9 @@ namespace Lojinha.Banco
             context.SaveChanges();
 
         }
-        public void Atualizar(T entity)
+        public void Atualizar(T objeto)
         {
-            context.Set<T>().Update(entity);
+            context.Set<T>().Update(objeto);
             context.SaveChanges();
         }
     }

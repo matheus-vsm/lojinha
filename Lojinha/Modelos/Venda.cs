@@ -9,20 +9,19 @@ namespace Lojinha.Modelos
     public class Venda
     {
         public int Id { get; set; }
-        public required string IdCliente { get; set; }
-        public required Cliente Cliente { get; set; }
-        public required DateTime DataVenda { get; set; }
-        public required double TotalVenda { get; set; }
+        public Cliente Cliente { get; set; }
+        public DateTime DataVenda { get; set; }
+        public double TotalVenda { get; set; }
         public double? Desconto { get; set; }
-        public required double ValorPago { get; set; }
-        public required StatusVenda Status { get; set; }
+        public double ValorPago { get; set; }
+        public StatusVenda Status { get; set; }
         public string? Observacoes { get; set; }
 
         public Venda() { }
 
-        public Venda(string idCliente, DateTime dataVenda, double totalVenda, double desconto, double valorPago, StatusVenda status, string? observacoes)
+        public Venda(Cliente cliente, DateTime dataVenda, double totalVenda, double desconto, double valorPago, StatusVenda status, string? observacoes)
         {
-            IdCliente = idCliente;
+            Cliente = cliente;
             DataVenda = dataVenda;
             TotalVenda = totalVenda;
             Desconto = desconto;
@@ -33,7 +32,7 @@ namespace Lojinha.Modelos
 
         public override string ToString()
         {
-            return $"Id: {Id}, Id do Cliente: {IdCliente}, Data da Venda: {DataVenda.ToShortDateString()}, Total da Venda: {TotalVenda:C}, Desconto: {Desconto:C}, Valor Pago: {ValorPago:C}, Status: {Status}, Observações: {Observacoes}";
+            return $"Id: {Id}, Id do Cliente: {Cliente}, Data da Venda: {DataVenda.ToShortDateString()}, Total da Venda: {TotalVenda:C}, Desconto: {Desconto:C}, Valor Pago: {ValorPago:C}, Status: {Status}, Observações: {Observacoes}";
         }
     }
 
