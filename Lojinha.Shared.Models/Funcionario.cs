@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lojinha.Modelos
+namespace Lojinha.Shared.Models
 {
-    public class Cliente
+    public class Funcionario
     {
         public int Id { get; set; }
         public string Nome { get; set; }
@@ -20,9 +19,9 @@ namespace Lojinha.Modelos
         public string Cep { get; set; }
         public bool Status { get; set; }
 
-        public Cliente() { }
+        public Funcionario() { }
 
-        public Cliente(string nome, string cpf, string rg, string email, string telefone, DateTime? dataNascimento, string endereco, string cep, bool status)
+        public Funcionario(string nome, string cpf, string rg, string email, string telefone, DateTime? dataNascimento, string endereco, string cep, bool status)
         {
             Nome = nome;
             Cpf = cpf;

@@ -1,4 +1,4 @@
-﻿using Lojinha.Modelos;
+﻿using Lojinha.Shared.Models;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System;
