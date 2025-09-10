@@ -32,5 +32,11 @@ namespace Lojinha.Banco
            .UseSqlServer(connectionString)
            .UseLazyLoadingProxies();
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            // Esse comando faz o Entity Framework Core procurar automaticamentetodas as classes de configuração de entidades (que implementamIEntityTypeConfiguration<T>) dentro do mesmo assembly do LojinhaContext, aplicando essas configurações no modelo sem precisar registrar uma por uma.
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(LojinhaContext).Assembly);
+        }
     }
 }

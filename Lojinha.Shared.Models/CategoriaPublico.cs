@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lojinha.Shared.Models.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,14 +10,14 @@ namespace Lojinha.Shared.Models
     public class CategoriaPublico
     {
         public int Id { get; set; }
-        public required string Nome { get; set; }
-        public required string Descricao { get; set; }
+        public string Nome { get; set; } = string.Empty;
+        public string Descricao { get; set; } = string.Empty;
         public DateTime DataCadastro { get; set; }
-        public bool Status { get; set; }
+        public Status Status { get; set; }
 
         public CategoriaPublico() { }
 
-        public CategoriaPublico(string nome, string descricao, DateTime datacadastro, bool status)
+        public CategoriaPublico(string nome, string descricao, DateTime datacadastro, Status status)
         {
             Nome = nome;
             Descricao = descricao;
@@ -26,7 +27,7 @@ namespace Lojinha.Shared.Models
 
         public override string ToString()
         {
-            return $"Id: {Id}, Nome: {Nome}, Descrição: {Descricao}, Data de Cadastro: {DataCadastro.ToShortDateString()}, Status: {(Status ? "Ativo" : "Inativo")}";
+            return $"Id: {Id}, Nome: {Nome}, Descrição: {Descricao}, Data de Cadastro: {DataCadastro.ToShortDateString()}, Status: {Status}";
         }
     }
 }

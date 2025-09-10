@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lojinha.Shared.Models.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,14 +9,15 @@ namespace Lojinha.Shared.Models
 {
     public class Devedor
     {
-        //public int Id { get; set; }
-        //public Cliente IdCliente { get; set; }
-        //public string IdVenda { get; set; }
-        //public double Divida_Inicial { get; set; }
-        //public double Divida_Atual { get; set; }
-        //public DateTime Data_Inicio { get; set; }
-        //public DateTime Data_Atualizacao { get; set; }
-        //public DateTime? Data_Fim { get; set; }
-        //public bool Status { get; set; }
+        public int Id { get; set; }
+        //adicionar id cliente
+        // adicionar id venda
+        
+        public double DividaInicial { get; set; }
+        public double DividaAtual { get; set; }
+        public DateTime DataInicio { get; set; }
+        public DateTime DataAtualizacao { get; set; }
+        public DateTime? DataFim { get; set; }
+        public StatusDevedor Status { get; set; }
     }
 }

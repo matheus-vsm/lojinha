@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lojinha.Shared.Models.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,8 @@ namespace Lojinha.Shared.Models
     public class Venda
     {
         public int Id { get; set; }
-        public virtual Cliente Cliente { get; set; }
+        //adicionar id cliente
+
         public DateTime DataVenda { get; set; }
         public double TotalVenda { get; set; }
         public double? Desconto { get; set; }
@@ -19,9 +21,8 @@ namespace Lojinha.Shared.Models
 
         public Venda() { }
 
-        public Venda(Cliente cliente, DateTime dataVenda, double totalVenda, double desconto, double valorPago, StatusVenda status, string? observacoes)
+        public Venda(DateTime dataVenda, double totalVenda, double desconto, double valorPago, StatusVenda status, string? observacoes)
         {
-            Cliente = cliente;
             DataVenda = dataVenda;
             TotalVenda = totalVenda;
             Desconto = desconto;
@@ -32,14 +33,7 @@ namespace Lojinha.Shared.Models
 
         public override string ToString()
         {
-            return $"Id: {Id}, Id do Cliente: {Cliente}, Data da Venda: {DataVenda.ToShortDateString()}, Total da Venda: {TotalVenda:C}, Desconto: {Desconto:C}, Valor Pago: {ValorPago:C}, Status: {Status}, Observações: {Observacoes}";
+            return $"Id: {Id}, Data da Venda: {DataVenda.ToShortDateString()}, Total da Venda: {TotalVenda:C}, Desconto: {Desconto:C}, Valor Pago: {ValorPago:C}, Status: {Status}, Observações: {Observacoes}";
         }
-    }
-
-    public enum StatusVenda
-    {
-        Pendente,
-        Pago,
-        Cancelado
     }
 }

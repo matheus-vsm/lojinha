@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lojinha.Shared.Models.Enums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -9,20 +10,20 @@ namespace Lojinha.Shared.Models
 {
     public class Cliente
     {
-        public int Id { get; set; }
-        public string Nome { get; set; }
-        public string Cpf { get; set; }
-        public string Rg { get; set; }
-        public string Email { get; set; }
-        public string Telefone { get; set; }
+        public int Id { get; set; } = string.Empty;
+        public string Nome { get; set; } = string.Empty;
+        public string Cpf { get; set; } = string.Empty;
+        public string Rg { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public string Telefone { get; set; } = string.Empty;
         public DateTime? DataNascimento { get; set; }
-        public string Endereco { get; set; }
-        public string Cep { get; set; }
-        public bool Status { get; set; }
+        public string Endereco { get; set; } = string.Empty;
+        public string Cep { get; set; } = string.Empty;
+        public Status Status { get; set; }
 
         public Cliente() { }
 
-        public Cliente(string nome, string cpf, string rg, string email, string telefone, DateTime? dataNascimento, string endereco, string cep, bool status)
+        public Cliente(string nome, string cpf, string rg, string email, string telefone, DateTime? dataNascimento, string endereco, string cep, Status status)
         {
             Nome = nome;
             Cpf = cpf;
@@ -37,7 +38,7 @@ namespace Lojinha.Shared.Models
 
         public override string ToString()
         {
-            return $"Id: {Id}, Nome: {Nome}, CPF: {Cpf}, RG: {Rg}, Email: {Email}, Telefone: {Telefone}, Data de Nascimento: {DataNascimento?.ToShortDateString()}, Endereço: {Endereco}, CEP: {Cep}, Status: {(Status ? "Ativo" : "Inativo")}";
+            return $"Id: {Id}, Nome: {Nome}, Cpf: {Cpf}, Rg: {Rg}, Email: {Email}, Telefone: {Telefone}, DataNascimento: {DataNascimento}, Endereco: {Endereco}, Cep: {Cep}, Status: {Status}";
         }
     }
 }

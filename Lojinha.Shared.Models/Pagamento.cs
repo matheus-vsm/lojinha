@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lojinha.Shared.Models.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +9,9 @@ namespace Lojinha.Shared.Models
 {
     public class Pagamento
     {
-        //public string Id { get; set; }
-        //public string Id_Venda { get; set; }
-        //public string Forma_Pagamento { get; set; }
-        //public double Valor_Pago { get; set; }
+        public int Id { get; set; }
+        //adicionar id venda
+        public FormaPagamento FormaPagamento { get; set; }
+        public double ValorPago { get; set; }
     }
 }

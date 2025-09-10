@@ -8,21 +8,22 @@ namespace Lojinha.Shared.Models
 {
     public class CompraProdutos
     {
-        //public int Id { get; set; }
-        //public DateTime DataCompra { get; set; }
-        //public double TotalCompra { get; set; }
-        //public string? Observacoes { get; set; }
+        public int Id { get; set; }
+        public DateTime Data { get; set; }
+        public double Total { get; set; }
+        public string? Observacoes { get; set; }
+        //adicionar lista de itens compraprodutos
 
-        //public CompraProdutos(DateTime dataCompra, double totalCompra, string? observacoes)
-        //{
-        //    DataCompra = dataCompra;
-        //    TotalCompra = totalCompra;
-        //    Observacoes = observacoes;
-        //}
+        public CompraProdutos(DateTime dataCompra, double totalCompra, string? observacoes)
+        {
+            Data = dataCompra;
+            Total = totalCompra;
+            Observacoes = observacoes;
+        }
 
-        //public override string ToString()
-        //{
-        //    return $"Id: {Id}, Data da Compra: {DataCompra.ToShortDateString()}, Total da Compra: {TotalCompra:C}, Observações: {Observacoes}";
-        //}
+        public override string ToString()
+        {
+            return $"Id: {Id}, Data da Compra: {Data.ToShortDateString()}, Total da Compra: {Total:C}, Observações: {Observacoes}";
+        }
     }
 }

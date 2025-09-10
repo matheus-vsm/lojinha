@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lojinha.Shared.Models.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,19 +10,23 @@ namespace Lojinha.Shared.Models
     public class Funcionario
     {
         public int Id { get; set; }
-        public string Nome { get; set; }
-        public string Cpf { get; set; }
-        public string Rg { get; set; }
-        public string Email { get; set; }
-        public string Telefone { get; set; }
+        public string Nome { get; set; } = string.Empty;
+        public string Cpf { get; set; } = string.Empty;
+        public string Rg { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public string Telefone { get; set; } = string.Empty;
         public DateTime? DataNascimento { get; set; }
-        public string Endereco { get; set; }
-        public string Cep { get; set; }
-        public bool Status { get; set; }
+        public string Endereco { get; set; } = string.Empty;
+        public string Cep { get; set; } = string.Empty;
+        public string Login { get; set; } = string.Empty;
+        public string Senha { get; set; } = string.Empty;
+        public string Tipo { get; set; } = string.Empty;
+        public DateTime DataCadastro { get; set; }
+        public Status Status { get; set; }
 
         public Funcionario() { }
 
-        public Funcionario(string nome, string cpf, string rg, string email, string telefone, DateTime? dataNascimento, string endereco, string cep, bool status)
+        public Funcionario(string nome, string cpf, string rg, string email, string telefone, DateTime? dataNascimento, string endereco, string cep, string login, string senha, string tipo, DateTime dataCadastro, Status status)
         {
             Nome = nome;
             Cpf = cpf;
@@ -31,12 +36,16 @@ namespace Lojinha.Shared.Models
             DataNascimento = dataNascimento;
             Endereco = endereco;
             Cep = cep;
+            Login = login;
+            Senha = senha;
+            Tipo = tipo;
+            DataCadastro = dataCadastro;
             Status = status;
         }
 
         public override string ToString()
         {
-            return $"Id: {Id}, Nome: {Nome}, CPF: {Cpf}, RG: {Rg}, Email: {Email}, Telefone: {Telefone}, Data de Nascimento: {DataNascimento?.ToShortDateString()}, Endereço: {Endereco}, CEP: {Cep}, Status: {(Status ? "Ativo" : "Inativo")}";
+            return $"Id: {Id}, Nome: {Nome}, Cpf: {Cpf}, Rg: {Rg}, Email: {Email}, Telefone: {Telefone}, DataNascimento: {DataNascimento}, Endereco: {Endereco}, Cep: {Cep}, Login: {Login}, Senha: {Senha}, Tipo: {Tipo}, DataCadastro: {DataCadastro}, Status: {Status}";
         }
     }
 }
