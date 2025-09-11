@@ -1,0 +1,27 @@
+- Microsoft.Data.SqlClient: é um pacote oficial da Microsoft que permite que aplicações .NET se conectem e interajam com bancos SQL Server e Azure SQL, executando consultas, procedures, transações e manipulando dados de forma segura e eficiente. É a versão moderna e cross-platform do antigo System.Data.SqlClient.
+
+- Microsoft.EntityFrameworkCore.SqlServer: é um pacote que permite que o Entity Framework Core, um ORM (Object-Relational Mapper) para .NET, se conecte a bancos de dados SQL Server. Ele facilita a interação com o banco de dados usando LINQ e mapeamento de objetos, tornando o desenvolvimento mais produtivo e menos propenso a erros.
+
+- Microsoft.EntityFrameworkCore.Tools: é um pacote que fornece ferramentas de linha de comando para o Entity Framework Core, permitindo a criação e gerenciamento de migrações, geração de código e outras tarefas relacionadas ao banco de dados diretamente do terminal ou do Visual Studio.
+
+- Microsoft.EntityFrameworkCore.Design: é um pacote que fornece APIs de design para o Entity Framework Core, permitindo a criação de migrações, geração de código e outras operações de design-time. Ele é usado principalmente em conjunto com ferramentas de linha de comando e IDEs para facilitar o desenvolvimento e a manutenção do banco de dados.
+
+- Microsoft.EntityFrameworkCore.Proxies: é um pacote que permite o uso de proxies dinâmicos no Entity Framework Core, facilitando o carregamento preguiçoso (lazy loading) de entidades relacionadas. Ele é útil para melhorar a performance e a usabilidade do ORM, permitindo que as entidades sejam carregadas sob demanda.
+
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+
+- Criei os Modelos do meu negócio, que são as classes que representam os dados da minha aplicação.
+- Criei o Contexto, que é a classe responsável por gerenciar a conexão com o banco de dados e as operações de CRUD.
+- Criei a Migration, que é a classe responsável por criar o banco de dados e as tabelas necessárias, criando também o histórico de alterações.
+- Criar as classes DAL de cada modelo, que são as classes responsáveis por realizar as operações de CRUD no banco de dados.
+- Criar a classe DAL genérica, que é uma classe que pode ser utilizada para realizar operações de CRUD em qualquer modelo, evitando a repetição de código. E é uma classe ABSTRACT, ou seja, não pode ser instanciada diretamente, mas pode ser herdada por outras classes, pois seu papel é apenas realizar as operações.
+- Após a adição do Proxies (LazyLoading), é necessário adicionar o método UseLazyLoadingProxies() no método OnConfiguring do DbContext, para que o Entity Framework Core possa utilizar os proxies dinâmicos para o carregamento preguiçoso das entidades relacionadas.
+  Para utilizar o LazyLoading, é necessário adicionar a propriedade virtual nas entidades que serão carregadas preguiçosamente, para que o Entity Framework Core possa criar os proxies dinâmicos e carregar as entidades relacionadas sob demanda (ou seja, nas propriedades de relacionamento).
+
+  ----- RELACIONAMENTOS -----
+  - Um para Um (1:1): Quando uma entidade está relacionada a exatamente uma outra entidade. Exemplo: Uma pessoa tem um passaporte.
+  - Um para Muitos (1:N): Quando uma entidade está relacionada a várias outras entidades. Exemplo: Um autor pode ter vários livros.
+  - Muitos para Muitos (N:N): Quando várias entidades estão relacionadas a várias outras entidades. Exemplo: Um aluno pode estar matriculado em vários cursos, e um curso pode ter vários alunos.
+  - AutoRelacionamento: Quando uma entidade está relacionada a ela mesma. Exemplo: Um funcionário pode ter um gerente, que também é um funcionário.
+
+  - 

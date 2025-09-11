@@ -1,16 +1,10 @@
 ﻿using Lojinha.Shared.Models.Enums;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lojinha.Shared.Models
 {
     public class Cliente
     {
-        public int Id { get; set; } = string.Empty;
+        public int Id { get; set; }
         public string Nome { get; set; } = string.Empty;
         public string Cpf { get; set; } = string.Empty;
         public string Rg { get; set; } = string.Empty;

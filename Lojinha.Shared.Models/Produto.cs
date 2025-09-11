@@ -1,9 +1,4 @@
 ﻿using Lojinha.Shared.Models.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lojinha.Shared.Models
 {
@@ -18,15 +13,14 @@ namespace Lojinha.Shared.Models
         public string Nome { get; set; } = string.Empty;
         public string Marca { get; set; } = string.Empty;
         public string Cor { get; set; } = string.Empty;
-        public string Tamanho { get; set; } = string.Empty;
+        public string? Tamanho { get; set; }
         public string? Descricao { get; set; }
         public double Preco { get; set; }
         public int Estoque { get; set; }
         public Status Status { get; set; }
 
         public Produto() { }
-
-        public Produto(string nome, string marca, string cor, string tamanho, string? descricao, decimal preco, int estoque, Status status)
+        public Produto(string nome, string marca, string cor, string tamanho, string? descricao, double preco, int estoque, Status status)
         {
             Nome = nome;
             Marca = marca;
@@ -36,6 +30,15 @@ namespace Lojinha.Shared.Models
             Preco = preco;
             Estoque = estoque;
             Status = status;
+        }
+        public Produto(string nome, string marca, string cor, string tamanho, string? descricao)
+        {
+            Nome = nome;
+            Marca = marca;
+            Cor = cor;
+            Tamanho = tamanho;
+            Descricao = descricao;
+
         }
 
         public override string ToString()
