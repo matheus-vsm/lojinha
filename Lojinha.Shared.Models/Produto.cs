@@ -15,12 +15,13 @@ namespace Lojinha.Shared.Models
         public string Cor { get; set; } = string.Empty;
         public string? Tamanho { get; set; }
         public string? Descricao { get; set; }
-        public double Preco { get; set; }
+        public decimal Preco { get; set; }
         public int Estoque { get; set; }
         public Status Status { get; set; }
+        public ICollection<ItemCompraProduto> ItensCompra { get; set; }
 
         public Produto() { }
-        public Produto(string nome, string marca, string cor, string tamanho, string? descricao, double preco, int estoque, Status status)
+        public Produto(string nome, string marca, string cor, string tamanho, string? descricao, decimal preco, int estoque, Status status)
         {
             Nome = nome;
             Marca = marca;
@@ -38,7 +39,6 @@ namespace Lojinha.Shared.Models
             Cor = cor;
             Tamanho = tamanho;
             Descricao = descricao;
-
         }
 
         public override string ToString()

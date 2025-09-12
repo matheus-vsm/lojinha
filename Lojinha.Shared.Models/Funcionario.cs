@@ -15,13 +15,13 @@ namespace Lojinha.Shared.Models
         public string Cep { get; set; } = string.Empty;
         public string Login { get; set; } = string.Empty;
         public string Senha { get; set; } = string.Empty;
-        public string Tipo { get; set; } = string.Empty;
+        //public string Tipo { get; set; } = string.Empty;
         public DateTime DataCadastro { get; set; }
         public Status Status { get; set; }
 
         public Funcionario() { }
 
-        public Funcionario(string nome, string cpf, string rg, string email, string telefone, DateTime? dataNascimento, string endereco, string cep, string login, string senha, string tipo, DateTime dataCadastro, Status status)
+        public Funcionario(string nome, string cpf, string rg, string email, string telefone, DateTime? dataNascimento, string endereco, string cep, string login, string senha, DateTime dataCadastro, Status status)
         {
             Nome = nome;
             Cpf = cpf;
@@ -33,7 +33,6 @@ namespace Lojinha.Shared.Models
             Cep = cep;
             Login = login;
             Senha = senha;
-            Tipo = tipo;
             DataCadastro = dataCadastro;
             Status = status;
         }

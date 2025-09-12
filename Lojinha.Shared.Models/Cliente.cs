@@ -14,6 +14,8 @@ namespace Lojinha.Shared.Models
         public string Endereco { get; set; } = string.Empty;
         public string Cep { get; set; } = string.Empty;
         public Status Status { get; set; }
+        public ICollection<Venda>? Vendas { get; set; }
+        public ICollection<Devedor>? Devedores { get; set; }
 
         public Cliente() { }
 

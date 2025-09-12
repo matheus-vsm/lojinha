@@ -8,15 +8,17 @@ namespace Lojinha.Shared.Models
         //adicionar id cliente
 
         public DateTime DataVenda { get; set; }
-        public double TotalVenda { get; set; }
-        public double? Desconto { get; set; }
-        public double ValorPago { get; set; }
+        public decimal TotalVenda { get; set; }
+        public decimal? Desconto { get; set; }
+        public decimal ValorPago { get; set; }
         public StatusVenda Status { get; set; }
         public string? Observacoes { get; set; }
+        public ICollection<Pagamento> Pagamentos { get; set; }
+        public Devedor? Devedor { get; set; }
 
         public Venda() { }
 
-        public Venda(DateTime dataVenda, double totalVenda, double desconto, double valorPago, StatusVenda status, string? observacoes)
+        public Venda(DateTime dataVenda, decimal totalVenda, decimal desconto, decimal valorPago, StatusVenda status, string? observacoes)
         {
             DataVenda = dataVenda;
             TotalVenda = totalVenda;

@@ -5,8 +5,9 @@ namespace Lojinha.Shared.Models
     public class Pagamento
     {
         public int Id { get; set; }
-        //adicionar id venda
+        public int VendaId { get; set; }
+        public Venda? Venda { get; set; }
         public FormaPagamento FormaPagamento { get; set; }
-        public double ValorPago { get; set; }
+        public decimal ValorPago { get; set; }
     }
 }

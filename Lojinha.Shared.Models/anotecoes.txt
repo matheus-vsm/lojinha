@@ -18,10 +18,22 @@
 - Após a adição do Proxies (LazyLoading), é necessário adicionar o método UseLazyLoadingProxies() no método OnConfiguring do DbContext, para que o Entity Framework Core possa utilizar os proxies dinâmicos para o carregamento preguiçoso das entidades relacionadas.
   Para utilizar o LazyLoading, é necessário adicionar a propriedade virtual nas entidades que serão carregadas preguiçosamente, para que o Entity Framework Core possa criar os proxies dinâmicos e carregar as entidades relacionadas sob demanda (ou seja, nas propriedades de relacionamento).
 
-  ----- RELACIONAMENTOS -----
-  - Um para Um (1:1): Quando uma entidade está relacionada a exatamente uma outra entidade. Exemplo: Uma pessoa tem um passaporte.
-  - Um para Muitos (1:N): Quando uma entidade está relacionada a várias outras entidades. Exemplo: Um autor pode ter vários livros.
-  - Muitos para Muitos (N:N): Quando várias entidades estão relacionadas a várias outras entidades. Exemplo: Um aluno pode estar matriculado em vários cursos, e um curso pode ter vários alunos.
-  - AutoRelacionamento: Quando uma entidade está relacionada a ela mesma. Exemplo: Um funcionário pode ter um gerente, que também é um funcionário.
+----- RELACIONAMENTOS -----
+- Um para Um (1:1): Quando uma entidade está relacionada a exatamente uma outra entidade. Exemplo: Uma pessoa tem um passaporte.
+- Um para Muitos (1:N): Quando uma entidade está relacionada a várias outras entidades. Exemplo: Um autor pode ter vários livros.
+- Muitos para Muitos (N:N): Quando várias entidades estão relacionadas a várias outras entidades. Exemplo: Um aluno pode estar matriculado em vários cursos, e um curso pode ter vários alunos.
+- AutoRelacionamento: Quando uma entidade está relacionada a ela mesma. Exemplo: Um funcionário pode ter um gerente, que também é um funcionário.
 
-  - 
+- Categoria Publico 1:N Produto
+- Categoria Produto 1:N Produto
+- Cliente 1:N Pedido
+- Cliente 1:N Venda
+- Cliente 1:N Devedor
+- Venda 1:0..1 Devedor
+- CompraProduto 1:N ItemCompraProduto
+- Produto 1:N ItemCompraProduto
+- Fornecedor 1:N ItemCompraProduto
+- Funcionario 1:N Venda
+- Venda 1:N ItemVenda
+- Venda 1:N Pagamento
+- Produto 1:N ItemVenda

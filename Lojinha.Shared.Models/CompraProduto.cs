@@ -1,14 +1,14 @@
 ﻿namespace Lojinha.Shared.Models
 {
-    public class CompraProdutos
+    public class CompraProduto
     {
         public int Id { get; set; }
         public DateTime Data { get; set; }
-        public double Total { get; set; }
+        public decimal Total { get; set; }
         public string? Observacoes { get; set; }
-        //adicionar lista de itens compraprodutos
+        public ICollection<ItemCompraProduto> Itens { get; set; }
 
-        public CompraProdutos(DateTime dataCompra, double totalCompra, string? observacoes)
+        public CompraProduto(DateTime dataCompra, decimal totalCompra, string? observacoes)
         {
             Data = dataCompra;
             Total = totalCompra;
