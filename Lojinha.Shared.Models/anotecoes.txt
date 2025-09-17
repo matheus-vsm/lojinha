@@ -26,14 +26,13 @@
 
 - Categoria Publico 1:N Produto
 - Categoria Produto 1:N Produto
-- Cliente 1:N Pedido
 - Cliente 1:N Venda
-- Cliente 1:N Devedor
-- Venda 1:0..1 Devedor
+- Cliente 1:1 Devedor
+- Devedor 1:N Vendas
 - CompraProduto 1:N ItemCompraProduto
 - Produto 1:N ItemCompraProduto
 - Fornecedor 1:N ItemCompraProduto
 - Funcionario 1:N Venda
 - Venda 1:N ItemVenda
-- Venda 1:N Pagamento
+- Venda N:N Pagamento
 - Produto 1:N ItemVenda

@@ -18,10 +18,13 @@ namespace Lojinha.Shared.Models
         public decimal Preco { get; set; }
         public int Estoque { get; set; }
         public Status Status { get; set; }
-        public ICollection<ItemCompraProduto> ItensCompra { get; set; }
+        public CategoriaProduto? CategoriasProdutos { get; set; }
+        public CategoriaPublico? CategoriasPublicos { get; set; }
+        public ICollection<ItemCompraProduto> ItensCompras { get; set; } = [];
+        public ICollection<ItemVenda> ItensVendas { get; set; } = [];
 
         public Produto() { }
-        public Produto(string nome, string marca, string cor, string tamanho, string? descricao, decimal preco, int estoque, Status status)
+        public Produto(string nome, string marca, string cor, string tamanho, string? descricao, decimal preco, int estoque, Status status, CategoriaProduto? categoriasProdutos, CategoriaPublico? categoriasPublicos)
         {
             Nome = nome;
             Marca = marca;
@@ -31,14 +34,18 @@ namespace Lojinha.Shared.Models
             Preco = preco;
             Estoque = estoque;
             Status = status;
+            CategoriasProdutos = categoriasProdutos;
+            CategoriasPublicos = categoriasPublicos;
         }
-        public Produto(string nome, string marca, string cor, string tamanho, string? descricao)
+        public Produto(string nome, string marca, string cor, string tamanho, string? descricao, CategoriaProduto? categoriasProdutos, CategoriaPublico? categoriasPublicos)
         {
             Nome = nome;
             Marca = marca;
             Cor = cor;
             Tamanho = tamanho;
             Descricao = descricao;
+            CategoriasProdutos = categoriasProdutos;
+            CategoriasPublicos = categoriasPublicos;
         }
 
         public override string ToString()

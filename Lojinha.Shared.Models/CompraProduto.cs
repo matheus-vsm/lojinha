@@ -6,13 +6,15 @@
         public DateTime Data { get; set; }
         public decimal Total { get; set; }
         public string? Observacoes { get; set; }
-        public ICollection<ItemCompraProduto> Itens { get; set; }
+        public ICollection<ItemCompraProduto> Itens { get; set; } = []; //= new List<>();
 
-        public CompraProduto(DateTime dataCompra, decimal totalCompra, string? observacoes)
+        public CompraProduto() { }
+        public CompraProduto(DateTime dataCompra, decimal totalCompra, string? observacoes, ICollection<ItemCompraProduto> itens)
         {
             Data = dataCompra;
             Total = totalCompra;
             Observacoes = observacoes;
+            Itens = itens;
         }
 
         public override string ToString()

@@ -5,21 +5,21 @@ namespace Lojinha.Shared.Models
     public class Cliente
     {
         public int Id { get; set; }
-        public string Nome { get; set; } = string.Empty;
+        public string Nome { get; set; } = string.Empty; // não nullable → obrigatório
         public string Cpf { get; set; } = string.Empty;
         public string Rg { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
         public string Telefone { get; set; } = string.Empty;
-        public DateTime? DataNascimento { get; set; }
+        public DateTime? DataNascimento { get; set; } // nullable → opcional
         public string Endereco { get; set; } = string.Empty;
         public string Cep { get; set; } = string.Empty;
-        public Status Status { get; set; }
-        public ICollection<Venda>? Vendas { get; set; }
-        public ICollection<Devedor>? Devedores { get; set; }
+        public Status Status { get; set; } = Status.Ativo;
+        public ICollection<Venda> Vendas { get; set; } = [];
+        public Devedor? Devedor { get; set; }
 
         public Cliente() { }
 
-        public Cliente(string nome, string cpf, string rg, string email, string telefone, DateTime? dataNascimento, string endereco, string cep, Status status)
+        public Cliente(string nome, string cpf, string rg, string email, string telefone, DateTime? dataNascimento, string endereco, string cep)
         {
             Nome = nome;
             Cpf = cpf;
@@ -29,7 +29,6 @@ namespace Lojinha.Shared.Models
             DataNascimento = dataNascimento;
             Endereco = endereco;
             Cep = cep;
-            Status = status;
         }
 
         public override string ToString()

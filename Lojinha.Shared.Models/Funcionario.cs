@@ -18,6 +18,7 @@ namespace Lojinha.Shared.Models
         //public string Tipo { get; set; } = string.Empty;
         public DateTime DataCadastro { get; set; }
         public Status Status { get; set; }
+        public ICollection<Venda> Vendas { get; set; } = [];
 
         public Funcionario() { }
 
