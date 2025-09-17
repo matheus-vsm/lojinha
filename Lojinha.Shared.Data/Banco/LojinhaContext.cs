@@ -8,8 +8,13 @@ namespace Lojinha.Banco
         public DbSet<CategoriaProduto> CategoriaProdutos { get; set; }
         public DbSet<CategoriaPublico> CategoriaPublicos { get; set; }
         public DbSet<Cliente> Clientes { get; set; }
+        public DbSet<CompraProduto> ComprasProdutos { get; set; }
+        public DbSet<Devedor> Devedores { get; set; }
         public DbSet<Fornecedor> Fornecedores { get; set; }
         public DbSet<Funcionario> Funcionarios { get; set; }
+        public DbSet<ItemCompraProduto> ItensComprasProdutos { get; set; }
+        public DbSet<ItemVenda> ItensVendas { get; set; }
+        public DbSet<Pagamento> Pagamentos { get; set; }
         public DbSet<Produto> Produtos { get; set; }
         public DbSet<Venda> Vendas { get; set; }
 
@@ -23,8 +28,8 @@ namespace Lojinha.Banco
         {
             // Configura o EF Core para usar o SQL Server como provedor de banco de dados e passa a string de conexão definida na variável 'connectionString'
             optionsBuilder
-           .UseSqlServer(connectionString)
-           .UseLazyLoadingProxies();
+                .UseSqlServer(connectionString)
+                .UseLazyLoadingProxies();
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

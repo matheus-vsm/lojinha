@@ -5,26 +5,23 @@ namespace Lojinha.Shared.Models
     public class Produto
     {
         public int Id { get; set; }
-        //adicionar categoria produto
-        //adicionar categoria publico
-
-        //public virtual CategoriaProduto CategoriaProduto { get; set; }
-        //public virtual CategoriaPublico CategoriaPublico { get; set; }
         public string Nome { get; set; } = string.Empty;
         public string Marca { get; set; } = string.Empty;
         public string Cor { get; set; } = string.Empty;
-        public string? Tamanho { get; set; }
+        public string Tamanho { get; set; } = string.Empty;
         public string? Descricao { get; set; }
         public decimal Preco { get; set; }
         public int Estoque { get; set; }
         public Status Status { get; set; }
+        public int CategoriaProdutoId { get; set; }
         public CategoriaProduto? CategoriasProdutos { get; set; }
+        public int CategoriaPublicoId { get; set; }
         public CategoriaPublico? CategoriasPublicos { get; set; }
         public ICollection<ItemCompraProduto> ItensCompras { get; set; } = [];
         public ICollection<ItemVenda> ItensVendas { get; set; } = [];
 
         public Produto() { }
-        public Produto(string nome, string marca, string cor, string tamanho, string? descricao, decimal preco, int estoque, Status status, CategoriaProduto? categoriasProdutos, CategoriaPublico? categoriasPublicos)
+        public Produto(string nome, string marca, string cor, string tamanho, string? descricao, decimal preco, int estoque, Status status, int categoriaProdutoId, int categoriaPublicoId)
         {
             Nome = nome;
             Marca = marca;
@@ -34,8 +31,8 @@ namespace Lojinha.Shared.Models
             Preco = preco;
             Estoque = estoque;
             Status = status;
-            CategoriasProdutos = categoriasProdutos;
-            CategoriasPublicos = categoriasPublicos;
+            CategoriaProdutoId = categoriaProdutoId;
+            CategoriaPublicoId = categoriaPublicoId;
         }
         public Produto(string nome, string marca, string cor, string tamanho, string? descricao, CategoriaProduto? categoriasProdutos, CategoriaPublico? categoriasPublicos)
         {

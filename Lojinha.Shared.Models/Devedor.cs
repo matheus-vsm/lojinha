@@ -7,7 +7,7 @@ namespace Lojinha.Shared.Models
         public int Id { get; set; }        
         public decimal DividaInicial { get; set; }
         public decimal DividaAtual { get; set; }
-        public DateTime DataInicio { get; set; }
+        public DateTime DataInicio { get; private set; }
         public DateTime DataAtualizacao { get; set; }
         public DateTime? DataFim { get; set; }
         public StatusDevedor Status { get; set; }

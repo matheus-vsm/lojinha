@@ -7,7 +7,7 @@ namespace Lojinha.Shared.Models
         public int Id { get; set; }
         public string Nome { get; set; } = string.Empty;
         public string Descricao { get; set; } = string.Empty;
-        public DateTime DataCadastro { get; set; }
+        public DateTime DataCadastro { get; private set; }
         public Status Status { get; set; }
         public ICollection<Produto> Produtos { get; set; } = [];
 

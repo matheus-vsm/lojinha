@@ -8,7 +8,9 @@ namespace Lojinha.Shared.Data.Mapeamentos
     {
         public void Configure(EntityTypeBuilder<Pagamento> builder)
         {
-            throw new NotImplementedException();
+            builder.HasKey(p => p.Id);
+            builder.Property(p => p.FormaPagamento).IsRequired();
+            builder.Property(p => p.ValorPago).IsRequired().HasColumnType("decimal(18,2)");
         }
     }
 }

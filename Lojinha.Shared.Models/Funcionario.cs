@@ -13,12 +13,12 @@ namespace Lojinha.Shared.Models
         public DateTime? DataNascimento { get; set; }
         public string Endereco { get; set; } = string.Empty;
         public string Cep { get; set; } = string.Empty;
-        public string Login { get; set; } = string.Empty;
-        public string Senha { get; set; } = string.Empty;
-        //public string Tipo { get; set; } = string.Empty;
-        public DateTime DataCadastro { get; set; }
+        public DateTime DataCadastro { get; private set; }
         public Status Status { get; set; }
         public ICollection<Venda> Vendas { get; set; } = [];
+        //public string Tipo { get; set; } = string.Empty;
+        //public string Login { get; set; } = string.Empty;
+        //public string Senha { get; set; } = string.Empty;
 
         public Funcionario() { }
 
@@ -40,7 +40,7 @@ namespace Lojinha.Shared.Models
 
         public override string ToString()
         {
-            return $"Id: {Id}, Nome: {Nome}, Cpf: {Cpf}, Rg: {Rg}, Email: {Email}, Telefone: {Telefone}, DataNascimento: {DataNascimento}, Endereco: {Endereco}, Cep: {Cep}, Login: {Login}, Senha: {Senha}, Tipo: {Tipo}, DataCadastro: {DataCadastro}, Status: {Status}";
+            return $"Id: {Id}, Nome: {Nome}, Cpf: {Cpf}, Rg: {Rg}, Email: {Email}, Telefone: {Telefone}, DataNascimento: {DataNascimento}, Endereco: {Endereco}, Cep: {Cep}, Login: {Login}, Senha: {Senha}, DataCadastro: {DataCadastro}, Status: {Status}";
         }
     }
 }

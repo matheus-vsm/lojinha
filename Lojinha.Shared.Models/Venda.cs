@@ -5,18 +5,19 @@ namespace Lojinha.Shared.Models
     public class Venda
     {
         public int Id { get; set; }
-        public DateTime DataVenda { get; set; }
+        public DateTime DataVenda { get; private set; }
         public decimal TotalVenda { get; set; }
         public decimal? Desconto { get; set; }
         public decimal ValorPago { get; set; }
         public StatusVenda Status { get; set; }
         public string? Observacoes { get; set; }
         public int ClienteId { get; set; }
-        public Cliente? Cliente { get; set; }
-        public Devedor? Devedor { get; set; }
+        public Cliente Cliente { get; set; } = null!; //obrigatório
+        public int? DevedorId { get; set; }
+        public Devedor? Devedor { get; set; } //opcional
         public int? FuncionarioId { get; set; }
         public Funcionario? Funcionario { get; set; }
-        public ICollection<ItemVenda> ItensVendas { get; set; } = [];
+        public ICollection<ItemVenda> Itens { get; set; } = [];
         public ICollection<Pagamento> Pagamentos { get; set; } = [];
 
         public Venda() { }
@@ -31,7 +32,7 @@ namespace Lojinha.Shared.Models
             Observacoes = observacoes;
             ClienteId = clienteId;
             FuncionarioId = funcionarioId;
-            ItensVendas = itens;
+            Itens = itens;
             Pagamentos = pagamentos;
         }
 
