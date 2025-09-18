@@ -30,18 +30,6 @@ namespace Lojinha.Shared.Data.Mapeamentos
                 .WithMany(cp => cp.Produtos)
                 .HasForeignKey(p => p.CategoriaPublicoId)
                 .OnDelete(DeleteBehavior.Restrict);
-
-            builder
-                .HasMany(p => p.ItensCompras)
-                .WithOne(icp => icp.Produto)
-                .HasForeignKey(icp => icp.ProdutoId)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            builder
-                .HasMany(p => p.ItensVendas)
-                .WithOne(iv => iv.Produto)
-                .HasForeignKey(iv => iv.ProdutoId)
-                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

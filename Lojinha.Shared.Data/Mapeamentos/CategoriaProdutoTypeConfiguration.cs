@@ -15,12 +15,6 @@ namespace Lojinha.Shared.Data.Mapeamentos
             builder.Property(e => e.Descricao).HasMaxLength(500);
             builder.Property(e => e.DataCadastro).HasDefaultValueSql("GETDATE()").ValueGeneratedOnAdd();
             builder.Property(e => e.Status).HasDefaultValue(Status.Ativo).IsRequired();
-
-            builder
-                .HasMany(e => e.Produtos)
-                .WithOne(p => p.CategoriasProdutos)
-                .HasForeignKey(p => p.CategoriaProdutoId)
-                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

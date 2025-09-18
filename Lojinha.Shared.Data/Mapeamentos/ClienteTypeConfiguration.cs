@@ -19,17 +19,6 @@ namespace Lojinha.Shared.Data.Mapeamentos
             builder.Property(c => c.Endereco).IsRequired().HasMaxLength(200);
             builder.Property(c => c.Cep).IsRequired().HasMaxLength(8);
             builder.Property(c => c.Status).HasDefaultValue(Status.Ativo).IsRequired();
-
-            builder
-                .HasMany(c => c.Vendas)
-                .WithOne(v => v.Cliente)
-                .HasForeignKey(v => v.ClienteId)
-                .OnDelete(DeleteBehavior.Cascade); // Se você apagar um Cliente, todas as Vendas dele também serão apagadas automaticamente no banco.
-            builder
-                .HasOne(c => c.Devedor)
-                .WithOne(d => d.Cliente)
-                .HasForeignKey<Devedor>(d => d.ClienteId)
-                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

@@ -22,12 +22,6 @@ namespace Lojinha.Shared.Data.Mapeamentos
                 .WithOne(c => c.Devedor)
                 .HasForeignKey<Devedor>(d => d.ClienteId)
                 .OnDelete(DeleteBehavior.Restrict); // FK obrigatória no Devedor
-
-            builder
-                .HasMany(d => d.Vendas)
-                   .WithOne(v => v.Devedor)
-                   .HasForeignKey(d => d.DevedorId) // FK obrigatória no Devedor
-                   .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

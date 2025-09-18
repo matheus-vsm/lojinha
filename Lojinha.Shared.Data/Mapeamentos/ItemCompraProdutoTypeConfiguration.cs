@@ -12,8 +12,7 @@ namespace Lojinha.Shared.Data.Mapeamentos
             builder.Property(icp => icp.Quantidade).IsRequired();
             builder.Property(icp => icp.PrecoCusto).IsRequired().HasColumnType("decimal(18,2)");
             builder.Property(i => i.Subtotal)
-                .HasColumnType("decimal(18,2)")
-                .HasComputedColumnSql("[Quantidade] * [PrecoCusto]");
+                .HasColumnType("decimal(18,2)");
 
             // Relacionamento 1:N -> ItemCompraProduto pertence a um Produto
             builder

@@ -5,8 +5,7 @@
         public int Id { get; set; }
         public int Quantidade { get; set; }
         public decimal PrecoCusto { get; set; }
-        public decimal Subtotal => Quantidade * PrecoCusto;
-        // Produto já existe → só usa o ProdutoId. Produto novo → cadastra ele antes/durante a compra.
+        public decimal Subtotal { get; private set; }
         public int ProdutoId { get; set; }
         public Produto? Produto { get; set; }
         public int CompraProdutoId { get; set; }

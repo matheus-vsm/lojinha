@@ -18,7 +18,7 @@ namespace Lojinha.Banco
         public DbSet<Produto> Produtos { get; set; }
         public DbSet<Venda> Vendas { get; set; }
 
-        private string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Lojinha2;Integrated Security=True;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        private string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Lojinha3;Integrated Security=True;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
         public LojinhaContext() { }
 
@@ -27,9 +27,10 @@ namespace Lojinha.Banco
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             // Configura o EF Core para usar o SQL Server como provedor de banco de dados e passa a string de conexão definida na variável 'connectionString'
-            optionsBuilder
-                .UseSqlServer(connectionString)
-                .UseLazyLoadingProxies();
+            if(!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseSqlServer(connectionString);
+            }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

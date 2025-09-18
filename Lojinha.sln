@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lojinha.Shared.Data", "Loji
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lojinha.Shared.Models", "Lojinha.Shared.Models\Lojinha.Shared.Models.csproj", "{ED7919F2-F08D-42A7-ACEB-1D9BE301C3C2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lojinha.API", "Lojinha.API\Lojinha.API.csproj", "{48EFF5A1-9114-4A6D-AFA2-314F33AF4778}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{ED7919F2-F08D-42A7-ACEB-1D9BE301C3C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED7919F2-F08D-42A7-ACEB-1D9BE301C3C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED7919F2-F08D-42A7-ACEB-1D9BE301C3C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48EFF5A1-9114-4A6D-AFA2-314F33AF4778}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48EFF5A1-9114-4A6D-AFA2-314F33AF4778}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48EFF5A1-9114-4A6D-AFA2-314F33AF4778}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48EFF5A1-9114-4A6D-AFA2-314F33AF4778}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

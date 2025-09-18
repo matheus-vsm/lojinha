@@ -12,8 +12,7 @@ namespace Lojinha.Shared.Data.Mapeamentos
             builder.Property(iv => iv.Quantidade).IsRequired();
             builder.Property(iv => iv.PrecoUnitario).IsRequired().HasColumnType("decimal(18,2)");
             builder.Property(i => i.Subtotal)
-                .HasColumnType("decimal(18,2)")
-                .HasComputedColumnSql("[Quantidade] * [PrecoUnitario]");
+                .HasColumnType("decimal(18,2)");
 
             builder
                 .HasOne(iv => iv.Produto)

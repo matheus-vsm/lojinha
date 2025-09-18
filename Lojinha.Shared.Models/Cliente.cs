@@ -15,7 +15,6 @@ namespace Lojinha.Shared.Models
         public string Cep { get; set; } = string.Empty;
         public Status Status { get; set; } = Status.Ativo;
         public ICollection<Venda> Vendas { get; set; } = [];
-        public int DevedorId { get; set; }
         public Devedor? Devedor { get; set; }
 
         public Cliente() { }

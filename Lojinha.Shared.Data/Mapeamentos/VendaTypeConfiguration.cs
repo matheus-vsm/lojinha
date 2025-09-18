@@ -37,13 +37,6 @@ namespace Lojinha.Shared.Data.Mapeamentos
                 .HasForeignKey(v => v.FuncionarioId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            // Relacionamento 1:N -> Venda tem muitos ItensVenda
-            builder
-                .HasMany(v => v.Itens)
-                .WithOne(i => i.Venda)
-                .HasForeignKey(i => i.VendaId)
-                .OnDelete(DeleteBehavior.Cascade);
-
             // Relacionamento N:N -> Venda e Pagamentos
             builder
                 .HasMany(v => v.Pagamentos)

@@ -22,7 +22,7 @@ namespace Lojinha.Shared.Models
 
         public Funcionario() { }
 
-        public Funcionario(string nome, string cpf, string rg, string email, string telefone, DateTime? dataNascimento, string endereco, string cep, string login, string senha, DateTime dataCadastro, Status status)
+        public Funcionario(string nome, string cpf, string rg, string email, string telefone, DateTime? dataNascimento, string endereco, string cep, DateTime dataCadastro, Status status)
         {
             Nome = nome;
             Cpf = cpf;
@@ -32,15 +32,13 @@ namespace Lojinha.Shared.Models
             DataNascimento = dataNascimento;
             Endereco = endereco;
             Cep = cep;
-            Login = login;
-            Senha = senha;
             DataCadastro = dataCadastro;
             Status = status;
         }
 
         public override string ToString()
         {
-            return $"Id: {Id}, Nome: {Nome}, Cpf: {Cpf}, Rg: {Rg}, Email: {Email}, Telefone: {Telefone}, DataNascimento: {DataNascimento}, Endereco: {Endereco}, Cep: {Cep}, Login: {Login}, Senha: {Senha}, DataCadastro: {DataCadastro}, Status: {Status}";
+            return $"Id: {Id}, Nome: {Nome}, Cpf: {Cpf}, Rg: {Rg}, Email: {Email}, Telefone: {Telefone}, DataNascimento: {DataNascimento}, Endereco: {Endereco}, Cep: {Cep}, DataCadastro: {DataCadastro}, Status: {Status}";
         }
     }
 }
