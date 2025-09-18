@@ -30,7 +30,6 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         {
             help.AjustarControles(this); // Salva os tamanhos originais dos controles
             help.ConfigurarLinkToolStrip(toolStripStatusLabelDevMath, "https://www.linkedin.com/in/matheus-v-275924208/");
-            help.ConfigurarLinkToolStrip(toolStripStatusLabelDevLeandro, "https://www.linkedin.com/in/matheus-v-275924208/");
         }
 
         private void FormLogin_Resize(object sender, EventArgs e) { }
