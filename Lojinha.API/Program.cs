@@ -1,14 +1,26 @@
+using Lojinha.API.Endpoints;
 using Lojinha.Banco;
+using Lojinha.Shared.Models;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<LojinhaContext>();
+// Evita loopings na serialização JSON
+builder.Services.Configure<Microsoft.AspNetCore.Http.Json.JsonOptions>(options =>
+    options.SerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
+builder.Services.AddDbContext<LojinhaContext>();
+builder.Services.AddScoped<DAL<Cliente>>(); // Injeção de dependência do DAL<Cliente>
+
+// Necessário para o Swagger
+builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-if(app.Environment.IsDevelopment())
+app.AddEndPointsCliente();
+
+if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
