@@ -12,10 +12,10 @@ public static class ClienteExtensions
                               .WithTags("Cliente")
                               .WithOpenApi();
 
-        clienteGroup.MapGet("s", ([FromServices] DAL<Cliente> dal) =>
+        app.MapGet("/Clientes", ([FromServices] DAL<Cliente> dal) =>
         {
             return Results.Ok(dal.Listar());
-        });
+        }).WithTags("Cliente").WithOpenApi();
 
         clienteGroup.MapGet("/{nome}", ([FromServices] DAL<Cliente> dal, string nome) =>
         {

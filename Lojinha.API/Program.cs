@@ -13,6 +13,11 @@ builder.Services.AddDbContext<LojinhaContext>();
 builder.Services.AddScoped<DAL<Cliente>>(); // Injeção de dependência do DAL<Cliente>
 builder.Services.AddScoped<DAL<CategoriaProduto>>();
 builder.Services.AddScoped<DAL<CategoriaPublico>>();
+builder.Services.AddScoped<DAL<CompraProduto>>();
+builder.Services.AddScoped<DAL<Fornecedor>>();
+builder.Services.AddScoped<DAL<Funcionario>>();
+builder.Services.AddScoped<DAL<Produto>>();
+builder.Services.AddScoped<DAL<Venda>>();
 
 // Necessário para o Swagger
 builder.Services.AddEndpointsApiExplorer();
@@ -23,6 +28,11 @@ var app = builder.Build();
 app.AddEndPointsCliente();
 app.AddEndPointsCategoriaProduto();
 app.AddEndPointsCategoriaPublico();
+app.AddEndPointsCompraProduto();
+app.AddEndPointsFornecedor();
+app.AddEndPointsFuncionario();
+app.AddEndPointsProduto();
+app.AddEndPointsVenda();
 
 if (app.Environment.IsDevelopment())
 {
