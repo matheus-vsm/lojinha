@@ -1,4 +1,7 @@
-﻿using Lojinha.Banco;
+﻿using Azure.Core;
+using Lojinha.API.Converters;
+using Lojinha.API.Requests;
+using Lojinha.Banco;
 using Lojinha.Shared.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,23 +17,26 @@ public static class ClienteExtensions
 
         app.MapGet("/Clientes", ([FromServices] DAL<Cliente> dal) =>
         {
-            return Results.Ok(dal.Listar());
+            var clienteResponse = new ClienteConverter().EntityListToResponseList(dal.Listar());
+            return Results.Ok(clienteResponse);
         }).WithTags("Cliente").WithOpenApi();
 
         clienteGroup.MapGet("/{nome}", ([FromServices] DAL<Cliente> dal, string nome) =>
         {
             var cliente = dal.BuscarPor(c => c.Nome.ToUpper().Equals(nome.ToUpper()));
-            if (cliente == null)
-            {
-                return Results.NotFound("Cliente não encontrado!");
-            }
-            return Results.Ok(cliente);
+            if (cliente == null) return Results.NotFound("Cliente não encontrado!");
+
+            var clienteResponse = new ClienteConverter().EntityToResponse(cliente);
+            return Results.Ok(clienteResponse);
         });
 
-        clienteGroup.MapPost("", ([FromServices] DAL<Cliente> dal, [FromBody] Cliente cliente) =>
+        clienteGroup.MapPost("", ([FromServices] DAL<Cliente> dal, [FromBody] ClienteRequest clienteRequest) =>
         {
+            var cliente = new Cliente(clienteRequest.Nome, clienteRequest.Cpf, clienteRequest.Rg, clienteRequest.Email, clienteRequest.Telefone, clienteRequest.DataNascimento, clienteRequest.Endereco, clienteRequest.Cep);
             dal.Adicionar(cliente);
-            return Results.Created($"/Cliente/{cliente.Id}", cliente); // Retorna o código 201 (Created) e a URL do novo recurso criado no Location do header da resposta
+
+            var clienteResponse = new ClienteConverter().EntityToResponse(cliente);
+            return Results.Created($"/Cliente/{cliente.Id}", clienteResponse); // Retorna o código 201 (Created) e a URL do novo recurso criado no Location do header da resposta
         });
 
         clienteGroup.MapDelete("/{id}", ([FromServices] DAL<Cliente> dal, int id) =>
@@ -44,17 +50,22 @@ public static class ClienteExtensions
             return Results.Ok("Cliente deletado com sucesso!");
         });
 
-        clienteGroup.MapPut("/{id}", ([FromServices] DAL<Cliente> dal, int id, [FromBody] Cliente cliente) =>
+        clienteGroup.MapPut("/{id}", ([FromServices] DAL<Cliente> dal, int id, [FromBody] ClienteRequestEdit clienteRequestEdit) =>
         {
-            var c = dal.BuscarPorId(id);
-            if (c == null)
-            {
-                return Results.NotFound("Cliente não encontrado!");
-            }
-            //cliente.Id = c.Id; // Garante que o Id do cliente a ser atualizado é o mesmo do cliente buscado no banco
-            c.Nome = cliente.Nome;
+            var cliente = dal.BuscarPorId(id);
+            if (cliente == null) return Results.NotFound("Cliente não encontrado!");
+
+            cliente.Nome = clienteRequestEdit.Nome;
+            cliente.Email = clienteRequestEdit.Email;
+            cliente.Telefone = clienteRequestEdit.Telefone;
+            cliente.DataNascimento = clienteRequestEdit.DataNascimento;
+            cliente.Endereco = clienteRequestEdit.Endereco;
+            cliente.Cep = clienteRequestEdit.Cep;
+            
             dal.Atualizar(cliente);
-            return Results.Ok("Cliente atualizado com sucesso!");
+
+            var clienteResponse = new ClienteConverter().EntityToResponse(cliente);
+            return Results.Ok($"Cliente atualizado com sucesso! \n{clienteResponse}");
         });
     }
 }
