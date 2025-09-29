@@ -7,6 +7,7 @@ namespace Lojinha.Banco
     {
         public DbSet<CategoriaProduto> CategoriaProdutos { get; set; }
         public DbSet<CategoriaPublico> CategoriaPublicos { get; set; }
+        //public DbSet<Categoria> Categorias{ get; set; }
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<CompraProduto> ComprasProdutos { get; set; }
         public DbSet<Devedor> Devedores { get; set; }

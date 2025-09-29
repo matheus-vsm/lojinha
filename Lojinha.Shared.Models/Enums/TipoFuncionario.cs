@@ -1,8 +1,7 @@
-﻿namespace Lojinha.Shared.Models.Enums
+﻿namespace Lojinha.Shared.Models.Enums;
+
+public enum TipoFuncionario
 {
-    public enum TipoFuncionario
-    {
-        Administrador,
-        Normal
-    }
+    Administrador,
+    Normal
 }

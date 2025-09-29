@@ -2,29 +2,28 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Lojinha.Shared.Data.Mapeamentos
+namespace Lojinha.Shared.Data.Mapeamentos;
+
+public class ItemVendaTypeConfiguration : IEntityTypeConfiguration<ItemVenda>
 {
-    public class ItemVendaTypeConfiguration : IEntityTypeConfiguration<ItemVenda>
+    public void Configure(EntityTypeBuilder<ItemVenda> builder)
     {
-        public void Configure(EntityTypeBuilder<ItemVenda> builder)
-        {
-            builder.HasKey(iv => iv.Id);
-            builder.Property(iv => iv.Quantidade).IsRequired();
-            builder.Property(iv => iv.PrecoUnitario).IsRequired().HasColumnType("decimal(18,2)");
-            builder.Property(i => i.Subtotal)
-                .HasColumnType("decimal(18,2)");
+        builder.HasKey(iv => iv.Id);
+        builder.Property(iv => iv.Quantidade).IsRequired();
+        builder.Property(iv => iv.PrecoUnitario).IsRequired().HasColumnType("decimal(18,2)");
+        builder.Property(i => i.Subtotal)
+            .HasColumnType("decimal(18,2)");
 
-            builder
-                .HasOne(iv => iv.Produto)
-                .WithMany(p => p.ItensVendas)
-                .HasForeignKey(iv => iv.ProdutoId)
-                .OnDelete(DeleteBehavior.Restrict);
+        builder
+            .HasOne(iv => iv.Produto)
+            .WithMany(p => p.ItensVendas)
+            .HasForeignKey(iv => iv.ProdutoId)
+            .OnDelete(DeleteBehavior.Restrict);
 
-            builder
-                .HasOne(iv => iv.Venda)
-                .WithMany(v => v.Itens)
-                .HasForeignKey(iv => iv.VendaId)
-                .OnDelete(DeleteBehavior.Cascade);
-        }
+        builder
+            .HasOne(iv => iv.Venda)
+            .WithMany(v => v.Itens)
+            .HasForeignKey(iv => iv.VendaId)
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

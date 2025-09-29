@@ -1,9 +1,8 @@
-﻿namespace Lojinha.Shared.Models.Enums
+﻿namespace Lojinha.Shared.Models.Enums;
+
+public enum StatusVenda
 {
-    public enum StatusVenda
-    {
-        Pendente,
-        Concluida,
-        Cancelada
-    }
+    Pendente,
+    Concluida,
+    Cancelada
 }

@@ -59,8 +59,7 @@ public static class ProdutoExtensions
             p.Preco = produto.Preco;
             p.Estoque = produto.Estoque;
             p.Status = produto.Status;
-            p.CategoriaProdutoId = produto.CategoriaProdutoId;
-            p.CategoriaPublicoId = produto.CategoriaPublicoId;
+            p.CategoriaId = produto.CategoriaId;
             dal.Atualizar(p);
             return Results.Ok("Produto atualizado com sucesso!");
         });

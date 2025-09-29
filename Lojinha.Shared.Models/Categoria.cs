@@ -2,27 +2,29 @@
 
 namespace Lojinha.Shared.Models;
 
-public class CategoriaPublico
+public class Categoria
 {
     public int Id { get; set; }
     public string Nome { get; set; } = string.Empty;
     public string Descricao { get; set; } = string.Empty;
+    public TipoCategoria TipoCategoria { get; set; }
     public DateTime DataCadastro { get; private set; }
     public Status Status { get; set; }
     public ICollection<Produto> Produtos { get; set; } = [];
 
-    public CategoriaPublico() { }
+    public Categoria() { }
 
-    public CategoriaPublico(string nome, string descricao, DateTime datacadastro, Status status)
+    public Categoria(string nome, string descricao, TipoCategoria tipoCategoria, DateTime dataCadastro, Status status)
     {
         Nome = nome;
         Descricao = descricao;
-        DataCadastro = datacadastro;
+        TipoCategoria = tipoCategoria;
+        DataCadastro = dataCadastro;
         Status = status;
     }
 
     public override string ToString()
     {
-        return $"Id: {Id}, Nome: {Nome}, Descrição: {Descricao}, Data de Cadastro: {DataCadastro.ToShortDateString()}, Status: {Status}";
+        return $"Id: {Id}, Nome: {Nome}, Descrição: {Descricao}, Tipo de Categoria: {TipoCategoria}, Data de Cadastro: {DataCadastro.ToShortDateString()}, Status: {Status}";
     }
 }

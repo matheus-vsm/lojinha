@@ -1,8 +1,7 @@
-﻿namespace Lojinha.Shared.Models.Enums
+﻿namespace Lojinha.Shared.Models.Enums;
+
+public enum StatusDevedor
 {
-    public enum StatusDevedor
-    {
-        Devendo,
-        Quitado
-    }
+    Devendo,
+    Quitado
 }

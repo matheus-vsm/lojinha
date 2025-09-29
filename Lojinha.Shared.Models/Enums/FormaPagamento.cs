@@ -1,10 +1,9 @@
-﻿namespace Lojinha.Shared.Models.Enums
+﻿namespace Lojinha.Shared.Models.Enums;
+
+public enum FormaPagamento
 {
-    public enum FormaPagamento
-    {
-        Dinheiro,
-        Credito,
-        Debito,
-        Pix
-    }
+    Dinheiro,
+    Credito,
+    Debito,
+    Pix
 }

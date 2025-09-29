@@ -1,8 +1,7 @@
-﻿namespace Lojinha.Shared.Models.Enums
+﻿namespace Lojinha.Shared.Models.Enums;
+
+public enum Status
 {
-    public enum Status
-    {
-        Inativo,
-        Ativo
-    }
+    Inativo,
+    Ativo
 }
