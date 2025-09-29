@@ -1,4 +1,7 @@
-﻿using Lojinha.Banco;
+﻿using Lojinha.API.Converters;
+using Lojinha.API.Requests;
+using Lojinha.API.Responses;
+using Lojinha.Banco;
 using Lojinha.Shared.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,48 +17,48 @@ public static class CategoriaProdutoExtensions
 
         app.MapGet("/CategoriasProdutos", ([FromServices] DAL<CategoriaProduto> dal) =>
         {
-            return Results.Ok(dal.Listar());
+            var categoriaResponse = new CategoriaProdutoConverter().EntityListToResponseList(dal.Listar());
+            return Results.Ok(categoriaResponse);
         }).WithTags("Categoria Produto").WithOpenApi();
 
         catProdutoGroup.MapGet("/{nome}", ([FromServices] DAL<CategoriaProduto> dal, string nome) =>
         {
             var categoria = dal.BuscarPor(c => c.Nome.ToUpper().Equals(nome.ToUpper()));
-            if (categoria == null)
-            {
-                return Results.NotFound("Categoria não encontrada!");
-            }
-            return Results.Ok(categoria);
+            if (categoria == null) return Results.NotFound("Categoria não encontrada!");
+
+            var categoriaResponse = new CategoriaProdutoConverter().EntityToResponse(categoria);
+            return Results.Ok(categoriaResponse);
         });
 
-        catProdutoGroup.MapPost("", ([FromServices] DAL<CategoriaProduto> dal, [FromBody] CategoriaProduto categoria) =>
+        catProdutoGroup.MapPost("", ([FromServices] DAL<CategoriaProduto> dal, [FromBody] CategoriaRequest categoriaRequest) =>
         {
+            var categoria = new CategoriaProduto(categoriaRequest.Nome, categoriaRequest.Descricao, categoriaRequest.DataCadastro, categoriaRequest.Status);
             dal.Adicionar(categoria);
-            return Results.Created($"/CategoriaProduto/{categoria.Id}", categoria);
+
+            var categoriaResponse = new CategoriaProdutoConverter().EntityToResponse(categoria);
+            return Results.Created($"/CategoriaProduto/{categoria.Id}", categoriaResponse);
         });
 
         catProdutoGroup.MapDelete("/{id}", ([FromServices] DAL<CategoriaProduto> dal, int id) =>
         {
             var categoria = dal.BuscarPorId(id);
-            if (categoria == null)
-            {
-                return Results.NotFound("Categoria não encontrada!");
-            }
+            if (categoria == null) return Results.NotFound("Categoria não encontrada!");
             dal.Deletar(categoria);
+
             return Results.Ok("Categoria deletada com sucesso!");
         });
 
-        catProdutoGroup.MapPut("/{id}", ([FromServices] DAL<CategoriaProduto> dal, int id, [FromBody] CategoriaProduto categoria) =>
+        catProdutoGroup.MapPut("/{id}", ([FromServices] DAL<CategoriaProduto> dal, int id, [FromBody] CategoriaRequestEdit categoriaRequestEdit) =>
         {
-            var cp = dal.BuscarPorId(id);
-            if (cp == null)
-            {
-                return Results.NotFound("Categoria não encontrada!");
-            }
-            cp.Nome = categoria.Nome;
-            cp.Descricao = categoria.Descricao;
-            cp.Status = categoria.Status;
-            dal.Atualizar(cp);
-            return Results.Ok("Categoria atualizada com sucesso!");
+            var categoria = dal.BuscarPorId(id);
+            if (categoria == null) return Results.NotFound("Categoria não encontrada!");
+            categoria.Nome = categoriaRequestEdit.Nome;
+            categoria.Descricao = categoriaRequestEdit.Descricao;
+            categoria.Status = categoriaRequestEdit.Status;
+            dal.Atualizar(categoria);
+
+            var categoriaResponse = new CategoriaProdutoConverter().EntityToResponse(categoria);
+            return Results.Ok($"Categoria atualizada com sucesso! \n{categoriaResponse}");
         });
     }
 }

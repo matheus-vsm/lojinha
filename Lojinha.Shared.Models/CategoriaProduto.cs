@@ -13,11 +13,11 @@ public class CategoriaProduto
 
     public CategoriaProduto() { }
 
-    public CategoriaProduto(string nome, string descricao, DateTime datacadastro, Status status)
+    public CategoriaProduto(string nome, string descricao, DateTime dataCadastro, Status status)
     {
         Nome = nome;
         Descricao = descricao;
-        DataCadastro = datacadastro;
+        DataCadastro = dataCadastro;
         Status = status;
     }
 

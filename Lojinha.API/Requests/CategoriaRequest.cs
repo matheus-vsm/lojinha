@@ -1,3 +1,5 @@
-﻿namespace Lojinha.API.Requests;
+﻿using Lojinha.Shared.Models.Enums;
 
-public record CategoriaRequest(string Nome, string Descricao);
+namespace Lojinha.API.Requests;
+
+public record CategoriaRequest(string Nome, string Descricao, DateTime DataCadastro, Status Status);
