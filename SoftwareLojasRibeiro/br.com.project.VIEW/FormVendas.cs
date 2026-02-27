@@ -75,7 +75,6 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
 
             maskedTextBoxCpf.Focus();
             help.ConfigurarLinkToolStrip(toolStripStatusLabelDevMath, "https://www.linkedin.com/in/matheus-v-275924208/");
-            help.ConfigurarLinkToolStrip(toolStripStatusLabelDevLeandro, "https://www.linkedin.com/in/matheus-v-275924208/");
             help.AjustarControles(this); // Salva os tamanhos originais dos controles
         }
 

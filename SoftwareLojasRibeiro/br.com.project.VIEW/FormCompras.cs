@@ -73,7 +73,6 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             toolStripStatusLabelTipoUsuario.Text = FormMenu.tipousuariologado;
 
             help.ConfigurarLinkToolStrip(toolStripStatusLabelDevMath, "https://www.linkedin.com/in/matheus-v-275924208/");
-            help.ConfigurarLinkToolStrip(toolStripStatusLabelDevLeandro, "https://www.linkedin.com/in/matheus-v-275924208/");
 
             help.AjustarControles(this); // Salva os tamanhos originais dos controles
         }
@@ -337,6 +336,11 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             CompraProdutosDAO compradao = new CompraProdutosDAO();
             CompraProdutos compra = new CompraProdutos();
             dataGridViewCompras.DataSource = compradao.ListarCompras(compra);
+        }
+
+        private void textBoxPrecoVenda_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void buttonAddNovaIgual_Click(object sender, EventArgs e)

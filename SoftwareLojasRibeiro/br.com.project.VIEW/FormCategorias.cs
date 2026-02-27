@@ -51,7 +51,6 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
             toolStripStatusLabelTipoUsuario.Text = FormMenu.tipousuariologado;
 
             help.ConfigurarLinkToolStrip(toolStripStatusLabelDevMath, "https://www.linkedin.com/in/matheus-v-275924208/");
-            help.ConfigurarLinkToolStrip(toolStripStatusLabelDevLeandro, "https://www.linkedin.com/in/matheus-v-275924208/");
 
             help.AjustarControles(this); // Salva os tamanhos originais dos controles
         }
@@ -351,5 +350,10 @@ namespace SoftwareLojasRibeiro.br.com.project.VIEW
         private void dataGridViewClientes_CellClick(object sender, DataGridViewCellEventArgs e) { }
         private void buttonPesquisar_Click(object sender, EventArgs e) { }
         #endregion
+
+        private void toolStripStatusLabelDevLeandro_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
