@@ -14,9 +14,15 @@ namespace SoftwareLojasRibeiro.br.com.project.CONNECTION
         public MySqlConnection GetConnection()
         {
             //Acesso ao App.config
-            string conecction = ConfigurationManager.ConnectionStrings["dblojasribeiro"].ConnectionString;
+            string baseConnection = ConfigurationManager.ConnectionStrings["DB_LOJA"].ConnectionString;
+
+            string server = Environment.GetEnvironmentVariable("DB_SERVER_MYSQL") ?? "localhost";
+            string user = Environment.GetEnvironmentVariable("DB_USER_MYSQL") ?? "root";
+            string password = Environment.GetEnvironmentVariable("DB_PASSWORD_MYSQL") ?? "root";
+
+            string finalConnection = $"{baseConnection};server={server};user ID={user};password={password}";
             
-            return new MySqlConnection(conecction);
+            return new MySqlConnection(finalConnection);
         }
     }
 }

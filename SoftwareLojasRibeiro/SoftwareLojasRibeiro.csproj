@@ -354,6 +354,7 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="br.com.project.VIEW\Logo Lojas Ribeiro Transparente Icone.ico" />
+    <Content Include="create_database_dblojasribeiro.sql" />
     <None Include="br.com.project.VIEW\Logo Lojas Ribeiro Transparente menor.png" />
     <Content Include="br.com.project.VIEW\Logo Lojas Ribeiro Transparente.png" />
   </ItemGroup>
