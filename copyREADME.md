@@ -1,4 +1,4 @@
-# 🏪 Software Lojas Ribeiro
+# 🏪 Software Gestão Logística
 
 Sistema de gerenciamento comercial completo desenvolvido em C# Windows Forms com integração ao MySQL.
 
