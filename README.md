@@ -71,6 +71,13 @@ dotnet build SoftwareLojasRibeiro\SoftwareLojasRibeiro.csproj
 .\SoftwareLojasRibeiro\bin\Debug\SoftwareLojasRibeiro.exe
 ```
 
+## 🔑 Credenciais de Acesso
+
+Para fazer login no sistema, utilize as seguintes credenciais:
+
+- **Usuário:** `Administrador`
+- **Senha:** `SenhaAdministrador@123@`
+
 ## 🗄️ Configuração do Banco de Dados
 
 1. Certifique-se de que o MySQL Server está instalado e em execução
