@@ -82,6 +82,14 @@ dotnet build SoftwareLojasRibeiro\SoftwareLojasRibeiro.csproj
 
 3. Configure a string de conexão no arquivo `App.config` ou nas classes de conexão conforme necessário
 
+4. Defina as seguintes variáveis do seu sistema:
+
+- DB_SERVER_MYSQL: que se refere ao local aonde o banco está rodando. Caso não haja a variável, o valor padrão que será considerado é "localhost";
+
+- DB_USER_MYSQL: que se refere ao usuário que é utilizado pelo seu MySQL. Caso não haja a variável, o valor padrão que será considerado é "root";
+
+- DB_PASSWORD_MYSQL: que se refere a senha do usuário que é utilizado pelo seu MySQL. Caso não haja a variável, o valor padrão que será considerado é "root";
+
 ## 🛠️ Tecnologias Utilizadas
 
 - **Linguagem:** C# (.NET Framework 4.7.2)
@@ -118,49 +126,11 @@ SoftwareLojasRibeiro/
 └── create_database_dblojasribeiro.sql
 ```
 
-## 🔧 Possíveis Problemas e Soluções
-
-### Erro ao compilar
-- **Solução:** Certifique-se de que o Visual Studio 2022 está instalado
-- **Solução:** Verifique se o .NET Framework 4.7.2 está instalado
-- **Solução:** Execute o script `build-and-run.ps1` que resolve automaticamente
-
-### Erro de conexão com MySQL
-- **Solução:** Verifique se o MySQL Server está rodando
-- **Solução:** Confirme as credenciais de conexão no arquivo de configuração
-- **Solução:** Execute o script SQL de criação do banco de dados
-
-### Pacotes NuGet não encontrados
-- **Solução:** Execute o script `build-and-run.ps1` que restaura automaticamente
-- **Solução:** Ou execute manualmente: `.\nuget.exe restore SoftwareLojasRibeiro.sln`
-
-### Script PowerShell não executa
-- **Solução:** Execute o PowerShell como Administrador
-- **Solução:** Execute: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser`
-
-## 📸 Screenshots
-
-*Em desenvolvimento - Screenshots serão adicionados em breve*
-
-## 🎯 Melhorias Futuras
-
-- [ ] Implementar relatórios em PDF
-- [ ] Adicionar gráficos de vendas
-- [ ] Sistema de backup automático
-- [ ] Integração com API de nota fiscal
-- [ ] Aplicação mobile complementar
-
 ## 👨‍💻 Autor
 
-Desenvolvido como projeto de portfólio
-
-## 📄 Licença
-
-Este projeto é de código aberto e está disponível para fins educacionais e de demonstração.
+Desenvolvido como projeto de portfólio pelo [Matheus Venâncio Scomparim](https://www.linkedin.com/in/matheus-v-275924208/).
 
 ---
-
-⭐ Se este projeto foi útil para você, considere dar uma estrela!
 
 ## 💡 Dica
 
